@@ -30,14 +30,10 @@
 
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/react/App.jsx'])
-    <script src="https://snapwidget.com/js/snapwidget.js"></script>
-    <script type="text/javascript"
-        src="https://www.juicer.io/embed/shogunepsiln-676e9408-614c-486d-9c14-7b2168f5c29f/embed-code.js" async defer>
-    </script>
 </head>
 
-<body class="antialiased bg-white">
-    <div id="root" class=""></div>
+<body class="antialiased bg-slate-200 min-h-svh">
+    <div id="root" class="min-h-svh"></div>
 </body>
 
 </html>
