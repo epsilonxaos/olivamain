@@ -13,7 +13,7 @@ const Button = (props: TButton) => {
         <button
             {...(type && { type: type || "button" })}
             className={
-                "py-2 px-10 border-2 uppercase rounded-xl " +
+                "rounded-xl border-2 px-10 py-2 uppercase " +
                 (className ? className : "")
             }
         >
@@ -29,7 +29,7 @@ const Black = (props: TButton) => {
         <Button
             type={type || "button"}
             className={
-                "bg-white text-black border-black " +
+                "border-black bg-white text-black hover:bg-black hover:text-white " +
                 (className ? className : "")
             }
         >
@@ -45,7 +45,7 @@ const TransparentWhite = (props: TButton) => {
         <Button
             type={type || "button"}
             className={
-                "bg-white text-black border-black " +
+                "border-black bg-white text-black " +
                 (className ? className : "")
             }
         >
