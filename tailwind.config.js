@@ -22,9 +22,9 @@ module.exports = {
                 gris: "#D9D9D9",
             },
             fontFamily: {
-                ibmPlex: ["IBM Plex Mono", "sans-serif"],
-                archivoCondensed: ["Archivo Condensed", "sans-serif"],
-                archivoExpanded: ["Archivo Expanded", "sans-serif"],
+                olivaSans: ["Oliva Sans", "sans-serif"],
+                intervogueReg: ["Intervogue Reg", "sans-serif"],
+                instrumentSans: ["Instrument Sans", "sans-serif"],
             },
         },
     },
