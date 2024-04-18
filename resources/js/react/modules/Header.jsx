@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Copa, Logo } from "../components/Assets";
+import { Copa, Logo, MenuIcon } from "../components/Assets";
 import Button from "../components/Button";
 
 const Header = () => {
@@ -7,22 +7,26 @@ const Header = () => {
 
     return (
         <>
-            <header className="uppercase w-full bg-white py-4 px-4 fixed top-0 left-0 z-50">
-                <nav className="flex flex-row justify-between items-center">
-                    <Button.Black>DELIVERY</Button.Black>
-                    <Logo className="w-[120px]" />
-                    <div className="flex items-center">
-                        <ul className="flex items-center mr-4">
-                            <li className="px-1">ES</li>
-                            <li className="font-bold">|</li>
-                            <li className="px-1">EN</li>
+            <header className="fixed left-0 top-0 z-50 w-full bg-white px-7 py-10 uppercase sm:p-4">
+                <nav className="flex flex-row flex-wrap items-center justify-between">
+                    <div className="order-2 sm:order-1 sm:w-auto">
+                        <Button.Black>DELIVERY</Button.Black>
+                    </div>
+                    <div className="order-1 mb-10 w-full sm:order-2 sm:mb-0 sm:w-auto">
+                        <Logo className="mx-auto w-[120px] " />
+                    </div>
+                    <div className="order-3 flex items-center sm:w-auto">
+                        <ul className="mr-4 flex items-center">
+                            <li className="">ES</li>
+                            <li className="px-2 font-bold">|</li>
+                            <li className="">EN</li>
                         </ul>
                         <button
-                            className="w-[36px] h-[36px] rounded-full bg-black"
+                            className="size-[36px] rounded-full bg-white"
                             type="button"
                             onClick={() => setOpen(!open)}
                         >
-                            X
+                            <MenuIcon />
                         </button>
                     </div>
                 </nav>
@@ -37,9 +41,9 @@ const Menu = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="fixed top-0 left-0 w-full bg-white ">
-            <nav className="flex min-h-svh pt-[150px] pb-[60px]  flex-col items-end justify-center">
-                <ul className="uppercase w-full text-center font-medium min-h-[380px]">
+        <div className="fixed left-0 top-0 w-full bg-white ">
+            <nav className="flex min-h-svh flex-col items-end  justify-center pb-[60px] pt-[150px]">
+                <ul className="min-h-[380px] w-full text-center font-medium uppercase">
                     <li className="mb-4">Nosotros</li>
                     <li className="mb-4">
                         <button
@@ -49,7 +53,7 @@ const Menu = () => {
                             Sucursales
                         </button>
                         {open && (
-                            <ul className="flex mt-4 py-2 items-center justify-around max-w-[450px] mx-auto border-y border-black">
+                            <ul className="mx-auto mt-4 flex max-w-[450px] items-center justify-around border-y border-black py-2">
                                 <li>Centro</li>
                                 <li>Victory Platz</li>
                                 <li>Odara</li>
@@ -62,7 +66,7 @@ const Menu = () => {
                     <li className="mb-4">Grupos y eventos</li>
                     <li>Contacto / media</li>
                 </ul>
-                <Copa className="w-[70px] block mx-auto" />
+                <Copa className="mx-auto block w-[70px]" />
             </nav>
         </div>
     );
