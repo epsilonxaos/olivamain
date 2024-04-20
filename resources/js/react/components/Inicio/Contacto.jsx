@@ -8,7 +8,7 @@ import {
 
 export default function Contacto() {
     return (
-        <section className="px-7 pb-10">
+        <section className="px-7 pb-10 lg:py-28">
             <div className="flex flex-row flex-wrap justify-between md:mb-20 md:items-center xl:mb-36">
                 <figure className="w-full md:w-auto">
                     <img
@@ -25,10 +25,10 @@ export default function Contacto() {
                     </Text.Title>
 
                     <div className="mb-10 flex items-center justify-center gap-5 md:justify-start">
-                        <FaInstagram size={14} />
-                        <FaFacebookF size={14} />
-                        <FaTripadvisor size={14} />
-                        <FaSpotify size={14} />
+                        <FaInstagram className="text-base lg:text-2xl" />
+                        <FaFacebookF className="text-base lg:text-2xl" />
+                        <FaTripadvisor className="text-base lg:text-2xl" />
+                        <FaSpotify className="text-base lg:text-2xl" />
                     </div>
                 </div>
                 <figure className="w-full md:w-auto">

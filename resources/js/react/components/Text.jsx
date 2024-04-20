@@ -17,7 +17,7 @@ const Main = ({ children, className }) => {
     return (
         <h1
             className={twMerge(
-                "text-center font-olivaSans text-2xl uppercase leading-7 tracking-[4px] text-inherit",
+                "text-center font-olivaSans text-2xl uppercase leading-7 tracking-[4px] text-inherit lg:text-4xl",
                 className,
             )}
         >
@@ -30,7 +30,7 @@ const Title = ({ children, className }) => {
     return (
         <h2
             className={twMerge(
-                "text-center font-olivaSans text-2xl uppercase leading-7 tracking-[4px] text-inherit",
+                "text-center font-olivaSans text-2xl uppercase leading-7 tracking-[4px] text-inherit xl:text-4xl xl:tracking-[7px]",
                 className,
             )}
         >
@@ -43,7 +43,7 @@ const Subtitle = ({ children, className }) => {
     return (
         <h3
             className={twMerge(
-                "text-center font-olivaSans uppercase leading-6 tracking-[1.6px] text-inherit",
+                "text-center font-olivaSans uppercase leading-6 tracking-[1.6px] text-inherit xl:text-xl",
                 className,
             )}
         >
