@@ -7,10 +7,12 @@ const Header = () => {
 
     return (
         <>
-            <header className="fixed left-0 top-0 z-50 w-full bg-white px-7 py-10 uppercase sm:p-4">
+            <header className="fixed left-0 top-0 z-50 w-full px-7 py-10 uppercase sm:bg-white sm:p-4">
                 <nav className="flex flex-row flex-wrap items-center justify-between">
                     <div className="order-2 sm:order-1 sm:w-auto">
-                        <Button.Black>DELIVERY</Button.Black>
+                        <Button.Black className="bg-transparent">
+                            DELIVERY
+                        </Button.Black>
                     </div>
                     <div className="order-1 mb-10 w-full sm:order-2 sm:mb-0 sm:w-auto">
                         <Logo className="mx-auto w-[120px] " />
