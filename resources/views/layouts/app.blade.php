@@ -32,7 +32,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/react/App.jsx'])
 </head>
 
-<body class="antialiased bg-slate-200 min-h-svh">
+<body class="antialiased min-h-svh bg-repeat bg-auto bg-center"
+    style="background-image: url({{ asset('img/bg-blanco.webp') }})">
     <div id="root" class="min-h-svh"></div>
 </body>
 
