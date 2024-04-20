@@ -84,7 +84,7 @@ const TransparentWhite = (props: TButton) => {
             isLinkExternal={isLinkExternal}
             url={url}
             className={twMerge(
-                "border-black bg-white text-black ",
+                "border-white text-white hover:bg-white hover:text-black",
                 className ? className : "",
             )}
         >

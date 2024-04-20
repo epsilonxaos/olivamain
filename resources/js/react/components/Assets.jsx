@@ -1,10 +1,10 @@
-export const Logo = ({ theme = "black", className = "" }) => {
+export const Logo = ({ themelight = true, className = "" }) => {
     return (
         <svg
             data-name="Pizzeria Oliva"
             viewBox="0 0 562.81 200"
             className={`${
-                theme == "black" ? "fill-black" : "fill-white"
+                themelight ? "fill-black" : "fill-white"
             } ${className}`}
         >
             <path d="M197.55,162.63a18.69,18.69,0,1,1-18.29,18.67A18.53,18.53,0,0,1,197.55,162.63ZM183.49,181.3a14.06,14.06,0,1,0,14.06-14.43A14.32,14.32,0,0,0,183.49,181.3Z" />
@@ -24,7 +24,7 @@ export const Logo = ({ theme = "black", className = "" }) => {
     );
 };
 
-export const MenuIcon = ({ theme = "black", className = "" }) => {
+export const MenuIcon = ({ themelight = true, className = "" }) => {
     return (
         <svg
             data-name="Menu"
@@ -33,7 +33,7 @@ export const MenuIcon = ({ theme = "black", className = "" }) => {
         >
             <path
                 className={`${
-                    theme == "black" ? "fill-black" : "fill-white"
+                    themelight ? "fill-black" : "fill-white"
                 } ${className}`}
                 d="M0,73V64.41c.08-.44.17-.87.24-1.31.5-3.26.75-6.58,1.53-9.77C7,32.11,19.44,16.55,39,6.85A66,66,0,0,1,79.8,1a66.19,66.19,0,0,1,34,16.14c15,13.38,22.92,30.19,23.45,50.31a65.14,65.14,0,0,1-9.68,36.38c-10.88,17.74-26.6,28.64-47.11,32.5-2.49.47-5,.7-7.54,1.05H64.36c-1.67-.21-3.35-.39-5-.63A68.91,68.91,0,0,1,1.07,80.66C.61,78.12.35,75.54,0,73ZM68.62,97.32H96.23a11.62,11.62,0,0,0,2.13-.16,5.67,5.67,0,0,0,.57-11,9.57,9.57,0,0,0-2.51-.27q-27.73,0-55.48,0c-.4,0-.8,0-1.21,0a5.72,5.72,0,0,0-5.4,5.74c0,3.34,2.59,5.7,6.28,5.71Q54.62,97.34,68.62,97.32Zm.06-45.78H78.6c6.21,0,12.42,0,18.63,0a5.66,5.66,0,0,0,5.19-8.12,5.74,5.74,0,0,0-5.65-3.33H40.48a7.1,7.1,0,0,0-1.59.17,5.41,5.41,0,0,0-4.27,3.82,5.68,5.68,0,0,0,5.65,7.46Q54.48,51.56,68.68,51.54Zm-.1,22.85c5.27,0,10.54,0,15.81,0,4.38,0,8.76.07,13.14,0a5.65,5.65,0,0,0,5.15-7.5c-.84-2.5-3-3.86-6.09-3.86H40.72c-.36,0-.72,0-1.07,0a5.69,5.69,0,0,0,.66,11.37C49.73,74.41,59.16,74.39,68.58,74.39Z"
             />
@@ -41,13 +41,13 @@ export const MenuIcon = ({ theme = "black", className = "" }) => {
     );
 };
 
-export const Copa = ({ theme = "black", className = "w-[65px]" }) => {
+export const Copa = ({ themelight = true, className = "w-[65px]" }) => {
     return (
         <svg
             data-name="Copa"
             viewBox="0 0 310.67 519.17"
             className={`${
-                theme == "black" ? "fill-black" : "fill-white"
+                themelight ? "fill-black" : "fill-white"
             } ${className}`}
         >
             <path d="M144.47,189.92c0-.06-.05-.12-.07-.17a5.67,5.67,0,0,0,0,.58C144.57,190.28,144.61,190.18,144.47,189.92Z" />

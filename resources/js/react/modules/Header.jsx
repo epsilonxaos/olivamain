@@ -1,45 +1,69 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Copa, Logo, MenuIcon } from "../components/Assets";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
+import { lightPages } from "../utils/const";
 
-const Header = () => {
+const Header = ({ location }) => {
     const [open, setOpen] = useState(false);
+    const themeLight = useMemo(() => lightPages.includes(location), [location]);
 
     return (
         <>
-            <header className="fixed left-0 top-0 z-50 w-full px-7 py-10 uppercase sm:bg-white sm:p-4">
+            <header className="fixed left-0 top-0 z-50 w-full px-7 py-10 uppercase sm:p-4">
                 <nav className="flex flex-row flex-wrap items-center justify-between">
                     <div className="order-2 sm:order-1 sm:w-auto">
-                        <Button.Black className="bg-transparent">
-                            DELIVERY
-                        </Button.Black>
+                        {themeLight ? (
+                            <Button.Black className="bg-transparent">
+                                DELIVERY
+                            </Button.Black>
+                        ) : (
+                            <Button.TransparentWhite className="bg-transparent">
+                                DELIVERY
+                            </Button.TransparentWhite>
+                        )}
                     </div>
                     <div className="order-1 mb-10 w-full sm:order-2 sm:mb-0 sm:w-auto">
-                        <Logo className="mx-auto w-[120px] " />
+                        <Link to={"/"}>
+                            <Logo
+                                themelight={themeLight}
+                                className="mx-auto w-[120px] "
+                            />
+                        </Link>
                     </div>
-                    <div className="order-3 flex items-center sm:w-auto">
+                    <div
+                        className={`order-3 flex items-center sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
+                    >
                         <ul className="mr-4 flex items-center">
                             <li className="">ES</li>
                             <li className="px-2 font-bold">|</li>
                             <li className="">EN</li>
                         </ul>
                         <button
-                            className="size-[36px] rounded-full bg-white"
+                            className={`size-[36px] overflow-hidden rounded-full ${themeLight ? "bg-white" : "bg-black"} `}
                             type="button"
                             onClick={() => setOpen(!open)}
                         >
-                            <MenuIcon />
+                            <MenuIcon themelight={themeLight} />
                         </button>
                     </div>
                 </nav>
             </header>
 
-            {open && <Menu />}
+            {open && (
+                <Menu
+                    onClose={() =>
+                        setTimeout(() => {
+                            setOpen(false);
+                        }, 300)
+                    }
+                />
+            )}
         </>
     );
 };
 
-const Menu = () => {
+const Menu = ({ onClose }) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -63,7 +87,11 @@ const Menu = () => {
                         )}
                     </li>
                     <li className="mb-4">Galeria</li>
-                    <li className="mb-4">Bolsa de trabajo</li>
+                    <li className="mb-4">
+                        <Link onClick={() => onClose()} to="bolsa-de-trabajo">
+                            Bolsa de trabajo
+                        </Link>
+                    </li>
                     <li className="mb-4">facturacion</li>
                     <li className="mb-4">Grupos y eventos</li>
                     <li>Contacto / media</li>
