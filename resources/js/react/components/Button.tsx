@@ -93,7 +93,27 @@ const TransparentWhite = (props: TButton) => {
     );
 };
 
+const White = (props: TButton) => {
+    const { children, type, className, isLink, isLinkExternal, url } = props;
+
+    return (
+        <Button
+            type={type || "button"}
+            isLink={isLink}
+            isLinkExternal={isLinkExternal}
+            url={url}
+            className={twMerge(
+                "bg-white text-black",
+                className ? className : "",
+            )}
+        >
+            {children}
+        </Button>
+    );
+};
+
 Button.Black = Black;
+Button.White = White;
 Button.TransparentWhite = TransparentWhite;
 
 export default Button;
