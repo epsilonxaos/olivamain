@@ -24,7 +24,7 @@ const Header = ({ location }) => {
                         )}
                     </div>
                     <div className="order-1 mb-10 w-full sm:order-2 sm:mb-0 sm:w-auto">
-                        <Link to={"/"}>
+                        <Link to={"/"} onClick={() => setOpen(false)}>
                             <Logo
                                 themelight={themeLight}
                                 className="mx-auto w-[120px] "
@@ -57,17 +57,20 @@ const Header = ({ location }) => {
                             setOpen(false);
                         }, 300)
                     }
+                    themeLight={themeLight}
                 />
             )}
         </>
     );
 };
 
-const Menu = ({ onClose }) => {
+const Menu = ({ onClose, themeLight }) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="fixed left-0 top-0 w-full bg-white ">
+        <div
+            className={`fixed left-0 top-0 z-10 w-full transition-all ${themeLight ? "bg-white" : "bg-black text-white"}`}
+        >
             <nav className="flex min-h-svh flex-col items-end  justify-center pb-[60px] pt-[150px]">
                 <ul className="min-h-[380px] w-full text-center font-medium uppercase">
                     <li className="mb-4">Nosotros</li>
@@ -93,10 +96,17 @@ const Menu = ({ onClose }) => {
                         </Link>
                     </li>
                     <li className="mb-4">facturacion</li>
-                    <li className="mb-4">Grupos y eventos</li>
+                    <li className="mb-4">
+                        <Link onClick={() => onClose()} to="eventos">
+                            Grupos y eventos
+                        </Link>
+                    </li>
                     <li>Contacto / media</li>
                 </ul>
-                <Copa className="mx-auto block w-[70px]" />
+                <Copa
+                    themelight={themeLight}
+                    className="mx-auto block w-[70px]"
+                />
             </nav>
         </div>
     );

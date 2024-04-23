@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'layouts.app')->where('path', '.*');
 Route::view('/bolsa-de-trabajo', 'layouts.app')->where('path', '.*');
+Route::view('/eventos', 'layouts.app')->where('path', '.*');
 
 Route::get('/dashboard', function () {
 	return view('dashboard');

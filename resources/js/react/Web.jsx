@@ -9,6 +9,7 @@ import PageTransition from "./components/PageTransition";
 import BolsaTrabajo from "./pages/BolsaTrabajo";
 import { useEffect, useState } from "react";
 import { lightPages } from "./utils/const";
+import Eventos from "./pages/Eventos";
 
 export default function Web() {
     const location = useLocation();
@@ -57,6 +58,14 @@ export default function Web() {
                             element={
                                 <PageTransition>
                                     <BolsaTrabajo />
+                                </PageTransition>
+                            }
+                        />
+                        <Route
+                            path="/eventos"
+                            element={
+                                <PageTransition>
+                                    <Eventos />
                                 </PageTransition>
                             }
                         />
