@@ -1,6 +1,7 @@
 import Input from "../components/Input";
 import Text from "../components/Text";
 import Button from "../components/Button";
+import Textarea from "../components/Textarea";
 
 export default function Eventos() {
     return (
@@ -46,7 +47,7 @@ export default function Eventos() {
                             name={"personas"}
                         />
                         <Input label={"Email"} name={"email"} />
-                        <Input label={"Mensaje"} name={"mensaje"} />
+                        <Textarea label={"Mensaje"} name={"mensaje"} />
                         <div className="text-center">
                             <Button.White>Enviar</Button.White>
                         </div>
