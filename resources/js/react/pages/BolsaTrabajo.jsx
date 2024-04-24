@@ -32,8 +32,8 @@ export default function BolsaTrabajo() {
 
                     <form action="" className="mx-auto mb-5 max-w-[430px]">
                         <Input label={"Nombre y Apellido"} name={"nombre"} />
-                        <Input label={"Teléfono"} name={"nombre"} />
-                        <Input label={"Email"} name={"nombre"} />
+                        <Input label={"Teléfono"} name={"telefono"} />
+                        <Input label={"Email"} name={"email"} />
                         <Textarea label={"Mensaje"} name={"mensaje"} />
                         <div className="text-center">
                             <Button.White>Enviar</Button.White>
