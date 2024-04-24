@@ -1,6 +1,7 @@
 import Input from "../components/Input";
 import Text from "../components/Text";
 import Button from "../components/Button";
+import Textarea from "../components/Textarea";
 
 export default function BolsaTrabajo() {
     return (
@@ -33,7 +34,7 @@ export default function BolsaTrabajo() {
                         <Input label={"Nombre y Apellido"} name={"nombre"} />
                         <Input label={"Teléfono"} name={"nombre"} />
                         <Input label={"Email"} name={"nombre"} />
-                        <Input label={"Mensaje"} name={"nombre"} />
+                        <Textarea label={"Mensaje"} name={"mensaje"} />
                         <div className="text-center">
                             <Button.White>Enviar</Button.White>
                         </div>
