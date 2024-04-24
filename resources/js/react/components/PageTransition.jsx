@@ -7,7 +7,7 @@ const PageTransition = ({ children }) => {
         left: 0,
         width: "100%",
         height: "100vh",
-        background: "#0f0f0f",
+        background: "#fff",
         transformOrigin: "top",
         zIndex: 100,
     };
@@ -17,7 +17,7 @@ const PageTransition = ({ children }) => {
         left: 0,
         width: "100%",
         height: "100vh",
-        background: "#0f0f0f",
+        background: "#fff",
         transformOrigin: "bottom",
         zIndex: 100,
     };
@@ -30,14 +30,18 @@ const PageTransition = ({ children }) => {
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 0 }}
                 exit={{ scaleY: 1 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             />
             <motion.div
                 style={slideOut}
                 initial={{ scaleY: 1 }}
                 animate={{ scaleY: 0 }}
                 exit={{ scaleY: 0 }}
-                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                    delay: 0.3,
+                    duration: 1.5,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
             />
         </>
     );

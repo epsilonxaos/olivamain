@@ -29,9 +29,9 @@ html {
     animation:
         spinner-b4c8mmmd 0.5s backwards,
         spinner-49opz7md 1.25s 0.5s infinite ease;
-    border: 5.6px solid white;
+    border: 5.6px solid black;
     border-radius: 50%;
-    box-shadow: 0 -33.6px 0 -5.6px white;
+    box-shadow: 0 -33.6px 0 -5.6px black;
     position: absolute;
 }
 
@@ -41,7 +41,7 @@ html {
 
 @keyframes spinner-b4c8mmmd {
     from {
-        box-shadow: 0 0 0 -5.6px white;
+        box-shadow: 0 0 0 -5.6px black;
     }
 }
 
