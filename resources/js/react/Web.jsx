@@ -10,6 +10,9 @@ import BolsaTrabajo from "./pages/BolsaTrabajo";
 import { useEffect, useState } from "react";
 import { lightPages } from "./utils/const";
 import Eventos from "./pages/Eventos";
+import SucursalDetalle from "./pages/SucursalDetalle";
+import Text from "./components/Text";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function Web() {
     const location = useLocation();
@@ -24,7 +27,7 @@ export default function Web() {
                 document.querySelector("body").classList.remove("bg-blanco");
                 document.querySelector("body").classList.add("bg-negro");
             }
-        }, 300);
+        }, 500);
 
         setTimeout(() => {
             setLoading(false);
@@ -40,10 +43,10 @@ export default function Web() {
 
     return (
         <>
-            <Header location={location.pathname} />
-
             <main className="grid-rows-auto grid min-h-svh grid-rows-[1fr,auto] pt-[206px] sm:pt-[76px]">
                 <AnimatePresence mode="wait">
+                    <ScrollToTop />
+                    <Header location={location.pathname} />
                     <Routes location={location} key={location.pathname}>
                         <Route
                             index
@@ -69,11 +72,18 @@ export default function Web() {
                                 </PageTransition>
                             }
                         />
+                        <Route
+                            path="/sucursal/:slug"
+                            element={
+                                <PageTransition>
+                                    <SucursalDetalle />
+                                </PageTransition>
+                            }
+                        />
                     </Routes>
                 </AnimatePresence>
-
-                <Footer />
             </main>
+            <Footer />
         </>
     );
 }

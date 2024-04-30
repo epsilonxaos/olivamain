@@ -1,5 +1,6 @@
 import Text from "./Text";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 export default function SucursalCard({ title }) {
     return (
@@ -10,11 +11,13 @@ export default function SucursalCard({ title }) {
 
             <main>
                 <figure className="bg-gray-400">
-                    <img
-                        src=""
-                        alt="sucursal"
-                        className="min-h-[450px] w-full object-cover object-center lg:min-h-[540px]"
-                    />
+                    <Link to={"sucursal/centro-merida"}>
+                        <img
+                            src=""
+                            alt="sucursal"
+                            className="min-h-[450px] w-full object-cover object-center lg:min-h-[540px]"
+                        />
+                    </Link>
                 </figure>
             </main>
 
@@ -31,7 +34,12 @@ export default function SucursalCard({ title }) {
                 <Button.Black className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0">
                     Ubicación
                 </Button.Black>
-                <Button.Black className="w-full px-0 py-2.5 text-xs sm:hidden">
+                <Button.Black
+                    isLink={true}
+                    isLinkExternal={false}
+                    url="sucursal/centro-merida"
+                    className="w-full px-0 py-2.5 text-xs sm:hidden"
+                >
                     Ver más información
                 </Button.Black>
             </footer>

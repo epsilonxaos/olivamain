@@ -1,4 +1,3 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 
 import Web from "./Web";
@@ -10,5 +9,5 @@ root.render(
         <Routes>
             <Route path="/*" element={<Web />} />
         </Routes>
-    </BrowserRouter>
+    </BrowserRouter>,
 );
