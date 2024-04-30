@@ -39,6 +39,7 @@
         }
     </style>
     @stack('style')
+    @livewireStyles
 </head>
 
 <body class="font-sans text-gray-900 bg-slate-100 antialiased">
@@ -83,6 +84,7 @@
     <script src="{{ asset('js/panel/app.js') }}"></script>
     @vite(['resources/js/panel/trumbowygInit.js'])
     @stack('script')
+    @livewireScripts
 </body>
 
 </html>

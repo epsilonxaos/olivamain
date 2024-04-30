@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
 
 		$admin = Admin::create([
 			"name" => "Jesus Glez",
-			"email" => "jesus@soporte.com",
+			"email" => "soporte@dev.com",
 			'email_verified_at' => now(),
 			'password' => Hash::make('password'),
 			'remember_token' => Str::random(10)
