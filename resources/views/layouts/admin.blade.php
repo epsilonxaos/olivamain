@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/dropify/css/dropify.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap-icons/font/bootstrap-icons.css') }}">
     <style>
-        .dropify-render {
+        .dropify-render img {
             margin: auto;
         }
 

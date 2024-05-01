@@ -30,70 +30,15 @@
 
                 <div class="w-full">
                     <div class=" mb-6">
-                        <h2 class="mb-2 font-semibold text-gray-900 text-base">Primera Sección</h2>
-
-                        <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-                            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="tab-seccion1"
-                                data-tabs-toggle="#tab-content-secc1" role="tablist">
-                                <li class="mr-2" role="presentation">
-                                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="es-tab-secc1"
-                                        data-tabs-target="#es-secc1" type="button" role="tab" aria-controls="es-secc1"
-                                        aria-selected="false">Escritorio</button>
-                                </li>
-                                <li class="mr-2" role="presentation">
-                                    <button class="inline-block p-4 border-b-2 rounded-t-lg" id="en-tab-secc1"
-                                        data-tabs-target="#en-secc1" type="button" role="tab" aria-controls="en-secc1"
-                                        aria-selected="false">Movil</button>
-                                </li>
-                            </ul>
+                        <div class="mb-3">
+                            <label for="bolsa_s1_cover"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen sección</label>
+                            <input type="file" name="bolsa_s1_cover" class="dropify" data-height="200"
+                                data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png"
+                                data-default-file="{{ asset($data->bolsa_s1_cover) }}" />
+                            <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg y .png
+                                con un maximo de peso de 1MB.</small>
                         </div>
-                        <div id="tab-content-secc1">
-                            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="es-secc1" role="tabpanel"
-                                aria-labelledby="es-tab">
-                                <div class="flex flex-wrap">
-                                    <div class="w-full md:w-1/2 mb-3 md:mb-0">
-                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                            for="video">Subir
-                                            video</label>
-                                        <input name="video"
-                                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                            id="video" type="file">
-                                    </div>
-                                    <div class="w-full md:w-1/2 md:px-4">
-                                        <video class="max-w-max w-full mx-auto" height="350px" controls>
-                                            <source src="{{ asset($data->video) }}" type="video/mp4">
-                                        </video>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="en-secc1" role="tabpanel"
-                                aria-labelledby="en-tab">
-                                <div class="flex flex-wrap">
-                                    <div class="w-full md:w-1/2 mb-3 md:mb-0">
-                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                            for="videoM">Subir
-                                            video</label>
-                                        <input name="videoM"
-                                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                            id="videoM" type="file">
-                                    </div>
-                                    <div class="w-full md:w-1/2 md:px-4">
-                                        <video class="max-w-max w-full mx-auto" height="350px" controls>
-                                            <source src="{{ asset($data->videoM) }}" type="video/mp4">
-                                        </video>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="w-full">
-                    <div class=" mb-6">
-                        <h2 class="mb-2 font-semibold text-gray-900 text-base">Segunda Sección</h2>
-
                         <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
                             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="tab-seccion1"
                                 data-tabs-toggle="#tab-content-secc2" role="tablist">
@@ -104,8 +49,8 @@
                                 </li>
                                 <li class="mr-2" role="presentation">
                                     <button class="inline-block p-4 border-b-2 rounded-t-lg" id="en-tab-secc2"
-                                        data-tabs-target="#en-secc2" type="button" role="tab"
-                                        aria-controls="en-secc2" aria-selected="false">Inglés</button>
+                                        data-tabs-target="#en-secc2" type="button" role="tab" aria-controls="en-secc2"
+                                        aria-selected="false">Inglés</button>
                                 </li>
                             </ul>
                         </div>
@@ -116,18 +61,17 @@
                                     Recomendamos siempre que al copiar y pegar información desde algún sitio o
                                     archivo eliminar el formato de los textos para un óptimo funcionamiento, esto se
                                     puede realizar desde el mismo editor de texto presionando el siguiente botón
-                                    <img src="{{ asset('img/panel/clear-format.png') }}" class="inline"
-                                        alt="Clear format">
+                                    <img src="{{ asset('img/panel/clear-format.png') }}" class="inline" alt="Clear format">
                                 </small>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="home_s1_title">Título</label>
-                                    <textarea name="home_s1_title[es]" class="shorttext" cols="30" rows="3">{{ $data->{'home_s1_title:es'} }}</textarea>
+                                        for="bolsa_s1_title">Título</label>
+                                    <textarea name="bolsa_s1_title[es]" class="shorttext" cols="30" rows="3">{{ $data->{'bolsa_s1_title:es'} }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="home_s1_text">Contenido</label>
-                                    <textarea name="home_s1_text[es]" class="shorttext" cols="30" rows="3">{{ $data->{'home_s1_text:es'} }}</textarea>
+                                        for="bolsa_s1_text">Contenido</label>
+                                    <textarea name="bolsa_s1_text[es]" class="shorttext" cols="30" rows="3">{{ $data->{'bolsa_s1_text:es'} }}</textarea>
                                 </div>
                             </div>
                             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="en-secc2" role="tabpanel"
@@ -136,18 +80,17 @@
                                     Recomendamos siempre que al copiar y pegar información desde algún sitio o
                                     archivo eliminar el formato de los textos para un óptimo funcionamiento, esto se
                                     puede realizar desde el mismo editor de texto presionando el siguiente botón
-                                    <img src="{{ asset('img/panel/clear-format.png') }}" class="inline"
-                                        alt="Clear format">
+                                    <img src="{{ asset('img/panel/clear-format.png') }}" class="inline" alt="Clear format">
                                 </small>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="home_s1_title">Título</label>
-                                    <textarea name="home_s1_title[en]" class="shorttext" cols="30" rows="10">{{ $data->{'home_s1_title:en'} }}</textarea>
+                                        for="bolsa_s1_title">Título</label>
+                                    <textarea name="bolsa_s1_title[en]" class="shorttext" cols="30" rows="10">{{ $data->{'bolsa_s1_title:en'} }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="home_s1_text">Contenido</label>
-                                    <textarea name="home_s1_text[en]" class="shorttext" cols="30" rows="10">{{ $data->{'home_s1_text:en'} }}</textarea>
+                                        for="bolsa_s1_text">Contenido</label>
+                                    <textarea name="bolsa_s1_text[en]" class="shorttext" cols="30" rows="10">{{ $data->{'bolsa_s1_text:en'} }}</textarea>
                                 </div>
                             </div>
                         </div>

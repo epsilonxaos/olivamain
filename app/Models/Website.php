@@ -2,16 +2,31 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Website extends Model
+class Website extends Model implements TranslatableContract
+
 {
 	use HasFactory;
+	use Translatable;
 
+	public $translatedAttributes = [
+		'home_s1_title',
+		'home_s1_text',
+		'home_s5_title',
+		'bolsa_s1_title',
+		'bolsa_s1_text',
+		'events_s1_title',
+		'events_s1_text',
+	];
 	protected $primarykey = 'id';
 	protected $table = 'websites';
 	protected $fillables = [
+		'video',
+		'videoM',
 		'url_fb',
 		'url_in',
 		'url_sp',
@@ -19,5 +34,7 @@ class Website extends Model
 		'email_facturacion',
 		'email_bolsa',
 		'email_eventos',
+		'bolsa_s1_cover',
+		'events_s1_cover',
 	];
 }

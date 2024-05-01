@@ -69,14 +69,10 @@ Route::middleware(['auth:admin', 'verified'])->prefix('/admin')->group(function 
 		Route::delete('/destroy/{id?}', [AdminController::class, 'destroyProfile'])->name('panel.usuarios.destroy');
 	});
 
+	// Website
 	Route::prefix('/website')->group(function () {
-		Route::get('/', [WebsiteController::class, 'index'])->name('panel.website.index');
-		// Route::get('/create', [AdminController::class, 'create'])->name('panel.usuarios.create');
-		// Route::post('/store', [AdminController::class, 'store'])->name('panel.usuarios.store');
-		// Route::get('/edit/{id?}', [AdminController::class, 'editProfileId'])->name('panel.usuarios.edit');
-		// Route::patch('/update/{id?}', [AdminController::class, 'updateProfile'])->name('panel.usuarios.update');
-		// Route::put('/update/{id?}/password', [AdminController::class, 'updateProfilePassword'])->name('panel.usuarios.update.password');
-		// Route::delete('/destroy/{id?}', [AdminController::class, 'destroyProfile'])->name('panel.usuarios.destroy');
+		Route::get('{seccion}/edit', [WebsiteController::class, 'edit'])->name('panel.website.edit');
+		Route::put('{seccion}/update', [WebsiteController::class, 'update'])->name('panel.website.update');
 	});
 });
 
