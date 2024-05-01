@@ -5,6 +5,7 @@ module.exports = {
     content: [
         "./public/index.php",
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        "./vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php",
         "./storage/framework/views/*.php",
         "./resources/**/*.blade.php",
         "./resources/**/*.{js,ts,jsx,tsx}",

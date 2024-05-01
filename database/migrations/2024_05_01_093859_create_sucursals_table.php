@@ -20,15 +20,16 @@ return new class extends Migration
 			$table->string('croquisEs')->nullable();
 			$table->string('croquisEn')->nullable();
 			$table->string('address')->nullable();
-			$table->string('urlMenu')->nullable();
+			$table->string('phone')->nullable();
+			$table->string('menu')->nullable();
 			$table->string('urlDelivery')->nullable();
 			$table->string('urlReservation')->nullable();
 			$table->string('urlLocation')->nullable();
 			$table->string('urlIn')->nullable();
 			$table->string('urlFb')->nullable();
 			$table->string('titleIn')->nullable();
-			$table->string('horarioEs')->nullable();
-			$table->string('horarioEn')->nullable();
+			$table->text('horarioEs')->nullable();
+			$table->text('horarioEn')->nullable();
 
 			$table->timestamps();
 		});

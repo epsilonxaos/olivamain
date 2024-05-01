@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -73,6 +74,17 @@ Route::middleware(['auth:admin', 'verified'])->prefix('/admin')->group(function 
 	Route::prefix('/website')->group(function () {
 		Route::get('{seccion}/edit', [WebsiteController::class, 'edit'])->name('panel.website.edit');
 		Route::put('{seccion}/update', [WebsiteController::class, 'update'])->name('panel.website.update');
+	});
+
+	// Sucursal
+	Route::prefix('/sucursal')->group(function () {
+		Route::get('/', [SucursalController::class, 'index'])->name('panel.sucursal.index');
+		Route::get('/create', [SucursalController::class, 'create'])->name('panel.sucursal.create');
+		Route::post('/store', [SucursalController::class, 'store'])->name('panel.sucursal.store');
+		Route::get('/edit/{id}', [SucursalController::class, 'edit'])->name('panel.sucursal.edit');
+		Route::patch('/update/{id?}', [SucursalController::class, 'update'])->name('panel.sucursal.update');
+		// Route::put('/update/{id?}/password', [SucursalController::class, 'updateProfilePassword'])->name('panel.sucursal.update.password');
+		// Route::delete('/destroy/{id?}', [SucursalController::class, 'destroyProfile'])->name('panel.sucursal.destroy');
 	});
 });
 
