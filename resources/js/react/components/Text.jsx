@@ -1,6 +1,9 @@
 import { twMerge } from "tailwind-merge";
+import parse from "html-react-parser";
 
-const Text = ({ children, className }) => {
+const Text = ({ children, className, parseHtml = false }) => {
+    if (parseHtml && !children) return;
+
     return (
         <p
             className={twMerge(
@@ -8,12 +11,13 @@ const Text = ({ children, className }) => {
                 className,
             )}
         >
-            {children}
+            {parseHtml ? parse(children) : children}
         </p>
     );
 };
 
-const Main = ({ children, className }) => {
+const Main = ({ children, className, parseHtml = false }) => {
+    if (parseHtml && !children) return;
     return (
         <h1
             className={twMerge(
@@ -21,12 +25,13 @@ const Main = ({ children, className }) => {
                 className,
             )}
         >
-            {children}
+            {parseHtml ? parse(children) : children}
         </h1>
     );
 };
 
-const Title = ({ children, className }) => {
+const Title = ({ children, className, parseHtml = false }) => {
+    if (parseHtml && !children) return;
     return (
         <h2
             className={twMerge(
@@ -34,12 +39,13 @@ const Title = ({ children, className }) => {
                 className,
             )}
         >
-            {children}
+            {parseHtml ? parse(children) : children}
         </h2>
     );
 };
 
-const Subtitle = ({ children, className }) => {
+const Subtitle = ({ children, className, parseHtml = false }) => {
+    if (parseHtml && !children) return;
     return (
         <h3
             className={twMerge(
@@ -47,7 +53,7 @@ const Subtitle = ({ children, className }) => {
                 className,
             )}
         >
-            {children}
+            {parseHtml ? parse(children) : children}
         </h3>
     );
 };

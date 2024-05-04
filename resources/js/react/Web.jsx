@@ -1,3 +1,5 @@
+// eslint-disable-next-line tailwindcss/no-custom-classname
+
 import Footer from "./modules/Footer";
 import Header from "./modules/Header";
 import Inicio from "./pages/Inicio";
@@ -7,16 +9,24 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./components/PageTransition";
 import BolsaTrabajo from "./pages/BolsaTrabajo";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { lightPages } from "./utils/const";
 import Eventos from "./pages/Eventos";
 import SucursalDetalle from "./pages/SucursalDetalle";
-import Text from "./components/Text";
 import ScrollToTop from "./components/ScrollToTop";
+import axios from "axios";
+import AppContext from "./Context/AppContext";
+
+const initialArgs = {
+    loading: true,
+    website: null,
+    sucursals: [],
+};
+const reducer = (prev, next) => ({ ...prev, ...next });
 
 export default function Web() {
     const location = useLocation();
-    const [loading, setLoading] = useState(true);
+    const [state, dispatch] = useReducer(reducer, initialArgs);
 
     useEffect(() => {
         setTimeout(() => {
@@ -28,13 +38,26 @@ export default function Web() {
                 document.querySelector("body").classList.add("bg-negro");
             }
         }, 500);
-
-        setTimeout(() => {
-            setLoading(false);
-        }, 300);
     }, [location?.pathname]);
 
-    if (loading)
+    useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get(
+                import.meta.env.VITE_APP_URL + "api/initial",
+            );
+
+            const { website, sucursals } = response.data;
+            console.log({ website });
+            dispatch({ website, sucursals });
+
+            setTimeout(() => {
+                dispatch({ loading: false });
+            }, 1500);
+        }
+        fetchData();
+    }, []);
+
+    if (state.loading)
         return (
             <div className="flex h-screen w-full items-center justify-center bg-white text-black">
                 <span className="spinner"></span>
@@ -42,11 +65,12 @@ export default function Web() {
         );
 
     return (
-        <>
-            <main className="grid-rows-auto grid min-h-svh grid-rows-[1fr,auto] pt-[206px] sm:pt-[76px]">
+        <AppContext.Provider value={{ state, dispatch }}>
+            <Header location={location.pathname} />
+
+            <main className="mx-auto min-h-svh max-w-[1600px] pt-[206px] sm:pt-[76px]">
                 <AnimatePresence mode="wait">
                     <ScrollToTop />
-                    <Header location={location.pathname} />
                     <Routes location={location} key={location.pathname}>
                         <Route
                             index
@@ -84,6 +108,6 @@ export default function Web() {
                 </AnimatePresence>
             </main>
             <Footer />
-        </>
+        </AppContext.Provider>
     );
 }

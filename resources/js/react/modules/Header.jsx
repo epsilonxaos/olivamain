@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { Copa, Logo, MenuIcon } from "../components/Assets";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { lightPages } from "../utils/const";
+import AppContext from "../Context/AppContext";
 
 const Header = ({ location }) => {
     const [open, setOpen] = useState(false);
@@ -11,7 +12,7 @@ const Header = ({ location }) => {
     return (
         <>
             <header className="fixed left-0 top-0 z-50 w-full px-7 py-10 uppercase sm:p-4">
-                <nav className="flex flex-row flex-wrap items-center justify-between">
+                <nav className="mx-auto flex max-w-[1600px] flex-row flex-wrap items-center justify-between">
                     <div className="order-2 sm:order-1 sm:w-auto">
                         {themeLight ? (
                             <Button.Black className="bg-transparent">
@@ -66,6 +67,7 @@ const Header = ({ location }) => {
 
 const Menu = ({ onClose, themeLight }) => {
     const [open, setOpen] = useState(false);
+    const { state } = useContext(AppContext);
 
     return (
         <div
@@ -82,10 +84,17 @@ const Menu = ({ onClose, themeLight }) => {
                             Sucursales
                         </button>
                         {open && (
-                            <ul className="mx-auto mt-4 flex max-w-[450px] items-center justify-around border-y border-black py-2">
-                                <li>Centro</li>
-                                <li>Victory Platz</li>
-                                <li>Odara</li>
+                            <ul className="mx-auto mt-4 flex max-w-[450px] items-center justify-center gap-4 border-y border-black py-2">
+                                {state.sucursals.map((item) => (
+                                    <li key={"menu-" + item.slug}>
+                                        <Link
+                                            onClick={() => onClose()}
+                                            to={"sucursal/" + item.slug}
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         )}
                     </li>

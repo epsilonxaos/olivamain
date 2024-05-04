@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Text from "../Text";
+import AppContext from "../../Context/AppContext";
 
 export default function Bienvenida() {
+    const { state } = useContext(AppContext);
+
     return (
         <section className="px-7 py-8 pb-20 md:py-20 lg:pb-28">
             <img
@@ -8,16 +12,15 @@ export default function Bienvenida() {
                 src="/img/sello.svg"
                 alt="Sello"
             />
-            <Text.Main className={"mb-12"}>
-                Ristorante inspirato <br /> all’autentica <br /> pizza al forno
+            <Text.Main className={"mb-12"} parseHtml={true}>
+                {state.website.home_s1_title}
             </Text.Main>
 
-            <Text className={"mx-auto max-w-[900px] text-center"}>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit felis
-                ornare morbi leo, sollicitudin facilisis nisi proin viverra
-                luctus vehicula iaculis potenti laoreet, condimentum a tincidunt
-                hac curae nec curabitur scelerisque nulla ad. Semper taciti sed
-                habitant penatibus tincidunt placerat dictum neque.
+            <Text
+                className={"mx-auto max-w-[900px] text-center"}
+                parseHtml={true}
+            >
+                {state.website.home_s1_text}
             </Text>
         </section>
     );

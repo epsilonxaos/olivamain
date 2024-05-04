@@ -34,7 +34,7 @@ const Button = (props: TButton) => {
                 rel="noopener noreferrer"
                 href={url ?? ""}
                 className={twMerge(
-                    "rounded-xl border-2 px-10 py-2 uppercase tracking-[2px]",
+                    "rounded-xl border-2 px-10 py-2 text-center uppercase tracking-[2px]",
                     className ? className : "",
                 )}
             >
