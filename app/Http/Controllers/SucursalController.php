@@ -55,6 +55,16 @@ class SucursalController extends Controller
 	public function store(Request $request)
 	{
 
+		$request->validate([
+			'title' => 'required|unique:sucursals|max:255',
+			'cover' => 'required',
+		], [
+			'title.required' => 'El título es obligatorio.',
+			'title.unique' => 'El título ya está en uso.',
+			'title.max' => 'El título no puede tener más de :max caracteres.',
+			'cover.required' => 'La portada es obligatoria.',
+		]);
+
 		$cover = Helpers::addFileStorage($request->file('cover'), $this->directorio);
 		$row = Sucursal::create([
 			"title" => $request->title,
