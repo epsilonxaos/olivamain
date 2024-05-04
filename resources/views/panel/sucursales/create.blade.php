@@ -65,6 +65,13 @@
                             <input id="phone" name="phone" value="{{ old('phone') }}" autocomplete="off"
                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
+                        <div class="mb-3 w-full">
+                            <label for="menu" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Menú
+                                de sucursal</label>
+                            <input type="file" name="menu" class="dropify" data-height="200" data-max-file-size="1M"
+                                data-allowed-file-extensions="pdf" />
+                            <small>Solo se aceptan .pdf con un maximo de peso de 1MB.</small>
+                        </div>
                     </div>
                 </div>
                 <div class="w-full mb-10">

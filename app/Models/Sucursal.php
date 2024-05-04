@@ -16,6 +16,7 @@ class Sucursal extends Model
 		"slug",
 		"cover",
 		"icon",
+		"menu",
 		"croquisEs",
 		"croquisEn",
 		"address",

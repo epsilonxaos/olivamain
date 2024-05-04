@@ -3,7 +3,6 @@
     aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800 text-sm">
 
-        {{-- @canany([PermissionKey::General['permissions']['inicio']['name'], PermissionKey::General['permissions']['nosotros']['name'], PermissionKey::General['permissions']['valores']['name'], PermissionKey::General['permissions']['contacto']['name'], PermissionKey::General['permissions']['newsletter']['name']]) --}}
         <h3 class="flex items-center justify-start font-bold">
             <svg class="icon icon-tabler icon-tabler-app-window mr-2" width="30" height="20" viewBox="0 0 24 24"
                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -11,10 +10,28 @@
                 <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
                 <path d="M6 8h.01"></path>
                 <path d="M9 8h.01"></path>
-            </svg> General
+            </svg> Modulos
         </h3>
         <ul class="pt-1 mt-1 mb-[30px] space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
             {{-- @can(PermissionKey::General['permissions']['inicio']['name']) --}}
+            <li>
+                <a href="{{ route('panel.sucursal.index') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/sucursal/*') ? 'bg-gray-100' : '' }}">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white icon icon-tabler icons-tabler-outline icon-tabler-building-estate">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 21h18" />
+                        <path d="M19 21v-4" />
+                        <path d="M19 17a2 2 0 0 0 2 -2v-2a2 2 0 1 0 -4 0v2a2 2 0 0 0 2 2z" />
+                        <path d="M14 21v-14a3 3 0 0 0 -3 -3h-4a3 3 0 0 0 -3 3v14" />
+                        <path d="M9 17v4" />
+                        <path d="M8 13h2" />
+                        <path d="M8 9h2" />
+                    </svg>
+                    <span class="ml-3">Sucursales</span>
+                </a>
+            </li>
             <li>
                 <a href="{{ route('panel.website.edit', ['seccion' => 'inicio']) }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/inicio/*') ? 'bg-gray-100' : '' }}">
@@ -80,37 +97,7 @@
                         <path d="M4 15l16 0"></path>
                         <path d="M4 19l16 0"></path>
                     </svg>
-                    <span class="ml-3">General</span>
-                </a>
-            </li>
-        </ul>
-
-        <h3 class="flex items-center justify-start font-bold">
-            <svg class="icon icon-tabler icon-tabler-app-window mr-2" width="30" height="20" viewBox="0 0 24 24"
-                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
-                <path d="M6 8h.01"></path>
-                <path d="M9 8h.01"></path>
-            </svg> Modulos
-        </h3>
-        <ul class="pt-1 mt-1 mb-[30px] space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
-            {{-- @can(PermissionKey::General['permissions']['inicio']['name']) --}}
-            <li>
-                <a href="{{ route('panel.sucursal.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/sucursal/*') ? 'bg-gray-100' : '' }}">
-
-                    <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                        <path d="M14 7l6 0"></path>
-                        <path d="M14 11l6 0"></path>
-                        <path d="M4 15l16 0"></path>
-                        <path d="M4 19l16 0"></path>
-                    </svg>
-                    <span class="ml-3">Sucursales</span>
+                    <span class="ml-3">Contacto</span>
                 </a>
             </li>
         </ul>

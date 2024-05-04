@@ -17,6 +17,7 @@ return new class extends Migration
 			$table->string('slug');
 			$table->string('cover');
 			$table->string('icon')->default('/img/icon-default-sucursal.svg');
+			$table->string('menu')->nullable();
 			$table->string('croquisEs')->nullable();
 			$table->string('croquisEn')->nullable();
 			$table->string('address')->nullable();
