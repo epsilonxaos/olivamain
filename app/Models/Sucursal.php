@@ -21,7 +21,6 @@ class Sucursal extends Model
 		"croquisEn",
 		"address",
 		"phone",
-		"menu",
 		"urlDelivery",
 		"urlReservation",
 		"urlLocation",
@@ -29,6 +28,7 @@ class Sucursal extends Model
 		"urlFb",
 		"titleIn",
 		"horarioEs",
-		"horarioEn"
+		"horarioEn",
+		"status",
 	];
 }

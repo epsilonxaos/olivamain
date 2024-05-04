@@ -68,15 +68,20 @@ class SucursalController extends Controller
 			$row->save();
 		}
 
-		if ($request->hasFile('corquisEs')) {
-			$corquisEs = Helpers::addFileStorage($request->file('corquisEs'), $this->directorio);
-			$row->corquisEs = $corquisEs;
+		if ($request->hasFile('croquisEs')) {
+			$croquisEs = Helpers::addFileStorage($request->file('croquisEs'), $this->directorio);
+			$row->croquisEs = $croquisEs;
 			$row->save();
 		}
 
-		if ($request->hasFile('corquisEn')) {
-			$corquisEn = Helpers::addFileStorage($request->file('corquisEn'), $this->directorio);
-			$row->corquisEn = $corquisEn;
+		if ($request->hasFile('croquisEn')) {
+			$croquisEn = Helpers::addFileStorage($request->file('croquisEn'), $this->directorio);
+			$row->croquisEn = $croquisEn;
+			$row->save();
+		}
+		if ($request->hasFile('menu')) {
+			$menu = Helpers::addFileStorage($request->file('menu'), $this->directorio);
+			$row->menu = $menu;
 			$row->save();
 		}
 
@@ -154,17 +159,23 @@ class SucursalController extends Controller
 			$row->save();
 		}
 
-		if ($request->hasFile('corquisEs')) {
-			Helpers::deleteFileStorage('sucursals', 'corquisEs', $id);
-			$corquisEs = Helpers::addFileStorage($request->file('corquisEs'), $this->directorio);
-			$row->corquisEs = $corquisEs;
+		if ($request->hasFile('croquisEs')) {
+			Helpers::deleteFileStorage('sucursals', 'croquisEs', $id);
+			$croquisEs = Helpers::addFileStorage($request->file('croquisEs'), $this->directorio);
+			$row->croquisEs = $croquisEs;
 			$row->save();
 		}
 
-		if ($request->hasFile('corquisEn')) {
-			Helpers::deleteFileStorage('sucursals', 'corquisEn', $id);
-			$corquisEn = Helpers::addFileStorage($request->file('corquisEn'), $this->directorio);
-			$row->corquisEn = $corquisEn;
+		if ($request->hasFile('croquisEn')) {
+			Helpers::deleteFileStorage('sucursals', 'croquisEn', $id);
+			$croquisEn = Helpers::addFileStorage($request->file('croquisEn'), $this->directorio);
+			$row->croquisEn = $croquisEn;
+			$row->save();
+		}
+		if ($request->hasFile('menu')) {
+			Helpers::deleteFileStorage('sucursals', 'menu', $id);
+			$menu = Helpers::addFileStorage($request->file('menu'), $this->directorio);
+			$row->menu = $menu;
 			$row->save();
 		}
 
@@ -188,8 +199,14 @@ class SucursalController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 */
-	public function destroy(Sucursal $sucursal)
+	public function destroy(Int $id)
 	{
-		//
+		Helpers::deleteFileStorage('sucursals', 'cover', $id);
+		Helpers::deleteFileStorage('sucursals', 'icon', $id);
+		Helpers::deleteFileStorage('sucursals', 'croquisEs', $id);
+		Helpers::deleteFileStorage('sucursals', 'croquisEn', $id);
+		Helpers::deleteFileStorage('sucursals', 'menu', $id);
+		Sucursal::where('id', $id)->delete();
+		return redirect()->back()->with('success', 'El registro se ha eliminado correctamente');
 	}
 }

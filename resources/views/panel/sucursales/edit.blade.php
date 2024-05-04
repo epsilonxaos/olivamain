@@ -14,7 +14,7 @@
                 <div class="flex items-center justify-end pb-4 bg-white dark:bg-gray-900">
 
                     <button type="submit"
-                        class="px-2 py-1 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-wide transition ease-in-out duration-150 flex items-center">
+                        class="px-2 py-1 bg-orange-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-wide transition ease-in-out duration-150 flex items-center">
                         <svg class="w-5 inline-block mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -22,7 +22,7 @@
                             <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
                             <path d="M14 4l0 4l-6 0l0 -4"></path>
                         </svg>
-                        Guardar
+                        Actualizar
                     </button>
                 </div>
 
@@ -65,6 +65,22 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teléfono</label>
                             <input id="phone" name="phone" value="{{ $data->phone }}" autocomplete="off"
                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="mb-3 w-full md:w-1/2 md:pr-3">
+                            <label for="menu" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Menú
+                                de sucursal</label>
+                            <input type="file" name="menu" class="dropify" data-height="200" data-max-file-size="1M"
+                                data-allowed-file-extensions="pdf" />
+                            <small>Solo se aceptan .pdf con un maximo de peso de 1MB.</small>
+                        </div>
+                        <div class="mb-3 w-full md:w-1/2 md:pl-3 flex items-center justify-center text-center">
+                            @if ($data->menu)
+                                <iframe src="{{ asset($data->menu) }}" class="w-full h-[260px]" frameborder="0"></iframe>
+                            @else
+                                <p><span class="underline">Sin menú agregado</span> <br><br> <span class="italic">No se
+                                        puede visualizar el menú, por favor asegurese de tener uno.</span>
+                                </p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -187,7 +203,7 @@
 
                 <div class="text-center pt-6 mt-16">
                     <button type="submit"
-                        class="px-2 py-1 mx-auto bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-wide transition ease-in-out duration-150 flex items-center">
+                        class="px-2 py-1 mx-auto bg-orange-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-wide transition ease-in-out duration-150 flex items-center">
                         <svg class="w-5 inline-block mr-1" width="24" height="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                             stroke-linejoin="round">
@@ -196,7 +212,7 @@
                             <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
                             <path d="M14 4l0 4l-6 0l0 -4"></path>
                         </svg>
-                        Guardar
+                        Actualizar
                     </button>
                 </div>
             </form>

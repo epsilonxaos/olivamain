@@ -22,7 +22,6 @@ return new class extends Migration
 			$table->string('croquisEn')->nullable();
 			$table->string('address')->nullable();
 			$table->string('phone')->nullable();
-			$table->string('menu')->nullable();
 			$table->string('urlDelivery')->nullable();
 			$table->string('urlReservation')->nullable();
 			$table->string('urlLocation')->nullable();
@@ -31,6 +30,7 @@ return new class extends Migration
 			$table->string('titleIn')->nullable();
 			$table->text('horarioEs')->nullable();
 			$table->text('horarioEn')->nullable();
+			$table->tinyInteger('status')->default(1);
 
 			$table->timestamps();
 		});

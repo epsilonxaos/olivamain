@@ -84,7 +84,7 @@ Route::middleware(['auth:admin', 'verified'])->prefix('/admin')->group(function 
 		Route::get('/edit/{id}', [SucursalController::class, 'edit'])->name('panel.sucursal.edit');
 		Route::patch('/update/{id?}', [SucursalController::class, 'update'])->name('panel.sucursal.update');
 		// Route::put('/update/{id?}/password', [SucursalController::class, 'updateProfilePassword'])->name('panel.sucursal.update.password');
-		// Route::delete('/destroy/{id?}', [SucursalController::class, 'destroyProfile'])->name('panel.sucursal.destroy');
+		Route::delete('/destroy/{id?}', [SucursalController::class, 'destroy'])->name('panel.sucursal.destroy');
 	});
 });
 
