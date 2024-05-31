@@ -106,6 +106,8 @@ class SucursalController extends Controller
 		$row->titleIn = $request->titleIn;
 		$row->horarioEs = $request->horarioEs;
 		$row->horarioEn = $request->horarioEn;
+		$row->descEs = $request->descEs;
+		$row->descEn = $request->descEn;
 
 		$row->save();
 
@@ -201,6 +203,8 @@ class SucursalController extends Controller
 		$row->titleIn = $request->titleIn;
 		$row->horarioEs = $request->horarioEs;
 		$row->horarioEn = $request->horarioEn;
+		$row->descEs = $request->descEs;
+		$row->descEn = $request->descEn;
 
 		$row->save();
 

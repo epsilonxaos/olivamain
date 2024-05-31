@@ -43,44 +43,50 @@ export default function SucursalDetalle() {
                     <img
                         src={_PATH_SOURCES + data.icon}
                         alt="Icono sucursal"
-                        className="mx-auto mb-7 w-11/12 max-w-[600px]"
+                        className="mx-auto mb-7 w-auto max-w-[600px]"
                     />
+                    <Text parseHtml={true}>{data.descEs}</Text>
+
+                    <hr className="my-8" />
 
                     <Text.Subtitle>Horarios</Text.Subtitle>
                     <Text className={"mb-2 tracking-[1.6px]"} parseHtml={true}>
                         {data.horarioEs}
                     </Text>
-                    <div className="mb-8 flex items-center justify-center">
-                        {data.urlFb && (
-                            <a
-                                href={data.urlIn}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <FaInstagram className="text-base lg:text-2xl" />
-                            </a>
-                        )}
-                        {data.urlFb && (
-                            <a
-                                href={data.urlFb}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <FaFacebookF className="text-base lg:text-2xl" />
-                            </a>
-                        )}
-                        {data.titleIn && (
-                            <a
-                                href={data.urlIn}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Text className={"tracking-[1.6px]"}>
-                                    {data.titleIn}
-                                </Text>
-                            </a>
-                        )}
-                    </div>
+
+                    {data.urlIn || data.urlFb || data.titleIn || (
+                        <div className="mb-8 flex items-center justify-center">
+                            {data.urlIn && (
+                                <a
+                                    href={data.urlIn}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FaInstagram className="text-base lg:text-2xl" />
+                                </a>
+                            )}
+                            {data.urlFb && (
+                                <a
+                                    href={data.urlFb}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FaFacebookF className="text-base lg:text-2xl" />
+                                </a>
+                            )}
+                            {data.titleIn && (
+                                <a
+                                    href={data.urlIn}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Text className={"tracking-[1.6px]"}>
+                                        {data.titleIn}
+                                    </Text>
+                                </a>
+                            )}
+                        </div>
+                    )}
 
                     <div className="mx-auto flex max-w-[220px] flex-row flex-wrap justify-center py-5 sm:max-w-none sm:gap-2">
                         {data.menu && (
@@ -127,12 +133,14 @@ export default function SucursalDetalle() {
                 </main>
 
                 <footer className="mx-auto max-w-[590px] pt-8">
-                    <div className="mb-10 border-y border-y-white py-3">
-                        <Text className={"tracking-[1.6px]"}>
-                            {data.address}
-                        </Text>
-                    </div>
-                    {data.croquisEs && (
+                    {data?.address && (
+                        <div className="mb-10 border-y border-y-white py-3">
+                            <Text className={"tracking-[1.6px]"}>
+                                {data.address}
+                            </Text>
+                        </div>
+                    )}
+                    {data?.croquisEs && (
                         <figure>
                             <img
                                 className="mx-auto"

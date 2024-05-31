@@ -32,13 +32,13 @@ return new class extends Migration
 			$table->integer('website_id')->unsigned();
 			$table->string('locale')->index();
 
-			$table->string('home_s1_title');
-			$table->text('home_s1_text');
-			$table->string('home_s5_title');
-			$table->string('bolsa_s1_title');
-			$table->text('bolsa_s1_text');
-			$table->string('events_s1_title');
-			$table->text('events_s1_text');
+			$table->text('home_s1_title');
+			$table->longText('home_s1_text');
+			$table->text('home_s5_title');
+			$table->text('bolsa_s1_title');
+			$table->longText('bolsa_s1_text');
+			$table->text('events_s1_title');
+			$table->longText('events_s1_text');
 
 			$table->unique(['website_id', 'locale']);
 			$table->foreign('website_id')->references('id')->on('websites')->onDelete('cascade');

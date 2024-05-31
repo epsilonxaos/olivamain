@@ -72,6 +72,67 @@
                                 data-allowed-file-extensions="pdf" />
                             <small>Solo se aceptan .pdf con un maximo de peso de 1MB.</small>
                         </div>
+                        <div class="mb-3 w-full">
+                            <small class="pb-2 block">
+                                Recomendamos siempre que al copiar y pegar información desde algún sitio o
+                                archivo eliminar el formato de los textos para un óptimo funcionamiento, esto se
+                                puede realizar desde el mismo editor de texto presionando el siguiente botón
+                                <img src="{{ asset('img/panel/clear-format.png') }}" class="inline" alt="Clear format">
+                            </small>
+
+
+                            <div class="mb-3">
+                                <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="desc"
+                                        data-tabs-toggle="#descContent" role="tablist">
+                                        <li class="mr-2" role="presentation">
+                                            <button class="inline-block p-4 border-b-2 rounded-t-lg" id="ess-tab"
+                                                data-tabs-target="#ess" type="button" role="tab" aria-controls="ess"
+                                                aria-selected="false">Español</button>
+                                        </li>
+                                        <li class="mr-2" role="presentation">
+                                            <button class="inline-block p-4 border-b-2 rounded-t-lg" id="enn-tab"
+                                                data-tabs-target="#enn" type="button" role="tab"
+                                                aria-controls="enn" aria-selected="false">Inglés</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="descContent">
+                                    <div class="hidden p-4 rounded-lg  dark:bg-gray-800" id="ess" role="tabpanel"
+                                        aria-labelledby="ess-tab">
+                                        <div class="mb-3">
+                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                                for="descEs">Contenido</label>
+                                            <small class="pb-2 block">Recomendamos siempre que al copiar y pegar
+                                                información desde algún sitio o archivo eliminar el formato de los textos
+                                                para un óptimo funcionamiento, esto se puede realizar desde el mismo editor
+                                                de texto presionando el siguiente botón <img
+                                                    src="{{ asset('img/panel/clear-format.png') }}" class="inline"
+                                                    alt="Clear format"></small>
+                                            <textarea name="descEs" class="trumbowyg-panel" cols="30" rows="10">{{ old('descEs') }}</textarea>
+                                        </div>
+
+                                    </div>
+                                    <div class="hidden p-4 rounded-lg  dark:bg-gray-800" id="enn" role="tabpanel"
+                                        aria-labelledby="enn-tab">
+                                        <div class="mb-3">
+                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                                for="descEn">Contenido</label>
+                                            <small class="pb-2 block">Recomendamos siempre que al copiar y pegar
+                                                información desde algún sitio o archivo eliminar el formato de los textos
+                                                para un óptimo funcionamiento, esto se puede realizar desde el mismo editor
+                                                de texto presionando el siguiente botón <img
+                                                    src="{{ asset('img/panel/clear-format.png') }}" class="inline"
+                                                    alt="Clear format"></small>
+                                            <textarea name="descEn" class="trumbowyg-panel" cols="30" rows="10">{{ old('descEn') }}</textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <div class="w-full mb-10">
@@ -84,7 +145,8 @@
                             class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                     <div class="mb-3 w-full">
-                        <label for="urlReservation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Url
+                        <label for="urlReservation"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Url
                             Reservaciones</label>
                         <input id="urlReservation" name="urlReservation" value="{{ old('urlReservation') }}"
                             autocomplete="off"

@@ -6,7 +6,7 @@ import Video from "../components/Inicio/Video";
 
 const Inicio = () => {
     return (
-        <section className="py-8 text-black">
+        <section className="text-black">
             <Video />
             <Bienvenida />
             <Sucursales />

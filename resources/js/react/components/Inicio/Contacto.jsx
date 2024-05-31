@@ -8,6 +8,14 @@ import {
 } from "react-icons/fa";
 import AppContext from "../../Context/AppContext";
 
+function formatPhoneNumber(phoneNumber) {
+    phoneNumber = phoneNumber.toString();
+    if (phoneNumber.length !== 10) {
+        return phoneNumber;
+    }
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)} ${phoneNumber.slice(6, 10)}`;
+}
+
 export default function Contacto() {
     const { state } = useContext(AppContext);
 
@@ -77,12 +85,12 @@ export default function Contacto() {
                 </figure>
             </div>
 
-            <div className="mx-auto flex flex-row flex-wrap md:max-w-[750px] xl:max-w-none">
+            <div className="mx-auto flex flex-row flex-wrap md:max-w-[750px] xl:max-w-none xl:justify-between">
                 {state?.sucursals.length > 0 && (
-                    <div className="mb-10 w-full text-center md:w-1/2 xl:w-1/4">
+                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
                             Contacto
@@ -92,7 +100,8 @@ export default function Contacto() {
                             if (item.phone)
                                 return (
                                     <Text key={"sucursal-phone-" + item.slug}>
-                                        Sucursal {item.title} {item.phone}
+                                        {formatPhoneNumber(item.phone)} Sucursal{" "}
+                                        {item.title}
                                     </Text>
                                 );
                         })}
@@ -100,10 +109,10 @@ export default function Contacto() {
                 )}
 
                 {state.website.email_facturacion && (
-                    <div className="mb-10 w-full text-center md:w-1/2 xl:w-1/4">
+                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
                             Facturación
@@ -117,10 +126,10 @@ export default function Contacto() {
                 )}
 
                 {state.website.email_facturacion && (
-                    <div className="mb-10 w-full text-center md:w-1/2 xl:w-1/4">
+                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
                             Bolsa de trabajo
@@ -130,10 +139,10 @@ export default function Contacto() {
                 )}
 
                 {state.website.email_facturacion && (
-                    <div className="mb-10 w-full text-center md:w-1/2 xl:w-1/4">
+                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
                             Grupos y eventos
