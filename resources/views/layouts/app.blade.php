@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <style>
+        .bg-blanco {
+            background-image: url("../img/bg-blanco.webp");
+        }
+
+        .bg-negro {
+            background-image: url("/img/bg-negro.png");
+            background-color: #141414
+        }
+    </style>
+
     <title>{{ config('app.name', 'Laravel Clear') }}</title>
 
     {{-- <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">

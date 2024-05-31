@@ -7,13 +7,6 @@ html {
     @apply font-olivaSans;
 }
 
-.bg-blanco {
-    background-image: url("../img/bg-blanco.webp");
-}
-.bg-negro {
-    background-image: url("../img/bg-negro.webp");
-}
-
 .spinner {
     position: relative;
     width: 22.4px;
