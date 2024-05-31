@@ -35,9 +35,9 @@
                             <label for="events_s1_cover"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen sección</label>
                             <input type="file" name="events_s1_cover" class="dropify" data-height="200"
-                                data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png"
+                                data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
                                 data-default-file="{{ asset($data->events_s1_cover) }}" />
-                            <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg y .png
+                            <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg, .webp y .png
                                 con un maximo de peso de 1MB.</small>
                         </div>
                         <div class="mb-4 border-b border-gray-200 dark:border-gray-700">

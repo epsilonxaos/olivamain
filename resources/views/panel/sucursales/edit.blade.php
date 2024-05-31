@@ -41,8 +41,9 @@
                                     class="text-red-800">*</span> Imagen de
                                 portada</label>
                             <input type="file" name="cover" class="dropify" data-height="200" data-max-file-size="1M"
-                                data-allowed-file-extensions="jpg jpeg png" data-default-file="{{ asset($data->cover) }}" />
-                            <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg y .png
+                                data-allowed-file-extensions="jpg jpeg png webp"
+                                data-default-file="{{ asset($data->cover) }}" />
+                            <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg, .webp y .png
                                 con un maximo de peso de 1MB.</small>
                         </div>
                         <div class="mb-3 w-full md:w-1/2 md:pl-3">
