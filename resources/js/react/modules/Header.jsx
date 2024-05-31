@@ -1,19 +1,38 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Copa, Logo, MenuIcon } from "../components/Assets";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { lightPages } from "../utils/const";
 import AppContext from "../Context/AppContext";
+import { twMerge } from "tailwind-merge";
 
 const Header = ({ location }) => {
     const [open, setOpen] = useState(false);
+    const [scrollPosition, setScrollPosition] = useState(0);
     const themeLight = useMemo(() => lightPages.includes(location), [location]);
+
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    const themeHeader = () => (themeLight ? "bg-white" : "bg-black");
 
     return (
         <>
-            <header className="fixed left-0 top-0 z-50 w-full px-7 py-10 uppercase sm:p-4">
+            <header
+                className={`fixed left-0 top-0 z-50 w-full p-4 uppercase transition-all duration-300 sm:p-4 ${scrollPosition <= 150 ? "bg-transparent" : themeHeader()}`}
+            >
                 <nav className="mx-auto flex max-w-[1600px] flex-row flex-wrap items-center justify-between">
-                    <div className="order-2 sm:order-1 sm:w-auto">
+                    <div className="order-2 hidden sm:order-1 sm:block sm:w-auto">
                         {themeLight ? (
                             <Button.Black className="bg-transparent">
                                 DELIVERY
@@ -24,7 +43,7 @@ const Header = ({ location }) => {
                             </Button.TransparentWhite>
                         )}
                     </div>
-                    <div className="order-1 mb-10 w-full sm:order-2 sm:mb-0 sm:w-auto">
+                    <div className="order-1 w-auto sm:order-2 sm:w-auto">
                         <Link to={"/"} onClick={() => setOpen(false)}>
                             <Logo
                                 themelight={themeLight}
@@ -33,7 +52,7 @@ const Header = ({ location }) => {
                         </Link>
                     </div>
                     <div
-                        className={`order-3 flex items-center sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
+                        className={`order-3 flex w-auto items-center sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
                     >
                         <ul className="mr-4 flex items-center">
                             <li className="">ES</li>
@@ -74,7 +93,7 @@ const Menu = ({ onClose, themeLight }) => {
             className={`fixed left-0 top-0 z-10 w-full transition-all ${themeLight ? "bg-white" : "bg-black text-white"}`}
         >
             <nav className="flex min-h-svh flex-col items-end  justify-center pb-[60px] pt-[150px]">
-                <ul className="min-h-[380px] w-full text-center font-medium uppercase">
+                <ul className="w-full text-center font-medium uppercase sm:min-h-[380px]">
                     <li className="mb-4">Nosotros</li>
                     <li className="mb-4">
                         <button
@@ -112,6 +131,19 @@ const Menu = ({ onClose, themeLight }) => {
                     </li>
                     <li>Contacto / media</li>
                 </ul>
+
+                <div className="my-16 w-full text-center sm:hidden">
+                    {themeLight ? (
+                        <Button.Black className="bg-transparent">
+                            DELIVERY
+                        </Button.Black>
+                    ) : (
+                        <Button.TransparentWhite className="bg-transparent">
+                            DELIVERY
+                        </Button.TransparentWhite>
+                    )}
+                </div>
+
                 <Copa
                     themelight={themeLight}
                     className="mx-auto block w-[70px]"
