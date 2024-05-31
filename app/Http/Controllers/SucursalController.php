@@ -190,6 +190,7 @@ class SucursalController extends Controller
 		}
 
 
+		$row->title = $request->title;
 		$row->address = $request->address;
 		$row->phone = $request->phone;
 		$row->urlDelivery = $request->urlDelivery;
