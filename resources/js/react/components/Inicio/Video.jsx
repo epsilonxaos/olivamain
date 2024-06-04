@@ -23,7 +23,7 @@ export default function Video() {
                 autoPlay
                 muted
                 loop
-                className="h-auto w-full rounded-2xl bg-white md:hidden"
+                className="h-auto min-h-[450px] w-full rounded-2xl bg-white object-cover md:hidden"
             >
                 <source
                     src={_PATH_SOURCES + state.website.videoM}

@@ -8,6 +8,10 @@ export default defineConfig(({ command, mode }) => {
     const host = env.SERVER_HOST;
     const isProduction = mode === "production";
 
+    console.log(`Mode: ${mode}`);
+    console.log(`isProduction: ${isProduction}`);
+    console.log(`Server Host: ${host}`);
+
     return {
         server: isProduction
             ? false

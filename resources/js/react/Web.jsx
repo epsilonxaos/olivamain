@@ -68,7 +68,7 @@ export default function Web() {
         <AppContext.Provider value={{ state, dispatch }}>
             <Header location={location.pathname} />
 
-            <main className="mx-auto min-h-svh max-w-[1600px] pt-[206px] sm:pt-[76px]">
+            <main className="mx-auto min-h-svh max-w-[1600px] pt-[76px] sm:pt-[76px]">
                 <AnimatePresence mode="wait">
                     <ScrollToTop />
                     <Routes location={location} key={location.pathname}>

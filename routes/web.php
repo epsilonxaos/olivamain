@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ComandosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SucursalController;
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::get('/artisan', [ComandosController::class, 'executeComands']);
 
 Route::view('/', 'layouts.app')->where('path', '.*');
 Route::view('/bolsa-de-trabajo', 'layouts.app')->where('path', '.*');
