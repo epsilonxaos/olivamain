@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { lightPages } from "../utils/const";
 import AppContext from "../Context/AppContext";
 import { twMerge } from "tailwind-merge";
+import { useTranslation } from "react-i18next";
 
 const Header = ({ location }) => {
     const [open, setOpen] = useState(false);
@@ -25,6 +26,36 @@ const Header = ({ location }) => {
     }, []);
 
     const themeHeader = () => (themeLight ? "bg-white" : "bg-black");
+
+    const Language = () => {
+        const { i18n } = useTranslation();
+
+        return (
+            <>
+                <span
+                    onClick={() => i18n.changeLanguage("es")}
+                    className={
+                        i18n.language == "es"
+                            ? "font-bold"
+                            : "cursor-pointer text-gray-600 hover:text-black"
+                    }
+                >
+                    ES
+                </span>
+                <span className="mx-2 block font-bold">|</span>
+                <span
+                    onClick={() => i18n.changeLanguage("en")}
+                    className={
+                        i18n.language == "en"
+                            ? "font-bold"
+                            : "cursor-pointer text-gray-600 hover:text-black"
+                    }
+                >
+                    EN
+                </span>
+            </>
+        );
+    };
 
     return (
         <>
@@ -54,11 +85,9 @@ const Header = ({ location }) => {
                     <div
                         className={`order-3 flex w-auto items-center sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
                     >
-                        <ul className="mr-4 flex items-center">
-                            <li className="">ES</li>
-                            <li className="px-2 font-bold">|</li>
-                            <li className="">EN</li>
-                        </ul>
+                        <div className="mr-4">
+                            <Language />
+                        </div>
                         <button
                             className={`size-[36px] overflow-hidden rounded-full ${themeLight ? "bg-white" : "bg-black"} `}
                             type="button"

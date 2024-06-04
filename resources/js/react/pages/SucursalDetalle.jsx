@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { _PATH_SOURCES } from "../utils/const";
+import { useTranslation } from "react-i18next";
 
 export default function SucursalDetalle() {
     const [data, setData] = useState({});
+    const { i18n } = useTranslation();
 
     let { slug } = useParams();
 
@@ -45,13 +47,17 @@ export default function SucursalDetalle() {
                         alt="Icono sucursal"
                         className="mx-auto mb-7 w-auto max-w-[600px]"
                     />
-                    <Text parseHtml={true}>{data.descEs}</Text>
+                    <Text parseHtml={true}>
+                        {i18n.language == "es" ? data.descEs : data.descEn}
+                    </Text>
 
                     <hr className="my-8" />
 
                     <Text.Subtitle>Horarios</Text.Subtitle>
                     <Text className={"mb-2 tracking-[1.6px]"} parseHtml={true}>
-                        {data.horarioEs}
+                        {i18n.language == "es"
+                            ? data.horarioEs
+                            : data.horarioEn}
                     </Text>
 
                     {data.urlIn || data.urlFb || data.titleIn || (
@@ -142,11 +148,19 @@ export default function SucursalDetalle() {
                     )}
                     {data?.croquisEs && (
                         <figure>
-                            <img
-                                className="mx-auto"
-                                src={_PATH_SOURCES + data.croquisEs}
-                                alt="Croquis o mapa"
-                            />
+                            {i18n.language == "es" ? (
+                                <img
+                                    className="mx-auto"
+                                    src={_PATH_SOURCES + data.croquisEs}
+                                    alt="Croquis o mapa"
+                                />
+                            ) : (
+                                <img
+                                    className="mx-auto"
+                                    src={_PATH_SOURCES + data.croquisEn}
+                                    alt="Croquis o mapa"
+                                />
+                            )}
                         </figure>
                     )}
                 </footer>

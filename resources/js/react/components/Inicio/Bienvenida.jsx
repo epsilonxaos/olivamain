@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import Text from "../Text";
 import AppContext from "../../Context/AppContext";
+import { useTranslation } from "react-i18next";
 
 export default function Bienvenida() {
     const { state } = useContext(AppContext);
+
+    const { i18n } = useTranslation();
 
     return (
         <section className="px-7 py-8 pb-20 md:py-20 lg:pb-28">
@@ -13,14 +16,14 @@ export default function Bienvenida() {
                 alt="Sello"
             />
             <Text.Main className={"mb-12"} parseHtml={true}>
-                {state.website.home_s1_title}
+                {state.website[i18n.language].home_s1_title}
             </Text.Main>
 
             <Text
                 className={"mx-auto max-w-[900px] text-center"}
                 parseHtml={true}
             >
-                {state.website.home_s1_text}
+                {state.website[i18n.language].home_s1_text}
             </Text>
         </section>
     );

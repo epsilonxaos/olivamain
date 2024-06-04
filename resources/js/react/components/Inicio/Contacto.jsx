@@ -7,6 +7,7 @@ import {
     FaTripadvisor,
 } from "react-icons/fa";
 import AppContext from "../../Context/AppContext";
+import { useTranslation } from "react-i18next";
 
 function formatPhoneNumber(phoneNumber) {
     phoneNumber = phoneNumber.toString();
@@ -18,6 +19,7 @@ function formatPhoneNumber(phoneNumber) {
 
 export default function Contacto() {
     const { state } = useContext(AppContext);
+    const { i18n } = useTranslation();
 
     return (
         <section className="px-7 pb-10 lg:py-28">
@@ -34,7 +36,7 @@ export default function Contacto() {
                         className={"mb-4 md:text-left"}
                         parseHtml={true}
                     >
-                        {state.website.home_s5_title}
+                        {state.website[i18n.language].home_s5_title}
                     </Text.Title>
 
                     <div className="mb-10 flex items-center justify-center gap-5 md:justify-start">

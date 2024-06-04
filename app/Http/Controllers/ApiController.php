@@ -13,7 +13,7 @@ class ApiController extends Controller
 	public function getHomeResources()
 	{
 		$resources = [
-			"website" => Website::find(1),
+			"website" => Website::where('id', 1)->translated()->get(),
 			"sucursals" => Sucursal::select(
 				'title',
 				'slug',

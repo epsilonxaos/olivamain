@@ -30,5 +30,7 @@ class Sucursal extends Model
 		"horarioEs",
 		"horarioEn",
 		"status",
+		'descEs',
+		'descEn',
 	];
 }

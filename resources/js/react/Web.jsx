@@ -17,6 +17,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import axios from "axios";
 import AppContext from "./Context/AppContext";
 
+import "./lang/i18n";
+
 const initialArgs = {
     loading: true,
     website: null,

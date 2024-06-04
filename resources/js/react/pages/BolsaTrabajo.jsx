@@ -5,9 +5,11 @@ import Textarea from "../components/Textarea";
 import { useContext } from "react";
 import AppContext from "../Context/AppContext";
 import { _PATH_SOURCES } from "../utils/const";
+import { useTranslation } from "react-i18next";
 
 export default function BolsaTrabajo() {
     const { state } = useContext(AppContext);
+    const { i18n } = useTranslation();
 
     return (
         <section className="mx-auto px-7 py-10 text-white md:container lg:container xl:container lg:py-20">
@@ -27,10 +29,10 @@ export default function BolsaTrabajo() {
                     />
 
                     <Text.Title className={"mb-5"} parseHtml={true}>
-                        {state.website.bolsa_s1_title}
+                        {state.website[i18n.language].bolsa_s1_title}
                     </Text.Title>
                     <Text className={"mb-10 text-center"} parseHtml={true}>
-                        {state.website.bolsa_s1_text}
+                        {state.website[i18n.language].bolsa_s1_text}
                     </Text>
 
                     <form action="" className="mx-auto mb-5 max-w-[430px]">
