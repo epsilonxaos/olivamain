@@ -4,6 +4,18 @@ import parse from "html-react-parser";
 const Text = ({ children, className, parseHtml = false }) => {
     if (parseHtml && !children) return;
 
+    if (parseHtml)
+        return (
+            <div
+                className={twMerge(
+                    "font-intervogueReg leading-6 text-inherit",
+                    className,
+                )}
+            >
+                {parse(children)}
+            </div>
+        );
+
     return (
         <p
             className={twMerge(
@@ -11,7 +23,7 @@ const Text = ({ children, className, parseHtml = false }) => {
                 className,
             )}
         >
-            {parseHtml ? parse(children) : children}
+            {children}
         </p>
     );
 };

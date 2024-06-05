@@ -2,13 +2,17 @@ import { useContext } from "react";
 import SucursalCard from "../SucursalCard";
 import Text from "../Text";
 import AppContext from "../../Context/AppContext";
+import { useTranslation } from "react-i18next";
 
 export default function Sucursales() {
     const { state } = useContext(AppContext);
+    const { t } = useTranslation();
 
     return (
         <section className="py-20 lg:py-28">
-            <Text.Title className={"mb-20"}>Nuestras sucursales</Text.Title>
+            <Text.Title className={"mb-20"}>
+                {t("home.sucursales.title")}
+            </Text.Title>
 
             <div className="mb-20 flex flex-row flex-wrap">
                 {state?.sucursals.length > 0 && (
@@ -30,7 +34,7 @@ export default function Sucursales() {
             </div>
 
             <Text className={"text-center uppercase underline"}>
-                Políticas de reservación
+                {t("politicasReservacion")}
             </Text>
         </section>
     );

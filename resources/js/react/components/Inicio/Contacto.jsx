@@ -19,7 +19,7 @@ function formatPhoneNumber(phoneNumber) {
 
 export default function Contacto() {
     const { state } = useContext(AppContext);
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <section className="px-7 pb-10 lg:py-28">
@@ -95,15 +95,15 @@ export default function Contacto() {
                                 "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
-                            Contacto
+                            {t("contacto")}
                         </Text.Subtitle>
 
                         {state.sucursals.map((item) => {
                             if (item.phone)
                                 return (
                                     <Text key={"sucursal-phone-" + item.slug}>
-                                        {formatPhoneNumber(item.phone)} Sucursal{" "}
-                                        {item.title}
+                                        {formatPhoneNumber(item.phone)}{" "}
+                                        {t("sucursal")} {item.title}
                                     </Text>
                                 );
                         })}
@@ -117,10 +117,12 @@ export default function Contacto() {
                                 "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
-                            Facturación
+                            {t("facturacion")}
                         </Text.Subtitle>
                         <Text>
-                            <span className="font-bold">Factura en línea</span>{" "}
+                            <span className="font-bold">
+                                {t("facturacion.linea")}
+                            </span>
                             <br />
                             {state.website.email_facturacion}
                         </Text>
@@ -134,7 +136,7 @@ export default function Contacto() {
                                 "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
-                            Bolsa de trabajo
+                            {t("bolsa")}
                         </Text.Subtitle>
                         <Text>{state.website.email_bolsa}</Text>
                     </div>
@@ -147,7 +149,7 @@ export default function Contacto() {
                                 "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
                             }
                         >
-                            Grupos y eventos
+                            {t("gruposEventos")}
                         </Text.Subtitle>
                         <Text>{state.website.email_eventos}</Text>
                     </div>

@@ -49,7 +49,10 @@ export default function Web() {
             );
 
             const { website, sucursals } = response.data;
-            console.log({ website });
+            website.translations.forEach((translation) => {
+                let locale = translation.locale;
+                website[locale] = translation;
+            });
             dispatch({ website, sucursals });
 
             setTimeout(() => {

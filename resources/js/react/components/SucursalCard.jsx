@@ -2,6 +2,7 @@ import Text from "./Text";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { _PATH_SOURCES } from "../utils/const";
+import { useTranslation } from "react-i18next";
 
 export default function SucursalCard({
     title,
@@ -12,6 +13,8 @@ export default function SucursalCard({
     reservation,
     location,
 }) {
+    const { t } = useTranslation();
+
     return (
         <div className="w-full lg:w-1/3 lg:px-2">
             <article className="mx-auto mb-5 w-full  bg-white grayscale transition-all hover:grayscale-0 sm:max-w-[430px] lg:w-auto 2xl:max-w-[475px]">
@@ -39,7 +42,7 @@ export default function SucursalCard({
                             url={_PATH_SOURCES + menu}
                             className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
                         >
-                            Menú
+                            {t("sucursal.btn.menu")}
                         </Button.Black>
                     )}
                     {delivery && (
@@ -49,7 +52,7 @@ export default function SucursalCard({
                             url={delivery}
                             className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
                         >
-                            Delivery
+                            {t("sucursal.btn.delivery")}
                         </Button.Black>
                     )}
                     {reservation && (
@@ -59,7 +62,7 @@ export default function SucursalCard({
                             url={reservation}
                             className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
                         >
-                            Reserva
+                            {t("sucursal.btn.reserva")}
                         </Button.Black>
                     )}
                     {location && (
@@ -69,7 +72,7 @@ export default function SucursalCard({
                             url={location}
                             className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
                         >
-                            Ubicación
+                            {t("sucursal.btn.ubicacion")}
                         </Button.Black>
                     )}
                     <Button.Black
@@ -78,7 +81,7 @@ export default function SucursalCard({
                         url={"sucursal/" + slug}
                         className="w-full px-0 py-2.5 text-center text-xs sm:hidden"
                     >
-                        Conóce más
+                        {t("sucursal.btn.conoceMas")}
                     </Button.Black>
                 </footer>
             </article>

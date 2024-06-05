@@ -31,7 +31,7 @@ const Header = ({ location }) => {
         const { i18n } = useTranslation();
 
         return (
-            <>
+            <div className="mr-4 flex items-center justify-center">
                 <span
                     onClick={() => i18n.changeLanguage("es")}
                     className={
@@ -53,7 +53,7 @@ const Header = ({ location }) => {
                 >
                     EN
                 </span>
-            </>
+            </div>
         );
     };
 
@@ -85,9 +85,7 @@ const Header = ({ location }) => {
                     <div
                         className={`order-3 flex w-auto items-center sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
                     >
-                        <div className="mr-4">
-                            <Language />
-                        </div>
+                        <Language />
                         <button
                             className={`size-[36px] overflow-hidden rounded-full ${themeLight ? "bg-white" : "bg-black"} `}
                             type="button"
