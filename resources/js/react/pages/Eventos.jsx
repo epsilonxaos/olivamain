@@ -42,12 +42,12 @@ export default function Eventos() {
                         <Input label={t("form.nombre")} name={"nombre"} />
                         <Input label={t("form.telefono")} name={"telefono"} />
                         <Input
-                            className={"pr-2 sm:w-1/2"}
+                            className={"sm:w-1/2 sm:pr-2"}
                             label={t("form.diaEvento")}
                             name={"dia"}
                         />
                         <Input
-                            className={"pl-2 sm:w-1/2"}
+                            className={"sm:w-1/2 sm:pl-2"}
                             label={t("form.numPersonas")}
                             name={"personas"}
                         />

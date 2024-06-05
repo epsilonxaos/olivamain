@@ -6,15 +6,24 @@ import Video from "../components/Inicio/Video";
 
 const Inicio = () => {
     return (
-        <section className="text-black">
-            <Video />
-            <Bienvenida />
+        <div className="text-black">
+            <div className="max-w-[1600px]">
+                <Video />
+                <Bienvenida />
+            </div>
             <hr className="border-black" />
-            <Sucursales />
+            <div className="max-w-[1600px] ">
+                <Sucursales />
+            </div>
             <hr className="border-black" />
-            <Instagram />
-            <Contacto />
-        </section>
+            <div className="max-w-[1600px] ">
+                <Instagram />
+            </div>
+            <hr className="border-black md:hidden" />
+            <div className="max-w-[1600px] ">
+                <Contacto />
+            </div>
+        </div>
     );
 };
 
