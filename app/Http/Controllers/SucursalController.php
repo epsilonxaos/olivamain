@@ -78,6 +78,12 @@ class SucursalController extends Controller
 			$row->save();
 		}
 
+		if ($request->hasFile('icon_movil')) {
+			$icon_movil = Helpers::addFileStorage($request->file('icon_movil'), $this->directorio);
+			$row->icon_movil = $icon_movil;
+			$row->save();
+		}
+
 		if ($request->hasFile('croquisEs')) {
 			$croquisEs = Helpers::addFileStorage($request->file('croquisEs'), $this->directorio);
 			$row->croquisEs = $croquisEs;
@@ -168,6 +174,13 @@ class SucursalController extends Controller
 			Helpers::deleteFileStorage('sucursals', 'icon', $id);
 			$icon = Helpers::addFileStorage($request->file('icon'), $this->directorio);
 			$row->icon = $icon;
+			$row->save();
+		}
+
+		if ($request->hasFile('icon_movil')) {
+			Helpers::deleteFileStorage('sucursals', 'icon_movil', $id);
+			$icon_movil = Helpers::addFileStorage($request->file('icon_movil'), $this->directorio);
+			$row->icon_movil = $icon_movil;
 			$row->save();
 		}
 

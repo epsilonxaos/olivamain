@@ -35,13 +35,22 @@
                             class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                     <div class="flex flex-wrap">
-                        <div class="mb-3 w-full md:w-1/2 md:pr-3">
+                        <div class="mb-3 w-full md:pr-3">
                             <label for="cover" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span
                                     class="text-red-800">*</span> Imagen de
                                 portada</label>
                             <input type="file" required name="cover" class="dropify" data-height="200"
                                 data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp" />
                             <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg, .webp y .png
+                                con un maximo de peso de 1MB.</small>
+                        </div>
+                        <div class="mb-3 w-full md:w-1/2 md:pl-3">
+                            <label for="icon_movil"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icono
+                                de sucursal</label>
+                            <input type="file" name="icon_movil" class="dropify" data-height="200"
+                                data-max-file-size="1M" data-allowed-file-extensions="png svg" />
+                            <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .png y .svg
                                 con un maximo de peso de 1MB.</small>
                         </div>
                         <div class="mb-3 w-full md:w-1/2 md:pl-3">
@@ -87,8 +96,8 @@
                                         data-tabs-toggle="#descContent" role="tablist">
                                         <li class="mr-2" role="presentation">
                                             <button class="inline-block p-4 border-b-2 rounded-t-lg" id="ess-tab"
-                                                data-tabs-target="#ess" type="button" role="tab" aria-controls="ess"
-                                                aria-selected="false">Español</button>
+                                                data-tabs-target="#ess" type="button" role="tab"
+                                                aria-controls="ess" aria-selected="false">Español</button>
                                         </li>
                                         <li class="mr-2" role="presentation">
                                             <button class="inline-block p-4 border-b-2 rounded-t-lg" id="enn-tab"

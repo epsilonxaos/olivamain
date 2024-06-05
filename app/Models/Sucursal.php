@@ -32,5 +32,6 @@ class Sucursal extends Model
 		"status",
 		'descEs',
 		'descEn',
+		'icon_movil',
 	];
 }
