@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Eventos() {
     const { state } = useContext(AppContext);
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <section className="mx-auto px-7 py-10 text-white md:container lg:container xl:container lg:py-20">
@@ -39,22 +39,22 @@ export default function Eventos() {
                         action=""
                         className="mx-auto mb-5 flex max-w-[430px] flex-row flex-wrap"
                     >
-                        <Input label={"Nombre y Apellido"} name={"nombre"} />
-                        <Input label={"Teléfono"} name={"telefono"} />
+                        <Input label={t("form.nombre")} name={"nombre"} />
+                        <Input label={t("form.telefono")} name={"telefono"} />
                         <Input
                             className={"pr-2 sm:w-1/2"}
-                            label={"Día del evento"}
+                            label={t("form.diaEvento")}
                             name={"dia"}
                         />
                         <Input
                             className={"pl-2 sm:w-1/2"}
-                            label={"Número de personas"}
+                            label={t("form.numPersonas")}
                             name={"personas"}
                         />
-                        <Input label={"Email"} name={"email"} />
-                        <Textarea label={"Mensaje"} name={"mensaje"} />
+                        <Input label={t("form.email")} name={"email"} />
+                        <Textarea label={t("form.mensaje")} name={"mensaje"} />
                         <div className="w-full text-center">
-                            <Button.White>Enviar</Button.White>
+                            <Button.White>{t("form.enviar")}</Button.White>
                         </div>
                     </form>
                     <Text className={"text-center underline"}>

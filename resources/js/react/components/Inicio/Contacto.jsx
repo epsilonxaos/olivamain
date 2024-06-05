@@ -22,7 +22,7 @@ export default function Contacto() {
     const { t, i18n } = useTranslation();
 
     return (
-        <section className="px-7 pb-10 lg:py-28">
+        <section className="px-7 pb-10 lg:py-28" id="contacto">
             <div className="flex flex-row flex-wrap justify-between md:mb-20 md:items-center xl:mb-36">
                 <figure className="w-full md:w-auto">
                     <img

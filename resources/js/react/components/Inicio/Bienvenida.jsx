@@ -9,7 +9,7 @@ export default function Bienvenida() {
     const { i18n } = useTranslation();
 
     return (
-        <section className="px-7 py-8 pb-20 md:py-20 lg:pb-28">
+        <section className="px-7 py-8 pb-20 md:py-20 lg:pb-28" id="nosotros">
             <img
                 className="mx-auto mb-12 size-[127px] lg:mb-20 lg:size-[230px]"
                 src="/img/sello.svg"

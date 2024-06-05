@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import ScrollToTop from "./ScrollToTop";
 
 const PageTransition = ({ children }) => {
     const slideIn = {
@@ -24,6 +25,7 @@ const PageTransition = ({ children }) => {
 
     return (
         <>
+            <ScrollToTop />
             {children}
             <motion.div
                 style={slideIn}

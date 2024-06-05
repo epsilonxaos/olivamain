@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 export default function BolsaTrabajo() {
     const { state } = useContext(AppContext);
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <section className="mx-auto px-7 py-10 text-white md:container lg:container xl:container lg:py-20">
@@ -36,12 +36,12 @@ export default function BolsaTrabajo() {
                     </Text>
 
                     <form action="" className="mx-auto mb-5 max-w-[430px]">
-                        <Input label={"Nombre y Apellido"} name={"nombre"} />
-                        <Input label={"Teléfono"} name={"telefono"} />
-                        <Input label={"Email"} name={"email"} />
-                        <Textarea label={"Mensaje"} name={"mensaje"} />
+                        <Input label={t("form.nombre")} name={"nombre"} />
+                        <Input label={t("form.telefono")} name={"telefono"} />
+                        <Input label={t("form.email")} name={"email"} />
+                        <Textarea label={t("form.mensaje")} name={"mensaje"} />
                         <div className="text-center">
-                            <Button.White>Enviar</Button.White>
+                            <Button.White>{t("form.enviar")}</Button.White>
                         </div>
                     </form>
                     <Text className={"text-center underline"}>

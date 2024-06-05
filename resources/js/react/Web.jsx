@@ -13,7 +13,6 @@ import { useEffect, useReducer } from "react";
 import { lightPages } from "./utils/const";
 import Eventos from "./pages/Eventos";
 import SucursalDetalle from "./pages/SucursalDetalle";
-import ScrollToTop from "./components/ScrollToTop";
 import axios from "axios";
 import AppContext from "./Context/AppContext";
 
@@ -75,16 +74,18 @@ export default function Web() {
 
             <main className="mx-auto min-h-svh max-w-[1600px] pt-[76px] sm:pt-[76px]">
                 <AnimatePresence mode="wait">
-                    <ScrollToTop />
                     <Routes location={location} key={location.pathname}>
                         <Route
                             index
+                            exact
+                            path="/"
                             element={
                                 <PageTransition>
                                     <Inicio />
                                 </PageTransition>
                             }
                         />
+
                         <Route
                             path="/bolsa-de-trabajo"
                             element={

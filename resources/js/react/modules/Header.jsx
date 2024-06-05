@@ -37,7 +37,7 @@ const Header = ({ location }) => {
                     className={
                         i18n.language == "es"
                             ? "font-bold"
-                            : "cursor-pointer text-gray-600 hover:text-black"
+                            : "cursor-pointer opacity-30 hover:opacity-100"
                     }
                 >
                     ES
@@ -48,7 +48,7 @@ const Header = ({ location }) => {
                     className={
                         i18n.language == "en"
                             ? "font-bold"
-                            : "cursor-pointer text-gray-600 hover:text-black"
+                            : "cursor-pointer opacity-30 hover:opacity-100"
                     }
                 >
                     EN
@@ -104,6 +104,7 @@ const Header = ({ location }) => {
                             setOpen(false);
                         }, 300)
                     }
+                    location={location}
                     themeLight={themeLight}
                 />
             )}
@@ -111,9 +112,10 @@ const Header = ({ location }) => {
     );
 };
 
-const Menu = ({ onClose, themeLight }) => {
+const Menu = ({ onClose, themeLight, location }) => {
     const [open, setOpen] = useState(false);
     const { state } = useContext(AppContext);
+    const { t } = useTranslation();
 
     return (
         <div
@@ -121,13 +123,17 @@ const Menu = ({ onClose, themeLight }) => {
         >
             <nav className="flex min-h-svh flex-col items-end  justify-center pb-[60px] pt-[150px]">
                 <ul className="w-full text-center font-medium uppercase sm:min-h-[380px]">
-                    <li className="mb-4">Nosotros</li>
+                    <li className="mb-4">
+                        <Link onClick={() => onClose()} to={"/#nosotros"}>
+                            {t("header.nosotros")}
+                        </Link>
+                    </li>
                     <li className="mb-4">
                         <button
                             className="uppercase"
                             onClick={() => setOpen(!open)}
                         >
-                            Sucursales
+                            {t("header.sucursales")}
                         </button>
                         {open && (
                             <ul className="mx-auto mt-4 flex max-w-[450px] items-center justify-center gap-4 border-y border-black py-2">
@@ -144,19 +150,32 @@ const Menu = ({ onClose, themeLight }) => {
                             </ul>
                         )}
                     </li>
-                    <li className="mb-4">Galeria</li>
+                    <li className="mb-4">
+                        <Link onClick={() => onClose()} to={"/#galeria"}>
+                            {t("header.galeria")}
+                        </Link>
+                    </li>
                     <li className="mb-4">
                         <Link onClick={() => onClose()} to="bolsa-de-trabajo">
-                            Bolsa de trabajo
+                            {t("header.bolsa")}
                         </Link>
                     </li>
-                    <li className="mb-4">facturacion</li>
+                    <li className="mb-4">
+                        {" "}
+                        <Link onClick={() => onClose()} to="/#contacto">
+                            {t("header.facturacion")}
+                        </Link>
+                    </li>
                     <li className="mb-4">
                         <Link onClick={() => onClose()} to="eventos">
-                            Grupos y eventos
+                            {t("header.grupos")}
                         </Link>
                     </li>
-                    <li>Contacto / media</li>
+                    <li>
+                        <Link onClick={() => onClose()} to="/#contacto">
+                            {t("header.contacto")}
+                        </Link>
+                    </li>
                 </ul>
 
                 <div className="my-16 w-full text-center sm:hidden">

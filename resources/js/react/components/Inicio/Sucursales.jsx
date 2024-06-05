@@ -9,7 +9,7 @@ export default function Sucursales() {
     const { t } = useTranslation();
 
     return (
-        <section className="py-20 lg:py-28">
+        <section className="py-20 lg:py-28" id="sucursales">
             <Text.Title className={"mb-20"}>
                 {t("home.sucursales.title")}
             </Text.Title>
