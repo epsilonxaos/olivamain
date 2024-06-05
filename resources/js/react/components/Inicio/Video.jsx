@@ -6,7 +6,7 @@ export default function Video() {
     const { state } = useContext(AppContext);
 
     return (
-        <section className="p-7 md:px-3">
+        <section className="px-4 pb-5 pt-3 md:px-3 md:pt-7">
             <video
                 autoPlay
                 muted

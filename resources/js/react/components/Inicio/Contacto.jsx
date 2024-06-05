@@ -78,7 +78,7 @@ export default function Contacto() {
                         )}
                     </div>
                 </div>
-                <figure className="w-full md:w-auto">
+                <figure className="hidden w-full md:w-auto lg:inline">
                     <img
                         src="img/sello-p.svg"
                         alt="Sello p"
@@ -87,12 +87,12 @@ export default function Contacto() {
                 </figure>
             </div>
 
-            <div className="mx-auto flex flex-row flex-wrap md:max-w-[750px] xl:max-w-none xl:justify-between">
+            <div className="mx-auto flex flex-row flex-wrap text-center md:max-w-[750px] xl:max-w-none xl:justify-between xl:text-left">
                 {state?.sucursals.length > 0 && (
                     <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
                             }
                         >
                             {t("contacto")}
@@ -114,7 +114,7 @@ export default function Contacto() {
                     <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
                             }
                         >
                             {t("facturacion")}
@@ -133,7 +133,7 @@ export default function Contacto() {
                     <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
                             }
                         >
                             {t("bolsa")}
@@ -146,7 +146,7 @@ export default function Contacto() {
                     <div className="mb-10 w-full md:w-1/2 xl:w-auto">
                         <Text.Subtitle
                             className={
-                                "mb-1 text-left text-xl leading-5 tracking-[2px] underline"
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
                             }
                         >
                             {t("gruposEventos")}

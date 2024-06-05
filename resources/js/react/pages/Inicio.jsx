@@ -9,7 +9,9 @@ const Inicio = () => {
         <section className="text-black">
             <Video />
             <Bienvenida />
+            <hr className="border-black" />
             <Sucursales />
+            <hr className="border-black" />
             <Instagram />
             <Contacto />
         </section>

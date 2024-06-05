@@ -8,7 +8,7 @@ const Text = ({ children, className, parseHtml = false }) => {
         return (
             <div
                 className={twMerge(
-                    "font-intervogueReg leading-6 text-inherit",
+                    "font-intervogueReg text-sm leading-6 text-inherit md:text-base",
                     className,
                 )}
             >
@@ -19,7 +19,7 @@ const Text = ({ children, className, parseHtml = false }) => {
     return (
         <p
             className={twMerge(
-                "font-intervogueReg leading-6 text-inherit",
+                "font-intervogueReg text-sm leading-6 text-inherit md:text-base",
                 className,
             )}
         >
@@ -47,7 +47,7 @@ const Title = ({ children, className, parseHtml = false }) => {
     return (
         <h2
             className={twMerge(
-                "text-center font-olivaSans text-2xl uppercase leading-7 tracking-[4px] text-inherit xl:text-4xl xl:tracking-[7px]",
+                "text-center font-olivaSans text-xl uppercase leading-7 tracking-[4px] text-inherit xl:text-4xl xl:tracking-[7px]",
                 className,
             )}
         >

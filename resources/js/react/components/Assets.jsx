@@ -41,7 +41,10 @@ export const MenuIcon = ({ themelight = true, className = "" }) => {
     );
 };
 
-export const Copa = ({ themelight = true, className = "w-[65px]" }) => {
+export const Copa = ({
+    themelight = true,
+    className = "w-[65px] h-[108px]",
+}) => {
     return (
         <svg
             data-name="Copa"

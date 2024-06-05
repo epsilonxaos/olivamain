@@ -16,8 +16,8 @@ export default function SucursalCard({
     const { t } = useTranslation();
 
     return (
-        <div className="w-full lg:w-1/3 lg:px-2">
-            <article className="mx-auto mb-5 w-full  bg-white grayscale transition-all hover:grayscale-0 sm:max-w-[430px] lg:w-auto 2xl:max-w-[475px]">
+        <div className="mb-14 w-full md:mb-0 lg:w-1/3 lg:px-2">
+            <article className="pointerFine:hover:grayscale-0 pointerFine:grayscale mx-auto w-full bg-white shadow-sm transition-all sm:max-w-[430px] md:shadow-none lg:w-auto 2xl:max-w-[475px]">
                 <header className="py-2 md:py-4">
                     <Text.Subtitle>{title}</Text.Subtitle>
                 </header>
@@ -28,7 +28,7 @@ export default function SucursalCard({
                             <img
                                 src={_PATH_SOURCES + cover}
                                 alt="sucursal"
-                                className="min-h-[450px] w-full object-cover object-center lg:min-h-[540px]"
+                                className="min-h-[400px] w-full object-cover object-center lg:min-h-[540px]"
                             />
                         </Link>
                     </figure>

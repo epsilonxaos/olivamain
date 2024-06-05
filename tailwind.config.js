@@ -15,12 +15,16 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                azul: "#7AD4F4",
-                azul25: "#7AD4F440",
-                verde: "#55CFA6",
-                magenta: "#FF7DBE",
                 oscuro: "#1E1E1E",
                 gris: "#D9D9D9",
+            },
+            screens: {
+                pointerFine: {
+                    raw: "(pointer: fine)",
+                },
+                pointerCoarse: {
+                    raw: "(pointer: coarse)",
+                },
             },
             fontFamily: {
                 olivaSans: ["Oliva Sans", "sans-serif"],

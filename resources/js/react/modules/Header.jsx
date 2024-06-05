@@ -9,23 +9,7 @@ import { useTranslation } from "react-i18next";
 
 const Header = ({ location }) => {
     const [open, setOpen] = useState(false);
-    const [scrollPosition, setScrollPosition] = useState(0);
     const themeLight = useMemo(() => lightPages.includes(location), [location]);
-
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    const themeHeader = () => (themeLight ? "bg-white" : "bg-black");
 
     const Language = () => {
         const { i18n } = useTranslation();
@@ -57,37 +41,47 @@ const Header = ({ location }) => {
         );
     };
 
+    useEffect(() => {
+        if (open)
+            document.querySelector("body").classList.add("overflow-hidden");
+        else document.querySelector("body").classList.remove("overflow-hidden");
+    }, [open]);
+
     return (
         <>
             <header
-                className={`fixed left-0 top-0 z-50 w-full p-4 uppercase transition-all duration-300 sm:p-4 ${scrollPosition <= 150 ? "bg-transparent" : themeHeader()}`}
+                className={`fixed left-0 top-0 z-50 w-full px-4 py-3 uppercase transition-all duration-300 sm:p-4 ${themeLight ? "bg-white" : "bg-black"}`}
             >
-                <nav className="mx-auto flex max-w-[1600px] flex-row flex-wrap items-center justify-between">
-                    <div className="order-2 hidden sm:order-1 sm:block sm:w-auto">
+                <nav className="relative mx-auto flex max-w-[1600px] flex-row flex-wrap items-center justify-between sm:justify-center">
+                    <div className="order-2 hidden sm:absolute sm:left-0 sm:order-1 sm:block sm:w-auto">
                         {themeLight ? (
-                            <Button.Black className="bg-transparent">
-                                DELIVERY
-                            </Button.Black>
+                            <Link to={"/#sucursales"}>
+                                <Button.Black className="bg-transparent">
+                                    DELIVERY
+                                </Button.Black>
+                            </Link>
                         ) : (
-                            <Button.TransparentWhite className="bg-transparent">
-                                DELIVERY
-                            </Button.TransparentWhite>
+                            <Link to={"/#sucursales"}>
+                                <Button.TransparentWhite className="bg-transparent">
+                                    DELIVERY
+                                </Button.TransparentWhite>
+                            </Link>
                         )}
                     </div>
                     <div className="order-1 w-auto sm:order-2 sm:w-auto">
                         <Link to={"/"} onClick={() => setOpen(false)}>
                             <Logo
                                 themelight={themeLight}
-                                className="mx-auto w-[120px] "
+                                className="mx-auto w-[95px] md:w-[120px] "
                             />
                         </Link>
                     </div>
                     <div
-                        className={`order-3 flex w-auto items-center sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
+                        className={`order-3 flex w-auto items-center sm:absolute sm:right-0 sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
                     >
                         <Language />
                         <button
-                            className={`size-[36px] overflow-hidden rounded-full ${themeLight ? "bg-white" : "bg-black"} `}
+                            className={`size-[28px] overflow-hidden rounded-full md:size-[36px] ${themeLight ? "bg-white" : "bg-black"} `}
                             type="button"
                             onClick={() => setOpen(!open)}
                         >
@@ -98,36 +92,23 @@ const Header = ({ location }) => {
             </header>
 
             {open && (
-                <Menu
-                    onClose={() =>
-                        setTimeout(() => {
-                            setOpen(false);
-                        }, 300)
-                    }
-                    location={location}
-                    themeLight={themeLight}
-                />
+                <Menu onClose={() => setOpen(false)} themeLight={themeLight} />
             )}
         </>
     );
 };
 
-const Menu = ({ onClose, themeLight, location }) => {
+const Menu = ({ onClose, themeLight }) => {
     const [open, setOpen] = useState(false);
     const { state } = useContext(AppContext);
     const { t } = useTranslation();
 
     return (
         <div
-            className={`fixed left-0 top-0 z-10 w-full transition-all ${themeLight ? "bg-white" : "bg-black text-white"}`}
+            className={`fixed left-0 top-0 z-10 h-dvh w-full overflow-hidden  transition-all  ${themeLight ? "bg-white" : "bg-black text-white"}`}
         >
-            <nav className="flex min-h-svh flex-col items-end  justify-center pb-[60px] pt-[150px]">
-                <ul className="w-full text-center font-medium uppercase sm:min-h-[380px]">
-                    <li className="mb-4">
-                        <Link onClick={() => onClose()} to={"/#nosotros"}>
-                            {t("header.nosotros")}
-                        </Link>
-                    </li>
+            <nav className="flex h-full flex-row flex-wrap items-end justify-center overflow-auto pb-[40px] pt-[80px] md:h-full md:pt-[150px]">
+                <ul className="mb-16 block w-full text-center font-medium uppercase sm:min-h-[220px] ">
                     <li className="mb-4">
                         <button
                             className="uppercase"
@@ -136,7 +117,9 @@ const Menu = ({ onClose, themeLight, location }) => {
                             {t("header.sucursales")}
                         </button>
                         {open && (
-                            <ul className="mx-auto mt-4 flex max-w-[450px] items-center justify-center gap-4 border-y border-black py-2">
+                            <ul
+                                className={`mx-auto mt-4 flex max-w-[450px] items-center justify-center gap-4 border-y ${themeLight ? "border-black" : "border-white"}  py-2`}
+                            >
                                 {state.sucursals.map((item) => (
                                     <li key={"menu-" + item.slug}>
                                         <Link
@@ -149,11 +132,6 @@ const Menu = ({ onClose, themeLight, location }) => {
                                 ))}
                             </ul>
                         )}
-                    </li>
-                    <li className="mb-4">
-                        <Link onClick={() => onClose()} to={"/#galeria"}>
-                            {t("header.galeria")}
-                        </Link>
                     </li>
                     <li className="mb-4">
                         <Link onClick={() => onClose()} to="bolsa-de-trabajo">
@@ -178,22 +156,12 @@ const Menu = ({ onClose, themeLight, location }) => {
                     </li>
                 </ul>
 
-                <div className="my-16 w-full text-center sm:hidden">
-                    {themeLight ? (
-                        <Button.Black className="bg-transparent">
-                            DELIVERY
-                        </Button.Black>
-                    ) : (
-                        <Button.TransparentWhite className="bg-transparent">
-                            DELIVERY
-                        </Button.TransparentWhite>
-                    )}
+                <div>
+                    <Copa
+                        themelight={themeLight}
+                        className="mx-auto block h-[108px] w-[70px]"
+                    />
                 </div>
-
-                <Copa
-                    themelight={themeLight}
-                    className="mx-auto block w-[70px]"
-                />
             </nav>
         </div>
     );
