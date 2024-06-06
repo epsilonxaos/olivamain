@@ -45,7 +45,12 @@ export default function SucursalDetalle() {
                     <img
                         src={_PATH_SOURCES + data.icon}
                         alt="Icono sucursal"
-                        className="mx-auto mb-7 w-auto max-w-[600px]"
+                        className="mx-auto mb-7 hidden w-full max-w-max md:block"
+                    />
+                    <img
+                        src={_PATH_SOURCES + data.icon_movil}
+                        alt="Icono sucursal"
+                        className="mx-auto mb-7 w-auto max-w-[600px] md:hidden"
                     />
                     <Text parseHtml={true}>
                         {i18n.language == "es" ? data.descEs : data.descEn}
@@ -94,43 +99,47 @@ export default function SucursalDetalle() {
                         </div>
                     )}
 
-                    <div className="mx-auto flex max-w-[220px] flex-row flex-wrap justify-center py-5 sm:max-w-none sm:gap-2">
-                        {data.menu && (
+                    <div className="mx-auto grid grid-cols-4 justify-center gap-1 py-5 sm:max-w-none sm:justify-center sm:gap-2 ">
+                        {/* {data.menu && ( */}
+                        {true && (
                             <Button.TransparentWhite
                                 isLink={true}
                                 isLinkExternal={true}
                                 url={_PATH_SOURCES + data.menu}
-                                className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                                className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                             >
                                 Menú
                             </Button.TransparentWhite>
                         )}
-                        {data.urlDelivery && (
+                        {/* {data.urlDelivery && ( */}
+                        {true && (
                             <Button.TransparentWhite
                                 isLink={true}
                                 isLinkExternal={true}
                                 url={data.urlDelivery}
-                                className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                                className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                             >
                                 Delivery
                             </Button.TransparentWhite>
                         )}
-                        {data.urlReservation && (
+                        {/* {data.urlReservation && ( */}
+                        {true && (
                             <Button.TransparentWhite
                                 isLink={true}
                                 isLinkExternal={true}
                                 url={data.urlReservation}
-                                className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                                className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                             >
                                 Reserva
                             </Button.TransparentWhite>
                         )}
-                        {data.urlLocation && (
+                        {/* {data.urlLocation && ( */}
+                        {true && (
                             <Button.TransparentWhite
                                 isLink={true}
                                 isLinkExternal={true}
                                 url={data.urlLocation}
-                                className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                                className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                             >
                                 Ubicación
                             </Button.TransparentWhite>

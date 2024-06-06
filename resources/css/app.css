@@ -43,3 +43,7 @@ html {
         transform: rotate(360deg);
     }
 }
+
+.vjslider {
+    min-height: 400px;
+}

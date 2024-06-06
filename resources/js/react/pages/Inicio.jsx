@@ -7,20 +7,20 @@ import Video from "../components/Inicio/Video";
 const Inicio = () => {
     return (
         <div className="text-black">
-            <div className="max-w-[1600px]">
+            <div className="mx-auto max-w-[1600px]">
                 <Video />
                 <Bienvenida />
             </div>
             <hr className="border-black" />
-            <div className="max-w-[1600px] ">
+            <div className="mx-auto max-w-[1600px] ">
                 <Sucursales />
             </div>
             <hr className="border-black" />
-            <div className="max-w-[1600px] ">
+            <div className="mx-auto max-w-[1600px] ">
                 <Instagram />
             </div>
             <hr className="border-black md:hidden" />
-            <div className="max-w-[1600px] ">
+            <div className="mx-auto max-w-[1600px] ">
                 <Contacto />
             </div>
         </div>

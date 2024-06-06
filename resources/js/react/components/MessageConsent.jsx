@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useCookies } from "react-cookie";
 
-const MESSAGE_CONSENT_KEY = "ApPConsent";
+const MESSAGE_CONSENT_KEY = "AppConsent";
 
 export const MessageConsent = ({ daysExpire = 7 }) => {
     const [cookies, setCookie] = useCookies([MESSAGE_CONSENT_KEY]);
+    const [open, setOpen] = useState(true);
 
     const Accept = () => {
         const expires = new Date();
@@ -12,10 +14,12 @@ export const MessageConsent = ({ daysExpire = 7 }) => {
         setCookie(MESSAGE_CONSENT_KEY, true, { expires }); //Expira en 7 dias
     };
 
-    if (cookies[MESSAGE_CONSENT_KEY]) return "";
+    const Decline = () => setOpen(false);
+
+    if (cookies[MESSAGE_CONSENT_KEY] || !open) return "";
 
     return (
-        <div className="fixed bottom-0 left-0 z-10 w-full bg-white p-3 text-center">
+        <div className="fixed bottom-0 left-0 z-10 w-full bg-white p-3 text-center font-instrumentSans">
             <div className="mx-auto max-w-[1600px] text-xs">
                 <p className="mb-2">
                     Al utilizar nuestro sitio web, aceptas el uso de Cookies
@@ -40,13 +44,14 @@ export const MessageConsent = ({ daysExpire = 7 }) => {
                 </p>
 
                 <button
-                    className="bg-yellow-700 px-2 py-1 text-white"
+                    className="border  border-black bg-white px-2 py-1 text-black"
                     type="button"
+                    onClick={() => Decline()}
                 >
                     Rechazar (Opcional)
                 </button>
                 <button
-                    className="ml-2 bg-blue-600 px-2 py-1 text-white"
+                    className="ml-2 bg-black px-2 py-1 text-white"
                     type="button"
                     onClick={() => Accept()}
                 >

@@ -16,8 +16,8 @@ export default function SucursalCard({
     const { t } = useTranslation();
 
     return (
-        <div className="mb-14 w-full md:mb-0 lg:w-1/3 lg:px-2">
-            <article className="pointerFine:hover:grayscale-0 pointerFine:grayscale mx-auto w-full bg-white shadow-sm transition-all sm:max-w-[430px] md:shadow-none lg:w-auto 2xl:max-w-[475px]">
+        <div className="mb-14 w-full lg:mb-0 lg:w-1/3 lg:px-2">
+            <article className="mx-auto w-full bg-white shadow-sm transition-all sm:max-w-[430px] md:shadow-none lg:w-auto 2xl:max-w-[475px] pointerFine:grayscale pointerFine:hover:grayscale-0">
                 <header className="py-2 md:py-4">
                     <Text.Subtitle>{title}</Text.Subtitle>
                 </header>
@@ -34,13 +34,13 @@ export default function SucursalCard({
                     </figure>
                 </main>
 
-                <footer className="mx-auto flex max-w-[220px] flex-row flex-wrap justify-between py-5 sm:max-w-none sm:justify-center sm:gap-2">
+                <footer className="mx-auto grid grid-cols-4 justify-center gap-1 px-3 py-5 sm:max-w-none sm:justify-center sm:gap-2 lg:grid-cols-2 xl:grid-cols-4">
                     {menu && (
                         <Button.Black
                             isLink={true}
                             isLinkExternal={true}
                             url={_PATH_SOURCES + menu}
-                            className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                            className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.menu")}
                         </Button.Black>
@@ -50,7 +50,7 @@ export default function SucursalCard({
                             isLink={true}
                             isLinkExternal={true}
                             url={delivery}
-                            className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                            className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.delivery")}
                         </Button.Black>
@@ -60,7 +60,7 @@ export default function SucursalCard({
                             isLink={true}
                             isLinkExternal={true}
                             url={reservation}
-                            className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                            className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.reserva")}
                         </Button.Black>
@@ -70,7 +70,7 @@ export default function SucursalCard({
                             isLink={true}
                             isLinkExternal={true}
                             url={location}
-                            className="mb-4 w-[95px] px-0 py-2.5 text-xs sm:mb-0"
+                            className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.ubicacion")}
                         </Button.Black>
@@ -79,7 +79,7 @@ export default function SucursalCard({
                         isLink={true}
                         isLinkExternal={false}
                         url={"sucursal/" + slug}
-                        className="w-full px-0 py-2.5 text-center text-xs sm:hidden"
+                        className="col-span-4 px-0 py-2.5 text-center text-[10px] sm:hidden md:text-xs"
                     >
                         {t("sucursal.btn.conoceMas")}
                     </Button.Black>

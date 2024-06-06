@@ -11,7 +11,7 @@ export default function Video() {
                 autoPlay
                 muted
                 loop
-                className="hidden h-auto max-h-[760px] w-full rounded-2xl bg-white object-cover md:block"
+                className="pointer-events-none hidden h-auto max-h-[760px] w-full select-none rounded-2xl bg-white object-cover md:block"
             >
                 <source
                     src={_PATH_SOURCES + state.website.video}
@@ -23,7 +23,7 @@ export default function Video() {
                 autoPlay
                 muted
                 loop
-                className="h-auto min-h-[450px] w-full rounded-2xl bg-white object-cover md:hidden"
+                className="pointer-events-none h-auto min-h-[450px] w-full select-none rounded-2xl bg-white object-cover md:hidden"
             >
                 <source
                     src={_PATH_SOURCES + state.website.videoM}

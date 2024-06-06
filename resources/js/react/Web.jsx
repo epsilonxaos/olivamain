@@ -17,6 +17,7 @@ import axios from "axios";
 import AppContext from "./Context/AppContext";
 
 import "./lang/i18n";
+import { MessageConsent } from "./components/MessageConsent";
 
 const initialArgs = {
     loading: true,
@@ -71,6 +72,8 @@ export default function Web() {
     return (
         <AppContext.Provider value={{ state, dispatch }}>
             <Header location={location.pathname} />
+
+            <MessageConsent />
 
             <main className="mx-auto min-h-svh pt-[76px] sm:pt-[76px]">
                 <AnimatePresence mode="wait">

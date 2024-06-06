@@ -14,7 +14,7 @@ export default function Sucursales() {
                 {t("home.sucursales.title")}
             </Text.Title>
 
-            <div className="mb-20 flex flex-row flex-wrap px-4">
+            <div className="mb-4 flex flex-row flex-wrap px-4 lg:mb-20">
                 {state?.sucursals.length > 0 && (
                     <>
                         {state.sucursals.map((item) => (
