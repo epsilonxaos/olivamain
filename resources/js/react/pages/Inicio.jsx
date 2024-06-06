@@ -1,3 +1,4 @@
+import FadeInUpDiv from "../components/FadeInUp";
 import Bienvenida from "../components/Inicio/Bienvenida";
 import Contacto from "../components/Inicio/Contacto";
 import Instagram from "../components/Inicio/Instagram";
@@ -8,7 +9,9 @@ const Inicio = () => {
     return (
         <div className="text-black">
             <div className="mx-auto max-w-[1600px]">
-                <Video />
+                <FadeInUpDiv>
+                    <Video />
+                </FadeInUpDiv>
                 <Bienvenida />
             </div>
             <hr className="border-black" />

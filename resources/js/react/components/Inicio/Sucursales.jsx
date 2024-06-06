@@ -3,6 +3,7 @@ import SucursalCard from "../SucursalCard";
 import Text from "../Text";
 import AppContext from "../../Context/AppContext";
 import { useTranslation } from "react-i18next";
+import FadeInUpDiv from "../FadeInUp";
 
 export default function Sucursales() {
     const { state } = useContext(AppContext);
@@ -10,24 +11,30 @@ export default function Sucursales() {
 
     return (
         <section className="py-20 lg:py-28" id="sucursales">
-            <Text.Title className={"mb-20"}>
-                {t("home.sucursales.title")}
-            </Text.Title>
+            <FadeInUpDiv>
+                <Text.Title className={"mb-20"}>
+                    {t("home.sucursales.title")}
+                </Text.Title>
+            </FadeInUpDiv>
 
             <div className="mb-4 flex flex-row flex-wrap px-4 lg:mb-20">
                 {state?.sucursals.length > 0 && (
                     <>
-                        {state.sucursals.map((item) => (
-                            <SucursalCard
+                        {state.sucursals.map((item, idx) => (
+                            <FadeInUpDiv
                                 key={"sucursal-" + item.slug}
-                                cover={item.cover}
-                                slug={item.slug}
-                                menu={item.menu}
-                                delivery={item.urlDelivery}
-                                reservation={item.urlReservation}
-                                location={item.urlLocation}
-                                title={item.title}
-                            />
+                                delay={0.5 + idx / 10}
+                            >
+                                <SucursalCard
+                                    cover={item.cover}
+                                    slug={item.slug}
+                                    menu={item.menu}
+                                    delivery={item.urlDelivery}
+                                    reservation={item.urlReservation}
+                                    location={item.urlLocation}
+                                    title={item.title}
+                                />
+                            </FadeInUpDiv>
                         ))}
                     </>
                 )}
