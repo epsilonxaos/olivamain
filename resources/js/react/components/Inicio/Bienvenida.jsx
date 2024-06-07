@@ -17,10 +17,13 @@ export default function Bienvenida() {
                     src="/img/sello.svg"
                     alt="Sello"
                 />
+            </FadeInUpDiv>
+            <FadeInUpDiv>
                 <Text.Main className={"mb-12"} parseHtml={true}>
                     {state.website[i18n.language].home_s1_title}
                 </Text.Main>
-
+            </FadeInUpDiv>
+            <FadeInUpDiv>
                 <Text
                     className={"mx-auto max-w-[900px] text-center"}
                     parseHtml={true}

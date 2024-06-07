@@ -10,31 +10,31 @@ export default function Sucursales() {
     const { t } = useTranslation();
 
     return (
-        <section className="py-20 lg:py-28" id="sucursales">
+        <section className="py-20 lg:py-28">
             <FadeInUpDiv>
                 <Text.Title className={"mb-20"}>
                     {t("home.sucursales.title")}
                 </Text.Title>
             </FadeInUpDiv>
 
-            <div className="mb-4 flex flex-row flex-wrap px-4 lg:mb-20">
+            <div
+                className="mb-4 flex flex-row flex-wrap px-4 lg:mb-20"
+                id="sucursales"
+            >
                 {state?.sucursals.length > 0 && (
                     <>
                         {state.sucursals.map((item, idx) => (
-                            <FadeInUpDiv
+                            <SucursalCard
                                 key={"sucursal-" + item.slug}
                                 delay={0.5 + idx / 10}
-                            >
-                                <SucursalCard
-                                    cover={item.cover}
-                                    slug={item.slug}
-                                    menu={item.menu}
-                                    delivery={item.urlDelivery}
-                                    reservation={item.urlReservation}
-                                    location={item.urlLocation}
-                                    title={item.title}
-                                />
-                            </FadeInUpDiv>
+                                cover={item.cover}
+                                slug={item.slug}
+                                menu={item.menu}
+                                delivery={item.urlDelivery}
+                                reservation={item.urlReservation}
+                                location={item.urlLocation}
+                                title={item.title}
+                            />
                         ))}
                     </>
                 )}

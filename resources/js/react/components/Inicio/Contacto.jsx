@@ -9,6 +9,7 @@ import {
 import AppContext from "../../Context/AppContext";
 import { useTranslation } from "react-i18next";
 import FadeInUpDiv from "../FadeInUp";
+import { Link } from "react-router-dom";
 
 function formatPhoneNumber(phoneNumber) {
     phoneNumber = phoneNumber.toString();
@@ -108,8 +109,13 @@ export default function Contacto() {
                                         <Text
                                             key={"sucursal-phone-" + item.slug}
                                         >
-                                            {formatPhoneNumber(item.phone)}{" "}
-                                            {t("sucursal")} {item.title}
+                                            {item.title} -{" "}
+                                            <a
+                                                className="underline"
+                                                href={"tel:+52" + item.phone}
+                                            >
+                                                {formatPhoneNumber(item.phone)}
+                                            </a>
                                         </Text>
                                     );
                             })}
@@ -117,56 +123,80 @@ export default function Contacto() {
                     </FadeInUpDiv>
                 )}
 
-                {state.website.email_facturacion && (
-                    <FadeInUpDiv>
-                        <div className="mb-10 w-full md:w-1/2 xl:w-auto">
-                            <Text.Subtitle
-                                className={
-                                    "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                <FadeInUpDiv>
+                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
+                        <Text.Subtitle
+                            className={
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                            }
+                        >
+                            {t("facturacion")}
+                        </Text.Subtitle>
+                        {state.sucursals.map((item) => (
+                            <Link
+                                to={"sucursal/" + item.slug}
+                                key={"sucursal-link-" + item.slug}
+                            >
+                                <Text className={"underline"}>
+                                    {item.title}
+                                </Text>
+                            </Link>
+                        ))}
+                        <Text className={"underline"}>
+                            <a
+                                href={
+                                    "mailto:" + state.website.email_facturacion
                                 }
                             >
-                                {t("facturacion")}
-                            </Text.Subtitle>
-                            <Text>
-                                <span className="font-bold">
-                                    {t("facturacion.linea")}
-                                </span>
-                                <br />
                                 {state.website.email_facturacion}
+                            </a>
+                        </Text>
+                    </div>
+                </FadeInUpDiv>
+
+                <FadeInUpDiv>
+                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
+                        <Text.Subtitle
+                            className={
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                            }
+                        >
+                            {t("bolsa")}
+                        </Text.Subtitle>
+                        <Link to={"bolsa-de-trabajo"}>
+                            <Text className={"underline"}>
+                                {t("formContact")}
                             </Text>
-                        </div>
-                    </FadeInUpDiv>
-                )}
+                        </Link>
+                        <a href={"mailto:" + state.website.email_bolsa}>
+                            <Text className={"underline"}>
+                                {state.website.email_bolsa}
+                            </Text>
+                        </a>
+                    </div>
+                </FadeInUpDiv>
 
-                {state.website.email_facturacion && (
-                    <FadeInUpDiv>
-                        <div className="mb-10 w-full md:w-1/2 xl:w-auto">
-                            <Text.Subtitle
-                                className={
-                                    "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
-                                }
-                            >
-                                {t("bolsa")}
-                            </Text.Subtitle>
-                            <Text>{state.website.email_bolsa}</Text>
-                        </div>
-                    </FadeInUpDiv>
-                )}
-
-                {state.website.email_facturacion && (
-                    <FadeInUpDiv>
-                        <div className="mb-10 w-full md:w-1/2 xl:w-auto">
-                            <Text.Subtitle
-                                className={
-                                    "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
-                                }
-                            >
-                                {t("gruposEventos")}
-                            </Text.Subtitle>
-                            <Text>{state.website.email_eventos}</Text>
-                        </div>
-                    </FadeInUpDiv>
-                )}
+                <FadeInUpDiv>
+                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
+                        <Text.Subtitle
+                            className={
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                            }
+                        >
+                            {t("gruposEventos")}
+                        </Text.Subtitle>
+                        <Link to={"eventos"}>
+                            <Text className={"underline"}>
+                                {t("formContact")}
+                            </Text>
+                        </Link>
+                        <a href={"mailto:" + state.website.email_eventos}>
+                            <Text className={"underline"}>
+                                {state.website.email_eventos}
+                            </Text>
+                        </a>
+                    </div>
+                </FadeInUpDiv>
             </div>
         </section>
     );

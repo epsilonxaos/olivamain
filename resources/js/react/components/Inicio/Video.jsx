@@ -8,10 +8,10 @@ export default function Video() {
     return (
         <section className="px-4 pb-5 pt-3 md:px-3 md:pt-7">
             <video
-                autoPlay="true"
-                muted="muted"
-                playsinline
-                loop="true"
+                autoPlay
+                muted
+                playsInline
+                loop
                 poster="imgUrl"
                 className="pointer-events-none hidden h-auto max-h-[760px] w-full select-none rounded-2xl bg-white object-cover md:block"
             >
