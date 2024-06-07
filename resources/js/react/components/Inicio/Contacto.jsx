@@ -24,14 +24,14 @@ export default function Contacto() {
     const { t, i18n } = useTranslation();
 
     return (
-        <section className="px-7 pb-10 pt-20 lg:py-28" id="contacto">
+        <section className="px-7 pb-10 pt-20 lg:px-10 lg:py-28" id="contacto">
             <FadeInUpDiv>
                 <div className="flex flex-row flex-wrap justify-between md:mb-20 md:items-center xl:mb-36">
                     <figure className="w-full md:w-auto">
                         <img
                             src="/img/horno.svg"
                             alt="Horno"
-                            className="mx-auto mb-4 w-[116px] md:w-[160px] lg:w-[200px] xl:w-[380px]"
+                            className="mx-auto mb-4 w-[116px] md:w-[160px] lg:w-[200px] xl:w-[260px] 2xl:w-[380px]"
                         />
                     </figure>
                     <div className="w-full md:w-auto md:text-left">
@@ -91,111 +91,98 @@ export default function Contacto() {
                 </div>
             </FadeInUpDiv>
 
-            <div className="mx-auto flex flex-row flex-wrap text-center md:max-w-[750px] xl:max-w-none xl:justify-between xl:text-left">
+            <div className="mx-auto flex flex-row flex-wrap text-center xl:max-w-none xl:justify-between xl:text-left">
                 {state?.sucursals.length > 0 && (
-                    <FadeInUpDiv>
-                        <div className="mb-10 w-full md:w-1/2 xl:w-auto">
-                            <Text.Subtitle
-                                className={
-                                    "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
-                                }
-                            >
-                                {t("contacto")}
-                            </Text.Subtitle>
+                    <FadeInUpDiv className={"mb-10 w-full md:w-1/2 xl:w-auto"}>
+                        <Text.Subtitle
+                            className={
+                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                            }
+                        >
+                            {t("contacto")}
+                        </Text.Subtitle>
 
-                            {state.sucursals.map((item) => {
-                                if (item.phone)
-                                    return (
-                                        <Text
-                                            key={"sucursal-phone-" + item.slug}
+                        {state.sucursals.map((item) => {
+                            if (item.phone)
+                                return (
+                                    <Text key={"sucursal-phone-" + item.slug}>
+                                        {item.title} -{" "}
+                                        <a
+                                            className="underline"
+                                            href={"tel:+52" + item.phone}
                                         >
-                                            {item.title} -{" "}
-                                            <a
-                                                className="underline"
-                                                href={"tel:+52" + item.phone}
-                                            >
-                                                {formatPhoneNumber(item.phone)}
-                                            </a>
-                                        </Text>
-                                    );
-                            })}
-                        </div>
+                                            {formatPhoneNumber(item.phone)}
+                                        </a>
+                                    </Text>
+                                );
+                        })}
                     </FadeInUpDiv>
                 )}
 
-                <FadeInUpDiv>
-                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
-                        <Text.Subtitle
-                            className={
-                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
-                            }
-                        >
-                            {t("facturacion")}
-                        </Text.Subtitle>
-                        {state.sucursals.map((item) => (
-                            <Link
-                                to={"sucursal/" + item.slug}
-                                key={"sucursal-link-" + item.slug}
-                            >
-                                <Text className={"underline"}>
-                                    {item.title}
-                                </Text>
-                            </Link>
-                        ))}
+                <FadeInUpDiv className={"mb-10 w-full md:w-1/2 xl:w-auto"}>
+                    <Text.Subtitle
+                        className={
+                            "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                        }
+                    >
+                        {t("facturacion")}
+                    </Text.Subtitle>
+                    {state.sucursals.map((item) => {
+                        if (item.urlfacturacion)
+                            return (
+                                <a
+                                    key={"sucursal-link-" + item.slug}
+                                    href={item.urlfacturacion}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Text className={"underline"}>
+                                        {item.title}
+                                    </Text>
+                                </a>
+                            );
+                    })}
+                    <Text className={"underline"}>
+                        <a href={"mailto:" + state.website.email_facturacion}>
+                            {state.website.email_facturacion}
+                        </a>
+                    </Text>
+                </FadeInUpDiv>
+
+                <FadeInUpDiv className={"mb-10 w-full md:w-1/2 xl:w-auto"}>
+                    <Text.Subtitle
+                        className={
+                            "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                        }
+                    >
+                        {t("bolsa")}
+                    </Text.Subtitle>
+                    <Link to={"bolsa-de-trabajo"}>
+                        <Text className={"underline"}>{t("formContact")}</Text>
+                    </Link>
+                    <a href={"mailto:" + state.website.email_bolsa}>
                         <Text className={"underline"}>
-                            <a
-                                href={
-                                    "mailto:" + state.website.email_facturacion
-                                }
-                            >
-                                {state.website.email_facturacion}
-                            </a>
+                            {state.website.email_bolsa}
                         </Text>
-                    </div>
+                    </a>
                 </FadeInUpDiv>
 
-                <FadeInUpDiv>
-                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
-                        <Text.Subtitle
-                            className={
-                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
-                            }
-                        >
-                            {t("bolsa")}
-                        </Text.Subtitle>
-                        <Link to={"bolsa-de-trabajo"}>
-                            <Text className={"underline"}>
-                                {t("formContact")}
-                            </Text>
-                        </Link>
-                        <a href={"mailto:" + state.website.email_bolsa}>
-                            <Text className={"underline"}>
-                                {state.website.email_bolsa}
-                            </Text>
-                        </a>
-                    </div>
-                </FadeInUpDiv>
-
-                <FadeInUpDiv>
-                    <div className="mb-10 w-full md:w-1/2 xl:w-auto">
-                        <Text.Subtitle
-                            className={
-                                "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
-                            }
-                        >
-                            {t("gruposEventos")}
-                        </Text.Subtitle>
-                        <Link to={"eventos"}>
-                            <Text className={"underline"}>
-                                {t("formContact")}
-                            </Text>
-                        </Link>
-                        <a href={"mailto:" + state.website.email_eventos}>
-                            <Text className={"underline"}>
-                                {state.website.email_eventos}
-                            </Text>
-                        </a>
-                    </div>
+                <FadeInUpDiv className={"mb-10 w-full md:w-1/2 xl:w-auto"}>
+                    <Text.Subtitle
+                        className={
+                            "mb-1 text-center text-xl leading-5 tracking-[2px] underline xl:text-left"
+                        }
+                    >
+                        {t("gruposEventos")}
+                    </Text.Subtitle>
+                    <Link to={"eventos"}>
+                        <Text className={"underline"}>{t("formContact")}</Text>
+                    </Link>
+                    <a href={"mailto:" + state.website.email_eventos}>
+                        <Text className={"underline"}>
+                            {state.website.email_eventos}
+                        </Text>
+                    </a>
                 </FadeInUpDiv>
             </div>
         </section>

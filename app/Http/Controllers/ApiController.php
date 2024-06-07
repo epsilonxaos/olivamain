@@ -26,7 +26,8 @@ class ApiController extends Controller
 				"phone",
 				"urlDelivery",
 				"urlReservation",
-				"urlLocation"
+				"urlLocation",
+				"urlfacturacion"
 			)->where('status', 1)->get()
 		];
 

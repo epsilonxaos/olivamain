@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCookies } from "react-cookie";
+import { Link } from "react-router-dom";
 
 const MESSAGE_CONSENT_KEY = "AppConsent";
 
@@ -33,14 +34,9 @@ export const MessageConsent = ({ daysExpire = 7 }) => {
                     Para obtener más información sobre nuestra política de
                     privacidad y el uso de tus datos personales, consulta
                     nuestra{" "}
-                    <a
-                        className="underline"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <Link className="underline" to={"/politicas-privacidad"}>
                         Política de Privacidad.
-                    </a>
+                    </Link>
                 </p>
 
                 <button

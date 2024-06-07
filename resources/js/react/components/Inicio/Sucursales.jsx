@@ -18,7 +18,7 @@ export default function Sucursales() {
             </FadeInUpDiv>
 
             <div
-                className="mb-4 flex flex-row flex-wrap px-4 lg:mb-20"
+                className="mb-4 flex flex-row flex-wrap px-4 lg:mb-20 lg:px-10"
                 id="sucursales"
             >
                 {state?.sucursals.length > 0 && (

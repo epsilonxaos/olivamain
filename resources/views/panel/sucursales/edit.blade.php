@@ -48,7 +48,7 @@
                         </div>
                         <div class="mb-3 w-full md:w-1/2 md:pl-3">
                             <label for="icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icono
-                                de sucursal</label>
+                                de sucursal (Escritorio)</label>
                             <input type="file" name="icon" class="dropify" data-height="200" data-max-file-size="1M"
                                 data-allowed-file-extensions="png svg" data-default-file="{{ asset($data->icon) }}" />
                             <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .png y .svg
@@ -57,7 +57,7 @@
                         <div class="mb-3 w-full md:w-1/2 md:pl-3">
                             <label for="icon_movil"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icono
-                                de sucursal</label>
+                                de sucursal (Movil)</label>
                             <input type="file" name="icon_movil" class="dropify" data-height="200"
                                 data-max-file-size="1M" data-allowed-file-extensions="png svg"
                                 data-default-file="{{ asset($data->icon) }}" />
@@ -188,6 +188,13 @@
                         <label for="urlFb"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebook</label>
                         <input id="urlFb" name="urlFb" value="{{ $data->urlFb }}" autocomplete="off"
+                            class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+                    <div class="mb-3 w-full">
+                        <label for="urlfacturacion"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Url facturación</label>
+                        <input id="urlfacturacion" name="urlfacturacion" value="{{ $data->urlfacturacion }}"
+                            autocomplete="off"
                             class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
                 </div>

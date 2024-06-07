@@ -13,9 +13,9 @@ export default function BolsaTrabajo() {
     const { t, i18n } = useTranslation();
 
     return (
-        <section className="mx-auto px-7 py-10 text-white md:container lg:container xl:container lg:py-20">
+        <section className="mx-auto px-7 py-10 text-white md:container lg:container xl:container lg:px-4 lg:py-20">
             <div className="flex flex-row flex-wrap">
-                <figure className="mb-12 w-full overflow-hidden rounded-3xl bg-gray-900 lg:mb-0 lg:w-1/2">
+                <figure className="mb-12 w-full overflow-hidden rounded-3xl lg:mb-0 lg:w-1/2">
                     <img
                         src={_PATH_SOURCES + state.website.bolsa_s1_cover}
                         alt="bolsa de trabajo"

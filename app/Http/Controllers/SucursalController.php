@@ -114,6 +114,7 @@ class SucursalController extends Controller
 		$row->horarioEn = $request->horarioEn;
 		$row->descEs = $request->descEs;
 		$row->descEn = $request->descEn;
+		$row->urlfacturacion = $request->urlfacturacion;
 
 		$row->save();
 
@@ -218,6 +219,7 @@ class SucursalController extends Controller
 		$row->horarioEn = $request->horarioEn;
 		$row->descEs = $request->descEs;
 		$row->descEn = $request->descEn;
+		$row->urlfacturacion = $request->urlfacturacion;
 
 		$row->save();
 

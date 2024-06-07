@@ -50,7 +50,7 @@ const Header = ({ location }) => {
     return (
         <>
             <header
-                className={`fixed left-0 top-0 z-50 w-full px-4 py-3 uppercase transition-all duration-300 sm:p-4 ${themeLight ? "bg-white" : "bg-black"}`}
+                className={`fixed left-0 top-0 z-50 w-full px-4 py-3 uppercase transition-all duration-300 sm:p-4 lg:px-10 ${themeLight ? "bg-white" : "bg-black"}`}
             >
                 <nav className="relative mx-auto flex max-w-[1600px] flex-row flex-wrap items-center justify-between sm:justify-center">
                     <div className="order-2 hidden sm:absolute sm:left-0 sm:order-1 sm:block sm:w-auto">

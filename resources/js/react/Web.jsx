@@ -18,6 +18,7 @@ import AppContext from "./Context/AppContext";
 
 import "./lang/i18n";
 import { MessageConsent } from "./components/MessageConsent";
+import { Politicas } from "./pages/Politicas";
 
 const initialArgs = {
     loading: true,
@@ -94,6 +95,14 @@ export default function Web() {
                             element={
                                 <PageTransition>
                                     <BolsaTrabajo />
+                                </PageTransition>
+                            }
+                        />
+                        <Route
+                            path="/politicas-privacidad"
+                            element={
+                                <PageTransition>
+                                    <Politicas />
                                 </PageTransition>
                             }
                         />

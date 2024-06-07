@@ -29,7 +29,7 @@ export default function SucursalDetalle() {
 
     return (
         <section className="flex max-w-[1920px] flex-row flex-wrap text-white">
-            <figure className="mb-12 w-full overflow-hidden bg-gray-900 lg:mb-0 lg:w-1/2">
+            <figure className="mb-12 w-full overflow-hidden lg:mb-0 lg:w-1/2">
                 <img
                     src={_PATH_SOURCES + data.cover}
                     alt={data.title}
