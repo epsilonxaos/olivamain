@@ -30,7 +30,7 @@ export default function SucursalCard({
                 </header>
 
                 <main>
-                    <figure className="bg-gray-400">
+                    <figure className="bg-gray-100">
                         <Link to={"sucursal/" + slug}>
                             <img
                                 src={_PATH_SOURCES + cover}
