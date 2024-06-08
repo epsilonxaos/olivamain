@@ -29,5 +29,6 @@
     "sucursal.btn.delivery": "Delivery",
     "sucursal.btn.menu": "Menu",
     "sucursal.btn.reserva": "Booking",
-    "sucursal.btn.ubicacion": "Location"
+    "sucursal.btn.ubicacion": "Location",
+    "sucursal.horarios": "OPENING HOURS"
 }

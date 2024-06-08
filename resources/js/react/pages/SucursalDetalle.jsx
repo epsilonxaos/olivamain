@@ -10,7 +10,7 @@ import FadeInUpDiv from "../components/FadeInUp";
 
 export default function SucursalDetalle() {
     const [data, setData] = useState({});
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     let { slug } = useParams();
 
@@ -62,7 +62,7 @@ export default function SucursalDetalle() {
 
                         <hr className="my-8" />
 
-                        <Text.Subtitle>Horarios</Text.Subtitle>
+                        <Text.Subtitle>{t("sucursal.horarios")}</Text.Subtitle>
                         <Text
                             className={"mb-2 tracking-[1.6px]"}
                             parseHtml={true}
@@ -115,7 +115,7 @@ export default function SucursalDetalle() {
                                     url={_PATH_SOURCES + data.menu}
                                     className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                                 >
-                                    Menú
+                                    {t("sucursal.btn.menu")}
                                 </Button.TransparentWhite>
                             )}
                             {/* {data.urlDelivery && ( */}
@@ -126,7 +126,7 @@ export default function SucursalDetalle() {
                                     url={data.urlDelivery}
                                     className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                                 >
-                                    Delivery
+                                    {t("sucursal.btn.delivery")}
                                 </Button.TransparentWhite>
                             )}
                             {/* {data.urlReservation && ( */}
@@ -137,7 +137,7 @@ export default function SucursalDetalle() {
                                     url={data.urlReservation}
                                     className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                                 >
-                                    Reserva
+                                    {t("sucursal.btn.reserva")}
                                 </Button.TransparentWhite>
                             )}
                             {/* {data.urlLocation && ( */}
@@ -148,7 +148,7 @@ export default function SucursalDetalle() {
                                     url={data.urlLocation}
                                     className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                                 >
-                                    Ubicación
+                                    {t("sucursal.btn.ubicacion")}
                                 </Button.TransparentWhite>
                             )}
                         </div>
