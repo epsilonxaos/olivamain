@@ -55,13 +55,19 @@ const Header = ({ location }) => {
                 <nav className="relative mx-auto flex max-w-[1600px] flex-row flex-wrap items-center justify-between sm:justify-center">
                     <div className="order-2 hidden sm:absolute sm:left-0 sm:order-1 sm:block sm:w-auto">
                         {themeLight ? (
-                            <Link to={"/#sucursales"}>
+                            <Link
+                                to={"/#sucursales"}
+                                onClick={() => setOpen(false)}
+                            >
                                 <Button.Black className="bg-transparent">
                                     DELIVERY
                                 </Button.Black>
                             </Link>
                         ) : (
-                            <Link to={"/#sucursales"}>
+                            <Link
+                                to={"/#sucursales"}
+                                onClick={() => setOpen(false)}
+                            >
                                 <Button.TransparentWhite className="bg-transparent">
                                     DELIVERY
                                 </Button.TransparentWhite>
