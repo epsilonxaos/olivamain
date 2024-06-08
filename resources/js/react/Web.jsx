@@ -19,6 +19,7 @@ import AppContext from "./Context/AppContext";
 import "./lang/i18n";
 import { MessageConsent } from "./components/MessageConsent";
 import { Politicas } from "./pages/Politicas";
+import { Toaster } from "sonner";
 
 const initialArgs = {
     loading: true,
@@ -75,6 +76,7 @@ export default function Web() {
             <Header location={location.pathname} />
 
             <MessageConsent />
+            <Toaster />
 
             <main className="mx-auto min-h-svh pt-[76px] sm:pt-[76px]">
                 <AnimatePresence mode="wait">

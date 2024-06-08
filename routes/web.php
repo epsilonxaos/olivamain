@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ComandosController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SucursalController;
@@ -27,6 +28,9 @@ Route::view('/bolsa-de-trabajo', 'layouts.app')->where('path', '.*');
 Route::view('/eventos', 'layouts.app')->where('path', '.*');
 Route::view('/politicas-privacidad', 'layouts.app')->where('path', '.*');
 Route::view('/sucursal/{slug}', 'layouts.app')->where('path', '.*');
+
+Route::post('/send/mailbolsa', [MailController::class, 'sendBolsa']);
+Route::post('/send/mailEvento', [MailController::class, 'sendEvento']);
 
 Route::get('/dashboard', function () {
 	return view('dashboard');
