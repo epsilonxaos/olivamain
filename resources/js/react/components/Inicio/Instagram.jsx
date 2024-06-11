@@ -14,11 +14,10 @@ export default function Instagram() {
 
             <FadeInUpDiv>
                 <div className="overflow-hidden pt-6 md:mt-8">
-                    <iframe
-                        src="https://snapwidget.com/embed/1069699"
-                        className="snapwidget-widget h-[400px] w-[2000px] overflow-hidden border-none"
-                        title="Posts from Instagram"
-                    ></iframe>
+                    <div
+                        className="overflow-hidden pt-6 md:mt-8"
+                        id="Instafeed"
+                    />
                 </div>
             </FadeInUpDiv>
         </section>
