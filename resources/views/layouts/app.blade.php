@@ -39,6 +39,16 @@
         content="Desarrollamos estrategias integrales que permitan que lo inesperado sea una realidad en cada uno de nuestros rubros de especializaci&oacute;n." />
     <meta property="og:image" content="{{ asset('img/fb.jpg') }}" /> --}}
 
+
+
+    {{-- Librerias empleadas para el feed de Instagram, aplicadas por dev externo --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {{-- end --}}
+
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/react/App.jsx'])
 </head>

@@ -18,10 +18,8 @@ function Instafeed(options) {
 
     // default options
     var opts = {
-        accessToken:
-            "IGQWRPV1VGVzRxZAHhkaExuSEhCNlVXVlZAQV2c2WXh4OGdqNkFjSGJzTFE0bFNuVDgyMktpVEdvb0lLbDRyaFp4Qm1rbHJBZAmNPYkZAmb0ZANM24wZAGV0WGVEampnLUpTZAUVJOFpCU2RISTRtY1FmczR0eXV1LTNkUjQZD",
+        accessToken: "",
         accessTokenTimeout: 10000,
-        after: null,
         apiTimeout: 10000,
         apiLimit: 5,
         before: null,
@@ -37,6 +35,34 @@ function Instafeed(options) {
             '<a href="{{link}}"><img title="{{caption}}" src="{{image}}" /></a>',
         templateBoundaries: ["{{", "}}"],
         transform: null,
+        after: function () {
+            // Inicializar Slick después de que Instafeed cargue las imágenes
+            $("#Instafeed").slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true,
+                        },
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        },
+                    },
+                ],
+            });
+        },
     };
 
     // state holder
@@ -363,7 +389,7 @@ Instafeed.prototype._showNext = function showNext(callback) {
             url = scope._state.paging.next;
         } else {
             url =
-                "https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token=" +
+                "https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username,children{media_url,thumbnail_url}&access_token=" +
                 scope._state.token;
             if (
                 !scope._options.apiLimit &&

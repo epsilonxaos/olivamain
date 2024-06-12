@@ -9,13 +9,13 @@ import Video from "../components/Inicio/Video";
 const Inicio = () => {
     useEffect(() => {
         const script = document.createElement("script");
-        script.src = "/js/instafeed.js";
+        script.src = "/js/panel/instafeed.js";
         script.async = true;
 
         script.onload = () => {
             var feed = new window.Instafeed({
                 accessToken:
-                    "IGQWRPV1VGVzRxZAHhkaExuSEhCNlVXVlZAQV2c2WXh4OGdqNkFjSGJzTFE0bFNuVDgyMktpVEdvb0lLbDRyaFp4Qm1rbHJBZAmNPYkZAmb0ZANM24wZAGV0WGVEampnLUpTZAUVJOFpCU2RISTRtY1FmczR0eXV1LTNkUjQZD",
+                    "IGQWRNbnFTVFJZAZAUdHT0J1a2VJZAm4zb3VtbFRueWkwanpPYUdDQ1M5ajcxWTJGM2NVMExtWGRqVjdOVEg2dGpHaGJjWVU4alQ2Q1hUcDhvb1ZAJRmc1RXZADWU1UX0VhS0lDbHhKdWZAUbkhFdTNhOV9USXVwLTVfcGMZD",
             });
             feed.run();
         };
