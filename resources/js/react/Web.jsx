@@ -20,6 +20,7 @@ import "./lang/i18n";
 import { MessageConsent } from "./components/MessageConsent";
 import { Politicas } from "./pages/Politicas";
 import { Toaster } from "sonner";
+import { PoliticasReservacion } from "./pages/PoliticasReservacion";
 
 const initialArgs = {
     loading: true,
@@ -75,7 +76,6 @@ export default function Web() {
         <AppContext.Provider value={{ state, dispatch }}>
             <Header location={location.pathname} />
 
-            <MessageConsent />
             <Toaster />
 
             <main className="mx-auto min-h-svh pt-[76px] sm:pt-[76px]">
@@ -109,6 +109,14 @@ export default function Web() {
                             }
                         />
                         <Route
+                            path="/politicas-reservacion"
+                            element={
+                                <PageTransition>
+                                    <PoliticasReservacion />
+                                </PageTransition>
+                            }
+                        />
+                        <Route
                             path="/eventos"
                             element={
                                 <PageTransition>
@@ -128,6 +136,7 @@ export default function Web() {
                 </AnimatePresence>
             </main>
             <Footer />
+            <MessageConsent />
         </AppContext.Provider>
     );
 }

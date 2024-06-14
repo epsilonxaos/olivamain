@@ -86,6 +86,8 @@ class WebsiteController extends Controller
 			if ($request->has('bolsa_s1_text')) $upd->translateOrNew($locale)->bolsa_s1_text = $request->bolsa_s1_text[$locale];
 			if ($request->has('events_s1_title')) $upd->translateOrNew($locale)->events_s1_title = $request->events_s1_title[$locale];
 			if ($request->has('events_s1_text')) $upd->translateOrNew($locale)->events_s1_text = $request->events_s1_text[$locale];
+			if ($request->has('politicas_privacidad')) $upd->translateOrNew($locale)->politicas_privacidad = $request->politicas_privacidad[$locale];
+			if ($request->has('politicas_reservacion')) $upd->translateOrNew($locale)->politicas_reservacion = $request->politicas_reservacion[$locale];
 		}
 
 		$upd->save();

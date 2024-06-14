@@ -4,6 +4,7 @@ import Text from "../Text";
 import AppContext from "../../Context/AppContext";
 import { useTranslation } from "react-i18next";
 import FadeInUpDiv from "../FadeInUp";
+import { Link } from "react-router-dom";
 
 export default function Sucursales() {
     const { state } = useContext(AppContext);
@@ -40,9 +41,11 @@ export default function Sucursales() {
                 )}
             </div>
 
-            <Text className={"text-center uppercase underline"}>
-                {t("politicasReservacion")}
-            </Text>
+            <Link to={"/politicas-reservacion"}>
+                <Text className={"text-center uppercase underline"}>
+                    {t("politicasReservacion")}
+                </Text>
+            </Link>
         </section>
     );
 }

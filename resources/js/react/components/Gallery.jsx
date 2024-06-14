@@ -27,7 +27,7 @@ export const Gallery = ({ galeria, keySection, className }) => {
                                 "w-full object-cover",
                                 className,
                             )}
-                            src={item.cover}
+                            src={item}
                             alt=""
                         />
                     </figure>

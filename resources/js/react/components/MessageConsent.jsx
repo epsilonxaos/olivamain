@@ -20,7 +20,7 @@ export const MessageConsent = ({ daysExpire = 7 }) => {
     if (cookies[MESSAGE_CONSENT_KEY] || !open) return "";
 
     return (
-        <div className="fixed bottom-0 left-0 z-10 w-full bg-white p-3 text-center font-instrumentSans">
+        <div className="fixed bottom-0 left-0 z-[100] w-full bg-white p-3 text-center font-instrumentSans">
             <div className="mx-auto max-w-[1600px] text-xs">
                 <p className="mb-2">
                     Al utilizar nuestro sitio web, aceptas el uso de Cookies

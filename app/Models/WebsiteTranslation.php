@@ -16,5 +16,7 @@ class WebsiteTranslation extends Model
 		'bolsa_s1_text',
 		'events_s1_title',
 		'events_s1_text',
+		'politicas_privacidad',
+		'politicas_reservacion'
 	];
 }

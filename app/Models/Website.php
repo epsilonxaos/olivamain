@@ -21,6 +21,8 @@ class Website extends Model implements TranslatableContract
 		'bolsa_s1_text',
 		'events_s1_title',
 		'events_s1_text',
+		'politicas_privacidad',
+		'politicas_reservacion'
 	];
 	protected $primarykey = 'id';
 	protected $table = 'websites';

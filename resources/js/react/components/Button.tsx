@@ -9,10 +9,12 @@ type TButton = {
     isLink?: boolean;
     isLinkExternal?: boolean;
     url?: string;
+    onClick?: Function;
 };
 
 const Button = (props: TButton) => {
-    const { children, type, className, isLink, isLinkExternal, url } = props;
+    const { children, type, className, isLink, isLinkExternal, url, onClick } =
+        props;
 
     if (isLink && !isLinkExternal)
         return (
@@ -45,6 +47,7 @@ const Button = (props: TButton) => {
     return (
         <button
             {...(type && { type: type || "button" })}
+            {...(onClick && { onClick })}
             className={twMerge(
                 "rounded-xl border-2 px-10 py-2 uppercase tracking-[2px]",
                 className ? className : "",
@@ -94,7 +97,8 @@ const TransparentWhite = (props: TButton) => {
 };
 
 const White = (props: TButton) => {
-    const { children, type, className, isLink, isLinkExternal, url } = props;
+    const { children, type, className, isLink, isLinkExternal, url, onClick } =
+        props;
 
     return (
         <Button
@@ -102,6 +106,7 @@ const White = (props: TButton) => {
             isLink={isLink}
             isLinkExternal={isLinkExternal}
             url={url}
+            onClick={onClick}
             className={twMerge(
                 "bg-white text-black",
                 className ? className : "",
