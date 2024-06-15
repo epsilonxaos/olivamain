@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helpers;
+use App\Models\Gallery;
 use App\Models\Website;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,8 @@ class WebsiteController extends Controller
 					'active' => true,
 				]
 			],
-			'data' => Website::find(1)
+			'data' => Website::find(1),
+			'galeria' => Gallery::all()
 		];
 
 		$view = 'panel.website.' . $seccion;

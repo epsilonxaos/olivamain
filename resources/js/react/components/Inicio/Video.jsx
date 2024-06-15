@@ -6,16 +6,6 @@ import Button from "../Button";
 import { useTranslation } from "react-i18next";
 import { IoMdCloseCircle } from "react-icons/io";
 
-const galeria = [
-    "/img/galeria/1.jpg",
-    "/img/galeria/2.jpg",
-    "/img/galeria/3.jpg",
-    "/img/galeria/4.jpg",
-    "/img/galeria/5.jpg",
-    "/img/galeria/6.jpg",
-    "/img/galeria/7.jpg",
-];
-
 export default function Video() {
     const { state } = useContext(AppContext);
     const { i18n } = useTranslation();
@@ -47,16 +37,12 @@ export default function Video() {
             <div className="relative h-auto min-h-[450px] w-full overflow-hidden rounded-2xl bg-white object-cover md:hidden">
                 <Button.White
                     onClick={() => setOpen(true)}
-                    className="absolute bottom-2 left-1/2 z-[50] -translate-x-1/2 border-black text-xs"
+                    className="absolute bottom-2 left-1/2 z-[2] -translate-x-1/2 border-black text-xs"
                 >
                     {i18n.language == "en" ? "PLAY VIDEO" : "VER VIDEO"}
                 </Button.White>
 
-                <Gallery
-                    keySection={"home-gallery"}
-                    className={"h-[450px]"}
-                    galeria={galeria}
-                />
+                <Gallery />
             </div>
 
             {open && (

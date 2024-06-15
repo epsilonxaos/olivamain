@@ -26,6 +26,7 @@ const initialArgs = {
     loading: true,
     website: null,
     sucursals: [],
+    galeria: [],
 };
 const reducer = (prev, next) => ({ ...prev, ...next });
 
@@ -51,12 +52,12 @@ export default function Web() {
                 import.meta.env.VITE_APP_URL + "api/initial",
             );
 
-            const { website, sucursals } = response.data;
+            const { website, sucursals, galeria } = response.data;
             website.translations.forEach((translation) => {
                 let locale = translation.locale;
                 website[locale] = translation;
             });
-            dispatch({ website, sucursals });
+            dispatch({ website, sucursals, galeria });
 
             setTimeout(() => {
                 dispatch({ loading: false });

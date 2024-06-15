@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Sucursal;
 use App\Models\Website;
 use Illuminate\Http\Request;
@@ -15,9 +16,11 @@ class ApiController extends Controller
 
 
 		$web = Website::translated()->where('id', 1)->first();
+		$galeria = Gallery::all();
 
 		$resources = [
 			"website" => $web,
+			"galeria" => $galeria,
 			"sucursals" => Sucursal::select(
 				'title',
 				'slug',

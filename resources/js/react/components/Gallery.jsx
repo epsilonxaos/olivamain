@@ -7,9 +7,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
-import { twMerge } from "tailwind-merge";
+import { useContext } from "react";
+import AppContext from "../Context/AppContext";
 
-export const Gallery = ({ galeria, keySection, className }) => {
+export const Gallery = () => {
+    const { state } = useContext(AppContext);
+
     return (
         <Swiper
             modules={[Autoplay, EffectFade]}
@@ -19,15 +22,12 @@ export const Gallery = ({ galeria, keySection, className }) => {
             loop
             effect="fade"
         >
-            {galeria.map((item, idx) => (
-                <SwiperSlide key={"galeria-" + keySection + "-" + idx}>
+            {state.galeria.map((item) => (
+                <SwiperSlide key={"galeria-home-" + item.id}>
                     <figure>
                         <img
-                            className={twMerge(
-                                "w-full object-cover",
-                                className,
-                            )}
-                            src={item}
+                            className="h-[450px] w-full object-cover"
+                            src={item.cover}
                             alt=""
                         />
                     </figure>

@@ -71,7 +71,7 @@ window.cambiar_status = function (el, id, status, url) {
                         n +
                         "', '" +
                         url +
-                        "')"
+                        "')",
                 );
             Toastify({
                 text: "Ajustes aplicados",
@@ -86,3 +86,31 @@ window.cambiar_status = function (el, id, status, url) {
             console.log(error);
         });
 };
+
+if (document.querySelector(".delete-axios")) {
+    document.querySelectorAll(".delete-axios").forEach((item) => {
+        item.addEventListener("click", function () {
+            Swal.fire({
+                title: "¿Finalizar eliminación?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Eliminar",
+                denyButtonText: `Cancelar`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let idx = this.dataset.idx;
+                    axios
+                        .post(this.dataset.url, { id: idx })
+                        .then((response) => {
+                            document
+                                .querySelector('.sort[data-idx="' + idx + '"]')
+                                .remove();
+                        })
+                        .catch((err) => {
+                            console.error("Error: " + err);
+                        });
+                }
+            });
+        });
+    });
+}

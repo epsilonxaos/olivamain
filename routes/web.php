@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ComandosController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -95,6 +96,11 @@ Route::middleware(['auth:admin', 'verified'])->prefix('/admin')->group(function 
 		Route::patch('/update/{id?}', [SucursalController::class, 'update'])->name('panel.sucursal.update');
 		// Route::put('/update/{id?}/password', [SucursalController::class, 'updateProfilePassword'])->name('panel.sucursal.update.password');
 		Route::delete('/destroy/{id?}', [SucursalController::class, 'destroy'])->name('panel.sucursal.destroy');
+	});
+
+	Route::prefix('/galeria')->group(function () {
+		Route::post('/store', [GalleryController::class, 'store'])->name('panel.galeria.store');
+		Route::post('/destroy', [GalleryController::class, 'destroy'])->name('panel.galeria.destroy');
 	});
 });
 
