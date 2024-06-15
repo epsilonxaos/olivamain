@@ -31,7 +31,6 @@
                 <div class="w-full mb-10">
                     <div class=" mb-6">
                         <h2 class="mb-2 font-semibold text-gray-900 text-base">Información general</h2>
-
                         <div class="mb-3">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 for="email_facturacion">Email
@@ -58,6 +57,42 @@
                             <span class="text-xs">Este correo electrónico está relacionado con el formulario de <span
                                     class="font-bold">grupos y eventos</span>. Toda la información relacionada será enviada
                                 a esta dirección de correo electrónico.</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                for="emails_cc">Email CC para eventos</label>
+                            <input id="emails_cc" name="emails_cc" value="{{ $data->emails_cc }}" autocomplete="off"
+                                class="mb-1 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                            <span class="text-xs block"><span class="font-bold">Ejemplo:</span>
+                                correo_1@prueba.mx;correo_2@prueba.mx;correo_3@prueba.mx</span>
+                            <span class="text-xs">Estos correos electrónicos estaran relacionados con el formulario de <span
+                                    class="font-bold">grupos y eventos</span>.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full mb-10">
+                    <div class=" mb-6">
+                        <h2 class="mb-2 font-semibold text-gray-900 text-base">Promociones</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-3">
+                            <div class="w-full mb-3">
+                                <label for="img_promo_movil"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
+                                    movil</label>
+                                <input type="file" name="img_promo_movil" class="dropify" data-height="200"
+                                    data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
+                                    data-default-file="{{ asset($data->img_promo_movil) }}" />
+                                <small>Solo se aceptan .jpg, .jpeg, .webp y .png con un maximo de peso de 1MB.</small>
+                            </div>
+                            <div class="w-full mb-3">
+                                <label for="img_promo"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
+                                    escritorio</label>
+                                <input type="file" name="img_promo" class="dropify" data-height="200"
+                                    data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
+                                    data-default-file="{{ asset($data->img_promo) }}" />
+                                <small>Solo se aceptan .jpg, .jpeg, .webp y .png con un maximo de peso de 1MB.</small>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -38,5 +38,8 @@ class Website extends Model implements TranslatableContract
 		'email_eventos',
 		'bolsa_s1_cover',
 		'events_s1_cover',
+		'img_promo',
+		'img_promo_movil',
+		'emails_cc',
 	];
 }

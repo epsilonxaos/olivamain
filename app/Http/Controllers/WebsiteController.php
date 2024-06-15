@@ -69,6 +69,18 @@ class WebsiteController extends Controller
 			$upd->events_s1_cover = $events_s1_cover;
 			$upd->save();
 		}
+		if ($request->hasFile('img_promo')) {
+			Helpers::deleteFileStorage('websites', 'img_promo', $id);
+			$img_promo = Helpers::addFileStorage($request->file('img_promo'), $this->directorio);
+			$upd->img_promo = $img_promo;
+			$upd->save();
+		}
+		if ($request->hasFile('img_promo_movil')) {
+			Helpers::deleteFileStorage('websites', 'img_promo_movil', $id);
+			$img_promo_movil = Helpers::addFileStorage($request->file('img_promo_movil'), $this->directorio);
+			$upd->img_promo_movil = $img_promo_movil;
+			$upd->save();
+		}
 
 		if ($request->has('url_fb')) $upd->url_fb = $request->url_fb;
 		if ($request->has('url_in')) $upd->url_in = $request->url_in;
@@ -77,6 +89,7 @@ class WebsiteController extends Controller
 		if ($request->has('email_facturacion')) $upd->email_facturacion = $request->email_facturacion;
 		if ($request->has('email_bolsa')) $upd->email_bolsa = $request->email_bolsa;
 		if ($request->has('email_eventos')) $upd->email_eventos = $request->email_eventos;
+		if ($request->has('emails_cc')) $upd->emails_cc = $request->emails_cc;
 
 		foreach ($this->locales as $locale) {
 			if ($request->has('home_s1_title')) $upd->translateOrNew($locale)->home_s1_title = $request->home_s1_title[$locale];
