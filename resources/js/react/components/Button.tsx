@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
@@ -6,50 +6,18 @@ type TButton = {
     children: any;
     type?: "button" | "submit" | "reset" | undefined;
     className?: string;
-    isLink?: boolean;
-    isLinkExternal?: boolean;
-    url?: string;
-    onClick?: Function;
+    onClick?: () => void;
 };
 
 const Button = (props: TButton) => {
-    const { children, type, className, isLink, isLinkExternal, url, onClick } =
-        props;
-
-    if (isLink && !isLinkExternal)
-        return (
-            <Link
-                to={url ?? ""}
-                className={twMerge(
-                    "rounded-xl border-2 px-10 py-2 uppercase tracking-[2px]",
-                    className ? className : "",
-                )}
-            >
-                {children}
-            </Link>
-        );
-
-    if (isLink && isLinkExternal)
-        return (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={url ?? ""}
-                className={twMerge(
-                    "rounded-xl border-2 px-10 py-2 text-center uppercase tracking-[2px]",
-                    className ? className : "",
-                )}
-            >
-                {children}
-            </a>
-        );
+    const { children, type, className, onClick } = props;
 
     return (
         <button
             {...(type && { type: type || "button" })}
             {...(onClick && { onClick })}
             className={twMerge(
-                "rounded-xl border-2 px-10 py-2 uppercase tracking-[2px]",
+                "border border-black bg-transparent px-10 py-1.5 text-center transition-all hover:bg-black hover:text-white",
                 className ? className : "",
             )}
         >
@@ -58,67 +26,46 @@ const Button = (props: TButton) => {
     );
 };
 
-const Black = (props: TButton) => {
-    const { children, type, className, isLink, isLinkExternal, url } = props;
+type TButtonLink = {
+    url: string;
+    children: ReactNode;
+    className?: string;
+    onClick?: () => void;
+};
 
+const Url = ({ url, className, children, onClick }: TButtonLink) => {
     return (
-        <Button
-            type={type || "button"}
-            isLink={isLink}
-            isLinkExternal={isLinkExternal}
-            url={url}
+        <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={url ?? ""}
+            {...(onClick && { onClick })}
             className={twMerge(
-                "border-black bg-white text-black hover:bg-black hover:text-white ",
+                "border border-black bg-transparent px-10 py-1.5 text-center transition-all hover:bg-black hover:text-white",
                 className ? className : "",
             )}
         >
             {children}
-        </Button>
+        </a>
     );
 };
 
-const TransparentWhite = (props: TButton) => {
-    const { children, type, className, isLink, isLinkExternal, url } = props;
-
+const To = ({ url, className, children, onClick }: TButtonLink) => {
     return (
-        <Button
-            type={type || "button"}
-            isLink={isLink}
-            isLinkExternal={isLinkExternal}
-            url={url}
+        <Link
+            to={url}
+            {...(onClick && { onClick })}
             className={twMerge(
-                "border-white text-white hover:bg-white hover:text-black",
+                "border border-black bg-transparent px-10 py-1.5 text-center transition-all hover:bg-black hover:text-white",
                 className ? className : "",
             )}
         >
             {children}
-        </Button>
+        </Link>
     );
 };
 
-const White = (props: TButton) => {
-    const { children, type, className, isLink, isLinkExternal, url, onClick } =
-        props;
-
-    return (
-        <Button
-            type={type || "button"}
-            isLink={isLink}
-            isLinkExternal={isLinkExternal}
-            url={url}
-            onClick={onClick}
-            className={twMerge(
-                "bg-white text-black",
-                className ? className : "",
-            )}
-        >
-            {children}
-        </Button>
-    );
-};
-
-Button.Black = Black;
-Button.White = White;
-Button.TransparentWhite = TransparentWhite;
+Button.Url = Url;
+Button.To = To;
 
 export default Button;

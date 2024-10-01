@@ -26,7 +26,7 @@ export const Gallery = () => {
                 <SwiperSlide key={"galeria-home-" + item.id}>
                     <figure>
                         <img
-                            className="h-[450px] w-full object-cover"
+                            className="h-[80vh] max-h-[900px] min-h-[450px] w-full object-cover"
                             src={item.cover}
                             alt=""
                         />

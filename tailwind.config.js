@@ -1,4 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const {
+    default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,8 +18,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                oscuro: "#1E1E1E",
-                gris: "#D9D9D9",
+                grisClaro: "#FCF9F4",
             },
             screens: {
                 pointerFine: {
@@ -27,12 +29,36 @@ module.exports = {
                 },
             },
             fontFamily: {
-                olivaSans: ["Oliva Sans", "sans-serif"],
-                intervogueReg: ["Intervogue Reg", "sans-serif"],
-                instrumentSans: ["Instrument Sans", "sans-serif"],
+                chassiS: ["Chassi S", "sans-serif"],
+                apercuPro: ["Apercu Pro", "sans-serif"],
+            },
+            animation: {
+                scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+            },
+            keyframes: {
+                scroll: {
+                    to: {
+                        transform: "translate(calc(-50% - 0.5rem))",
+                    },
+                },
             },
         },
     },
 
-    plugins: [require("@tailwindcss/forms"), require("flowbite/plugin")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("flowbite/plugin"),
+        addVariablesForColors,
+    ],
 };
+
+function addVariablesForColors({ addBase, theme }) {
+    let allColors = flattenColorPalette(theme("colors"));
+    let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+    );
+
+    addBase({
+        ":root": newVars,
+    });
+}

@@ -62,7 +62,7 @@ export default function SucursalDetalle() {
 
                         <hr className="my-8" />
 
-                        <Text.Subtitle>{t("sucursal.horarios")}</Text.Subtitle>
+                        <Text>{t("sucursal.horarios")}</Text>
                         <Text
                             className={"mb-2 tracking-[1.6px]"}
                             parseHtml={true}

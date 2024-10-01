@@ -16,6 +16,8 @@ import SucursalDetalle from "./pages/SucursalDetalle";
 import axios from "axios";
 import AppContext from "./Context/AppContext";
 
+import "../../css/menu.css";
+
 import "./lang/i18n";
 import { MessageConsent } from "./components/MessageConsent";
 import { Politicas } from "./pages/Politicas";
@@ -33,18 +35,6 @@ const reducer = (prev, next) => ({ ...prev, ...next });
 export default function Web() {
     const location = useLocation();
     const [state, dispatch] = useReducer(reducer, initialArgs);
-
-    useEffect(() => {
-        setTimeout(() => {
-            if (lightPages.includes(location.pathname)) {
-                document.querySelector("body").classList.remove("bg-negro");
-                document.querySelector("body").classList.add("bg-blanco");
-            } else {
-                document.querySelector("body").classList.remove("bg-blanco");
-                document.querySelector("body").classList.add("bg-negro");
-            }
-        }, 500);
-    }, [location?.pathname]);
 
     useEffect(() => {
         async function fetchData() {
@@ -68,7 +58,7 @@ export default function Web() {
 
     if (state.loading)
         return (
-            <div className="flex h-screen w-full items-center justify-center bg-white text-black">
+            <div className="bg-grisClaro flex h-screen w-full items-center justify-center text-black">
                 <span className="spinner"></span>
             </div>
         );
@@ -79,7 +69,7 @@ export default function Web() {
 
             <Toaster />
 
-            <main className="mx-auto min-h-svh pt-[76px] sm:pt-[76px]">
+            <main className="mx-auto min-h-svh pt-[65px]">
                 <AnimatePresence mode="wait">
                     <Routes location={location} key={location.pathname}>
                         <Route

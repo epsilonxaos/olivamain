@@ -1,11 +1,15 @@
 import { useContext, useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Copa, Logo, MenuIcon } from "../components/Assets";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
-import { lightPages } from "../utils/const";
 import AppContext from "../Context/AppContext";
-import { twMerge } from "tailwind-merge";
-import { useTranslation } from "react-i18next";
+import { lightPages } from "../utils/const";
+
+import logo from "../../../img/logo.svg";
+import { cn } from "../components/cn";
+
+import Circle from "../../../img/circle.svg";
 
 const Header = ({ location }) => {
     const [open, setOpen] = useState(false);
@@ -15,28 +19,29 @@ const Header = ({ location }) => {
         const { i18n } = useTranslation();
 
         return (
-            <div className="mr-4 flex items-center justify-center">
-                <span
+            <div className="font-apercuPro mr-4 flex items-center justify-center">
+                <button
                     onClick={() => i18n.changeLanguage("es")}
-                    className={
+                    className={cn(
+                        "mr-4 size-[30px] rounded-full",
                         i18n.language == "es"
-                            ? "font-bold"
-                            : "cursor-pointer opacity-30 hover:opacity-100"
-                    }
+                            ? "bg-gray-200 font-bold"
+                            : "cursor-pointer opacity-30 hover:opacity-100",
+                    )}
                 >
                     ES
-                </span>
-                <span className="mx-2 block font-bold">|</span>
-                <span
+                </button>
+                <button
                     onClick={() => i18n.changeLanguage("en")}
-                    className={
+                    className={cn(
+                        "mr-4 size-[30px] rounded-full",
                         i18n.language == "en"
-                            ? "font-bold"
-                            : "cursor-pointer opacity-30 hover:opacity-100"
-                    }
+                            ? "bg-gray-200 font-bold"
+                            : "cursor-pointer opacity-30 hover:opacity-100",
+                    )}
                 >
                     EN
-                </span>
+                </button>
             </div>
         );
     };
@@ -49,49 +54,31 @@ const Header = ({ location }) => {
 
     return (
         <>
-            <header
-                className={`fixed left-0 top-0 z-50 w-full px-4 py-3 uppercase transition-all duration-300 sm:p-4 lg:px-10 ${themeLight ? "bg-white" : "bg-black"}`}
-            >
-                <nav className="relative mx-auto flex max-w-[1600px] flex-row flex-wrap items-center justify-between sm:justify-center">
+            <header className="bg-grisClaro fixed left-0 top-0 z-50 flex h-[65px] w-full items-center justify-center p-4 transition-all duration-300 sm:p-4 lg:px-10">
+                <nav className="relative mx-auto flex w-full max-w-[1600px] flex-row flex-wrap items-center justify-between sm:justify-center">
                     <div className="order-2 hidden sm:absolute sm:left-0 sm:order-1 sm:block sm:w-auto">
-                        {themeLight ? (
-                            <Link
-                                to={"/#sucursales"}
-                                onClick={() => setOpen(false)}
-                            >
-                                <Button.Black className="bg-transparent">
-                                    DELIVERY
-                                </Button.Black>
-                            </Link>
-                        ) : (
-                            <Link
-                                to={"/#sucursales"}
-                                onClick={() => setOpen(false)}
-                            >
-                                <Button.TransparentWhite className="bg-transparent">
-                                    DELIVERY
-                                </Button.TransparentWhite>
-                            </Link>
-                        )}
+                        <Button.To
+                            url={"/#sucursales"}
+                            onClick={() => setOpen(false)}
+                        >
+                            Delivery
+                        </Button.To>
                     </div>
                     <div className="order-1 w-auto sm:order-2 sm:w-auto">
                         <Link to={"/"} onClick={() => setOpen(false)}>
-                            <Logo
-                                themelight={themeLight}
-                                className="mx-auto w-[95px] md:w-[120px] "
-                            />
+                            <img className="w-[100px]" src={logo} alt="Oliva" />
                         </Link>
                     </div>
                     <div
-                        className={`order-3 flex w-auto items-center sm:absolute sm:right-0 sm:w-auto ${themeLight ? "text-black" : "text-white"}`}
+                        className={`order-3 flex w-auto items-center sm:absolute sm:right-0 sm:w-auto`}
                     >
                         <Language />
-                        <button
-                            className={`size-[28px] overflow-hidden rounded-full md:size-[36px] ${themeLight ? "bg-white" : "bg-black"} `}
-                            type="button"
-                            onClick={() => setOpen(!open)}
-                        >
-                            <MenuIcon themelight={themeLight} />
+                        <button type="button" onClick={() => setOpen(!open)}>
+                            <div
+                                className={cn("menu menu-3", open && "active")}
+                            >
+                                <span></span>
+                            </div>
                         </button>
                     </div>
                 </nav>
@@ -111,34 +98,25 @@ const Menu = ({ onClose, themeLight }) => {
 
     return (
         <div
-            className={`fixed left-0 top-0 z-10 h-dvh w-full overflow-hidden  transition-all  ${themeLight ? "bg-white" : "bg-black text-white"}`}
+            className={`bg-grisClaro fixed left-0 top-0 z-40 h-dvh w-full overflow-hidden transition-all`}
         >
             <nav className="flex h-full flex-row flex-wrap items-end justify-center overflow-auto pb-[40px] pt-[80px] md:h-full md:pt-[150px]">
-                <ul className="mb-16 block w-full text-center font-medium uppercase sm:min-h-[220px] ">
+                <ul className="mb-16 block w-full text-center font-medium  sm:min-h-[220px] ">
                     <li className="mb-4">
-                        <button
-                            className="uppercase"
-                            onClick={() => setOpen(!open)}
-                        >
-                            {t("header.sucursales")}
-                        </button>
-                        {open && (
-                            <ul
-                                className={`mx-auto mt-4 flex max-w-[450px] items-center justify-center gap-4 border-y ${themeLight ? "border-black" : "border-white"}  py-2`}
-                            >
-                                {state.sucursals.map((item) => (
-                                    <li key={"menu-" + item.slug}>
-                                        <Link
-                                            onClick={() => onClose()}
-                                            to={"sucursal/" + item.slug}
-                                        >
-                                            {item.title}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+                        <Link onClick={() => onClose()} to="bolsa-de-trabajo">
+                            Nosotros
+                        </Link>
                     </li>
+                    {state.sucursals.map((item) => (
+                        <li className="mb-4" key={"menu-" + item.slug}>
+                            <Link
+                                onClick={() => onClose()}
+                                to={"sucursal/" + item.slug}
+                            >
+                                {item.title}
+                            </Link>
+                        </li>
+                    ))}
                     <li className="mb-4">
                         <Link onClick={() => onClose()} to="bolsa-de-trabajo">
                             {t("header.bolsa")}
@@ -163,9 +141,10 @@ const Menu = ({ onClose, themeLight }) => {
                 </ul>
 
                 <div>
-                    <Copa
-                        themelight={themeLight}
+                    <img
                         className="mx-auto block h-[108px] w-[70px]"
+                        src={Circle}
+                        alt=""
                     />
                 </div>
             </nav>

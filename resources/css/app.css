@@ -4,7 +4,7 @@
 
 body,
 html {
-    @apply font-olivaSans;
+    @apply font-chassiS bg-grisClaro;
 }
 
 .spinner {

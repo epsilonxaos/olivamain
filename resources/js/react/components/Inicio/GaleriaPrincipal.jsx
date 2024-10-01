@@ -6,7 +6,7 @@ import Button from "../Button";
 import { useTranslation } from "react-i18next";
 import { IoMdCloseCircle } from "react-icons/io";
 
-export default function Video() {
+export default function GaleriaPrincipal() {
     const { state } = useContext(AppContext);
     const { i18n } = useTranslation();
 
@@ -19,28 +19,14 @@ export default function Video() {
     }, [open]);
 
     return (
-        <section className="px-4 pb-5 pt-3 md:pt-7 lg:px-10">
-            <video
-                autoPlay
-                muted
-                playsInline
-                loop
-                className="pointer-events-none hidden h-auto max-h-[760px] w-full select-none rounded-2xl bg-white object-cover md:block"
-            >
-                <source
-                    src={_PATH_SOURCES + state.website.video}
-                    type="video/mp4"
-                    className=""
-                />
-            </video>
-
-            <div className="relative h-auto min-h-[450px] w-full overflow-hidden rounded-2xl bg-white object-cover md:hidden">
-                <Button.White
+        <section className="">
+            <div className="relative w-full overflow-hidden object-cover">
+                {/* <Button.White
                     onClick={() => setOpen(true)}
                     className="absolute bottom-2 left-1/2 z-[2] -translate-x-1/2 border-black text-xs"
                 >
                     {i18n.language == "en" ? "PLAY VIDEO" : "VER VIDEO"}
-                </Button.White>
+                </Button.White> */}
 
                 <Gallery />
             </div>

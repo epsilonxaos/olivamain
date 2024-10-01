@@ -1,51 +1,41 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import FadeInUpDiv from "../components/FadeInUp";
 import Bienvenida from "../components/Inicio/Bienvenida";
-import Contacto from "../components/Inicio/Contacto";
-import Instagram from "../components/Inicio/Instagram";
+import GaleriaPrincipal from "../components/Inicio/GaleriaPrincipal";
 import Sucursales from "../components/Inicio/Sucursales";
-import Video from "../components/Inicio/Video";
 import AppContext from "../Context/AppContext";
 import { _PATH_SOURCES } from "../utils/const";
 
+import IlustPastas from "../../../img/home/ilust2.png";
+
 const Inicio = () => {
     const { state } = useContext(AppContext);
-
-    console.log(state);
-
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "/js/panel/instafeed.js";
-        script.async = true;
-
-        script.onload = () => {
-            var feed = new window.Instafeed({
-                accessToken:
-                    "IGQWRNbnFTVFJZAZAUdHT0J1a2VJZAm4zb3VtbFRueWkwanpPYUdDQ1M5ajcxWTJGM2NVMExtWGRqVjdOVEg2dGpHaGJjWVU4alQ2Q1hUcDhvb1ZAJRmc1RXZADWU1UX0VhS0lDbHhKdWZAUbkhFdTNhOV9USXVwLTVfcGMZD",
-            });
-            feed.run();
-        };
-
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
 
     return (
         <div className="text-black">
             <div className="mx-auto max-w-[1600px]">
                 <FadeInUpDiv>
-                    <Video />
+                    <GaleriaPrincipal />
                 </FadeInUpDiv>
+
                 <Bienvenida />
             </div>
+
             <hr className="border-black" />
+
             <div className="mx-auto max-w-[1600px] ">
                 <Sucursales />
             </div>
-            <hr className="border-black" />
+
+            <div className="relative z-[1]">
+                <div className="absolute top-1/2 -z-10 w-full translate-y-[-50%] border-t border-black" />
+                <img
+                    className="mx-auto w-[70%] max-w-[600px]"
+                    src={IlustPastas}
+                    alt="Ilustraciond de pastas"
+                />
+            </div>
+
             <div className="mx-auto max-w-[1600px] ">
                 {state.website.img_promo_movil && (
                     <img
@@ -61,12 +51,6 @@ const Inicio = () => {
                         alt=""
                     />
                 )}
-
-                <Instagram />
-            </div>
-            <hr className="border-black md:hidden" />
-            <div className="mx-auto max-w-[1600px] ">
-                <Contacto />
             </div>
         </div>
     );

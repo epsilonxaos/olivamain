@@ -17,16 +17,27 @@ export default function SucursalCard({
 }) {
     const { t } = useTranslation();
 
+    console.log({
+        title,
+        cover,
+        slug,
+        menu,
+        delivery,
+        reservation,
+        location,
+        delay,
+    });
+
     return (
         <div className="mb-14 w-full lg:mb-0 lg:w-1/3 lg:px-2">
             <FadeInUpDiv
                 className={
-                    "mx-auto w-full bg-white shadow-sm transition-all sm:max-w-[430px] md:shadow-none lg:w-auto 2xl:max-w-[475px] pointerFine:grayscale pointerFine:hover:grayscale-0"
+                    "mx-auto w-full shadow-sm transition-all sm:max-w-[430px] md:shadow-none lg:w-auto 2xl:max-w-[475px]"
                 }
                 delay={delay}
             >
                 <header className="py-2 md:py-4">
-                    <Text.Subtitle>{title}</Text.Subtitle>
+                    <Text>{title}</Text>
                 </header>
 
                 <main>
@@ -41,55 +52,45 @@ export default function SucursalCard({
                     </figure>
                 </main>
 
-                <footer className="mx-auto grid grid-cols-4 justify-center gap-1 px-3 py-5 sm:max-w-none sm:justify-center sm:gap-2 lg:grid-cols-2 xl:grid-cols-4">
+                <footer className="mx-auto grid grid-cols-4 justify-center gap-1 py-5 sm:max-w-none sm:justify-center sm:gap-2 lg:grid-cols-2 xl:grid-cols-4">
                     {menu && (
-                        <Button.Black
-                            isLink={true}
-                            isLinkExternal={true}
+                        <Button.Url
                             url={_PATH_SOURCES + menu}
                             className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.menu")}
-                        </Button.Black>
+                        </Button.Url>
                     )}
                     {delivery && (
-                        <Button.Black
-                            isLink={true}
-                            isLinkExternal={true}
+                        <Button.Url
                             url={delivery}
                             className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.delivery")}
-                        </Button.Black>
+                        </Button.Url>
                     )}
                     {reservation && (
-                        <Button.Black
-                            isLink={true}
-                            isLinkExternal={true}
+                        <Button.Url
                             url={reservation}
                             className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.reserva")}
-                        </Button.Black>
+                        </Button.Url>
                     )}
                     {location && (
-                        <Button.Black
-                            isLink={true}
-                            isLinkExternal={true}
+                        <Button.Url
                             url={location}
                             className="col-span-1 mb-2 px-0 py-2.5 text-[10px] sm:mb-0 md:text-xs"
                         >
                             {t("sucursal.btn.ubicacion")}
-                        </Button.Black>
+                        </Button.Url>
                     )}
-                    <Button.Black
-                        isLink={true}
-                        isLinkExternal={false}
+                    <Button.To
                         url={"sucursal/" + slug}
                         className="col-span-4 px-0 py-2.5 text-center text-[10px] md:text-xs lg:col-span-2 xl:col-span-4"
                     >
                         {t("sucursal.btn.conoceMas")}
-                    </Button.Black>
+                    </Button.To>
                 </footer>
             </FadeInUpDiv>
         </div>

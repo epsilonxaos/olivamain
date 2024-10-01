@@ -11,44 +11,60 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import axios from "axios";
 
+import sello from "../../../img/bolsa/ilustracion.png";
+
 export default function BolsaTrabajo() {
     const { state } = useContext(AppContext);
     const { i18n } = useTranslation();
 
     return (
-        <section className="mx-auto px-7 py-10 text-white md:container lg:container xl:container lg:px-4 lg:py-20">
-            <div className="flex flex-row flex-wrap">
-                <figure className="mb-12 w-full overflow-hidden rounded-3xl lg:mb-0 lg:w-1/2">
-                    <img
-                        src={_PATH_SOURCES + state.website.bolsa_s1_cover}
-                        alt="bolsa de trabajo"
-                        className="size-full min-h-[400px] object-cover object-center md:min-h-[550px] lg:min-h-[730px]"
-                    />
-                </figure>
-                <div className="w-full lg:w-1/2 lg:px-7">
-                    <FadeInUpDiv>
+        <>
+            <section className="mx-auto mx-auto max-w-[1600px] pb-10 lg:pb-0">
+                <div className="flex flex-row flex-wrap">
+                    <figure className="mb-12 w-full overflow-hidden lg:mb-0 lg:w-1/2">
                         <img
-                            src="/img/sello.svg"
-                            alt="Sello"
-                            className="mx-auto mb-10 size-[127px] invert lg:size-[140px]"
+                            src={_PATH_SOURCES + state.website.bolsa_s1_cover}
+                            alt="bolsa de trabajo"
+                            className="size-full min-h-[400px] object-cover object-center md:min-h-[550px] lg:min-h-[730px]"
                         />
+                    </figure>
+                    <div className="w-full md:py-10 lg:w-1/2 lg:px-7 lg:py-20">
+                        <div className="mx-auto max-w-[450px]">
+                            <FadeInUpDiv>
+                                <img
+                                    src={sello}
+                                    alt="Sello"
+                                    className="mx-auto mb-10 size-[127px] lg:size-[140px]"
+                                />
 
-                        <Text.Title className={"mb-5"} parseHtml={true}>
-                            {state.website[i18n.language].bolsa_s1_title}
-                        </Text.Title>
-                        <Text className={"mb-10 text-center"} parseHtml={true}>
-                            {state.website[i18n.language].bolsa_s1_text}
-                        </Text>
+                                <Text.Title className={"mb-5"} parseHtml={true}>
+                                    {
+                                        state.website[i18n.language]
+                                            .bolsa_s1_title
+                                    }
+                                </Text.Title>
+                                <Text
+                                    className={"mb-10 text-center"}
+                                    parseHtml={true}
+                                >
+                                    {state.website[i18n.language].bolsa_s1_text}
+                                </Text>
 
-                        <FormBolsa />
+                                <FormBolsa />
 
-                        <Text className={"text-center underline"}>
-                            rh@olivamerida.com
-                        </Text>
-                    </FadeInUpDiv>
+                                <a href="mailto:rh@olivamerida.com">
+                                    <Text className={"text-center underline"}>
+                                        rh@olivamerida.com
+                                    </Text>
+                                </a>
+                            </FadeInUpDiv>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <hr className="border-black" />
+        </>
     );
 }
 
@@ -134,7 +150,7 @@ const FormBolsa = () => {
                 validateErrorMessage={errors.mensaje?.message}
             />
             <div className="text-center">
-                <Button.White type="submit">{t("form.enviar")}</Button.White>
+                <Button type="submit">{t("form.enviar")}</Button>
             </div>
         </form>
     );

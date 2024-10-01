@@ -8,7 +8,7 @@ const Text = ({ children, className, parseHtml = false }) => {
         return (
             <div
                 className={twMerge(
-                    "font-intervogueReg text-sm leading-6 text-inherit md:text-base",
+                    "font-chassiS text-sm tracking-[0.7px] text-inherit md:text-base",
                     className,
                 )}
             >
@@ -17,28 +17,9 @@ const Text = ({ children, className, parseHtml = false }) => {
         );
 
     return (
-        <p
-            className={twMerge(
-                "font-intervogueReg text-sm leading-6 text-inherit md:text-base",
-                className,
-            )}
-        >
+        <p className={twMerge(" text-sm text-inherit md:text-base", className)}>
             {children}
         </p>
-    );
-};
-
-const Main = ({ children, className, parseHtml = false }) => {
-    if (parseHtml && !children) return;
-    return (
-        <h1
-            className={twMerge(
-                "text-center font-olivaSans text-2xl uppercase leading-7 tracking-[4px] text-inherit lg:text-4xl",
-                className,
-            )}
-        >
-            {parseHtml ? parse(children) : children}
-        </h1>
     );
 };
 
@@ -47,7 +28,7 @@ const Title = ({ children, className, parseHtml = false }) => {
     return (
         <h2
             className={twMerge(
-                "text-center font-olivaSans text-xl uppercase leading-7 tracking-[4px] text-inherit xl:text-4xl xl:tracking-[7px]",
+                "font-apercuPro text-center text-base uppercase text-inherit md:text-xl md:tracking-[6px]",
                 className,
             )}
         >
@@ -56,22 +37,6 @@ const Title = ({ children, className, parseHtml = false }) => {
     );
 };
 
-const Subtitle = ({ children, className, parseHtml = false }) => {
-    if (parseHtml && !children) return;
-    return (
-        <h3
-            className={twMerge(
-                "text-center font-olivaSans uppercase leading-6 tracking-[1.6px] text-inherit xl:text-xl",
-                className,
-            )}
-        >
-            {parseHtml ? parse(children) : children}
-        </h3>
-    );
-};
-
-Text.Main = Main;
 Text.Title = Title;
-Text.Subtitle = Subtitle;
 
 export default Text;
