@@ -44,7 +44,7 @@ class GalleryController extends Controller
 	{
 		$input = $request->all();
 		$rules = [
-			'file' => 'mimes:jpeg,jpg,png|max:2048'
+			'file' => 'mimes:jpeg,jpg,png,webp|max:1024'
 		];
 
 		$validation = Validator::make($input, $rules);
@@ -57,6 +57,7 @@ class GalleryController extends Controller
 		$cover = Helpers::addFileStorage($file, $this->directorio);
 		$add = new Gallery();
 		$add->cover = $cover;
+		$add->section = $request->section;
 		$add->save();
 
 		return Response::json('success', 200);

@@ -13,5 +13,6 @@ class Gallery extends Model
 	protected $table = 'galleries';
 	protected $fillables = [
 		'cover',
+		"section"
 	];
 }
