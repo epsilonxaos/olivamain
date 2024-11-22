@@ -18,7 +18,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                grisClaro: "#FCF9F4",
+                grisClaro: "#fcf9f4",
+                crema: "#e6d6b5",
             },
             screens: {
                 pointerFine: {

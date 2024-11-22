@@ -1,12 +1,4 @@
 @font-face {
-    font-family: 'Chassi S';
-    src: url('ChassiS-Italic.woff2') format('woff2');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'Apercu Pro';
     src: url('ApercuPro-Italic.woff2') format('woff2');
     font-weight: normal;
@@ -15,16 +7,24 @@
 }
 
 @font-face {
-    font-family: 'Chassi S';
-    src: url('ChassiS-Regular.woff2') format('woff2');
+    font-family: 'Apercu Pro';
+    src: url('ApercuPro-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Apercu Pro';
-    src: url('ApercuPro-Regular.woff2') format('woff2');
+    font-family: 'Chassi S';
+    src: url('ChassiS-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Chassi S';
+    src: url('ChassiS-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "../ScrollToTop";
 
 const PageTransition = ({ children }) => {
     const slideIn = {

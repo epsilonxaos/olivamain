@@ -1,34 +1,18 @@
-// eslint-disable-next-line tailwindcss/no-custom-classname
-
-import Footer from "./modules/Footer";
-import Header from "./modules/Header";
-import Inicio from "./pages/Inicio";
-
-import "../../fonts/fonts.css";
-import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import PageTransition from "./components/PageTransition";
-import BolsaTrabajo from "./pages/BolsaTrabajo";
 import { useEffect, useReducer } from "react";
-import { lightPages } from "./utils/const";
-import Eventos from "./pages/Eventos";
-import SucursalDetalle from "./pages/SucursalDetalle";
-import axios from "axios";
-import AppContext from "./Context/AppContext";
+import { Route, Routes, useLocation } from "react-router-dom";
 
-import "../../css/menu.css";
-
-import "./lang/i18n";
-import { MessageConsent } from "./components/MessageConsent";
-import { Politicas } from "./pages/Politicas";
 import { Toaster } from "sonner";
-import { PoliticasReservacion } from "./pages/PoliticasReservacion";
+import "./lang/i18n";
+import Index from "./pages/home/Index";
+import AppContext from "./contexts/AppContext";
+import Header from "./modules/Header";
+import PageTransition from "./components/animations/PageTransition";
+import Footer from "./modules/Footer";
+import { MessageConsent } from "./components/MessageConsent";
 
 const initialArgs = {
     loading: true,
-    website: null,
-    sucursals: [],
-    galeria: [],
 };
 const reducer = (prev, next) => ({ ...prev, ...next });
 
@@ -37,28 +21,29 @@ export default function Web() {
     const [state, dispatch] = useReducer(reducer, initialArgs);
 
     useEffect(() => {
-        async function fetchData() {
-            const response = await axios.get(
-                import.meta.env.VITE_APP_URL + "api/initial",
-            );
+        // async function fetchData() {
+        //     const response = await axios.get(
+        //         import.meta.env.VITE_APP_URL + "api/initial",
+        //     );
 
-            const { website, sucursals, galeria } = response.data;
-            website.translations.forEach((translation) => {
-                let locale = translation.locale;
-                website[locale] = translation;
-            });
-            dispatch({ website, sucursals, galeria });
+        //     const { website, sucursals, galeria } = response.data;
+        //     website.translations.forEach((translation) => {
+        //         let locale = translation.locale;
+        //         website[locale] = translation;
+        //     });
+        //     dispatch({ website, sucursals, galeria });
 
-            setTimeout(() => {
-                dispatch({ loading: false });
-            }, 1500);
-        }
-        fetchData();
+        // }
+        // fetchData();
+
+        setTimeout(() => {
+            dispatch({ loading: false });
+        }, 1500);
     }, []);
 
     if (state.loading)
         return (
-            <div className="bg-grisClaro flex h-screen w-full items-center justify-center text-black">
+            <div className="flex h-screen w-full items-center justify-center bg-grisClaro text-black">
                 <span className="spinner"></span>
             </div>
         );
@@ -78,51 +63,19 @@ export default function Web() {
                             path="/"
                             element={
                                 <PageTransition>
-                                    <Inicio />
+                                    <Index />
                                 </PageTransition>
                             }
                         />
 
-                        <Route
+                        {/* <Route
                             path="/bolsa-de-trabajo"
                             element={
                                 <PageTransition>
                                     <BolsaTrabajo />
                                 </PageTransition>
                             }
-                        />
-                        <Route
-                            path="/politicas-privacidad"
-                            element={
-                                <PageTransition>
-                                    <Politicas />
-                                </PageTransition>
-                            }
-                        />
-                        <Route
-                            path="/politicas-reservacion"
-                            element={
-                                <PageTransition>
-                                    <PoliticasReservacion />
-                                </PageTransition>
-                            }
-                        />
-                        <Route
-                            path="/eventos"
-                            element={
-                                <PageTransition>
-                                    <Eventos />
-                                </PageTransition>
-                            }
-                        />
-                        <Route
-                            path="/sucursal/:slug"
-                            element={
-                                <PageTransition>
-                                    <SucursalDetalle />
-                                </PageTransition>
-                            }
-                        />
+                        /> */}
                     </Routes>
                 </AnimatePresence>
             </main>

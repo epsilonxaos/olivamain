@@ -53,7 +53,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/react/App.jsx'])
 </head>
 
-<body class="antialiased min-h-svh">
+<body class="antialiased min-h-svh bg-grisClaro">
     <div id="root" class="min-h-svh"></div>
 </body>
 
