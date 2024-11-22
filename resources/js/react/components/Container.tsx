@@ -1,17 +1,14 @@
-import React from "react";
-import { cn } from "../utils/cn";
+import React from 'react'
+
+import { cn } from '../utils/cn'
 
 type ContainerProps = {
-    children: React.ReactNode;
-    className?: string;
-};
+	children: React.ReactNode
+	className?: string
+}
 
 const Container = ({ children, className }: ContainerProps) => {
-    return (
-        <div className={cn("mx-auto max-w-[1450px] px-12 xl:px-24", className)}>
-            {children}
-        </div>
-    );
-};
+	return <div className={cn('mx-auto max-w-[1450px] px-12 xl:px-24', className)}>{children}</div>
+}
 
-export default Container;
+export default Container
