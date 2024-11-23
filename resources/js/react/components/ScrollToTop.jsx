@@ -1,23 +1,21 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const ScrollToTop = () => {
-    const location = useLocation();
+	const location = useLocation()
 
-    useEffect(() => {
-        const element = location.hash
-            ? document.getElementById(location.hash.replace("#", ""))
-            : null;
+	useEffect(() => {
+		const element = location.hash ? document.getElementById(location.hash.replace('#', '')) : null
 
-        setTimeout(() => {
-            window.scrollTo({
-                behavior: element ? "smooth" : "auto",
-                top: element ? element.offsetTop - 120 : 0,
-            });
-        }, 100);
-    }, [location]);
+		setTimeout(() => {
+			window.scrollTo({
+				behavior: element ? 'smooth' : 'auto',
+				top: element ? element.offsetTop - 120 : 0,
+			})
+		}, 100)
+	}, [location])
 
-    return null;
-};
+	return null
+}
 
-export default ScrollToTop;
+export default ScrollToTop
