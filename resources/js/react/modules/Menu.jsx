@@ -1,27 +1,32 @@
-import { FaChevronDown } from "react-icons/fa6";
-import { HeaderContext } from "../contexts/HeaderContext";
-import { useContext } from "react";
+import { useContext } from 'react'
+import { FaChevronDown } from 'react-icons/fa6'
+
+import { HeaderContext } from '../contexts/HeaderContext'
+import useResponsiveMediaQuery from '../hooks/useResponsiveMediaQuery'
+import BranchMenu from './BranchMenu'
 
 const Menu = () => {
-    const { openBranchMenu, setOpenBranchMenu } = useContext(HeaderContext);
+	const { openBranchMenu, setOpenBranchMenu } = useContext(HeaderContext)
+	const { isMobile, isTablet } = useResponsiveMediaQuery()
 
-    return (
-        <nav className="font-apercuPro">
-            <ul className="flex items-center justify-center gap-8">
-                <li>
-                    <button
-                        onClick={() => setOpenBranchMenu(!openBranchMenu)}
-                        type="button"
-                        className="flex items-center"
-                    >
-                        SUCURSALES <FaChevronDown className="ml-2" />
-                    </button>
-                </li>
-                <li>GRUPOS Y EVENTOS</li>
-                <li>CONTACTO</li>
-            </ul>
-        </nav>
-    );
-};
+	return (
+		<nav className='font-apercuPro'>
+			<ul className='flex flex-col items-center justify-center gap-[45px] lg:flex-row lg:gap-4'>
+				<li>
+					<button
+						onClick={() => setOpenBranchMenu(!openBranchMenu)}
+						type='button'
+						className='mx-auto flex items-center'>
+						SUCURSALES <FaChevronDown className='ml-2' />
+					</button>
 
-export default Menu;
+					{(isMobile || isTablet) && openBranchMenu && <BranchMenu />}
+				</li>
+				<li>GRUPOS Y EVENTOS</li>
+				<li>CONTACTO</li>
+			</ul>
+		</nav>
+	)
+}
+
+export default Menu
