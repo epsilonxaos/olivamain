@@ -3,17 +3,21 @@
 	"compilerOptions": {
 		"checkJs": true,
 		"jsx": "preserve",
-		"module": "ES2022",
-		"paths": {
-			"@/*": ["./resources/js/react"],
-			"@css/*": ["./resources/css"],
-			"@img/*": ["./resources/img"]
-		}
+		"module": "ES6"
 	},
 	"exclude": ["node_modules", "**/node_modules/*"],
 	"include": [
-		"resources/**/*.{ts|jsx|js|tsx}",
-		"resources/**/**/*.{ts|jsx|js|tsx}",
-		"resources/**/**/**/.{ts|jsx|js|tsx}"
+		"resources/js/**/*.ts",
+		"resources/js/**/**/*.ts",
+		"resources/js/**/**/**/.ts",
+		"resources/js/**/*.jsx",
+		"resources/js/**/**/*.jsx",
+		"resources/js/**/**/**/*.jsx",
+		"resources/js/**/*.tsx",
+		"resources/js/**/**/*.tsx",
+		"resources/js/**/**/**/*.tsx",
+		"resources/js/**/*.js",
+		"resources/js/**/**/*.js",
+		"resources/js/**/**/**/*.js"
 	]
 }

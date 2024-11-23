@@ -16,26 +16,11 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"outDir": "lib",
-		"paths": {
-			"@/*": ["./resources/js/react"],
-			"@css/*": ["./resources/css"],
-			"@img/*": ["./resources/img"]
-		},
 		"removeComments": true,
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"sourceRoot": "/resources",
 		"strictNullChecks": true,
-		"target": "ES2022",
 		"types": ["vite/client", "node"]
-	},
-	"exclude": ["node_modules", "**/node_modules/*"],
-	"include": [
-		"./resources/**/*.ts",
-		"./resources/**/**/*.ts",
-		"./resources/**/**/**/.ts",
-		"./resources/**/*.tsx",
-		"./resources/**/**/*.tsx",
-		"./resources/**/**/**/.tsx"
-	]
+	}
 }
