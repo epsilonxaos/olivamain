@@ -11,7 +11,7 @@ const Menu = () => {
 
 	return (
 		<nav className='font-apercuPro'>
-			<ul className='flex flex-col items-center justify-center gap-[45px] lg:flex-row lg:gap-4'>
+			<ul className='flex flex-col items-center justify-center gap-[45px] lg:flex-row lg:gap-4 xl:gap-8'>
 				<li>
 					<button
 						onClick={() => setOpenBranchMenu(!openBranchMenu)}

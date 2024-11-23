@@ -1,8 +1,14 @@
+import About from './About'
+import Branches from './Branches'
+import SwipeGallery from './SwipeGallery'
+
 const Index = () => {
 	return (
-		<div>
-			<h1>Home Page</h1>
-		</div>
+		<>
+			<SwipeGallery />
+			<About />
+			<Branches />
+		</>
 	)
 }
 

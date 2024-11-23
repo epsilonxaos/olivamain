@@ -1,16 +1,15 @@
-import { createRoot } from "react-dom/client";
+import 'swiper/css'
 
-import Web from "./Web";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
-import "../../fonts/index.css";
-import "../../css/menu.css";
+import '../../css/menu.css'
+import '../../fonts/index.css'
+import Web from './Web'
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById('root'))
 root.render(
-    <BrowserRouter>
-        <Routes>
-            <Route path="/*" element={<Web />} />
-        </Routes>
-    </BrowserRouter>,
-);
+	<BrowserRouter>
+		<Web />
+	</BrowserRouter>
+)
