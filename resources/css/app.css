@@ -57,3 +57,46 @@ html {
 .secondary-slider .swiper {
 	padding: 0 15% !important;
 }
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+
+.gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+	@apply md:min-h-[250px] lg:min-h-[350px];
+}
+
+.gallery img:nth-child(1) {
+	grid-column: span 2; /* Ocupa una columna */
+	grid-row: span 2; /* Ocupa dos filas */
+}
+
+@media screen and (width < 768px) {
+	.gallery {
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 100px;
+	}
+
+	.gallery img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+		@apply md:min-h-[250px] lg:min-h-[350px];
+	}
+
+	.gallery img:nth-child(1) {
+		grid-column: span 3; /* Ocupa una columna */
+		grid-row: span 3; /* Ocupa dos filas */
+	}
+
+	.gallery img:last-child {
+		display: none;
+	}
+}
