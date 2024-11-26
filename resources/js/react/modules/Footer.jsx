@@ -16,7 +16,7 @@ const Footer = () => {
 
 	return (
 		<footer className={cn('w-full', theme === 'cream' && 'bg-grisClaro', theme === 'white' && 'bg-white')}>
-			<Container>
+			<Container className='p-0'>
 				<div className='border-b border-b-black py-12'>
 					<img
 						className='mx-auto w-56'

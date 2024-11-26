@@ -15,3 +15,9 @@ export type TThemeContext = {
 	theme: Theme
 	setTheme: (value: Theme) => void
 }
+
+export type TBannerSection = {
+	bgImg: string
+	children?: ReactNode
+	className?: TClassName
+}

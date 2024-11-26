@@ -25,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/artisan', [ComandosController::class, 'executeComands']);
 
 Route::view('/', 'layouts.app')->where('path', '.*');
+Route::view('/grupos-y-eventos', 'layouts.app')->where('path', '.*');
 Route::view('/sucursal/{slug}', 'layouts.app')->where('path', '.*');
 
 Route::view('/bolsa-de-trabajo', 'layouts.app')->where('path', '.*');
-Route::view('/eventos', 'layouts.app')->where('path', '.*');
 Route::view('/politicas-privacidad', 'layouts.app')->where('path', '.*');
 Route::view('/politicas-reservacion', 'layouts.app')->where('path', '.*');
 

@@ -1,5 +1,6 @@
 import type { TBannerDetails } from '../../types/branch'
 
+import BannerSection from '../../components/BannerSection'
 import Container from '../../components/Container'
 import Button from '../../components/buttons/Button'
 import useResponsiveMediaQuery from '../../hooks/useResponsiveMediaQuery'
@@ -8,9 +9,7 @@ const Banner = ({ bgImg }: TBannerDetails) => {
 	const { isMobile } = useResponsiveMediaQuery()
 
 	return (
-		<Container
-			className='relative flex min-h-[315px] w-full max-w-none items-center justify-center bg-cover bg-center md:min-h-[460px]'
-			style={{ backgroundImage: `url(${bgImg})` }}>
+		<BannerSection bgImg={bgImg}>
 			{!isMobile && (
 				<>
 					<div className='absolute left-0 top-0 size-full bg-black bg-opacity-30' />
@@ -27,7 +26,7 @@ const Banner = ({ bgImg }: TBannerDetails) => {
 					</ul>
 				</>
 			)}
-		</Container>
+		</BannerSection>
 	)
 }
 

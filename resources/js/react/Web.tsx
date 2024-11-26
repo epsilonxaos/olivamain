@@ -14,6 +14,7 @@ import './lang/i18n'
 import Footer from './modules/Footer'
 import Header from './modules/Header'
 import BranchDetail from './pages/branchDetail/Index'
+import Events from './pages/events/Index'
 import Index from './pages/home/Index'
 
 const initialArgs = {
@@ -76,10 +77,11 @@ export default function Web() {
 								}
 							/>
 							<Route
-								path='*'
+								index
+								path='/grupos-y-eventos'
 								element={
 									<PageTransition>
-										<h1>404</h1>
+										<Events />
 									</PageTransition>
 								}
 							/>
@@ -88,6 +90,14 @@ export default function Web() {
 								element={
 									<PageTransition>
 										<BranchDetail />
+									</PageTransition>
+								}
+							/>
+							<Route
+								path='*'
+								element={
+									<PageTransition>
+										<h1>404</h1>
 									</PageTransition>
 								}
 							/>
