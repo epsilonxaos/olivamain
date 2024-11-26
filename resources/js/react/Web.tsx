@@ -14,6 +14,7 @@ import './lang/i18n'
 import Footer from './modules/Footer'
 import Header from './modules/Header'
 import BranchDetail from './pages/branchDetail/Index'
+import FormEvents from './pages/events/Form'
 import Events from './pages/events/Index'
 import Index from './pages/home/Index'
 
@@ -82,6 +83,15 @@ export default function Web() {
 								element={
 									<PageTransition>
 										<Events />
+									</PageTransition>
+								}
+							/>
+							<Route
+								index
+								path='/grupos-y-eventos/formulario'
+								element={
+									<PageTransition>
+										<FormEvents />
 									</PageTransition>
 								}
 							/>
