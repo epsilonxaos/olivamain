@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { FaChevronDown } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 
 import { HeaderContext } from '../contexts/HeaderContext'
 import useResponsiveMediaQuery from '../hooks/useResponsiveMediaQuery'
@@ -22,7 +23,9 @@ const Menu = () => {
 
 					{(isMobile || isTablet) && openBranchMenu && <BranchMenu />}
 				</li>
-				<li>GRUPOS Y EVENTOS</li>
+				<li>
+					<Link to={'grupos-y-eventos'}>GRUPOS Y EVENTOS</Link>
+				</li>
 				<li>CONTACTO</li>
 			</ul>
 		</nav>

@@ -78,7 +78,6 @@ export default function Web() {
 								}
 							/>
 							<Route
-								index
 								path='/grupos-y-eventos'
 								element={
 									<PageTransition>
@@ -87,7 +86,6 @@ export default function Web() {
 								}
 							/>
 							<Route
-								index
 								path='/grupos-y-eventos/formulario'
 								element={
 									<PageTransition>

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 import { HeaderContext } from '../contexts/HeaderContext'
 
@@ -11,7 +12,7 @@ const an = {
 }
 
 const BranchMenu = () => {
-	const { openBranchMenu } = useContext(HeaderContext)
+	const { openBranchMenu, setOpenBranchMenu } = useContext(HeaderContext)
 
 	return (
 		<AnimatePresence mode='wait'>
@@ -22,7 +23,11 @@ const BranchMenu = () => {
 					exit={an.exit}
 					className='pt-1'>
 					<ul className='grid grid-cols-3 gap-5 pt-[45px] text-center lg:grid-cols-1 lg:gap-2 lg:pt-0 lg:text-left'>
-						<li className='col-span-1 uppercase'>Enoteca</li>
+						<li
+							className='col-span-1 uppercase'
+							onClick={() => setOpenBranchMenu(false)}>
+							<Link to={'sucursal/enoteca'}>Enoteca</Link>
+						</li>
 						<li className='col-span-1 uppercase'>Patio</li>
 						<li className='col-span-1 uppercase'>Al mare</li>
 					</ul>

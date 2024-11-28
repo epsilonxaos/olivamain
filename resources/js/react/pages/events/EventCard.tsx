@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import ImgPlaceholder from '../../../../img/sucursal-banner-placeholder.png'
 import BorderCard from '../../components/BorderCard'
 import Text from '../../components/Text'
@@ -15,7 +17,9 @@ const EventCard = () => {
 						seleccionada personalmente por el Chef para complementar el menú.
 					</Text>
 
-					<Button className='w-full bg-black text-white'>Cotizar</Button>
+					<Link to={'/grupos-y-eventos/formulario'}>
+						<Button className='w-full bg-black text-white'>Cotizar</Button>
+					</Link>
 				</div>
 			</BorderCard>
 			<BorderCard img={ImgPlaceholder}>
