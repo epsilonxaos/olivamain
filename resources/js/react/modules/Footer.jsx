@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
@@ -6,16 +5,12 @@ import ImgGrupoOliva from '../../../img/grupo-oliva.svg'
 import ImgIsotipo from '../../../img/isotipo.svg'
 import Container from '../components/Container'
 import Text from '../components/Text'
-import { ThemeContext } from '../contexts/ThemeContext'
-import { cn } from '../utils/cn'
 
 const Footer = () => {
 	const { t } = useTranslation()
 
-	const { theme } = useContext(ThemeContext)
-
 	return (
-		<footer className={cn('w-full', theme === 'cream' && 'bg-grisClaro', theme === 'white' && 'bg-white')}>
+		<footer className='w-full bg-white'>
 			<Container className='p-0'>
 				<div className='border-b border-b-black py-12'>
 					<img

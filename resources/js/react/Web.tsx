@@ -18,6 +18,7 @@ import Contact from './pages/contact/Index'
 import FormEvents from './pages/events/Form'
 import Events from './pages/events/Index'
 import Index from './pages/home/Index'
+import Reservation from './pages/reservation/Index'
 
 const initialArgs = {
 	loading: true,
@@ -99,6 +100,14 @@ export default function Web() {
 								element={
 									<PageTransition>
 										<Contact />
+									</PageTransition>
+								}
+							/>
+							<Route
+								path='/reservacion'
+								element={
+									<PageTransition>
+										<Reservation />
 									</PageTransition>
 								}
 							/>
