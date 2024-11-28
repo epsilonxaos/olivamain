@@ -1,9 +1,9 @@
 import ImgCopa from '../../../../img/copa-form-grupos.png'
 import Container from '../../components/Container'
+import SectionUi from '../../components/SectionUI'
 import Text from '../../components/Text'
 import Button from '../../components/buttons/Button'
 import Input from '../../components/forms/Input'
-import SectionUi from './SectionUI'
 
 const Form = () => {
 	return (

@@ -1,6 +1,6 @@
+import SectionUi from '../../components/SectionUI'
 import Text from '../../components/Text'
 import EventCard from './EventCard'
-import SectionUi from './SectionUI'
 
 const Index = () => {
 	return (

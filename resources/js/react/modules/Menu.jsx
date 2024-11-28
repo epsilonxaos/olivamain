@@ -26,7 +26,9 @@ const Menu = () => {
 				<li>
 					<Link to={'grupos-y-eventos'}>GRUPOS Y EVENTOS</Link>
 				</li>
-				<li>CONTACTO</li>
+				<li>
+					<Link to={'contacto'}>CONTACTO</Link>
+				</li>
 			</ul>
 		</nav>
 	)

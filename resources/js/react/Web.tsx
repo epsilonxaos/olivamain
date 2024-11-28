@@ -14,6 +14,7 @@ import './lang/i18n'
 import Footer from './modules/Footer'
 import Header from './modules/Header'
 import BranchDetail from './pages/branchDetail/Index'
+import Contact from './pages/contact/Index'
 import FormEvents from './pages/events/Form'
 import Events from './pages/events/Index'
 import Index from './pages/home/Index'
@@ -90,6 +91,14 @@ export default function Web() {
 								element={
 									<PageTransition>
 										<FormEvents />
+									</PageTransition>
+								}
+							/>
+							<Route
+								path='/contacto'
+								element={
+									<PageTransition>
+										<Contact />
 									</PageTransition>
 								}
 							/>

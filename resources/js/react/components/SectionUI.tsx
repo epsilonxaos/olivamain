@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 
-import ImgBanner from '../../../../img/grupos-eventos-banner.png'
-import Container from '../../components/Container'
-import { cn } from '../../utils/cn'
-import Banner from './Banner'
+import ImgBanner from '../../../img/grupos-eventos-banner.png'
+import Banner from '../pages/events/Banner'
+import { cn } from '../utils/cn'
+import Container from './Container'
 
 const SectionUi = ({ children, className }: { children: ReactNode; className?: string }) => {
 	return (
