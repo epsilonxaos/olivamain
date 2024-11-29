@@ -12,7 +12,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				grisClaro: '#fcf9f4',
+				grisClaro: '#FCF9F4',
 				crema2: '#F7F1E4',
 				crema: '#e6d6b5',
 			},

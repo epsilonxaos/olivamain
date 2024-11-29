@@ -13,6 +13,7 @@ import { ThemeContext } from './contexts/ThemeContext'
 import './lang/i18n'
 import Footer from './modules/Footer'
 import Header from './modules/Header'
+import BolsaTrabajo from './pages/bolsa/Index'
 import BranchDetail from './pages/branchDetail/Index'
 import Contact from './pages/contact/Index'
 import FormEvents from './pages/events/Form'
@@ -108,6 +109,14 @@ export default function Web() {
 								element={
 									<PageTransition>
 										<Reservation />
+									</PageTransition>
+								}
+							/>
+							<Route
+								path='/bolsa-de-trabajo'
+								element={
+									<PageTransition>
+										<BolsaTrabajo />
 									</PageTransition>
 								}
 							/>

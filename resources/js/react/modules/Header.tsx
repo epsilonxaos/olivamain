@@ -29,7 +29,7 @@ const Header = () => {
 
 	return (
 		<HeaderContext.Provider value={{ openBranchMenu, setOpenBranchMenu }}>
-			<motion.header className='relative z-30 border-b border-black py-7 font-apercuPro text-xs'>
+			<motion.header className='relative z-30 border-b border-black bg-white py-7 font-apercuPro text-xs'>
 				<Container className='transition-all'>
 					<div className='relative flex items-center justify-between'>
 						<div className='hidden lg:block'>
