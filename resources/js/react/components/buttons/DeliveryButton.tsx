@@ -1,14 +1,18 @@
+import { Link } from 'react-router-dom'
+
 import type { TClassName } from '../../types/main'
 
 import { cn } from '../../utils/cn'
 
 const DeliveryButton = ({ className }: { className?: TClassName }) => {
 	return (
-		<button
-			className={cn('font-apercuPro', className)}
-			type='button'>
-			DELIVERY
-		</button>
+		<Link to={'/delivery'}>
+			<button
+				className={cn('font-apercuPro', className)}
+				type='button'>
+				DELIVERY
+			</button>
+		</Link>
 	)
 }
 

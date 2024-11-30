@@ -31,6 +31,7 @@ Route::view('/sucursal/{slug}', 'layouts.app')->where('path', '.*');
 Route::view('/contacto', 'layouts.app')->where('path', '.*');
 Route::view('/reservacion', 'layouts.app')->where('path', '.*');
 Route::view('/bolsa-de-trabajo', 'layouts.app')->where('path', '.*');
+Route::view('/delivery', 'layouts.app')->where('path', '.*');
 
 Route::view('/politicas-privacidad', 'layouts.app')->where('path', '.*');
 Route::view('/politicas-reservacion', 'layouts.app')->where('path', '.*');

@@ -16,6 +16,7 @@ import Header from './modules/Header'
 import BolsaTrabajo from './pages/bolsa/Index'
 import BranchDetail from './pages/branchDetail/Index'
 import Contact from './pages/contact/Index'
+import Delivery from './pages/delivery/Index'
 import FormEvents from './pages/events/Form'
 import Events from './pages/events/Index'
 import Index from './pages/home/Index'
@@ -117,6 +118,14 @@ export default function Web() {
 								element={
 									<PageTransition>
 										<BolsaTrabajo />
+									</PageTransition>
+								}
+							/>
+							<Route
+								path='/delivery'
+								element={
+									<PageTransition>
+										<Delivery />
 									</PageTransition>
 								}
 							/>
