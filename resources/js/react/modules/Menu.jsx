@@ -7,7 +7,7 @@ import useResponsiveMediaQuery from '../hooks/useResponsiveMediaQuery'
 import BranchMenu from './BranchMenu'
 
 const Menu = () => {
-	const { openBranchMenu, setOpenBranchMenu } = useContext(HeaderContext)
+	const { openBranchMenu, setOpenBranchMenu, setOpenMenu } = useContext(HeaderContext)
 	const { isMobile, isTablet } = useResponsiveMediaQuery()
 
 	return (
@@ -24,10 +24,18 @@ const Menu = () => {
 					{(isMobile || isTablet) && openBranchMenu && <BranchMenu />}
 				</li>
 				<li>
-					<Link to={'grupos-y-eventos'}>GRUPOS Y EVENTOS</Link>
+					<Link
+						onClick={() => setOpenMenu(false)}
+						to={'grupos-y-eventos'}>
+						GRUPOS Y EVENTOS
+					</Link>
 				</li>
 				<li>
-					<Link to={'contacto'}>CONTACTO</Link>
+					<Link
+						onClick={() => setOpenMenu(false)}
+						to={'contacto'}>
+						CONTACTO
+					</Link>
 				</li>
 			</ul>
 		</nav>

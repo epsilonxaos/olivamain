@@ -52,7 +52,9 @@ const Footer = () => {
 					</div>
 					<div className='col-span-1'>
 						<Text.Title className='mb-5'>Bolsa de trabajo</Text.Title>
-						<Text className='mb-0.5 underline'>Formulario</Text>
+						<Text className='mb-0.5 underline'>
+							<Link to={'/bolsa-de-trabajo'}>Formulario</Link>
+						</Text>
 						<Text className='mb-0.5'>
 							<a href='mailto:hr@olivamerida.com'>hr@olivamerida.com</a>
 						</Text>
@@ -66,7 +68,9 @@ const Footer = () => {
 					</div>
 					<div className='col-span-1'>
 						<Text.Title className='mb-5'>Grupos y eventos</Text.Title>
-						<Text className='mb-0.5 underline'>Formulario</Text>
+						<Text className='mb-0.5 underline'>
+							<Link to={'/grupos-y-eventos/formulario'}>Formulario</Link>
+						</Text>
 						<Text className='mb-0.5'>
 							<a href='mailto:info@olivamerida.com'>info@olivamerida.com</a>
 						</Text>

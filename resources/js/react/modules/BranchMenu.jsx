@@ -12,7 +12,7 @@ const an = {
 }
 
 const BranchMenu = () => {
-	const { openBranchMenu, setOpenBranchMenu } = useContext(HeaderContext)
+	const { openBranchMenu, setOpenBranchMenu, setOpenMenu } = useContext(HeaderContext)
 
 	return (
 		<AnimatePresence mode='wait'>
@@ -25,11 +25,28 @@ const BranchMenu = () => {
 					<ul className='grid grid-cols-3 gap-5 pt-[45px] text-center lg:grid-cols-1 lg:gap-2 lg:pt-0 lg:text-left'>
 						<li
 							className='col-span-1 uppercase'
-							onClick={() => setOpenBranchMenu(false)}>
+							onClick={() => {
+								setOpenBranchMenu(false)
+								setOpenMenu(false)
+							}}>
 							<Link to={'sucursal/enoteca'}>Enoteca</Link>
 						</li>
-						<li className='col-span-1 uppercase'>Patio</li>
-						<li className='col-span-1 uppercase'>Al mare</li>
+						<li
+							className='col-span-1 uppercase'
+							onClick={() => {
+								setOpenBranchMenu(false)
+								setOpenMenu(false)
+							}}>
+							<Link to={'sucursal/enoteca'}>Patio</Link>
+						</li>
+						<li
+							className='col-span-1 uppercase'
+							onClick={() => {
+								setOpenBranchMenu(false)
+								setOpenMenu(false)
+							}}>
+							<Link to={'sucursal/enoteca'}>Al mare</Link>
+						</li>
 					</ul>
 				</motion.nav>
 			)}

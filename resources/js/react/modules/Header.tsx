@@ -28,7 +28,7 @@ const Header = () => {
 	}, [openMenu])
 
 	return (
-		<HeaderContext.Provider value={{ openBranchMenu, setOpenBranchMenu }}>
+		<HeaderContext.Provider value={{ openBranchMenu, setOpenBranchMenu, openMenu, setOpenMenu }}>
 			<motion.header className='relative z-30 border-b border-black bg-white py-7 font-apercuPro text-xs'>
 				<Container className='transition-all'>
 					<div className='relative flex items-center justify-between'>

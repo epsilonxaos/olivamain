@@ -4,7 +4,7 @@ import EventCard from './EventCard'
 
 const Index = () => {
 	return (
-		<div className='bg-crema2'>
+		<div className='bg-grisClaro'>
 			<SectionUi className='max-w-[1200px] px-0 xl:px-0'>
 				<header className='mx-auto max-w-[740px] px-8 pb-8 text-center md:pb-0 xl:px-24'>
 					<Text.Title className='mb-4'>¿En qué sucursal desea reservar?</Text.Title>
