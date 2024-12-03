@@ -2,37 +2,48 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Translatable;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sucursal extends Model
+class Sucursal extends Model implements TranslatableContract
 {
 	use HasFactory;
+	use Translatable;
+
+	public $translatedAttributes = [
+		'descripcion',
+		'horario',
+		'direccion',
+		'ubicacion',
+		'titulo_reservas',
+		'descripcion_reservas'
+	];
 
 	protected $primaryKey = 'id';
 	protected $table = 'sucursals';
 	protected $fillable = [
-		"title",
+		"sucursal",
 		"slug",
+		"logo",
+		"logo_2",
 		"cover",
-		"icon",
+		"video",
+		"cover_reservas",
+		"reserva_iframe",
+		"delivery",
 		"menu",
-		"croquisEs",
-		"croquisEn",
-		"address",
-		"phone",
-		"urlDelivery",
-		"urlReservation",
-		"urlLocation",
+		"reserva",
+		"maps",
+		"img_1",
+		"img_2",
+		"img_3",
+		"img_4",
+		"img_5",
 		"urlIn",
 		"urlFb",
-		"titleIn",
-		"horarioEs",
-		"horarioEn",
+		"phone",
 		"status",
-		'descEs',
-		'descEn',
-		'icon_movil',
-		'urlfacturacion'
 	];
 }

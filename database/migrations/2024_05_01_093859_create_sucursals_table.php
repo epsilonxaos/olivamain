@@ -12,27 +12,52 @@ return new class extends Migration
 	public function up(): void
 	{
 		Schema::create('sucursals', function (Blueprint $table) {
-			$table->id();
-			$table->string('title')->unique();
+			$table->increments('id');
+
+			$table->string('sucursal')->unique();
 			$table->string('slug');
 			$table->string('cover');
-			$table->string('icon')->default('/img/icon-default-sucursal.svg');
+			$table->string('logo');
+			$table->string('logo_2');
+			$table->string('video');
+
+			$table->string('cover_reservas')->nullable();
+
+			$table->text('reserva_iframe')->nullable();
+			$table->string('delivery')->nullable();
 			$table->string('menu')->nullable();
-			$table->string('croquisEs')->nullable();
-			$table->string('croquisEn')->nullable();
-			$table->string('address')->nullable();
-			$table->string('phone')->nullable();
-			$table->string('urlDelivery')->nullable();
-			$table->string('urlReservation')->nullable();
-			$table->string('urlLocation')->nullable();
+			$table->string('reserva')->nullable();
+			$table->text('maps')->nullable();
+
+			$table->string('img_1')->nullable();
+			$table->string('img_2')->nullable();
+			$table->string('img_3')->nullable();
+			$table->string('img_4')->nullable();
+			$table->string('img_5')->nullable();
+
 			$table->string('urlIn')->nullable();
 			$table->string('urlFb')->nullable();
-			$table->string('titleIn')->nullable();
-			$table->text('horarioEs')->nullable();
-			$table->text('horarioEn')->nullable();
-			$table->tinyInteger('status')->default(1);
+			$table->string('phone')->nullable();
 
+			$table->tinyInteger('status')->default(1);
 			$table->timestamps();
+		});
+
+		Schema::create('sucursals_translations', function (Blueprint $table) {
+			$table->increments('id');
+			$table->integer('sucursals_id')->unsigned();
+			$table->string('locale')->index();
+
+			$table->longText('descripcion');
+			$table->longText('horario');
+			$table->string('direccion');
+			$table->string('ubicacion');
+
+			$table->string('titulo_reservas');
+			$table->longText('descripcion_reservas');
+
+			$table->unique(['sucursals_id', 'locale']);
+			$table->foreign('sucursals_id')->references('id')->on('sucursals')->onDelete('cascade');
 		});
 	}
 

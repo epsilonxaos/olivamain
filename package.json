@@ -57,6 +57,7 @@
 	"private": true,
 	"scripts": {
 		"build": "vite build",
+		"build:staging": "vite build --mode=staging",
 		"dev": "vite"
 	}
 }

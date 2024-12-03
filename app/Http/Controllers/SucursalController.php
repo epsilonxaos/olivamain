@@ -10,6 +10,22 @@ use Illuminate\Support\Str;
 class SucursalController extends Controller
 {
 	protected $directorio = "public/sucursales";
+	protected $locales = ['es', 'en'];
+	protected $columnsFiles = [
+		'cover',
+		'logo',
+		'logo_2',
+		'croquisEs',
+		'croquisEn',
+		'menu',
+		'img_1',
+		'img_2',
+		'img_3',
+		'img_4',
+		'img_5',
+		'video',
+		'cover_reservas'
+	];
 
 	/**
 	 * Display a listing of the resource.
@@ -56,77 +72,57 @@ class SucursalController extends Controller
 	{
 
 		$request->validate([
-			'title' => 'required|unique:sucursals|max:255',
+			'sucursal' => 'required|unique:sucursals|max:255',
 			'cover' => 'required',
+			'logo' => 'required',
+			'logo_2' => 'required',
 		], [
-			'title.required' => 'El título es obligatorio.',
-			'title.unique' => 'El título ya está en uso.',
-			'title.max' => 'El título no puede tener más de :max caracteres.',
+			'sucursal.required' => 'El título es obligatorio.',
+			'sucursal.unique' => 'El título ya está en uso.',
+			'sucursal.max' => 'El título no puede tener más de :max caracteres.',
 			'cover.required' => 'La portada es obligatoria.',
+			'logo.required' => 'El logo es obligatorio.',
+			'logo_2.required' => 'La logo secundario es obligatorio.',
 		]);
 
 		$cover = Helpers::addFileStorage($request->file('cover'), $this->directorio);
 		$row = Sucursal::create([
-			"title" => $request->title,
-			"slug" => Str::slug($request->title, '-'),
+			"sucursal" => $request->sucursal,
+			"slug" => Str::slug($request->sucursal, '-'),
 			"cover" => $cover
 		]);
 
-		if ($request->hasFile('icon')) {
-			$icon = Helpers::addFileStorage($request->file('icon'), $this->directorio);
-			$row->icon = $icon;
-			$row->save();
+		foreach ($this->columnsFiles as $column) {
+			if ($request->hasFile($column) && $column != 'cover') {
+				$file = Helpers::addFileStorage($request->file($column), $this->directorio);
+				$row->$column = $file;
+				$row->save();
+			}
 		}
 
-		if ($request->hasFile('icon_movil')) {
-			$icon_movil = Helpers::addFileStorage($request->file('icon_movil'), $this->directorio);
-			$row->icon_movil = $icon_movil;
-			$row->save();
-		}
+		$row->reserva_iframe = $request->reserva_iframe;
+		$row->delivery = $request->delivery;
+		$row->reserva = $request->reserva;
+		$row->maps = $request->maps;
 
-		if ($request->hasFile('croquisEs')) {
-			$croquisEs = Helpers::addFileStorage($request->file('croquisEs'), $this->directorio);
-			$row->croquisEs = $croquisEs;
-			$row->save();
-		}
-
-		if ($request->hasFile('croquisEn')) {
-			$croquisEn = Helpers::addFileStorage($request->file('croquisEn'), $this->directorio);
-			$row->croquisEn = $croquisEn;
-			$row->save();
-		}
-		if ($request->hasFile('menu')) {
-			$menu = Helpers::addFileStorage($request->file('menu'), $this->directorio);
-			$row->menu = $menu;
-			$row->save();
-		}
-
-
-		$row->address = $request->address;
-		$row->phone = $request->phone;
-		$row->urlDelivery = $request->urlDelivery;
-		$row->urlReservation = $request->urlReservation;
-		$row->urlLocation = $request->urlLocation;
 		$row->urlIn = $request->urlIn;
 		$row->urlFb = $request->urlFb;
-		$row->titleIn = $request->titleIn;
-		$row->horarioEs = $request->horarioEs;
-		$row->horarioEn = $request->horarioEn;
-		$row->descEs = $request->descEs;
-		$row->descEn = $request->descEn;
-		$row->urlfacturacion = $request->urlfacturacion;
+		$row->phone = $request->phone;
+
+		$row->save();
+
+		foreach ($this->locales as $locale) {
+			$row->translateOrNew($locale)->descripcion = $request->descripcion[$locale];
+			$row->translateOrNew($locale)->horario = $request->horario[$locale];
+			$row->translateOrNew($locale)->direccion = $request->direccion[$locale];
+			$row->translateOrNew($locale)->ubicacion = $request->ubicacion[$locale];
+			$row->translateOrNew($locale)->titulo_reservas = $request->titulo_reservas[$locale];
+			$row->translateOrNew($locale)->descripcion_reservas = $request->descripcion_reservas[$locale];
+		}
 
 		$row->save();
 
 		return redirect()->back()->with('success', 'El registro se ha creado correctamente');
-	}
-
-	/**
-	 * Display the specified resource.
-	 */
-	public function show(Sucursal $sucursal)
-	{
-		//
 	}
 
 	/**
@@ -136,11 +132,12 @@ class SucursalController extends Controller
 	{
 
 		$sucursal = Sucursal::find($id);
+
 		return view('panel.sucursales.edit', [
-			'title' => 'Editar valores',
+			'title' => 'Editar Sucursal',
 			'breadcrumb' => [
 				[
-					'title' => 'Valores',
+					'title' => 'Sucursal',
 					'route' => 'panel.sucursal.index',
 					'active' => false,
 				],
@@ -162,64 +159,45 @@ class SucursalController extends Controller
 	 */
 	public function update(Int $id, Request $request)
 	{
+		$request->validate([
+			'sucursal' => 'required|unique:sucursals|max:255'
+		], [
+			'sucursal.required' => 'El título es obligatorio.',
+			'sucursal.unique' => 'El título ya está en uso.',
+			'sucursal.max' => 'El título no puede tener más de :max caracteres.',
+		]);
+
 		$row = Sucursal::find($id);
 
-		if ($request->hasFile('cover')) {
-			Helpers::deleteFileStorage('sucursals', 'cover', $id);
-			$cover = Helpers::addFileStorage($request->file('cover'), $this->directorio);
-			$row->cover = $cover;
-			$row->save();
+		foreach ($this->columnsFiles as $column) {
+			if ($request->hasFile($column)) {
+				Helpers::deleteFileStorage('sucursals', $column, $id);
+				$file = Helpers::addFileStorage($request->file($column), $this->directorio);
+				$row->$column = $file;
+				$row->save();
+			}
 		}
 
-		if ($request->hasFile('icon')) {
-			Helpers::deleteFileStorage('sucursals', 'icon', $id);
-			$icon = Helpers::addFileStorage($request->file('icon'), $this->directorio);
-			$row->icon = $icon;
-			$row->save();
-		}
+		$row->sucursal = $request->sucursal;
+		$row->reserva_iframe = $request->reserva_iframe;
+		$row->delivery = $request->delivery;
+		$row->reserva = $request->reserva;
+		$row->maps = $request->maps;
 
-		if ($request->hasFile('icon_movil')) {
-			Helpers::deleteFileStorage('sucursals', 'icon_movil', $id);
-			$icon_movil = Helpers::addFileStorage($request->file('icon_movil'), $this->directorio);
-			$row->icon_movil = $icon_movil;
-			$row->save();
-		}
-
-		if ($request->hasFile('croquisEs')) {
-			Helpers::deleteFileStorage('sucursals', 'croquisEs', $id);
-			$croquisEs = Helpers::addFileStorage($request->file('croquisEs'), $this->directorio);
-			$row->croquisEs = $croquisEs;
-			$row->save();
-		}
-
-		if ($request->hasFile('croquisEn')) {
-			Helpers::deleteFileStorage('sucursals', 'croquisEn', $id);
-			$croquisEn = Helpers::addFileStorage($request->file('croquisEn'), $this->directorio);
-			$row->croquisEn = $croquisEn;
-			$row->save();
-		}
-		if ($request->hasFile('menu')) {
-			Helpers::deleteFileStorage('sucursals', 'menu', $id);
-			$menu = Helpers::addFileStorage($request->file('menu'), $this->directorio);
-			$row->menu = $menu;
-			$row->save();
-		}
-
-
-		$row->title = $request->title;
-		$row->address = $request->address;
-		$row->phone = $request->phone;
-		$row->urlDelivery = $request->urlDelivery;
-		$row->urlReservation = $request->urlReservation;
-		$row->urlLocation = $request->urlLocation;
 		$row->urlIn = $request->urlIn;
 		$row->urlFb = $request->urlFb;
-		$row->titleIn = $request->titleIn;
-		$row->horarioEs = $request->horarioEs;
-		$row->horarioEn = $request->horarioEn;
-		$row->descEs = $request->descEs;
-		$row->descEn = $request->descEn;
-		$row->urlfacturacion = $request->urlfacturacion;
+		$row->phone = $request->phone;
+
+		$row->save();
+
+		foreach ($this->locales as $locale) {
+			$row->translateOrNew($locale)->descripcion = $request->descripcion[$locale];
+			$row->translateOrNew($locale)->horario = $request->horario[$locale];
+			$row->translateOrNew($locale)->direccion = $request->direccion[$locale];
+			$row->translateOrNew($locale)->ubicacion = $request->ubicacion[$locale];
+			$row->translateOrNew($locale)->titulo_reservas = $request->titulo_reservas[$locale];
+			$row->translateOrNew($locale)->descripcion_reservas = $request->descripcion_reservas[$locale];
+		}
 
 		$row->save();
 
@@ -231,11 +209,11 @@ class SucursalController extends Controller
 	 */
 	public function destroy(Int $id)
 	{
-		Helpers::deleteFileStorage('sucursals', 'cover', $id);
-		Helpers::deleteFileStorage('sucursals', 'icon', $id);
-		Helpers::deleteFileStorage('sucursals', 'croquisEs', $id);
-		Helpers::deleteFileStorage('sucursals', 'croquisEn', $id);
-		Helpers::deleteFileStorage('sucursals', 'menu', $id);
+
+		foreach ($this->columnsFiles as $column) {
+			Helpers::deleteFileStorage('sucursals', $column, $id);
+		}
+
 		Sucursal::where('id', $id)->delete();
 		return redirect()->back()->with('success', 'El registro se ha eliminado correctamente');
 	}
