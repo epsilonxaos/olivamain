@@ -38,20 +38,20 @@ class SucursalesTable extends DataTableComponent
 		$columns = [
 			Column::make("Id", "id")
 				->sortable(),
-			Column::make("Sucursal", "title")
+			Column::make("Sucursal", "sucursal")
 				->sortable(),
 			Column::make("Creado", "created_at")
-				->label(fn ($row) => Helpers::dateSpanishShort($row->created_at))
+				->label(fn($row) => Helpers::dateSpanishShort($row->created_at))
 				->sortable(),
 			Column::make("Actualizado", "updated_at")
-				->label(fn ($row) => Helpers::dateSpanishShort($row->updated_at))
+				->label(fn($row) => Helpers::dateSpanishShort($row->updated_at))
 				->sortable(),
 		];
 
 		array_push(
 			$columns,
 			Column::make('Activar/Desactivar')
-				->label(fn ($row) => view('livewire.sucursal-status', ["id" => $row->id, "status" => $row->status]))->html()
+				->label(fn($row) => view('livewire.sucursal-status', ["id" => $row->id, "status" => $row->status]))->html()
 		);
 
 		array_push(

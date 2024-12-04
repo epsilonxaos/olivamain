@@ -17,9 +17,9 @@ return new class extends Migration
 			$table->string('sucursal')->unique();
 			$table->string('slug');
 			$table->string('cover');
-			$table->string('logo');
-			$table->string('logo_2');
-			$table->string('video');
+			$table->string('logo')->default('logo.png');
+			$table->string('logo_2')->default('logo.png');
+			$table->string('video')->default('video.mp4');
 
 			$table->string('cover_reservas')->nullable();
 
@@ -45,19 +45,19 @@ return new class extends Migration
 
 		Schema::create('sucursals_translations', function (Blueprint $table) {
 			$table->increments('id');
-			$table->integer('sucursals_id')->unsigned();
+			$table->integer('sucursal_id')->unsigned();
 			$table->string('locale')->index();
 
-			$table->longText('descripcion');
-			$table->longText('horario');
-			$table->string('direccion');
-			$table->string('ubicacion');
+			$table->longText('descripcion')->nullable();
+			$table->longText('horario')->nullable();
+			$table->string('direccion')->nullable();
+			$table->string('ubicacion')->nullable();
 
 			$table->string('titulo_reservas');
-			$table->longText('descripcion_reservas');
+			$table->longText('descripcion_reservas')->nullable();
 
-			$table->unique(['sucursals_id', 'locale']);
-			$table->foreign('sucursals_id')->references('id')->on('sucursals')->onDelete('cascade');
+			$table->unique(['sucursal_id', 'locale']);
+			$table->foreign('sucursal_id')->references('id')->on('sucursals')->onDelete('cascade');
 		});
 	}
 
@@ -66,6 +66,7 @@ return new class extends Migration
 	 */
 	public function down(): void
 	{
+		Schema::dropIfExists('sucursals_translations');
 		Schema::dropIfExists('sucursals');
 	}
 };
