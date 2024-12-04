@@ -26,10 +26,7 @@
                 </div>
 
                 <div class="w-full mb-10">
-
-
                     {{-- Informacion general --}}
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 border-b border-b-gray-200 pb-8">
                         <h2 class="col-span-1 md:col-span-2 mb-2 font-semibold uppercase text-gray-900 text-base">
                             Información general</h2>
@@ -367,6 +364,8 @@
                                 Guardar
                             </button>
                         </div>
+                    </div>
+                </div>
             </form>
             {{-- @endcan --}}
         </div>
