@@ -14,32 +14,30 @@ class Website extends Model implements TranslatableContract
 	use Translatable;
 
 	public $translatedAttributes = [
-		'home_s1_title',
-		'home_s1_text',
-		'home_s5_title',
-		'bolsa_s1_title',
-		'bolsa_s1_text',
-		'events_s1_title',
-		'events_s1_text',
-		'politicas_privacidad',
-		'politicas_reservacion'
+		'politicas',
+		'home_nosotros_title',
+		'home_nosotros_text',
+		'home_nosotros_text2',
+		'events_title',
+		'events_text',
+		'contact_title',
+		'contact_text',
+		'reserva_title',
+		'reserva_text',
+		'reserva_form_title',
+		'reserva_form_text',
 	];
 	protected $primarykey = 'id';
 	protected $table = 'websites';
 	protected $fillables = [
-		'video',
-		'videoM',
-		'url_fb',
-		'url_in',
-		'url_sp',
-		'url_ta',
-		'email_facturacion',
-		'email_bolsa',
-		'email_eventos',
-		'bolsa_s1_cover',
-		'events_s1_cover',
-		'img_promo',
-		'img_promo_movil',
-		'emails_cc',
+		'contact_cover',
+		'contact_mail_bolsa',
+		'contact_cc_mail_bolsa',
+		'contact_mail_facturacion',
+		'contact_cc_mail_facturacion',
+		'contact_mail_eventos',
+		'contact_cc_mail_eventos',
+		'events_cover',
+		'reserva_cover',
 	];
 }

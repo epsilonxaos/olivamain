@@ -9,14 +9,17 @@ class WebsiteTranslation extends Model
 	public $timestamps = false;
 	protected $table = 'websites_translations';
 	protected $fillable = [
-		'home_s1_title',
-		'home_s1_text',
-		'home_s5_title',
-		'bolsa_s1_title',
-		'bolsa_s1_text',
-		'events_s1_title',
-		'events_s1_text',
-		'politicas_privacidad',
-		'politicas_reservacion'
+		'politicas',
+		'home_nosotros_title',
+		'home_nosotros_text',
+		'home_nosotros_text2',
+		'events_title',
+		'events_text',
+		'contact_title',
+		'contact_text',
+		'reserva_title',
+		'reserva_text',
+		'reserva_form_title',
+		'reserva_form_text',
 	];
 }

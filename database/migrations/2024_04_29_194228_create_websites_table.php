@@ -13,17 +13,22 @@ return new class extends Migration
 	{
 		Schema::create('websites', function (Blueprint $table) {
 			$table->increments('id');
-			$table->string("video");
-			$table->string("videoM");
-			$table->string("url_fb")->nullable();
-			$table->string("url_in")->nullable();
-			$table->string("url_sp")->nullable();
-			$table->string("url_ta")->nullable();
-			$table->string("email_facturacion")->nullable();
-			$table->string("email_bolsa")->nullable();
-			$table->string("email_eventos")->nullable();
-			$table->string('bolsa_s1_cover')->nullable();
-			$table->string('events_s1_cover')->nullable();
+
+
+			// * Contacto
+
+			$table->string('contact_cover')->nullable();
+			$table->string('contact_mail_bolsa')->nullable();
+			$table->string('contact_cc_mail_bolsa')->nullable();
+			$table->string('contact_mail_facturacion')->nullable();
+			$table->string('contact_cc_mail_facturacion')->nullable();
+			$table->string('contact_mail_eventos')->nullable();
+			$table->string('contact_cc_mail_eventos')->nullable();
+
+			$table->string('events_cover')->nullable();
+
+			$table->string('reserva_cover')->nullable();
+
 			$table->timestamps();
 		});
 
@@ -32,13 +37,22 @@ return new class extends Migration
 			$table->integer('website_id')->unsigned();
 			$table->string('locale')->index();
 
-			$table->text('home_s1_title');
-			$table->longText('home_s1_text');
-			$table->text('home_s5_title');
-			$table->text('bolsa_s1_title');
-			$table->longText('bolsa_s1_text');
-			$table->text('events_s1_title');
-			$table->longText('events_s1_text');
+			$table->string('politicas')->nullable();
+
+			$table->string('home_nosotros_title')->nullable();
+			$table->longText('home_nosotros_text')->nullable();
+			$table->longText('home_nosotros_text2')->nullable();
+
+			$table->string('events_title')->nullable();
+			$table->longText('events_text')->nullable();
+
+			$table->string('contact_title')->nullable();
+			$table->longText('contact_text')->nullable();
+
+			$table->string('reserva_title')->nullable();
+			$table->longText('reserva_text')->nullable();
+			$table->string('reserva_form_title')->nullable();
+			$table->longText('reserva_form_text')->nullable();
 
 			$table->unique(['website_id', 'locale']);
 			$table->foreign('website_id')->references('id')->on('websites')->onDelete('cascade');

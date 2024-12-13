@@ -12,6 +12,7 @@ class WebsiteController extends Controller
 
 	protected $directorio = "public/website";
 	protected $locales = ['es', 'en'];
+	protected $columnsFiles = ['contact_cover', 'events_cover', 'reserva_cover'];
 
 
 	/**
@@ -47,62 +48,41 @@ class WebsiteController extends Controller
 		$id = 1;
 		$upd = Website::find(1);
 
-		if ($request->hasFile('video')) {
-			Helpers::deleteFileStorage('websites', 'video', $id);
-			$video = Helpers::addFileStorage($request->file('video'), $this->directorio);
-			$upd->video = $video;
-			$upd->save();
-		}
-		if ($request->hasFile('videoM')) {
-			Helpers::deleteFileStorage('websites', 'videoM', $id);
-			$videoM = Helpers::addFileStorage($request->file('videoM'), $this->directorio);
-			$upd->videoM = $videoM;
-			$upd->save();
-		}
-		if ($request->hasFile('bolsa_s1_cover')) {
-			Helpers::deleteFileStorage('websites', 'bolsa_s1_cover', $id);
-			$bolsa_s1_cover = Helpers::addFileStorage($request->file('bolsa_s1_cover'), $this->directorio);
-			$upd->bolsa_s1_cover = $bolsa_s1_cover;
-			$upd->save();
-		}
-		if ($request->hasFile('events_s1_cover')) {
-			Helpers::deleteFileStorage('websites', 'events_s1_cover', $id);
-			$events_s1_cover = Helpers::addFileStorage($request->file('events_s1_cover'), $this->directorio);
-			$upd->events_s1_cover = $events_s1_cover;
-			$upd->save();
-		}
-		if ($request->hasFile('img_promo')) {
-			Helpers::deleteFileStorage('websites', 'img_promo', $id);
-			$img_promo = Helpers::addFileStorage($request->file('img_promo'), $this->directorio);
-			$upd->img_promo = $img_promo;
-			$upd->save();
-		}
-		if ($request->hasFile('img_promo_movil')) {
-			Helpers::deleteFileStorage('websites', 'img_promo_movil', $id);
-			$img_promo_movil = Helpers::addFileStorage($request->file('img_promo_movil'), $this->directorio);
-			$upd->img_promo_movil = $img_promo_movil;
-			$upd->save();
+		foreach ($this->columnsFiles as $column) {
+			if ($request->hasFile($column)) {
+				Helpers::deleteFileStorage('websites', $column, $id);
+				$file = Helpers::addFileStorage($request->file($column), $this->directorio);
+				$upd->$column = $file;
+				$upd->save();
+			}
 		}
 
-		if ($request->has('url_fb')) $upd->url_fb = $request->url_fb;
-		if ($request->has('url_in')) $upd->url_in = $request->url_in;
-		if ($request->has('url_sp')) $upd->url_sp = $request->url_sp;
-		if ($request->has('url_ta')) $upd->url_ta = $request->url_ta;
-		if ($request->has('email_facturacion')) $upd->email_facturacion = $request->email_facturacion;
-		if ($request->has('email_bolsa')) $upd->email_bolsa = $request->email_bolsa;
-		if ($request->has('email_eventos')) $upd->email_eventos = $request->email_eventos;
-		if ($request->has('emails_cc')) $upd->emails_cc = $request->emails_cc;
+		if ($request->has('contact_cover')) $upd->contact_cover = $request->contact_cover;
+		if ($request->has('contact_mail_bolsa')) $upd->contact_mail_bolsa = $request->contact_mail_bolsa;
+		if ($request->has('contact_cc_mail_bolsa')) $upd->contact_cc_mail_bolsa = $request->contact_cc_mail_bolsa;
+		if ($request->has('contact_mail_facturacion')) $upd->contact_mail_facturacion = $request->contact_mail_facturacion;
+		if ($request->has('contact_cc_mail_facturacion')) $upd->contact_cc_mail_facturacion = $request->contact_cc_mail_facturacion;
+		if ($request->has('contact_mail_eventos')) $upd->contact_mail_eventos = $request->contact_mail_eventos;
+		if ($request->has('contact_cc_mail_eventos')) $upd->contact_cc_mail_eventos = $request->contact_cc_mail_eventos;
+
 
 		foreach ($this->locales as $locale) {
-			if ($request->has('home_s1_title')) $upd->translateOrNew($locale)->home_s1_title = $request->home_s1_title[$locale];
-			if ($request->has('home_s1_text')) $upd->translateOrNew($locale)->home_s1_text = $request->home_s1_text[$locale];
-			if ($request->has('home_s5_title')) $upd->translateOrNew($locale)->home_s5_title = $request->home_s5_title[$locale];
-			if ($request->has('bolsa_s1_title')) $upd->translateOrNew($locale)->bolsa_s1_title = $request->bolsa_s1_title[$locale];
-			if ($request->has('bolsa_s1_text')) $upd->translateOrNew($locale)->bolsa_s1_text = $request->bolsa_s1_text[$locale];
-			if ($request->has('events_s1_title')) $upd->translateOrNew($locale)->events_s1_title = $request->events_s1_title[$locale];
-			if ($request->has('events_s1_text')) $upd->translateOrNew($locale)->events_s1_text = $request->events_s1_text[$locale];
-			if ($request->has('politicas_privacidad')) $upd->translateOrNew($locale)->politicas_privacidad = $request->politicas_privacidad[$locale];
-			if ($request->has('politicas_reservacion')) $upd->translateOrNew($locale)->politicas_reservacion = $request->politicas_reservacion[$locale];
+			if ($request->has('politicas')) $upd->translateOrNew($locale)->politicas = $request->politicas[$locale];
+
+			if ($request->has('home_nosotros_title')) $upd->translateOrNew($locale)->home_nosotros_title = $request->home_nosotros_title[$locale];
+			if ($request->has('home_nosotros_text')) $upd->translateOrNew($locale)->home_nosotros_text = $request->home_nosotros_text[$locale];
+			if ($request->has('home_nosotros_text2')) $upd->translateOrNew($locale)->home_nosotros_text2 = $request->home_nosotros_text2[$locale];
+
+			if ($request->has('events_title')) $upd->translateOrNew($locale)->events_title = $request->events_title[$locale];
+			if ($request->has('events_text')) $upd->translateOrNew($locale)->events_text = $request->events_text[$locale];
+
+			if ($request->has('contact_title')) $upd->translateOrNew($locale)->contact_title = $request->contact_title[$locale];
+			if ($request->has('contact_text')) $upd->translateOrNew($locale)->contact_text = $request->contact_text[$locale];
+
+			if ($request->has('reserva_title')) $upd->translateOrNew($locale)->reserva_title = $request->reserva_title[$locale];
+			if ($request->has('reserva_text')) $upd->translateOrNew($locale)->reserva_text = $request->reserva_text[$locale];
+			if ($request->has('reserva_form_title')) $upd->translateOrNew($locale)->reserva_form_title = $request->reserva_form_title[$locale];
+			if ($request->has('reserva_form_text')) $upd->translateOrNew($locale)->reserva_form_text = $request->reserva_form_text[$locale];
 		}
 
 		$upd->save();
