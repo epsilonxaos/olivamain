@@ -80,7 +80,7 @@
     </script>
 
     <script src="{{ asset('plugins/jquery/jquery-3.7.0.min.js') }}"></script>
-    <script src="{{ asset('plugins/dropify/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('plugins/dropify/js/dropify.js') }}"></script>
     <script src="{{ asset('js/panel/app.js') }}"></script>
     @vite(['resources/js/panel/trumbowygInit.js'])
     @stack('script')

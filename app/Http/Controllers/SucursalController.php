@@ -159,15 +159,15 @@ class SucursalController extends Controller
 	 */
 	public function update(Int $id, Request $request)
 	{
+		$row = Sucursal::find($id);
+
 		$request->validate([
-			'sucursal' => 'required|unique:sucursals|max:255'
+			'sucursal' => 'required|unique:sucursals,sucursal,' . $row->id . '|max:255'
 		], [
 			'sucursal.required' => 'El título es obligatorio.',
 			'sucursal.unique' => 'El título ya está en uso.',
 			'sucursal.max' => 'El título no puede tener más de :max caracteres.',
 		]);
-
-		$row = Sucursal::find($id);
 
 		foreach ($this->columnsFiles as $column) {
 			if ($request->hasFile($column)) {
