@@ -26,7 +26,12 @@ return new class extends Migration
 
 			$table->string('events_cover')->nullable();
 
+			$table->string('bolsa_cover')->nullable();
+
 			$table->string('reserva_cover')->nullable();
+			$table->string('reserva_form_img')->nullable();
+
+			$table->string('delivery_img')->nullable();
 
 			// * Home - Nosotros
 			$table->string('home_nosotros_img')->nullable(); // * Olivo
@@ -57,10 +62,16 @@ return new class extends Migration
 			$table->string('contact_title')->nullable();
 			$table->longText('contact_text')->nullable();
 
+			$table->string('bolsa_title')->nullable();
+			$table->longText('bolsa_text')->nullable();
+
 			$table->string('reserva_title')->nullable();
 			$table->longText('reserva_text')->nullable();
 			$table->string('reserva_form_title')->nullable();
 			$table->longText('reserva_form_text')->nullable();
+
+			$table->string('delivery_title')->nullable();
+			$table->longText('delivery_text')->nullable();
 
 			$table->unique(['website_id', 'locale']);
 			$table->foreign('website_id')->references('id')->on('websites')->onDelete('cascade');

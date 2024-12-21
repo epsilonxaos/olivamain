@@ -12,7 +12,20 @@ class WebsiteController extends Controller
 
 	protected $directorio = "public/website";
 	protected $locales = ['es', 'en'];
-	protected $columnsFiles = ['contact_cover', 'events_cover', 'reserva_cover', 'home_nosotros_img', 'home_nosotros_img1', 'home_nosotros_img2', 'home_nosotros_img3', 'home_nosotros_img4', 'home_nosotros_img5'];
+	protected $columnsFiles = [
+		'home_nosotros_img',
+		'home_nosotros_img1',
+		'home_nosotros_img2',
+		'home_nosotros_img3',
+		'home_nosotros_img4',
+		'home_nosotros_img5',
+		'contact_cover',
+		'events_cover',
+		'reserva_form_img',
+		'reserva_cover',
+		'delivery_img',
+		'bolsa_cover',
+	];
 
 
 	/**
@@ -83,6 +96,12 @@ class WebsiteController extends Controller
 			if ($request->has('reserva_text')) $upd->translateOrNew($locale)->reserva_text = $request->reserva_text[$locale];
 			if ($request->has('reserva_form_title')) $upd->translateOrNew($locale)->reserva_form_title = $request->reserva_form_title[$locale];
 			if ($request->has('reserva_form_text')) $upd->translateOrNew($locale)->reserva_form_text = $request->reserva_form_text[$locale];
+
+			if ($request->has('delivery_title')) $upd->translateOrNew($locale)->delivery_title = $request->delivery_title[$locale];
+			if ($request->has('delivery_text')) $upd->translateOrNew($locale)->delivery_text = $request->delivery_text[$locale];
+
+			if ($request->has('bolsa_title')) $upd->translateOrNew($locale)->bolsa_title = $request->bolsa_title[$locale];
+			if ($request->has('bolsa_text')) $upd->translateOrNew($locale)->bolsa_text = $request->bolsa_text[$locale];
 		}
 
 		$upd->save();

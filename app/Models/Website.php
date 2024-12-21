@@ -26,6 +26,10 @@ class Website extends Model implements TranslatableContract
 		'reserva_text',
 		'reserva_form_title',
 		'reserva_form_text',
+		'delivery_title',
+		'delivery_text',
+		'bolsa_title',
+		'bolsa_text',
 	];
 	protected $primarykey = 'id';
 	protected $table = 'websites';
@@ -47,5 +51,8 @@ class Website extends Model implements TranslatableContract
 		'contact_cc_mail_eventos',
 		'events_cover',
 		'reserva_cover',
+		'bolsa_cover',
+		'reserva_form_img',
+		'delivery_img',
 	];
 }

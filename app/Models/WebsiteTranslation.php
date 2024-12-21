@@ -21,5 +21,9 @@ class WebsiteTranslation extends Model
 		'reserva_text',
 		'reserva_form_title',
 		'reserva_form_text',
+		'delivery_title',
+		'delivery_text',
+		'bolsa_title',
+		'bolsa_text',
 	];
 }
