@@ -28,15 +28,14 @@
                     </button>
                 </div>
 
-                <div class="w-full dark:text-gray-200">
-
+                <div class="w-full dark:text-gray-200 mb-8">
                     <div class=" mb-6">
                         <div class="mb-3">
-                            <label for="events_cover"
+                            <label for="delivery_img"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen sección</label>
-                            <input type="file" name="events_cover" class="dropify" data-height="200"
+                            <input type="file" name="delivery_img" class="dropify" data-height="200"
                                 data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
-                                data-default-file="{{ asset($data->events_cover) }}" />
+                                data-default-file="{{ asset($data->delivery_img) }}" />
                             <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg, .webp y .png
                                 con un maximo de peso de 1MB.</small>
                         </div>
@@ -65,31 +64,31 @@
                             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="es-secc2" role="tabpanel"
                                 aria-labelledby="es-tab">
                                 <div class="mb-3">
-                                    <label for="events_title"
+                                    <label for="delivery_title"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo</label>
-                                    <input id="events_title" name="events_title[es]"
-                                        value="{{ $data->{'events_title:es'} }}" autocomplete="off"
+                                    <input id="delivery_title" name="delivery_title[es]"
+                                        value="{{ $data->{'delivery_title:es'} }}" autocomplete="off"
                                         class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 </div>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="events_text">Contenido</label>
-                                    <textarea name="events_text[es]" class="shorttext" cols="30" rows="3">{{ $data->{'events_text:es'} }}</textarea>
+                                        for="delivery_text">Contenido</label>
+                                    <textarea name="delivery_text[es]" class="shorttext" cols="30" rows="3">{{ $data->{'delivery_text:es'} }}</textarea>
                                 </div>
                             </div>
                             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="en-secc2" role="tabpanel"
                                 aria-labelledby="en-tab">
                                 <div class="mb-3">
-                                    <label for="events_title"
+                                    <label for="delivery_title"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo</label>
-                                    <input id="events_title" name="events_title[en]"
-                                        value="{{ $data->{'events_title:en'} }}" autocomplete="off"
+                                    <input id="delivery_title" name="delivery_title[en]"
+                                        value="{{ $data->{'delivery_title:en'} }}" autocomplete="off"
                                         class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 </div>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="events_text">Contenido</label>
-                                    <textarea name="events_text[en]" class="shorttext" cols="30" rows="10">{{ $data->{'events_text:en'} }}</textarea>
+                                        for="delivery_text">Contenido</label>
+                                    <textarea name="delivery_text[en]" class="shorttext" cols="30" rows="10">{{ $data->{'delivery_text:en'} }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -97,6 +96,7 @@
                     </div>
 
                 </div>
+
                 {{-- @endcanany
 			
 					@can(PermissionKey::Socios['permissions']['update']['name']) --}}

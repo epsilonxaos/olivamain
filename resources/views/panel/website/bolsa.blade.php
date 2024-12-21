@@ -28,14 +28,15 @@
                     </button>
                 </div>
 
-                <div class="w-full">
+                <div class="w-full dark:text-gray-200">
+
                     <div class=" mb-6">
                         <div class="mb-3">
-                            <label for="bolsa_s1_cover"
+                            <label for="bolsa_cover"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen sección</label>
-                            <input type="file" name="bolsa_s1_cover" class="dropify" data-height="200"
+                            <input type="file" name="bolsa_cover" class="dropify" data-height="200"
                                 data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
-                                data-default-file="{{ asset($data->bolsa_s1_cover) }}" />
+                                data-default-file="{{ asset($data->bolsa_cover) }}" />
                             <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg, .webp y .png
                                 con un maximo de peso de 1MB.</small>
                         </div>
@@ -54,43 +55,41 @@
                                 </li>
                             </ul>
                         </div>
+                        <small class="pb-2 block">
+                            Recomendamos siempre que al copiar y pegar información desde algún sitio o
+                            archivo eliminar el formato de los textos para un óptimo funcionamiento, esto se
+                            puede realizar desde el mismo editor de texto presionando el siguiente botón
+                            <img src="{{ asset('img/panel/clear-format.png') }}" class="inline" alt="Clear format">
+                        </small>
                         <div id="tab-content-secc2">
                             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="es-secc2" role="tabpanel"
                                 aria-labelledby="es-tab">
-                                <small class="pb-2 block">
-                                    Recomendamos siempre que al copiar y pegar información desde algún sitio o
-                                    archivo eliminar el formato de los textos para un óptimo funcionamiento, esto se
-                                    puede realizar desde el mismo editor de texto presionando el siguiente botón
-                                    <img src="{{ asset('img/panel/clear-format.png') }}" class="inline" alt="Clear format">
-                                </small>
                                 <div class="mb-3">
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="bolsa_s1_title">Título</label>
-                                    <textarea name="bolsa_s1_title[es]" class="shorttext" cols="30" rows="3">{{ $data->{'bolsa_s1_title:es'} }}</textarea>
+                                    <label for="bolsa_title"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo</label>
+                                    <input id="bolsa_title" name="bolsa_title[es]" value="{{ $data->{'bolsa_title:es'} }}"
+                                        autocomplete="off"
+                                        class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 </div>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="bolsa_s1_text">Contenido</label>
-                                    <textarea name="bolsa_s1_text[es]" class="shorttext" cols="30" rows="3">{{ $data->{'bolsa_s1_text:es'} }}</textarea>
+                                        for="bolsa_text">Contenido</label>
+                                    <textarea name="bolsa_text[es]" class="shorttext" cols="30" rows="3">{{ $data->{'bolsa_text:es'} }}</textarea>
                                 </div>
                             </div>
                             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="en-secc2" role="tabpanel"
                                 aria-labelledby="en-tab">
-                                <small class="pb-2 block">
-                                    Recomendamos siempre que al copiar y pegar información desde algún sitio o
-                                    archivo eliminar el formato de los textos para un óptimo funcionamiento, esto se
-                                    puede realizar desde el mismo editor de texto presionando el siguiente botón
-                                    <img src="{{ asset('img/panel/clear-format.png') }}" class="inline" alt="Clear format">
-                                </small>
                                 <div class="mb-3">
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="bolsa_s1_title">Título</label>
-                                    <textarea name="bolsa_s1_title[en]" class="shorttext" cols="30" rows="10">{{ $data->{'bolsa_s1_title:en'} }}</textarea>
+                                    <label for="bolsa_title"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo</label>
+                                    <input id="bolsa_title" name="bolsa_title[en]" value="{{ $data->{'bolsa_title:en'} }}"
+                                        autocomplete="off"
+                                        class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 </div>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="bolsa_s1_text">Contenido</label>
-                                    <textarea name="bolsa_s1_text[en]" class="shorttext" cols="30" rows="10">{{ $data->{'bolsa_s1_text:en'} }}</textarea>
+                                        for="bolsa_text">Contenido</label>
+                                    <textarea name="bolsa_text[en]" class="shorttext" cols="30" rows="10">{{ $data->{'bolsa_text:en'} }}</textarea>
                                 </div>
                             </div>
                         </div>

@@ -83,6 +83,7 @@
                 @csrf
                 @method('PUT')
 
+
                 <div class="w-full">
                     <div class=" mb-6">
                         <h2 class="mb-4 font-semibold text-gray-900 dark:text-gray-100 text-base">Segunda Sección</h2>
@@ -150,7 +151,8 @@
                                 <label for="home_nosotros_img"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen</label>
                                 <input type="file" name="home_nosotros_img" class="dropify" data-height="250"
-                                    data-max-file-size="1M" data-allowed-file-extensions="png svg" />
+                                    data-max-file-size="1M" data-default-file="{{ asset($data->home_nosotros_img) }}"
+                                    data-allowed-file-extensions="png svg" />
                                 <small class="block text-xs">Las medidas recomendadas son 750x600 px.</small>
                                 <small class="block text-xs">Formatos aceptados: .png y .svg, con un tamaño máximo de 1
                                     MB.</small>
@@ -171,8 +173,9 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
                                             #{{ $item }}</label>
                                         <input type="file" name="home_nosotros_img{{ $item }}"
-                                            class="dropify" data-height="150" data-max-file-size="1M"
-                                            data-allowed-file-extensions="jpg jpeg png webp" />
+                                            class="dropify" data-height="150"
+                                            data-default-file="{{ asset($data['home_nosotros_img' . $item]) }}"
+                                            data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp" />
                                         <small class="block text-xs">Las medidas recomendadas son 750x600 px.</small>
                                         <small class="block text-xs">Formato aceptado: .jpg, .jpeg, .png y .webp, con un
                                             tamaño
@@ -234,7 +237,8 @@
                                 <label for="home_nosotros_img5"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen</label>
                                 <input type="file" name="home_nosotros_img5" class="dropify" data-height="250"
-                                    data-max-file-size="1M" data-allowed-file-extensions="png svg" />
+                                    data-max-file-size="1M" data-default-file="{{ asset($data->home_nosotros_img5) }}"
+                                    data-allowed-file-extensions="png svg" />
                                 <small class="block text-xs">Las medidas recomendadas son 750x600 px.</small>
                                 <small class="block text-xs">Formatos aceptados: .png y .svg, con un tamaño máximo de 1
                                     MB.</small>

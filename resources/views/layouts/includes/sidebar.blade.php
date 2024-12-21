@@ -68,6 +68,40 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('panel.website.edit', ['seccion' => 'delivery']) }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/delivery/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
+
+                    <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                        <path d="M14 7l6 0"></path>
+                        <path d="M14 11l6 0"></path>
+                        <path d="M4 15l16 0"></path>
+                        <path d="M4 19l16 0"></path>
+                    </svg>
+                    <span class="ml-3">Delivery</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('panel.website.edit', ['seccion' => 'reservas']) }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/reservas/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
+
+                    <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                        <path d="M14 7l6 0"></path>
+                        <path d="M14 11l6 0"></path>
+                        <path d="M4 15l16 0"></path>
+                        <path d="M4 19l16 0"></path>
+                    </svg>
+                    <span class="ml-3">Reservas</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('panel.website.edit', ['seccion' => 'eventos']) }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/eventos/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
@@ -106,8 +140,8 @@
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/legales/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
                     <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round">
+                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
                         <path d="M14 7l6 0"></path>
@@ -126,8 +160,9 @@
         @canany([PermissionKey::Admin['permissions']['index']['name'],
             PermissionKey::Role['permissions']['index']['name']])
             <h3 class="flex items-center justify-start font-bold dark:text-white">
-                <svg class="icon icon-tabler icon-tabler-adjustments mr-2" width="30" height="20" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon icon-tabler icon-tabler-adjustments mr-2" width="30" height="20"
+                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M4 10a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
                     <path d="M6 4v4"></path>
