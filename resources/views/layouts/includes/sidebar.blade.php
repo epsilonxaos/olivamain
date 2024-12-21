@@ -3,7 +3,7 @@
     aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800 text-sm">
 
-        <h3 class="flex items-center justify-start font-bold">
+        <h3 class="flex items-center justify-start font-bold dark:text-white ">
             <svg class="icon icon-tabler icon-tabler-app-window mr-2" width="30" height="20" viewBox="0 0 24 24"
                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -12,11 +12,12 @@
                 <path d="M9 8h.01"></path>
             </svg> Modulos
         </h3>
+
         <ul class="pt-1 mt-1 mb-[30px] space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
             {{-- @can(PermissionKey::General['permissions']['inicio']['name']) --}}
             <li>
                 <a href="{{ route('panel.sucursal.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/sucursal/*') ? 'bg-gray-100' : '' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/sucursal/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white icon icon-tabler icons-tabler-outline icon-tabler-building-estate">
@@ -34,7 +35,7 @@
             </li>
             <li>
                 <a href="{{ route('panel.website.edit', ['seccion' => 'inicio']) }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/inicio/*') ? 'bg-gray-100' : '' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/inicio/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
                     <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -51,7 +52,7 @@
             </li>
             <li>
                 <a href="{{ route('panel.website.edit', ['seccion' => 'bolsa']) }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/bolsa/*') ? 'bg-gray-100' : '' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/bolsa/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
                     <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -68,7 +69,7 @@
             </li>
             <li>
                 <a href="{{ route('panel.website.edit', ['seccion' => 'eventos']) }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/eventos/*') ? 'bg-gray-100' : '' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/eventos/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
                     <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -85,7 +86,7 @@
             </li>
             <li>
                 <a href="{{ route('panel.website.edit', ['seccion' => 'general']) }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/general/*') ? 'bg-gray-100' : '' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/general/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
                     <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -102,7 +103,7 @@
             </li>
             <li>
                 <a href="{{ route('panel.website.edit', ['seccion' => 'legales']) }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/legales/*') ? 'bg-gray-100' : '' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/legales/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
                     <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -124,7 +125,7 @@
         {{-- * usuarios y permisos --}}
         @canany([PermissionKey::Admin['permissions']['index']['name'],
             PermissionKey::Role['permissions']['index']['name']])
-            <h3 class="flex items-center justify-start font-bold">
+            <h3 class="flex items-center justify-start font-bold dark:text-white">
                 <svg class="icon icon-tabler icon-tabler-adjustments mr-2" width="30" height="20" viewBox="0 0 24 24"
                     stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -143,7 +144,7 @@
                 @can(PermissionKey::Admin['permissions']['index']['name'])
                     <li>
                         <a href="{{ route('panel.usuarios.index') }}"
-                            class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group {{ request()->is('admin/usuarios*') ? 'bg-gray-100' : '' }}">
+                            class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group {{ request()->is('admin/usuarios*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
                             <svg aria-hidden="true"
                                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +159,7 @@
                 @can(PermissionKey::Role['permissions']['index']['name'])
                     <li>
                         <a href="{{ route('panel.roles.index') }}"
-                            class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group {{ request()->is('admin/roles*') ? 'bg-gray-100' : '' }}">
+                            class="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group {{ request()->is('admin/roles*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"

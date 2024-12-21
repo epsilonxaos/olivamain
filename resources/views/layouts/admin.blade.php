@@ -42,7 +42,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans text-gray-900 bg-slate-100 antialiased">
+<body class="font-sans text-gray-900 bg-slate-100 dark:bg-slate-900 antialiased dark">
 
     {{-- //* Navbar --}}
     @include('layouts.includes.navbar')
@@ -50,10 +50,11 @@
     {{-- //* Sidebar --}}
     @include('layouts.includes.sidebar')
 
-    <div class="p-4 sm:ml-64">
+    <div class="p-4 sm:ml-64 bg-slate-100 dark:bg-slate-900 min-h-svh">
         @include('layouts.includes.breadcrumb')
 
-        <div class="p-4 border-2 border-white bg-white shadow rounded-lg dark:border-gray-700 mt-2 pb-12">
+        <div
+            class="p-4 border-2 border-white bg-white dark:bg-gray-900 shadow rounded-lg dark:border-gray-700 mt-2 pb-12">
             @yield('content')
         </div>
     </div>

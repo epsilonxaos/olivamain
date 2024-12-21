@@ -1,4 +1,4 @@
-<div class="p-4 border-2 border-white bg-white shadow rounded-lg dark:border-gray-700 mt-14">
+<div class="p-4 border-2 border-white bg-white dark:bg-gray-800 shadow rounded-lg dark:border-gray-700 mt-14">
 
     <div class="grid py-2 grid-cols-1 sm:grid-cols-2">
         <div class="col-span-1 max-sm:text-center max-sm:mb-4">

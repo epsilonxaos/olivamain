@@ -30,6 +30,14 @@ class Website extends Model implements TranslatableContract
 	protected $primarykey = 'id';
 	protected $table = 'websites';
 	protected $fillables = [
+
+		'home_nosotros_img',
+		'home_nosotros_img1',
+		'home_nosotros_img2',
+		'home_nosotros_img3',
+		'home_nosotros_img4',
+		'home_nosotros_img5',
+
 		'contact_cover',
 		'contact_mail_bolsa',
 		'contact_cc_mail_bolsa',

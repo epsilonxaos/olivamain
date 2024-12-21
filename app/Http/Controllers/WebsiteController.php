@@ -12,7 +12,7 @@ class WebsiteController extends Controller
 
 	protected $directorio = "public/website";
 	protected $locales = ['es', 'en'];
-	protected $columnsFiles = ['contact_cover', 'events_cover', 'reserva_cover'];
+	protected $columnsFiles = ['contact_cover', 'events_cover', 'reserva_cover', 'home_nosotros_img', 'home_nosotros_img1', 'home_nosotros_img2', 'home_nosotros_img3', 'home_nosotros_img4', 'home_nosotros_img5'];
 
 
 	/**

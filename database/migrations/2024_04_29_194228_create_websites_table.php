@@ -16,7 +16,6 @@ return new class extends Migration
 
 
 			// * Contacto
-
 			$table->string('contact_cover')->nullable();
 			$table->string('contact_mail_bolsa')->nullable();
 			$table->string('contact_cc_mail_bolsa')->nullable();
@@ -28,6 +27,15 @@ return new class extends Migration
 			$table->string('events_cover')->nullable();
 
 			$table->string('reserva_cover')->nullable();
+
+			// * Home - Nosotros
+			$table->string('home_nosotros_img')->nullable(); // * Olivo
+			$table->string('home_nosotros_img1')->nullable(); // * Galeria 1
+			$table->string('home_nosotros_img2')->nullable(); // * Galeria 2
+			$table->string('home_nosotros_img3')->nullable(); // * Galeria 3
+			$table->string('home_nosotros_img4')->nullable(); // * Galeria 4
+
+			$table->string('home_nosotros_img5')->nullable(); // * Copa
 
 			$table->timestamps();
 		});
