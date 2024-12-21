@@ -1,11 +1,3 @@
 {
-    "bolsa_s1_cover": "",
-    "bolsa_s1_text": "Compártenos tus datos para ponernos en <br /> contacto contigo:",
-    "bolsa_s1_title": "ÚNETE A NUESTRO <br /> EQUIPo DE TRABAJO",
-    "events_s1_cover": "",
-    "events_s1_text": "Cuéntanos más sobre tu evento y nosotros nos <br /> pondremos en contacto.",
-    "events_s1_title": "GRUPOS Y EVENTOS <br /> PIZZERIA OLIVA",
-    "home_s1_text": "Lorem ipsum dolor sit amet consectetur adipiscing elit felis ornare morbi leo, sollicitudin facilisis nisi proin viverra luctus vehicula iaculis potenti laoreet, condimentum a tincidunt hac curae nec curabitur scelerisque nulla ad. Semper taciti sed habitant penatibus tincidunt placerat dictum neque.",
-    "home_s1_title": "Ristorante inspirato <br /> all'autentica <br /> pizza al forno",
-    "home_s5_title": "Ristorante inspirato <br /> all’autentica pizza al forno"
+	"home_nosotros_title": "About us"
 }

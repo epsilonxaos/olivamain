@@ -30,21 +30,11 @@ class WebsiteSeeder extends Seeder
 		DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
 
 		$web = Website::create([
-			'video' => 'video/video.mp4',
-			'videoM' => 'video/video-movil.mp4',
-			"email_facturacion" => 'factura@olivamerida.com',
-			"email_bolsa" => 'rh@olivamerida.com',
-			"email_eventos" => 'reservas@olivamerida.com'
+			"contact_mail_bolsa" => 'rh@olivamerida.com',
 		]);
 
 		foreach ($locales as $locale) {
-			$web->translateOrNew($locale)->home_s1_title = $textos[$locale]->home_s1_title;
-			$web->translateOrNew($locale)->home_s1_text = $textos[$locale]->home_s1_text;
-			$web->translateOrNew($locale)->home_s5_title = $textos[$locale]->home_s5_title;
-			$web->translateOrNew($locale)->bolsa_s1_title = $textos[$locale]->bolsa_s1_title;
-			$web->translateOrNew($locale)->bolsa_s1_text = $textos[$locale]->bolsa_s1_text;
-			$web->translateOrNew($locale)->events_s1_title = $textos[$locale]->events_s1_title;
-			$web->translateOrNew($locale)->events_s1_text = $textos[$locale]->events_s1_text;
+			$web->translateOrNew($locale)->home_nosotros_title = $textos[$locale]->home_nosotros_title;
 		}
 
 		$web->save();
