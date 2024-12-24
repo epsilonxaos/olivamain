@@ -21,9 +21,12 @@ import FormEvents from './pages/events/Form'
 import Events from './pages/events/Index'
 import Index from './pages/home/Index'
 import Reservation from './pages/reservation/Index'
+import { getCargaInicialService } from './services/AppService'
 
 const initialArgs = {
 	loading: true,
+	galeria: [],
+	website: {},
 }
 const reducer = (prev, next) => ({ ...prev, ...next })
 
@@ -33,24 +36,18 @@ export default function Web() {
 	const [theme, setTheme] = useState<Theme>('cream')
 
 	useEffect(() => {
-		// async function fetchData() {
-		//     const response = await axios.get(
-		//         import.meta.env.VITE_APP_URL + "api/initial",
-		//     );
+		getCargaInicialService()
+			.then(({ data }) => {
+				console.log(data)
+				dispatch(data)
 
-		//     const { website, sucursals, galeria } = response.data;
-		//     website.translations.forEach((translation) => {
-		//         let locale = translation.locale;
-		//         website[locale] = translation;
-		//     });
-		//     dispatch({ website, sucursals, galeria });
-
-		// }
-		// fetchData();
-
-		setTimeout(() => {
-			dispatch({ loading: false })
-		}, 1500)
+				setTimeout(() => {
+					dispatch({ loading: false })
+				}, 1000)
+			})
+			.catch(err => {
+				console.error(err)
+			})
 	}, [])
 
 	if (state.loading)

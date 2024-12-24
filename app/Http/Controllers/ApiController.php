@@ -17,21 +17,15 @@ class ApiController extends Controller
 
 		$web = Website::translated()->where('id', 1)->first();
 		$galeria = Gallery::all();
+		$sucursales = Sucursal::select(
+			'sucursal',
+			'slug',
+		)->where('status', 1)->get();
 
 		$resources = [
 			"website" => $web,
 			"galeria" => $galeria,
-			"sucursals" => Sucursal::select(
-				'title',
-				'slug',
-				"cover",
-				'menu',
-				"phone",
-				"urlDelivery",
-				"urlReservation",
-				"urlLocation",
-				"urlfacturacion"
-			)->where('status', 1)->get()
+			"sucursals" => $sucursales
 		];
 
 		return response($resources, 200);
