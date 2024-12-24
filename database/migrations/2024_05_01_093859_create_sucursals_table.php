@@ -22,6 +22,14 @@ return new class extends Migration
 			$table->string('video')->default('video.mp4');
 
 			$table->string('cover_reservas')->nullable();
+			$table->boolean('activo_reservas')->default(1);
+
+			$table->string('logo_delivery')->nullable();
+			$table->string('cover_delivery')->nullable();
+			$table->string('url_delivery')->nullable();
+
+			$table->string('cover_eventos')->nullable();
+			$table->boolean('activo_eventos')->default(1);
 
 			$table->text('reserva_iframe')->nullable();
 			$table->string('delivery')->nullable();
@@ -53,8 +61,11 @@ return new class extends Migration
 			$table->string('direccion')->nullable();
 			$table->string('ubicacion')->nullable();
 
-			$table->string('titulo_reservas');
+			$table->string('titulo_reservas')->nullable();
 			$table->longText('descripcion_reservas')->nullable();
+
+			$table->string('titulo_eventos')->nullable();
+			$table->longText('descripcion_eventos')->nullable();
 
 			$table->unique(['sucursal_id', 'locale']);
 			$table->foreign('sucursal_id')->references('id')->on('sucursals')->onDelete('cascade');

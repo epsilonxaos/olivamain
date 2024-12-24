@@ -15,6 +15,8 @@ class SucursalTranslation extends Model
 		'direccion',
 		'ubicacion',
 		'titulo_reservas',
-		'descripcion_reservas'
+		'descripcion_reservas',
+		'titulo_eventos',
+		'descripcion_eventos',
 	];
 }

@@ -24,7 +24,11 @@ class SucursalController extends Controller
 		'img_4',
 		'img_5',
 		'video',
-		'cover_reservas'
+		'cover_reservas',
+		'logo_delivery',
+		'cover_delivery',
+		'cover_eventos',
+
 	];
 
 	/**
@@ -104,6 +108,9 @@ class SucursalController extends Controller
 		$row->delivery = $request->delivery;
 		$row->reserva = $request->reserva;
 		$row->maps = $request->maps;
+		$row->activo_reservas = isset($request->activo_reservas) ? 1 : 0;
+		$row->activo_eventos = isset($request->activo_eventos) ? 1 : 0;
+		$row->url_delivery = $request->url_delivery;
 
 		$row->urlIn = $request->urlIn;
 		$row->urlFb = $request->urlFb;
@@ -112,12 +119,30 @@ class SucursalController extends Controller
 		$row->save();
 
 		foreach ($this->locales as $locale) {
-			$row->translateOrNew($locale)->descripcion = $request->descripcion[$locale];
-			$row->translateOrNew($locale)->horario = $request->horario[$locale];
-			$row->translateOrNew($locale)->direccion = $request->direccion[$locale];
-			$row->translateOrNew($locale)->ubicacion = $request->ubicacion[$locale];
-			$row->translateOrNew($locale)->titulo_reservas = $request->titulo_reservas[$locale];
-			$row->translateOrNew($locale)->descripcion_reservas = $request->descripcion_reservas[$locale];
+			if (isset($request->descripcion[$locale])) {
+				$row->translateOrNew($locale)->descripcion = $request->descripcion[$locale];
+			}
+			if (isset($request->horario[$locale])) {
+				$row->translateOrNew($locale)->horario = $request->horario[$locale];
+			}
+			if (isset($request->direccion[$locale])) {
+				$row->translateOrNew($locale)->direccion = $request->direccion[$locale];
+			}
+			if (isset($request->ubicacion[$locale])) {
+				$row->translateOrNew($locale)->ubicacion = $request->ubicacion[$locale];
+			}
+			if (isset($request->titulo_reservas[$locale])) {
+				$row->translateOrNew($locale)->titulo_reservas = $request->titulo_reservas[$locale];
+			}
+			if (isset($request->descripcion_reservas[$locale])) {
+				$row->translateOrNew($locale)->descripcion_reservas = $request->descripcion_reservas[$locale];
+			}
+			if (isset($request->titulo_eventos[$locale])) {
+				$row->translateOrNew($locale)->titulo_eventos = $request->titulo_eventos[$locale];
+			}
+			if (isset($request->descripcion_eventos[$locale])) {
+				$row->translateOrNew($locale)->descripcion_eventos = $request->descripcion_eventos[$locale];
+			}
 		}
 
 		$row->save();
@@ -183,6 +208,9 @@ class SucursalController extends Controller
 		$row->delivery = $request->delivery;
 		$row->reserva = $request->reserva;
 		$row->maps = $request->maps;
+		$row->activo_reservas = isset($request->activo_reservas) ? 1 : 0;
+		$row->activo_eventos = isset($request->activo_eventos) ? 1 : 0;
+		$row->url_delivery = $request->url_delivery;
 
 		$row->urlIn = $request->urlIn;
 		$row->urlFb = $request->urlFb;
@@ -191,12 +219,30 @@ class SucursalController extends Controller
 		$row->save();
 
 		foreach ($this->locales as $locale) {
-			$row->translateOrNew($locale)->descripcion = $request->descripcion[$locale];
-			$row->translateOrNew($locale)->horario = $request->horario[$locale];
-			$row->translateOrNew($locale)->direccion = $request->direccion[$locale];
-			$row->translateOrNew($locale)->ubicacion = $request->ubicacion[$locale];
-			$row->translateOrNew($locale)->titulo_reservas = $request->titulo_reservas[$locale];
-			$row->translateOrNew($locale)->descripcion_reservas = $request->descripcion_reservas[$locale];
+			if (isset($request->descripcion[$locale])) {
+				$row->translateOrNew($locale)->descripcion = $request->descripcion[$locale];
+			}
+			if (isset($request->horario[$locale])) {
+				$row->translateOrNew($locale)->horario = $request->horario[$locale];
+			}
+			if (isset($request->direccion[$locale])) {
+				$row->translateOrNew($locale)->direccion = $request->direccion[$locale];
+			}
+			if (isset($request->ubicacion[$locale])) {
+				$row->translateOrNew($locale)->ubicacion = $request->ubicacion[$locale];
+			}
+			if (isset($request->titulo_reservas[$locale])) {
+				$row->translateOrNew($locale)->titulo_reservas = $request->titulo_reservas[$locale];
+			}
+			if (isset($request->descripcion_reservas[$locale])) {
+				$row->translateOrNew($locale)->descripcion_reservas = $request->descripcion_reservas[$locale];
+			}
+			if (isset($request->titulo_eventos[$locale])) {
+				$row->translateOrNew($locale)->titulo_eventos = $request->titulo_eventos[$locale];
+			}
+			if (isset($request->descripcion_eventos[$locale])) {
+				$row->translateOrNew($locale)->descripcion_eventos = $request->descripcion_eventos[$locale];
+			}
 		}
 
 		$row->save();

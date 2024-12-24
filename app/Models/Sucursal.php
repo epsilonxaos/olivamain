@@ -18,7 +18,9 @@ class Sucursal extends Model implements TranslatableContract
 		'direccion',
 		'ubicacion',
 		'titulo_reservas',
-		'descripcion_reservas'
+		'descripcion_reservas',
+		'titulo_eventos',
+		'descripcion_eventos',
 	];
 
 	protected $primaryKey = 'id';
@@ -31,6 +33,12 @@ class Sucursal extends Model implements TranslatableContract
 		"cover",
 		"video",
 		"cover_reservas",
+		"activo_reservas",
+		"logo_delivery",
+		"cover_delivery",
+		"url_delivery",
+		"cover_eventos",
+		"activo_eventos",
 		"reserva_iframe",
 		"delivery",
 		"menu",
