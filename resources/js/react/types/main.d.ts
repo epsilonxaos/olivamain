@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import type { InitialDataResponse } from './services/initial'
+
 export type TClassName = string
 
 export type TButton = {
@@ -21,3 +23,6 @@ export type TBannerSection = {
 	children?: ReactNode
 	className?: TClassName
 }
+
+type StateApp = InitialDataResponse & { loading: boolean; completeTask: boolean }
+type ActionApp = Partial<StateApp>
