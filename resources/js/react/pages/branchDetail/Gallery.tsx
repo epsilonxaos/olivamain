@@ -1,27 +1,55 @@
+import { useContext } from 'react'
+
+import { APP_URL } from '../../constants/constants'
+
 import Container from '../../components/Container'
 import Text from '../../components/Text'
-
-const images = [
-	'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
-	'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg',
-	'https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg',
-	'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg',
-	'https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg',
-]
+import { SucursalContext } from '../../contexts/SucursalContext'
 
 const Gallery = () => {
+	const su = useContext(SucursalContext)
+
+	if (!su) return null
+
 	return (
 		<div className='border-b border-b-black bg-white lg:bg-grisClaro'>
 			<Container className='py-20'>
 				<Text.Title className='mb-8 text-center'>Síguenos en nuestras redes sociales @oliva_merida</Text.Title>
 				<div className='gallery'>
-					{images.map((image, index) => (
+					{su?.img_1 && (
 						<img
-							key={index}
-							src={image}
+							src={APP_URL + su.img_1}
 							alt='Gallery'
 						/>
-					))}
+					)}
+
+					{su?.img_2 && (
+						<img
+							src={APP_URL + su.img_2}
+							alt='Gallery'
+						/>
+					)}
+
+					{su?.img_3 && (
+						<img
+							src={APP_URL + su.img_3}
+							alt='Gallery'
+						/>
+					)}
+
+					{su?.img_4 && (
+						<img
+							src={APP_URL + su.img_4}
+							alt='Gallery'
+						/>
+					)}
+
+					{su?.img_5 && (
+						<img
+							src={APP_URL + su.img_5}
+							alt='Gallery'
+						/>
+					)}
 				</div>
 			</Container>
 		</div>

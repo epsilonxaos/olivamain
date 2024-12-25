@@ -27,8 +27,8 @@ const Index = () => {
 
 							<Text.Title className='mb-5 tracking-[2.5px]'>ÚNETE A NUESTRO EQUIPO DE TRABAJO</Text.Title>
 							<Text className='mb-10 text-center'>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-								massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+								dis parturient montes, nascetur ridiculus mus.
 							</Text>
 
 							<FormSubmit />

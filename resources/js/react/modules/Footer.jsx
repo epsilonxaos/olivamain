@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
@@ -5,9 +6,20 @@ import ImgGrupoOliva from '../../../img/grupo-oliva.svg'
 import ImgIsotipo from '../../../img/isotipo.svg'
 import Container from '../components/Container'
 import Text from '../components/Text'
+import AppContext from '../contexts/AppContext'
+
+function formatPhoneNumber(phoneNumber) {
+	phoneNumber = phoneNumber.toString()
+	if (phoneNumber.length !== 10) {
+		return phoneNumber
+	}
+	return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)} ${phoneNumber.slice(6, 10)}`
+}
 
 const Footer = () => {
 	const { t } = useTranslation()
+	const { state } = useContext(AppContext)
+	const { website, sucursals } = state
 
 	return (
 		<footer className='w-full bg-white'>
@@ -25,30 +37,20 @@ const Footer = () => {
 				<div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 xl:flex xl:items-start xl:justify-between xl:text-left'>
 					<div className='col-span-1'>
 						<Text.Title className='mb-5'>Contacto</Text.Title>
-						<Text className='mb-0.5'>
-							<a
-								href='tel:+529999233081'
-								className='mr-6 underline'>
-								(999) 923 3081
-							</a>{' '}
-							Oliva Enoteca
-						</Text>
-						<Text className='mb-0.5'>
-							<a
-								href='tel:+529999233081'
-								className='mr-6 underline'>
-								(999) 923 3081
-							</a>{' '}
-							Oliva Enoteca
-						</Text>
-						<Text className='mb-0.5'>
-							<a
-								href='tel:+529999233081'
-								className='mr-6 underline'>
-								(999) 923 3081
-							</a>{' '}
-							Oliva Enoteca
-						</Text>
+						{sucursals
+							.filter(({ phone }) => !!phone)
+							.map(({ sucursal, phone, slug }) => (
+								<Text
+									key={'contacto-sucursal-' + slug}
+									className='mb-0.5'>
+									<a
+										href={'tel:+52' + phone}
+										className='mr-6 underline'>
+										{formatPhoneNumber(phone)}
+									</a>{' '}
+									Oliva {sucursal}
+								</Text>
+							))}
 					</div>
 					<div className='col-span-1'>
 						<Text.Title className='mb-5'>Bolsa de trabajo</Text.Title>
@@ -56,14 +58,14 @@ const Footer = () => {
 							<Link to={'/bolsa-de-trabajo'}>Formulario</Link>
 						</Text>
 						<Text className='mb-0.5'>
-							<a href='mailto:hr@olivamerida.com'>hr@olivamerida.com</a>
+							<a href={'mailto:' + website.contact_mail_bolsa}>{website.contact_mail_bolsa}</a>
 						</Text>
 					</div>
 					<div className='col-span-1'>
 						<Text.Title className='mb-5'>Facturación</Text.Title>
 						<Text className='mb-0.5 underline'>Factura en línea</Text>
 						<Text className='mb-0.5'>
-							<a href='mailto:factura@olivamerida.com'>factura@olivamerida.com</a>
+							<a href={'mailto:' + website.contact_mail_facturacion}>{website.contact_mail_facturacion}</a>
 						</Text>
 					</div>
 					<div className='col-span-1'>
@@ -72,7 +74,7 @@ const Footer = () => {
 							<Link to={'/grupos-y-eventos/formulario'}>Formulario</Link>
 						</Text>
 						<Text className='mb-0.5'>
-							<a href='mailto:info@olivamerida.com'>info@olivamerida.com</a>
+							<a href={'mailto:' + website.contact_mail_eventos}>{website.contact_mail_eventos}</a>
 						</Text>
 					</div>
 					<div className='col-span-1 md:col-span-2'>

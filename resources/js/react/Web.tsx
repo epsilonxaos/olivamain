@@ -4,8 +4,10 @@ import { Toaster } from 'sonner'
 import { useEffect, useReducer, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
-import type { Theme } from './types/main'
+import type { ActionApp, StateApp, Theme } from './types/main'
+import type { Sucursal, Website } from './types/services/initial'
 
+import Loading from './components/Loading'
 import { MessageConsent } from './components/MessageConsent'
 import PageTransition from './components/animations/PageTransition'
 import AppContext from './contexts/AppContext'
@@ -23,12 +25,14 @@ import Index from './pages/home/Index'
 import Reservation from './pages/reservation/Index'
 import { getCargaInicialService } from './services/AppService'
 
-const initialArgs = {
+const initialArgs: StateApp = {
 	loading: true,
+	completeTask: false,
 	galeria: [],
-	website: {},
+	website: {} as Website,
+	sucursals: [],
 }
-const reducer = (prev, next) => ({ ...prev, ...next })
+const reducer = (prev: StateApp, next: ActionApp): StateApp => ({ ...prev, ...next })
 
 export default function Web() {
 	const location = useLocation()
@@ -38,11 +42,15 @@ export default function Web() {
 	useEffect(() => {
 		getCargaInicialService()
 			.then(({ data }) => {
-				console.log(data)
-				dispatch(data)
+				const { website, sucursals, galeria } = data
+
+				processTranslations(website)
+				sucursals.forEach(processSucursalTranslations)
+
+				dispatch({ website, sucursals, galeria })
 
 				setTimeout(() => {
-					dispatch({ loading: false })
+					dispatch({ loading: false, completeTask: true })
 				}, 1000)
 			})
 			.catch(err => {
@@ -50,12 +58,21 @@ export default function Web() {
 			})
 	}, [])
 
-	if (state.loading)
-		return (
-			<div className='flex h-screen w-full items-center justify-center bg-grisClaro text-black'>
-				<span className='spinner'></span>
-			</div>
-		)
+	const processTranslations = (website: Website) => {
+		website.translations.forEach(translation => {
+			let locale = translation.locale
+			website[locale] = translation
+		})
+	}
+
+	const processSucursalTranslations = (sucursal: Sucursal) => {
+		sucursal.translations.forEach(translation => {
+			let locale = translation.locale
+			sucursal[locale] = translation
+		})
+	}
+
+	if (state.loading && !state.completeTask) return <Loading />
 
 	return (
 		<AppContext.Provider value={{ state, dispatch }}>
@@ -63,6 +80,8 @@ export default function Web() {
 				<Header />
 
 				<Toaster />
+
+				{state.loading && <Loading />}
 
 				<main className='mx-auto min-h-svh'>
 					<AnimatePresence mode='wait'>

@@ -1,11 +1,14 @@
+import { useContext } from 'react'
 import { FaLocationDot } from 'react-icons/fa6'
 
 import Container from '../../components/Container'
 import Text from '../../components/Text'
+import { SucursalContext } from '../../contexts/SucursalContext'
 import useResponsiveMediaQuery from '../../hooks/useResponsiveMediaQuery'
 
 const Location = () => {
 	const { isMobile, isTablet } = useResponsiveMediaQuery()
+
 	return (
 		<div className='border-b border-b-black bg-white'>
 			<Container className='py-20 lg:py-28'>
@@ -25,17 +28,19 @@ const Location = () => {
 }
 
 const LocationDetails = () => {
+	const su = useContext(SucursalContext)
+
 	return (
 		<div>
 			<Text.Title className='mb-2 tracking-[1.6px]'>Ubicación</Text.Title>
-			<Text className='mb-2'>Calle 47 & esquina con 54 S/N, Centro, C.P. 97000 Mérida, Yucatán.</Text>
+			<Text className='mb-2'>{su?.direccion}</Text>
 
 			<div className='flex items-center justify-start'>
 				<FaLocationDot
 					size={20}
 					className='mr-2'
 				/>
-				<Text className='mb-0 italic'>Ubicado en el Centro Histórico de Mérida Yucatán.</Text>
+				<Text className='mb-0 italic'>{su?.ubicacion}</Text>
 			</div>
 		</div>
 	)

@@ -1,15 +1,15 @@
+import { useContext } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import Container from '../../../components/Container'
+import { APP_URL } from '../../../constants/constants'
 
-const images = [
-	'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
-	'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg',
-	'https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg',
-	'https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg',
-]
+import Container from '../../../components/Container'
+import AppContext from '../../../contexts/AppContext'
 
 const AboutSwipeGallery = () => {
+	const { state } = useContext(AppContext)
+	const { website } = state
+
 	return (
 		<Container className='max-w-none border-y border-y-black p-0 lg:px-[30px] xl:px-[30px]'>
 			<Swiper
@@ -41,17 +41,42 @@ const AboutSwipeGallery = () => {
 					},
 				}}
 				centeredSlides={false}>
-				{images.map((image, index) => (
-					<SwiperSlide
-						className='xl:max-w-[375px]'
-						key={'main-gallery-' + index}>
-						<img
-							className='block h-[400px] w-full object-cover'
-							src={image}
-							alt='Main gallery'
-						/>
-					</SwiperSlide>
-				))}
+				<SwiperSlide
+					className='xl:max-w-[375px]'
+					key={'main-gallery-imagen_1'}>
+					<img
+						className='block h-[400px] w-full object-cover'
+						src={APP_URL + website.home_nosotros_img1}
+						alt='Main gallery'
+					/>
+				</SwiperSlide>
+				<SwiperSlide
+					className='xl:max-w-[375px]'
+					key={'main-gallery-imagen_2'}>
+					<img
+						className='block h-[400px] w-full object-cover'
+						src={APP_URL + website.home_nosotros_img2}
+						alt='Main gallery'
+					/>
+				</SwiperSlide>
+				<SwiperSlide
+					className='xl:max-w-[375px]'
+					key={'main-gallery-imagen_3'}>
+					<img
+						className='block h-[400px] w-full object-cover'
+						src={APP_URL + website.home_nosotros_img3}
+						alt='Main gallery'
+					/>
+				</SwiperSlide>
+				<SwiperSlide
+					className='xl:max-w-[375px]'
+					key={'main-gallery-imagen_4'}>
+					<img
+						className='block h-[400px] w-full object-cover'
+						src={APP_URL + website.home_nosotros_img4}
+						alt='Main gallery'
+					/>
+				</SwiperSlide>
 			</Swiper>
 		</Container>
 	)

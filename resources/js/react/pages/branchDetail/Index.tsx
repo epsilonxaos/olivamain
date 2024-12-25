@@ -1,9 +1,14 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+
+import { APP_URL } from '../../constants/constants'
+import type { Sucursal } from '../../types/services/initial'
 
 import ImgBannerPlaceholder from '../../../../img/sucursal-banner-placeholder.png'
 import ImgLogoPlaceholder from '../../../../img/sucursal-logo-2-placeholder.svg'
-import { ThemeContext } from '../../contexts/ThemeContext'
+import AppContext from '../../contexts/AppContext'
+import { SucursalContext } from '../../contexts/SucursalContext'
+import { getSucursalService } from '../../services/AppService'
 import Banner from './Banner'
 import Gallery from './Gallery'
 import Information from './Information'
@@ -12,24 +17,37 @@ import Reservation from './Reservation'
 
 const Index = () => {
 	const { id } = useParams<{ id: string }>()
-	const { setTheme } = useContext(ThemeContext)
+	const { dispatch } = useContext(AppContext)
+	const [sucursal, setSucursal] = useState<Sucursal | null>(null)
 
 	useEffect(() => {
-		setTheme('white')
-	}, [])
-
-	useEffect(() => {
-		console.log(id)
+		if (id && !sucursal) {
+			dispatch({ loading: true })
+			getSucursalService({ data: { slug: id } })
+				.then(({ data }) => {
+					setSucursal(data)
+					setTimeout(() => {
+						dispatch({ loading: false })
+					}, 300)
+				})
+				.catch(err => {
+					console.error(err)
+				})
+		}
 	}, [id])
 
+	if (!sucursal) {
+		return null
+	}
+
 	return (
-		<>
-			<Banner bgImg={ImgBannerPlaceholder} />
-			<Information logo={ImgLogoPlaceholder} />
+		<SucursalContext.Provider value={sucursal}>
+			<Banner bgImg={APP_URL + sucursal.cover} />
+			<Information />
 			<Reservation />
 			<Location />
 			<Gallery />
-		</>
+		</SucursalContext.Provider>
 	)
 }
 

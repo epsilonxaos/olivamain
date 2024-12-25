@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
+import AppContext from '../contexts/AppContext'
 import { HeaderContext } from '../contexts/HeaderContext'
 
 const an = {
@@ -13,6 +14,8 @@ const an = {
 
 const BranchMenu = () => {
 	const { openBranchMenu, setOpenBranchMenu, setOpenMenu } = useContext(HeaderContext)
+	const { state } = useContext(AppContext)
+	const { sucursals } = state
 
 	return (
 		<AnimatePresence mode='wait'>
@@ -23,30 +26,17 @@ const BranchMenu = () => {
 					exit={an.exit}
 					className='pt-1'>
 					<ul className='grid grid-cols-3 gap-5 pt-[45px] text-center lg:grid-cols-1 lg:gap-2 lg:pt-0 lg:text-left'>
-						<li
-							className='col-span-1 uppercase'
-							onClick={() => {
-								setOpenBranchMenu(false)
-								setOpenMenu(false)
-							}}>
-							<Link to={'sucursal/enoteca'}>Enoteca</Link>
-						</li>
-						<li
-							className='col-span-1 uppercase'
-							onClick={() => {
-								setOpenBranchMenu(false)
-								setOpenMenu(false)
-							}}>
-							<Link to={'sucursal/enoteca'}>Patio</Link>
-						</li>
-						<li
-							className='col-span-1 uppercase'
-							onClick={() => {
-								setOpenBranchMenu(false)
-								setOpenMenu(false)
-							}}>
-							<Link to={'sucursal/enoteca'}>Al mare</Link>
-						</li>
+						{sucursals.map(({ sucursal, slug }) => (
+							<li
+								key={'branch-menu-' + slug}
+								className='col-span-1 uppercase'
+								onClick={() => {
+									setOpenBranchMenu(false)
+									setOpenMenu(false)
+								}}>
+								<Link to={'sucursal/' + slug}>{sucursal}</Link>
+							</li>
+						))}
 					</ul>
 				</motion.nav>
 			)}

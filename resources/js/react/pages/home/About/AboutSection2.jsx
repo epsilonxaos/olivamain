@@ -1,23 +1,32 @@
-import ImgOliva from '../../../../../img/oliva-copa.png'
+import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
+
+import { APP_URL } from '../../../constants/constants'
+
 import Container from '../../../components/Container'
 import Text from '../../../components/Text'
+import AppContext from '../../../contexts/AppContext'
 
 const AboutSection2 = () => {
+	const { i18n } = useTranslation()
+	const { language } = i18n
+	const { state } = useContext(AppContext)
+	const { website } = state
+
 	return (
 		<Container className='max-w-[1400px] overflow-hidden py-12 xl:py-16'>
 			<div className='relative flex items-center justify-between'>
 				<div className='max-w-[835px] py-12 pr-14 md:w-[calc(100%-90px)] md:pr-16 lg:p-0'>
-					<Text className='lg:mb-0'>
-						Las listas de vinos de cada restaurante tienen una variedad de etiquetas de todo el mundo, y han sido
-						seleccionadas personalmente por nuestro Chef para complementar perfectamente nuestro menú.
-					</Text>
+					<Text className='lg:mb-0'>{website[language].home_nosotros_text2}</Text>
 				</div>
 
-				<img
-					className='w-[75px] md:w-[90px]'
-					src={ImgOliva}
-					alt='Oliva Copa de vino'
-				/>
+				{website.home_nosotros_img5 && (
+					<img
+						className='w-[75px] md:w-[90px]'
+						src={APP_URL + website.home_nosotros_img5}
+						alt='Oliva Copa de vino'
+					/>
+				)}
 			</div>
 		</Container>
 	)
