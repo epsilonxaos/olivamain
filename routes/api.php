@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/initial', [ApiController::class, 'getHomeResources']);
-Route::get('/sucursal/{slug}', [ApiController::class, 'getSucursal']);
+Route::post('/sucursal', [ApiController::class, 'getSucursal']);
