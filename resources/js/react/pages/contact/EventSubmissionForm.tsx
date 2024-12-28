@@ -1,9 +1,15 @@
+import { useContext } from 'react'
+
 import Container from '../../components/Container'
 import Text from '../../components/Text'
 import Button from '../../components/buttons/Button'
 import Input from '../../components/forms/Input'
+import AppContext from '../../contexts/AppContext'
 
 const EventSubmissionForm = () => {
+	const { state } = useContext(AppContext)
+	const { website } = state
+
 	return (
 		<Container className='relative z-10 max-w-[700px] md:p-0'>
 			<form
@@ -37,8 +43,8 @@ const EventSubmissionForm = () => {
 
 					<a
 						className='mx-auto'
-						href='mailto:rh@olivamerida.com'>
-						<Text className='font-apercuPro'>rh@olivamerida.com</Text>
+						href={'mailto:' + website.contact_mail}>
+						<Text className='font-apercuPro'>{website.contact_mail}</Text>
 					</a>
 				</div>
 			</form>

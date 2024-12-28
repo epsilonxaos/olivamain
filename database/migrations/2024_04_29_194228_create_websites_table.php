@@ -17,6 +17,8 @@ return new class extends Migration
 
 			// * Contacto
 			$table->string('contact_cover')->nullable();
+			$table->string('contact_mail')->nullable();
+			$table->string('contact_cc_mail')->nullable();
 			$table->string('contact_mail_bolsa')->nullable();
 			$table->string('contact_cc_mail_bolsa')->nullable();
 			$table->string('contact_mail_facturacion')->nullable();

@@ -70,40 +70,52 @@ class WebsiteController extends Controller
 			}
 		}
 
-		if ($request->has('scripts')) $upd->scripts = $request->scripts;
+		$columnsInWebsite = [
+			'scripts',
+			'contact_mail',
+			'contact_cc_mail',
+			'contact_cover',
+			'contact_mail_bolsa',
+			'contact_cc_mail_bolsa',
+			'contact_mail_facturacion',
+			'contact_cc_mail_facturacion',
+			'contact_mail_eventos',
+			'contact_cc_mail_eventos',
+		];
 
-		if ($request->has('contact_cover')) $upd->contact_cover = $request->contact_cover;
-		if ($request->has('contact_mail_bolsa')) $upd->contact_mail_bolsa = $request->contact_mail_bolsa;
-		if ($request->has('contact_cc_mail_bolsa')) $upd->contact_cc_mail_bolsa = $request->contact_cc_mail_bolsa;
-		if ($request->has('contact_mail_facturacion')) $upd->contact_mail_facturacion = $request->contact_mail_facturacion;
-		if ($request->has('contact_cc_mail_facturacion')) $upd->contact_cc_mail_facturacion = $request->contact_cc_mail_facturacion;
-		if ($request->has('contact_mail_eventos')) $upd->contact_mail_eventos = $request->contact_mail_eventos;
-		if ($request->has('contact_cc_mail_eventos')) $upd->contact_cc_mail_eventos = $request->contact_cc_mail_eventos;
+		foreach ($columnsInWebsite as $column) {
+			if ($request->has($column)) {
+				$upd->$column = $request->$column;
+			}
+		}
 
+		$columnsInWebsiteTranslate = [
+			'politicas',
+			'home_nosotros_title',
+			'home_nosotros_text',
+			'home_nosotros_text2',
+			'events_title',
+			'events_text',
+			'contact_title',
+			'contact_text',
+			'reserva_title',
+			'reserva_text',
+			'reserva_form_title',
+			'reserva_form_text',
+			'delivery_title',
+			'delivery_text',
+			'bolsa_title',
+			'bolsa_text',
+		];
 
 		foreach ($this->locales as $locale) {
-			if ($request->has('politicas')) $upd->translateOrNew($locale)->politicas = $request->politicas[$locale];
 
-			if ($request->has('home_nosotros_title')) $upd->translateOrNew($locale)->home_nosotros_title = $request->home_nosotros_title[$locale];
-			if ($request->has('home_nosotros_text')) $upd->translateOrNew($locale)->home_nosotros_text = $request->home_nosotros_text[$locale];
-			if ($request->has('home_nosotros_text2')) $upd->translateOrNew($locale)->home_nosotros_text2 = $request->home_nosotros_text2[$locale];
 
-			if ($request->has('events_title')) $upd->translateOrNew($locale)->events_title = $request->events_title[$locale];
-			if ($request->has('events_text')) $upd->translateOrNew($locale)->events_text = $request->events_text[$locale];
-
-			if ($request->has('contact_title')) $upd->translateOrNew($locale)->contact_title = $request->contact_title[$locale];
-			if ($request->has('contact_text')) $upd->translateOrNew($locale)->contact_text = $request->contact_text[$locale];
-
-			if ($request->has('reserva_title')) $upd->translateOrNew($locale)->reserva_title = $request->reserva_title[$locale];
-			if ($request->has('reserva_text')) $upd->translateOrNew($locale)->reserva_text = $request->reserva_text[$locale];
-			if ($request->has('reserva_form_title')) $upd->translateOrNew($locale)->reserva_form_title = $request->reserva_form_title[$locale];
-			if ($request->has('reserva_form_text')) $upd->translateOrNew($locale)->reserva_form_text = $request->reserva_form_text[$locale];
-
-			if ($request->has('delivery_title')) $upd->translateOrNew($locale)->delivery_title = $request->delivery_title[$locale];
-			if ($request->has('delivery_text')) $upd->translateOrNew($locale)->delivery_text = $request->delivery_text[$locale];
-
-			if ($request->has('bolsa_title')) $upd->translateOrNew($locale)->bolsa_title = $request->bolsa_title[$locale];
-			if ($request->has('bolsa_text')) $upd->translateOrNew($locale)->bolsa_text = $request->bolsa_text[$locale];
+			foreach ($columnsInWebsiteTranslate as $column) {
+				if ($request->has($column)) {
+					$upd->translateOrNew($locale)->$column = $request->$column[$locale];
+				}
+			}
 		}
 
 		$upd->save();

@@ -43,6 +43,8 @@ class Website extends Model implements TranslatableContract
 		'home_nosotros_img5',
 
 		'contact_cover',
+		'contact_mail',
+		'contact_cc_mail',
 		'contact_mail_bolsa',
 		'contact_cc_mail_bolsa',
 		'contact_mail_facturacion',

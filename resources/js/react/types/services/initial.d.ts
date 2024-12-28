@@ -13,10 +13,12 @@ export type Website = {
 	bolsa_cover: string
 	bolsa_text: string
 	bolsa_title: string
+	contact_cc_mail: string | null
 	contact_cc_mail_bolsa: string | null
 	contact_cc_mail_eventos: string | null
 	contact_cc_mail_facturacion: string | null
 	contact_cover: string
+	contact_mail: string
 	contact_mail_bolsa: string
 	contact_mail_eventos: string
 	contact_mail_facturacion: string
