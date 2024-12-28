@@ -14,7 +14,19 @@ const Gallery = () => {
 	return (
 		<div className='border-b border-b-black bg-white lg:bg-grisClaro'>
 			<Container className='py-20'>
-				<Text.Title className='mb-8 text-center'>Síguenos en nuestras redes sociales @oliva_merida</Text.Title>
+				<Text.Title className='mb-8 text-center'>
+					Síguenos en nuestras redes sociales{' '}
+					{su.urlIn ? (
+						<a
+							href={su.urlIn}
+							target='_blank'
+							rel='noopener noreferrer'>
+							@{su.instagram}
+						</a>
+					) : (
+						`@${su.instagram}`
+					)}
+				</Text.Title>
 				<div className='gallery'>
 					{su?.img_1 && (
 						<img

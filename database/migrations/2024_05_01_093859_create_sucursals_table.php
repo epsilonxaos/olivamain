@@ -17,6 +17,7 @@ return new class extends Migration
 			$table->string('sucursal')->unique();
 			$table->string('slug');
 			$table->string('cover');
+			$table->string('bg');
 			$table->string('logo')->default('logo.png');
 			$table->string('logo_2')->default('logo.png');
 			$table->string('video')->default('video.mp4');
@@ -43,6 +44,7 @@ return new class extends Migration
 			$table->string('img_4')->nullable();
 			$table->string('img_5')->nullable();
 
+			$table->string('instagram')->nullable();
 			$table->string('urlIn')->nullable();
 			$table->string('urlFb')->nullable();
 			$table->string('phone')->nullable();

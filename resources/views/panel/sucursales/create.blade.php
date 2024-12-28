@@ -52,6 +52,18 @@
                                 MB.</small>
                         </div>
 
+                        {{-- Bg --}}
+                        <div class="col-span-1 md:col-span-2">
+                            <label for="bg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span
+                                    class="text-red-800">*</span> Imagen de portada (movil)</label>
+                            <input type="file" required name="bg" class="dropify" data-height="150"
+                                data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp" />
+                            <small class="block text-xs">Las medidas recomendadas son 750x600 px.</small>
+                            <small class="block text-xs">Formatos aceptados: .jpg, .jpeg, .png y .webp, con un tamaño máximo
+                                de 1
+                                MB.</small>
+                        </div>
+
                         {{-- Cover --}}
                         <div class="grid-cols-1">
                             <label for="cover" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span
@@ -211,20 +223,14 @@
                                 <small class="block text-xs">Formato aceptado: .pdf, con un tamaño máximo de 2
                                     MB.</small>
                             </div>
-                            {{-- <div class="col-span-1">
-                                <label for="delivery"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Url
-                                    Delivery</label>
-                                <input id="delivery" name="delivery" value="{{ old('delivery') }}" autocomplete="off"
+                            <div class="md:col-span-2">
+                                <label for="instagram"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Usuario
+                                    instagram</label>
+                                <input id="instagram" placeholder="Ejemplo: oliva_merida" name="instagram"
+                                    value="{{ old('instagram') }}" autocomplete="off"
                                     class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
-                            <div class="col-span-1">
-                                <label for="reserva"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Url
-                                    Reservacion</label>
-                                <input id="reserva" name="reserva" value="{{ old('reserva') }}" autocomplete="off"
-                                    class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div> --}}
                             <div class="col-span-1">
                                 <label for="urlIn"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Url
@@ -245,6 +251,8 @@
                                 <textarea
                                     class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     name="maps" cols="30" rows="5"></textarea>
+                                <small>Reemplazar: height -> 400 o mas</small>
+                                <small>Reemplazar: width -> 100%</small>
                             </div>
                         </div>
                     </div>

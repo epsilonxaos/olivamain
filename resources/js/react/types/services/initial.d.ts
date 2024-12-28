@@ -79,6 +79,7 @@ export type Sucursal = {
 	sucursal: string
 	slug: string
 	cover: string
+	bg: string
 	logo: string
 	logo_2: string
 	video: string
@@ -99,6 +100,7 @@ export type Sucursal = {
 	img_3?: string | null
 	img_4?: string | null
 	img_5?: string | null
+	instagram?: string | null
 	urlIn?: string | null
 	urlFb?: string | null
 	phone?: string | null

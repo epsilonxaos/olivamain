@@ -33,6 +33,8 @@ return new class extends Migration
 
 			$table->string('delivery_img')->nullable();
 
+			$table->longText('scripts')->nullable();
+
 			// * Home - Nosotros
 			$table->string('home_nosotros_img')->nullable(); // * Olivo
 			$table->string('home_nosotros_img1')->nullable(); // * Galeria 1

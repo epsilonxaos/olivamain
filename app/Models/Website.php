@@ -54,5 +54,6 @@ class Website extends Model implements TranslatableContract
 		'bolsa_cover',
 		'reserva_form_img',
 		'delivery_img',
+		'scripts',
 	];
 }

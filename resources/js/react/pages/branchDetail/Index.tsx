@@ -42,7 +42,7 @@ const Index = () => {
 
 	return (
 		<SucursalContext.Provider value={sucursal}>
-			<Banner bgImg={APP_URL + sucursal.cover} />
+			<Banner bgImg={APP_URL + sucursal.bg} />
 			<Information />
 			<Reservation />
 			<Location />

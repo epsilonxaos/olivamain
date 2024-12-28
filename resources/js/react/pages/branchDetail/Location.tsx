@@ -1,3 +1,4 @@
+import parse from 'html-react-parser'
 import { useContext } from 'react'
 import { FaLocationDot } from 'react-icons/fa6'
 
@@ -8,6 +9,7 @@ import useResponsiveMediaQuery from '../../hooks/useResponsiveMediaQuery'
 
 const Location = () => {
 	const { isMobile, isTablet } = useResponsiveMediaQuery()
+	const su = useContext(SucursalContext)
 
 	return (
 		<div className='border-b border-b-black bg-white'>
@@ -16,9 +18,7 @@ const Location = () => {
 					<div className='mb-5 hidden lg:mb-0 lg:block lg:w-[40%] lg:pr-10'>
 						<LocationDetails />
 					</div>
-					<div className='lg:w-[60%]'>
-						<div className='h-[50svh] min-h-[400px] w-full bg-crema2'></div>
-					</div>
+					<div className='lg:w-[60%]'>{su?.maps && <div className='min-h-[400px] w-full bg-crema2'>{parse(su?.maps)}</div>}</div>
 				</div>
 
 				{(isMobile || isTablet) && <LocationDetails />}

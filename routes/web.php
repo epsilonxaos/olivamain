@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\WebsiteController;
+use App\Models\Website;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,10 @@ Route::get('/artisan', [ComandosController::class, 'executeComands']);
 Route::view('/', 'layouts.app')->where('path', '.*');
 Route::view('/grupos-y-eventos', 'layouts.app')->where('path', '.*');
 Route::view('/grupos-y-eventos/formulario', 'layouts.app')->where('path', '.*');
-Route::view('/sucursal/{slug}', 'layouts.app')->where('path', '.*');
+Route::get('/sucursal/{slug}', function () {
+	$w = Website::find(1);
+	return view('layouts.app', ['st' => $w->scripts]);
+})->where('path', '.*');
 Route::view('/contacto', 'layouts.app')->where('path', '.*');
 Route::view('/reservacion', 'layouts.app')->where('path', '.*');
 Route::view('/bolsa-de-trabajo', 'layouts.app')->where('path', '.*');
@@ -42,6 +46,10 @@ Route::post('/send/mailEvento', [MailController::class, 'sendEvento']);
 Route::get('/dashboard', function () {
 	return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/example', function () {
+	return view('example', ['key' => 'valor']);
+});
 
 Route::middleware('auth')->group(function () {
 	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

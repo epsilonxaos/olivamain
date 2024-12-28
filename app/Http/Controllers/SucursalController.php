@@ -13,6 +13,7 @@ class SucursalController extends Controller
 	protected $locales = ['es', 'en'];
 	protected $columnsFiles = [
 		'cover',
+		'bg',
 		'logo',
 		'logo_2',
 		'croquisEs',
@@ -112,6 +113,7 @@ class SucursalController extends Controller
 		$row->activo_eventos = isset($request->activo_eventos) ? 1 : 0;
 		$row->url_delivery = $request->url_delivery;
 
+		$row->instagram = $request->instagram;
 		$row->urlIn = $request->urlIn;
 		$row->urlFb = $request->urlFb;
 		$row->phone = $request->phone;
@@ -212,6 +214,7 @@ class SucursalController extends Controller
 		$row->activo_eventos = isset($request->activo_eventos) ? 1 : 0;
 		$row->url_delivery = $request->url_delivery;
 
+		$row->instagram = $request->instagram;
 		$row->urlIn = $request->urlIn;
 		$row->urlFb = $request->urlFb;
 		$row->phone = $request->phone;

@@ -70,6 +70,8 @@ class WebsiteController extends Controller
 			}
 		}
 
+		if ($request->has('scripts')) $upd->scripts = $request->scripts;
+
 		if ($request->has('contact_cover')) $upd->contact_cover = $request->contact_cover;
 		if ($request->has('contact_mail_bolsa')) $upd->contact_mail_bolsa = $request->contact_mail_bolsa;
 		if ($request->has('contact_cc_mail_bolsa')) $upd->contact_cc_mail_bolsa = $request->contact_cc_mail_bolsa;
