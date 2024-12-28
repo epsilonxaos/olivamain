@@ -1,5 +1,6 @@
-import "./bootstrap";
 // import "laravel-datatables-vite";
-import "flowbite";
+import 'flowbite'
 
-import.meta.glob(["../img/**"]);
+import './bootstrap'
+
+import.meta.glob(['../img/**'])

@@ -35,6 +35,7 @@ export default defineConfig(({ mode }) => {
 					'resources/js/app.js',
 					'resources/js/react/App.jsx',
 					'resources/js/panel/trumbowygInit.js',
+					'resources/js/panel/formbuilder.js',
 				],
 				refresh: true,
 			}),
