@@ -15,8 +15,8 @@ return new class extends Migration
 			$table->increments("id");
 			$table->string('section');
 			$table->string('name');
-			$table->enum('type', ["text", "number", "textarea", "select"]);
-			$table->array('options')->nullable();
+			$table->enum('type', ["text", "number", "telefono", "email", "textarea", "select"]);
+			$table->text('options')->nullable();
 			$table->boolean('required')->default(false);
 
 			$table->timestamps();
@@ -24,17 +24,16 @@ return new class extends Migration
 
 		Schema::create('form_translations', function (Blueprint $table) {
 			$table->increments("id");
-			$table->integer('form_id')->unsigned();
+			$table->integer('forms_id')->unsigned();
 			$table->string('locale')->index();
 
 			$table->string('label');
 			$table->string('placeholder')->nullable();
 
-			$table->unique(['form_id', 'locale']);
-			$table->foreignId('form_id')->references('id')->on('forms')->onDelete('cascade');
+			$table->unique(['forms_id', 'locale']);
+			$table->foreign('forms_id')->references('id')->on('forms')->onDelete('cascade');
 		});
 	}
-
 	/**
 	 * Reverse the migrations.
 	 */

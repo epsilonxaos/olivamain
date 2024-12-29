@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				<select class="${classInput}" name="new_type[]" data-name="type">
 				<option value="text">Texto</option>
 				<option value="number">Número</option>
+				<option value="email">Correo</option>
+				<option value="telefono">Teléfono</option>
 				<option value="textarea">Área de texto</option>
 				<option value="select">Selección</option>
 				</select>
@@ -78,16 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			<div >
 				<h6>Traducción (es)</h6>
 				<label class="${classLabel}"><span class="text-red-600">*</span> Etiqueta</label>
-				<input type="text" class="${classInput}" name="label[es]" data-name="translations.es.label">
+				<input type="text" class="${classInput}" name="new_label[es][]" data-name="translations.es.label">
 				<label class="${classLabel}">Placeholder</label>
-				<input type="text" class="${classInput}" name="placeholder[es]" data-name="translations.es.placeholder">
+				<input type="text" class="${classInput}" name="new_placeholder[es][]" data-name="translations.es.placeholder">
 			</div>
 			<div >
 				<h6>Traducción (en)</h6>
 				<label class="${classLabel}"><span class="text-red-600">*</span> Etiqueta</label>
-				<input type="text" class="${classInput}" name="label[en]" data-name="translations.en.label">
+				<input type="text" class="${classInput}" name="new_label[en][]" data-name="translations.en.label">
 				<label class="${classLabel}">Placeholder</label>
-				<input type="text" class="${classInput}" name="palceholder[en]" data-name="translations.en.placeholder">
+				<input type="text" class="${classInput}" name="new_placeholder[en][]" data-name="translations.en.placeholder">
 			</div>
 			<div class="md:col-span-2">
 				
@@ -104,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
-	addField()
+	// addField()
 
 	// Actualizar el campo en la lista dinámica
 	const updateField = (event, index) => {
@@ -148,13 +150,44 @@ document.addEventListener('DOMContentLoaded', () => {
 		fields.forEach((_, index) => addField())
 	}
 
-	// Guardar el formulario
-	// const saveForm = () => {
-	// 	console.log('Formulario guardado:', fields)
-	// 	alert('Formulario guardado. Revisa la consola para ver los datos.')
-	// }
-
 	// Event listeners
 	addFieldButton.addEventListener('click', addField)
-	// saveFormButton.addEventListener('click', saveForm)
+})
+
+const deleteFieldForm = (id, url) => {
+	fetch(url, {
+		method: 'DELETE',
+		headers: {
+			'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+		},
+	}).then(res => {
+		if (res.ok) {
+			document.getElementById(`field-${id}`).remove()
+		}
+	})
+}
+
+document.querySelectorAll('.deleteFieldForm').forEach(item => {
+	item.addEventListener('click', function () {
+		const id = this.dataset.id
+		Swal.fire({
+			title: '¿Finalizar eliminación?',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: 'Eliminar',
+			denyButtonText: `Cancelar`,
+		}).then(result => {
+			if (result.isConfirmed) {
+				deleteFieldForm(id, this.dataset.url)
+			}
+		})
+	})
+})
+
+document.querySelectorAll('[data-name="type"]').forEach(item => {
+	item.addEventListener('change', e => {
+		const type = e.target.value
+		const optionsField = e.target.closest('.grid').querySelector('.options-field')
+		optionsField.style.display = type === 'select' ? 'block' : 'none'
+	})
 })

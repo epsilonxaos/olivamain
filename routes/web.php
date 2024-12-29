@@ -116,6 +116,7 @@ Route::middleware(['auth:admin', 'verified'])->prefix('/admin')->group(function 
 	Route::prefix('/formulario')->group(function () {
 		Route::get('/edit/{section}', [FormsController::class, 'edit'])->name('panel.forms.edit');
 		Route::patch('/update/{section}', [FormsController::class, 'update'])->name('panel.forms.update');
+		Route::delete('/destroy/{id}', [FormsController::class, 'destroy'])->name('panel.forms.destroy');
 	});
 
 	Route::prefix('/galeria')->group(function () {
