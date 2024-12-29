@@ -28,9 +28,9 @@
                     </button>
                 </div>
 
-                <div class="w-full">
+                <div class="w-full dark:text-gray-200">
 
-                    <div class=" mb-6">
+                    <div class=" mb-6 ">
 
                         <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
                             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="tab-seccion1"
@@ -58,14 +58,14 @@
                                 </small>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="politicas_privacidad">Políticas de Privacidad</label>
-                                    <textarea name="politicas_privacidad[es]" class="trumbowyg-panel" cols="30" rows="3">{{ $data->{'politicas_privacidad:es'} }}</textarea>
+                                        for="politicas">Políticas de Privacidad</label>
+                                    <textarea name="politicas[es]" class="trumbowyg-panel" cols="30" rows="3">{{ $data->{'politicas:es'} }}</textarea>
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="politicas_reservacion">Políticas de reservación </label>
                                     <textarea name="politicas_reservacion[es]" class="trumbowyg-panel" cols="30" rows="3">{{ $data->{'politicas_reservacion:es'} }}</textarea>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="en-secc2" role="tabpanel"
                                 aria-labelledby="en-tab">
@@ -77,14 +77,14 @@
                                 </small>
                                 <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        for="politicas_privacidad">Políticas de Privacidad</label>
-                                    <textarea name="politicas_privacidad[en]" class="trumbowyg-panel" cols="30" rows="10">{{ $data->{'politicas_privacidad:en'} }}</textarea>
+                                        for="politicas">Políticas de Privacidad</label>
+                                    <textarea name="politicas[en]" class="trumbowyg-panel" cols="30" rows="10">{{ $data->{'politicas:en'} }}</textarea>
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         for="politicas_reservacion">Políticas de reservación</label>
                                     <textarea name="politicas_reservacion[en]" class="trumbowyg-panel" cols="30" rows="10">{{ $data->{'politicas_reservacion:en'} }}</textarea>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 

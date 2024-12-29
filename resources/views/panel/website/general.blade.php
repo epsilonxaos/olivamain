@@ -28,114 +28,93 @@
                     </button>
                 </div>
 
-                <div class="w-full mb-10">
+                <div class="w-full mb-10 dark:text-gray-200">
                     <div class=" mb-6">
+
                         <h2 class="mb-2 font-semibold text-gray-900 text-base">Información general</h2>
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="email_facturacion">Email
-                                de facturación</label>
-                            <input id="email_facturacion" name="email_facturacion" value="{{ $data->email_facturacion }}"
-                                autocomplete="off"
-                                class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        </div>
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="email_bolsa">Email bolsa de trabajo</label>
-                            <input id="email_bolsa" name="email_bolsa" value="{{ $data->email_bolsa }}" autocomplete="off"
-                                class="mb-1 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <span class="text-xs">Este correo electrónico está relacionado con el formulario de <span
-                                    class="font-bold">bolsa de trabajo</span>. Toda la información relacionada será enviada
-                                a esta dirección de correo electrónico.</span>
-                        </div>
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="email_eventos">Email para eventos</label>
-                            <input id="email_eventos" name="email_eventos" value="{{ $data->email_eventos }}"
-                                autocomplete="off"
-                                class="mb-1 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <span class="text-xs">Este correo electrónico está relacionado con el formulario de <span
-                                    class="font-bold">grupos y eventos</span>. Toda la información relacionada será enviada
-                                a esta dirección de correo electrónico.</span>
-                        </div>
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="emails_cc">Email CC para eventos</label>
-                            <input id="emails_cc" name="emails_cc" value="{{ $data->emails_cc }}" autocomplete="off"
-                                class="mb-1 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
-                            <span class="text-xs block"><span class="font-bold">Ejemplo:</span>
-                                correo_1@prueba.mx;correo_2@prueba.mx;correo_3@prueba.mx</span>
-                            <span class="text-xs">Estos correos electrónicos estaran relacionados con el formulario de <span
-                                    class="font-bold">grupos y eventos</span>.</span>
+                        <div class="mb-3">
+                            <label for="contact_cover"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen sección</label>
+                            <input type="file" name="contact_cover" class="dropify" data-height="200"
+                                data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
+                                data-default-file="{{ asset($data->contact_cover) }}" />
+                            <small>Las medidas recomendadas son 700 x 900 px, solo se aceptan .jpg, .jpeg, .webp y .png
+                                con un maximo de peso de 1MB.</small>
                         </div>
-                    </div>
-                </div>
-                <div class="w-full mb-10">
-                    <div class=" mb-6">
-                        <h2 class="mb-2 font-semibold text-gray-900 text-base">Promociones</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-3">
-                            <div class="w-full mb-3">
-                                <label for="img_promo_movil"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
-                                    movil</label>
-                                <input type="file" name="img_promo_movil" class="dropify" data-height="200"
-                                    data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
-                                    data-default-file="{{ asset($data->img_promo_movil) }}" />
-                                <small>Solo se aceptan .jpg, .jpeg, .webp y .png con un maximo de peso de 1MB.</small>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="contact_mail">Email
+                                    de contacto</label>
+                                <input id="email_contacto" name="contact_mail" value="{{ $data->contact_mail }}"
+                                    autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
-                            <div class="w-full mb-3">
-                                <label for="img_promo"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
-                                    escritorio</label>
-                                <input type="file" name="img_promo" class="dropify" data-height="200"
-                                    data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
-                                    data-default-file="{{ asset($data->img_promo) }}" />
-                                <small>Solo se aceptan .jpg, .jpeg, .webp y .png con un maximo de peso de 1MB.</small>
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="contact_cc_mail">CC</label>
+                                <input name="contact_cc_mail" value="{{ $data->contact_cc_mail }}" autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <span class="text-xs block"><span class="font-bold">Ejemplo:</span>
+                                    correo_1@prueba.mx;correo_2@prueba.mx;correo_3@prueba.mx</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="contact_mail_bolsa">Email
+                                    de bolsa de trabajo</label>
+                                <input name="contact_mail_bolsa" value="{{ $data->contact_mail_bolsa }}" autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="contact_cc_mail_bolsa">CC</label>
+                                <input name="contact_cc_mail_bolsa" value="{{ $data->contact_cc_mail_bolsa }}"
+                                    autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <span class="text-xs block"><span class="font-bold">Ejemplo:</span>
+                                    correo_1@prueba.mx;correo_2@prueba.mx;correo_3@prueba.mx</span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="contact_mail_eventos">Email
+                                    de bolsa de trabajo</label>
+                                <input name="contact_mail_eventos" value="{{ $data->contact_mail_eventos }}"
+                                    autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="contact_cc_mail_eventos">CC</label>
+                                <input name="contact_cc_mail_eventos" value="{{ $data->contact_cc_mail_eventos }}"
+                                    autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <span class="text-xs block"><span class="font-bold">Ejemplo:</span>
+                                    correo_1@prueba.mx;correo_2@prueba.mx;correo_3@prueba.mx</span>
+                            </div>
+
+                            <div class="mb-3 md:col-span-2">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="contact_mail_facturacion">Email
+                                    de facturación</label>
+                                <input name="contact_mail_facturacion" value="{{ $data->contact_mail_facturacion }}"
+                                    autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="w-full mb-10">
-                    <div class=" mb-6">
-                        <h2 class="mb-2 font-semibold text-gray-900 text-base">Redes sociales</h2>
 
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="url_in">Instagram</label>
-                            <input id="url_in" name="url_in" value="{{ $data->url_in }}" autocomplete="off"
-                                class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        </div>
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="url_fb">Facebook</label>
-                            <input id="url_fb" name="url_fb" value="{{ $data->url_fb }}" autocomplete="off"
-                                class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        </div>
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="url_sp">Spotify</label>
-                            <input id="url_sp" name="url_sp" value="{{ $data->url_sp }}" autocomplete="off"
-                                class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        </div>
-                        <div class="mb-3">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="url_ta">TripAdvisor</label>
-                            <input id="url_ta" name="url_ta" value="{{ $data->url_ta }}" autocomplete="off"
-                                class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        </div>
-
-
-                    </div>
-                </div>
 
                 <div class="w-full">
                     <div class=" mb-6">
                         <h2 class="mb-2 font-semibold text-gray-900 dark:text-gray-200 text-base">Scripts en Head</h2>
 
                         <div class="mb-3">
-                            <textarea cols="30" rows="10" id="scripts" name="scripts" value="{{ $data->scripts }}"
-                                autocomplete="off"
+                            <textarea cols="30" rows="10" id="scripts" name="scripts" value="{{ $data->scripts }}" autocomplete="off"
                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $data->scripts }}</textarea>
                         </div>
                     </div>
