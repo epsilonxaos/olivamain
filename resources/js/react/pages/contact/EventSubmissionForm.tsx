@@ -5,10 +5,11 @@ import Text from '../../components/Text'
 import Button from '../../components/buttons/Button'
 import Input from '../../components/forms/Input'
 import AppContext from '../../contexts/AppContext'
+import { InputBuilder } from '../../utils/InputBuilder'
 
 const EventSubmissionForm = () => {
 	const { state } = useContext(AppContext)
-	const { website } = state
+	const { website, forms } = state
 
 	return (
 		<Container className='relative z-10 max-w-[700px] md:p-0'>
@@ -16,7 +17,12 @@ const EventSubmissionForm = () => {
 				className='grid w-full grid-cols-1 gap-8'
 				action=''
 				method='post'>
-				<Input
+				{forms
+					.filter(f => f.section === 'contacto')
+					.map(form => {
+						return InputBuilder(form)
+					})}
+				{/* <Input
 					className='bg-grisClaro bg-opacity-85'
 					name='nombre'
 					label='Nombre completo'
@@ -36,7 +42,7 @@ const EventSubmissionForm = () => {
 					className='bg-grisClaro bg-opacity-85'
 					name='mensaje'
 					label='Mensaje'
-				/>
+				/> */}
 
 				<div className='text-center'>
 					<Button className='mx-auto mb-10 block w-full max-w-[320px] bg-black text-white'>Enviar</Button>

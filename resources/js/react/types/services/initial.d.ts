@@ -2,6 +2,24 @@ export type InitialDataResponse = {
 	website: Website
 	sucursals: Sucursal[]
 	galeria: Galeria[]
+	forms: Form[]
+}
+
+export type Form = {
+	id: number
+	name: string
+	section: string
+	type: string
+	options: string | null
+	required: number
+	translations: FormTranslation[]
+	es?: FormTranslation
+	en?: FormTranslation
+}
+
+export type FormTranslation = {
+	label: string
+	placeholder: string | null
 }
 
 export type Galeria = {

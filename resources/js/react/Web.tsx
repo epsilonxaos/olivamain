@@ -5,7 +5,7 @@ import { useEffect, useReducer, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
 import type { ActionApp, StateApp, Theme } from './types/main'
-import type { Sucursal, Website } from './types/services/initial'
+import type { Form, Sucursal, Website } from './types/services/initial'
 
 import Loading from './components/Loading'
 import { MessageConsent } from './components/MessageConsent'
@@ -42,12 +42,13 @@ export default function Web() {
 	useEffect(() => {
 		getCargaInicialService()
 			.then(({ data }) => {
-				const { website, sucursals, galeria } = data
+				const { website, sucursals, galeria, forms } = data
 
 				processTranslations(website)
 				sucursals.forEach(processSucursalTranslations)
+				forms.forEach(processFormTranslations)
 
-				dispatch({ website, sucursals, galeria })
+				dispatch({ website, sucursals, galeria, forms })
 
 				setTimeout(() => {
 					dispatch({ loading: false, completeTask: true })
@@ -69,6 +70,13 @@ export default function Web() {
 		sucursal.translations.forEach(translation => {
 			let locale = translation.locale
 			sucursal[locale] = translation
+		})
+	}
+
+	const processFormTranslations = (forms: Form) => {
+		forms.translations.forEach(translation => {
+			let locale = translation.locale
+			forms[locale] = translation
 		})
 	}
 
