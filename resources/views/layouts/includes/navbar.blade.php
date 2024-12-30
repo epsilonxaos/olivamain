@@ -14,7 +14,7 @@
                     </svg>
                 </button>
                 <a href="{{ route('panel.dashboard') }}" class="flex ml-2 md:mr-24">
-                    <img width="120" src="{{ asset('img/logo.svg') }}" alt="Logo">
+                    <img width="120" src="{{ asset('img/logo.png') }}" alt="Logo">
                 </a>
             </div>
             <div class="flex items-center">
