@@ -75,4 +75,66 @@ class PermissionKey extends ServiceProvider
 			],
 		]
 	];
+
+	const Sucursales = [
+		'name' => 'Módulo Sucursales',
+		'permissions' => [
+			'index' => [
+				'display_name' => 'Ver módulo',
+				'name' => 'sucursales.index'
+			],
+			'create' => [
+				'display_name' => 'Creación',
+				'name' => 'sucursales.create'
+			],
+			'edit' => [
+				'display_name' => 'Ver detalles',
+				'name' => 'sucursales.edit'
+			],
+			'update' => [
+				'display_name' => 'Modificar',
+				'name' => 'sucursales.update'
+			],
+			"status" => [
+				'display_name' => 'Cambiar estado',
+				'name' => 'sucursales.status'
+			],
+			'destroy' => [
+				'display_name' => 'Eliminar',
+				'name' => 'sucursales.destroy'
+			],
+		]
+	];
+
+	const Forms = [
+		'name' => 'Módulo Formularios',
+		'permissions' => [
+			'index' => [
+				'display_name' => 'Ver módulo',
+				'name' => 'forms.index'
+			],
+			'create' => [
+				'display_name' => 'Creación',
+				'name' => 'forms.create'
+			],
+			'update' => [
+				'display_name' => 'Modificar',
+				'name' => 'forms.update'
+			],
+		]
+	];
+
+	const Website = [
+		'name' => 'Módulo Sitio Web',
+		'permissions' => [
+			'index' => [
+				'display_name' => 'Ver módulo',
+				'name' => 'website.index'
+			],
+			'update' => [
+				'display_name' => 'Modificar',
+				'name' => 'website.update'
+			]
+		]
+	]
 }
