@@ -1,16 +1,16 @@
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { APP_URL } from '../../constants/constants'
 
-import ImgPlaceholder from '../../../../img/sucursal-banner-placeholder.png'
-import ImgPlaceholder2 from '../../../../img/sucursal-logo-2-placeholder.svg'
 import BorderCard from '../../components/BorderCard'
 import Text from '../../components/Text'
 import Button from '../../components/buttons/Button'
 import AppContext from '../../contexts/AppContext'
 
 const EventCard = () => {
+	const { t } = useTranslation()
 	const { state } = useContext(AppContext)
 	const { sucursals } = state
 
@@ -35,7 +35,7 @@ const EventCard = () => {
 							<Text parseHtml>{su.descripcion_reservas}</Text>
 
 							<Link to={'/grupos-y-eventos/formulario'}>
-								<Button className=''>Reserva</Button>
+								<Button className=''>{t('btn.reserva')}</Button>
 							</Link>
 						</div>
 					</BorderCard>

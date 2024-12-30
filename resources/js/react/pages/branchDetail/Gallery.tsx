@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { APP_URL } from '../../constants/constants'
 
@@ -8,6 +9,7 @@ import { SucursalContext } from '../../contexts/SucursalContext'
 
 const Gallery = () => {
 	const su = useContext(SucursalContext)
+	const { t } = useTranslation()
 
 	if (!su) return null
 
@@ -15,7 +17,7 @@ const Gallery = () => {
 		<div className='border-b border-b-black bg-white lg:bg-grisClaro'>
 			<Container className='py-20'>
 				<Text.Title className='mb-8 text-center'>
-					Síguenos en nuestras redes sociales{' '}
+					{t('siguenos')}{' '}
 					{su.urlIn ? (
 						<a
 							href={su.urlIn}

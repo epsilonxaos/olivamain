@@ -12,7 +12,7 @@ import AppContext from '../../contexts/AppContext'
 import useResponsiveMediaQuery from '../../hooks/useResponsiveMediaQuery'
 
 const Branches = () => {
-	const { i18n } = useTranslation()
+	const { i18n, t } = useTranslation()
 	const { language } = i18n
 	const { state } = useContext(AppContext)
 	const { sucursals } = state
@@ -20,7 +20,7 @@ const Branches = () => {
 	return (
 		<section className='bg-crema2'>
 			<header className='relative border-y border-y-black py-16 text-center'>
-				<Text.Title>Nuestras sucursales</Text.Title>
+				<Text.Title>{t('home.sucursales.title')}</Text.Title>
 
 				<img
 					className='absolute -bottom-16 left-0 right-0 mx-auto hidden w-[40px] lg:block'
@@ -63,6 +63,7 @@ type TBranchSection = {
 
 const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, delivery, slug }: TBranchSection) => {
 	const { isDesktop } = useResponsiveMediaQuery()
+	const { t } = useTranslation()
 
 	return (
 		<div className='border-b border-b-black'>
@@ -77,7 +78,7 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 							/>
 
 							<main className='pl-6 xl:pl-10'>
-								<Text.Title className='mb-1 tracking-[1.6px]'>Horarios</Text.Title>
+								<Text.Title className='mb-1 tracking-[1.6px]'>{t('sucursal.horarios')}</Text.Title>
 								<Text
 									parseHtml
 									className='mb-0'>
@@ -87,19 +88,19 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 						</div>
 
 						<div className='hidden border-y border-y-black py-8 lg:grid lg:grid-cols-4 lg:gap-5'>
-							{delivery && <Button className='px-2'>Delivery</Button>}
-							{reserva && <Button className='px-2'>Reserva</Button>}
+							{delivery && <Button className='px-2'>{t('sucursal.btn.delivery')}</Button>}
+							{reserva && <Button className='px-2'>{t('btn.reserva')}</Button>}
 							{menu && (
 								<Button.Url
 									href={APP_URL + menu}
 									className='px-2'>
-									Menú
+									{t('sucursal.btn.menu')}
 								</Button.Url>
 							)}
 							<Button.Navigation
 								to={'sucursal/' + slug}
 								className='px-2'>
-								Conoce más
+								{t('sucursal.btn.conoceMas')}
 							</Button.Navigation>
 						</div>
 
@@ -141,7 +142,7 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 							<Button.Navigation
 								to={'sucursal/' + slug}
 								className='w-full px-2'>
-								Conoce más
+								{t('sucursal.btn.conoceMas')}
 							</Button.Navigation>
 						</div>
 					)}

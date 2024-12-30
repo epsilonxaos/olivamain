@@ -9,7 +9,7 @@ import Button from '../../components/buttons/Button'
 import AppContext from '../../contexts/AppContext'
 
 const EventCard = () => {
-	const { i18n } = useTranslation()
+	const { i18n, t } = useTranslation()
 	const { language } = i18n
 	const { state } = useContext(AppContext)
 	const { sucursals } = state
@@ -28,7 +28,7 @@ const EventCard = () => {
 								<Text parseHtml>{su[language].descripcion_eventos}</Text>
 
 								<Link to={'/grupos-y-eventos/formulario'}>
-									<Button className='w-full bg-black text-white'>Cotizar</Button>
+									<Button className='w-full bg-black text-white'>{t('btn.cotizar')}</Button>
 								</Link>
 							</div>
 						</div>

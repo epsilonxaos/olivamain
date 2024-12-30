@@ -44,6 +44,7 @@ const Form = () => {
 
 const EventSubmissionForm = () => {
 	const { state } = useContext(AppContext)
+	const { t } = useTranslation()
 	const { forms } = state
 
 	console.log(forms)
@@ -60,46 +61,8 @@ const EventSubmissionForm = () => {
 						return InputBuilder(form)
 					})}
 
-				{/* <Input
-					name='nombre'
-					label='Nombre completo'
-				/>
-				<Input
-					name='telefono'
-					label='Télefono'
-				/>
-				<Input
-					type='email'
-					name='email'
-					label='Email'
-				/>
-				<Input
-					name='ubicacion'
-					label='Ubicacion del evento'
-				/>
-				<Input
-					name='tipo'
-					label='Tipo de evento'
-				/>
-				<Input
-					name='informacion'
-					label='Informacion adicional'
-				/>
-				<Input
-					name='cantidad'
-					label='Cantidad destinada para el presupuesto'
-				/>
-				<Input
-					name='fecha'
-					label='Fecha del evento'
-				/>
-				<Input
-					name='horario'
-					label='Horario preferido'
-				/> */}
-
 				<div className='text-center'>
-					<Button className='mx-auto mb-10 block w-full max-w-[320px] bg-black text-white'>Enviar</Button>
+					<Button className='mx-auto mb-10 block w-full max-w-[320px] bg-black text-white'>{t('form.enviar')}</Button>
 
 					<a
 						className='mx-auto'

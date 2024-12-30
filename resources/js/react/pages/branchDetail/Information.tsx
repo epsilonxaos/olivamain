@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { APP_URL } from '../../constants/constants'
 
@@ -9,6 +10,7 @@ import { SucursalContext } from '../../contexts/SucursalContext'
 import useResponsiveMediaQuery from '../../hooks/useResponsiveMediaQuery'
 
 const Information = () => {
+	const { t } = useTranslation()
 	const { isMobile } = useResponsiveMediaQuery()
 	const su = useContext(SucursalContext)
 
@@ -33,7 +35,7 @@ const Information = () => {
 							</Text>
 						</div>
 
-						<Text.Title className='mb-1 tracking-[1.6px]'>Horarios</Text.Title>
+						<Text.Title className='mb-1 tracking-[1.6px]'>{t('sucursal.horarios')}</Text.Title>
 						<Text
 							parseHtml
 							className='mb-0'>
@@ -73,7 +75,7 @@ const Information = () => {
 								<Button.Url
 									href={APP_URL + su.menu}
 									className='w-full bg-white'>
-									Menú
+									{t('sucursal.btn.menu')}
 								</Button.Url>
 							</li>
 						)}
@@ -81,14 +83,14 @@ const Information = () => {
 						{/* // TODO: Implementar navegacion por ID */}
 						{su.reserva_iframe && (
 							<li>
-								<Button className='w-full bg-white'>Reserva</Button>
+								<Button className='w-full bg-white'>{t('btn.reserva')}</Button>
 							</li>
 						)}
 
 						{/* // TODO: Implementar navegacion por ID */}
 						{su.maps && (
 							<li>
-								<Button className='w-full bg-white'>Ubicación</Button>
+								<Button className='w-full bg-white'>{t('sucursal.btn.ubicacion')}</Button>
 							</li>
 						)}
 					</ul>

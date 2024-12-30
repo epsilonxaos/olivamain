@@ -1,5 +1,6 @@
 import parse from 'html-react-parser'
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaLocationDot } from 'react-icons/fa6'
 
 import Container from '../../components/Container'
@@ -29,10 +30,11 @@ const Location = () => {
 
 const LocationDetails = () => {
 	const su = useContext(SucursalContext)
+	const { t } = useTranslation()
 
 	return (
 		<div>
-			<Text.Title className='mb-2 tracking-[1.6px]'>Ubicación</Text.Title>
+			<Text.Title className='mb-2 tracking-[1.6px]'>{t('sucursal.btn.ubicacion')}</Text.Title>
 			<Text className='mb-2'>{su?.direccion}</Text>
 
 			<div className='flex items-center justify-start'>

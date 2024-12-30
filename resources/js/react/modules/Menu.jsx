@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaChevronDown } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 
@@ -9,6 +10,7 @@ import BranchMenu from './BranchMenu'
 const Menu = () => {
 	const { openBranchMenu, setOpenBranchMenu, setOpenMenu } = useContext(HeaderContext)
 	const { isMobile, isTablet } = useResponsiveMediaQuery()
+	const { t } = useTranslation()
 
 	return (
 		<nav className='font-apercuPro'>
@@ -18,7 +20,7 @@ const Menu = () => {
 						onClick={() => setOpenBranchMenu(!openBranchMenu)}
 						type='button'
 						className='mx-auto flex items-center'>
-						SUCURSALES <FaChevronDown className='ml-2' />
+						{t('header.sucursales')} <FaChevronDown className='ml-2' />
 					</button>
 
 					{(isMobile || isTablet) && openBranchMenu && <BranchMenu />}
@@ -27,14 +29,14 @@ const Menu = () => {
 					<Link
 						onClick={() => setOpenMenu(false)}
 						to={'grupos-y-eventos'}>
-						GRUPOS Y EVENTOS
+						{t('header.grupos')}
 					</Link>
 				</li>
 				<li>
 					<Link
 						onClick={() => setOpenMenu(false)}
 						to={'contacto'}>
-						CONTACTO
+						{t('header.contacto')}
 					</Link>
 				</li>
 			</ul>

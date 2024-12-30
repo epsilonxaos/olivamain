@@ -4,8 +4,6 @@ import { useParams } from 'react-router-dom'
 import { APP_URL } from '../../constants/constants'
 import type { Sucursal } from '../../types/services/initial'
 
-import ImgBannerPlaceholder from '../../../../img/sucursal-banner-placeholder.png'
-import ImgLogoPlaceholder from '../../../../img/sucursal-logo-2-placeholder.svg'
 import AppContext from '../../contexts/AppContext'
 import { SucursalContext } from '../../contexts/SucursalContext'
 import { getSucursalService } from '../../services/AppService'

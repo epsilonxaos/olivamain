@@ -1,3 +1,7 @@
+import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
+import AppContext from 'resources/js/react/contexts/AppContext'
+
 import ImgBg from '../../../../img/bg-bolsa-placeholder.png'
 import ImgSello from '../../../../img/sello-bolsa.png'
 import Container from '../../components/Container'
@@ -5,6 +9,10 @@ import Text from '../../components/Text'
 import FormSubmit from './FormSubmit'
 
 const Index = () => {
+	const { i18n } = useTranslation()
+	const { language } = i18n
+	const { state } = useContext(AppContext)
+	const { website } = state
 	return (
 		<div className='border-b border-b-black lg:bg-white'>
 			<Container className='px-0 lg:pl-0 xl:pl-0'>
@@ -25,10 +33,11 @@ const Index = () => {
 								className='mx-auto mb-10 size-[120px] lg:size-[160px]'
 							/>
 
-							<Text.Title className='mb-5 tracking-[2.5px]'>ÚNETE A NUESTRO EQUIPO DE TRABAJO</Text.Title>
-							<Text className='mb-10 text-center'>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-								dis parturient montes, nascetur ridiculus mus.
+							<Text.Title className='mb-5 tracking-[2.5px]'>{website[language].bolsa_title}</Text.Title>
+							<Text
+								parseHtml
+								className='mb-10 text-center'>
+								{website[language].bolsa_text}
 							</Text>
 
 							<FormSubmit />

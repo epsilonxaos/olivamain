@@ -1,13 +1,14 @@
 import { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import Container from '../../components/Container'
 import Text from '../../components/Text'
 import Button from '../../components/buttons/Button'
-import Input from '../../components/forms/Input'
 import AppContext from '../../contexts/AppContext'
 import { InputBuilder } from '../../utils/InputBuilder'
 
 const EventSubmissionForm = () => {
+	const { t } = useTranslation()
 	const { state } = useContext(AppContext)
 	const { website, forms } = state
 
@@ -22,30 +23,9 @@ const EventSubmissionForm = () => {
 					.map(form => {
 						return InputBuilder(form)
 					})}
-				{/* <Input
-					className='bg-grisClaro bg-opacity-85'
-					name='nombre'
-					label='Nombre completo'
-				/>
-				<Input
-					className='bg-grisClaro bg-opacity-85'
-					name='telefono'
-					label='Télefono'
-				/>
-				<Input
-					className='bg-grisClaro bg-opacity-85'
-					type='email'
-					name='email'
-					label='Email'
-				/>
-				<Input
-					className='bg-grisClaro bg-opacity-85'
-					name='mensaje'
-					label='Mensaje'
-				/> */}
 
 				<div className='text-center'>
-					<Button className='mx-auto mb-10 block w-full max-w-[320px] bg-black text-white'>Enviar</Button>
+					<Button className='mx-auto mb-10 block w-full max-w-[320px] bg-black text-white'>{t('form.enviar')}</Button>
 
 					<a
 						className='mx-auto'

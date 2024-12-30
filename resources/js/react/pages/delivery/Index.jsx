@@ -50,6 +50,8 @@ const Index = () => {
 }
 
 const Card = ({ logo, bg, url }) => {
+	const { t } = useTranslation()
+
 	return (
 		<div className='col-span-1 border-b border-b-black py-20 lg:border-none lg:py-0'>
 			<img
@@ -67,7 +69,7 @@ const Card = ({ logo, bg, url }) => {
 			<Button.Url
 				href={url}
 				className='mx-auto block w-full max-w-[260px] bg-black text-white'>
-				Ordena ahora
+				{t('btn.ordena')}
 			</Button.Url>
 		</div>
 	)

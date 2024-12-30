@@ -36,7 +36,7 @@ const Footer = () => {
 			<Container className='py-12'>
 				<div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 xl:flex xl:items-start xl:justify-between xl:text-left'>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>Contacto</Text.Title>
+						<Text.Title className='mb-5'>{t('contacto')}</Text.Title>
 						{sucursals
 							.filter(({ phone }) => !!phone)
 							.map(({ sucursal, phone, slug }) => (
@@ -53,25 +53,25 @@ const Footer = () => {
 							))}
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>Bolsa de trabajo</Text.Title>
+						<Text.Title className='mb-5'>{t('bolsa')}</Text.Title>
 						<Text className='mb-0.5 underline'>
-							<Link to={'/bolsa-de-trabajo'}>Formulario</Link>
+							<Link to={'/bolsa-de-trabajo'}>{t('formulario')}</Link>
 						</Text>
 						<Text className='mb-0.5'>
 							<a href={'mailto:' + website.contact_mail_bolsa}>{website.contact_mail_bolsa}</a>
 						</Text>
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>Facturación</Text.Title>
-						<Text className='mb-0.5 underline'>Factura en línea</Text>
+						<Text.Title className='mb-5'>{t('facturacion')}</Text.Title>
+						<Text className='mb-0.5 underline'>{t('facturacion.linea')}</Text>
 						<Text className='mb-0.5'>
 							<a href={'mailto:' + website.contact_mail_facturacion}>{website.contact_mail_facturacion}</a>
 						</Text>
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>Grupos y eventos</Text.Title>
+						<Text.Title className='mb-5'>{t('gruposEventos')}</Text.Title>
 						<Text className='mb-0.5 underline'>
-							<Link to={'/grupos-y-eventos/formulario'}>Formulario</Link>
+							<Link to={'/grupos-y-eventos/formulario'}>{t('formulario')}</Link>
 						</Text>
 						<Text className='mb-0.5'>
 							<a href={'mailto:' + website.contact_mail_eventos}>{website.contact_mail_eventos}</a>
