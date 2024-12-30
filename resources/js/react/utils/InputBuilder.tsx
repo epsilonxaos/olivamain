@@ -1,14 +1,20 @@
+import { useTranslation } from 'react-i18next'
+
 import Input from '../components/forms/Input'
 import Select from '../components/forms/Select'
 import Textarea from '../components/forms/Textarea'
 
 export const InputBuilder = input => {
+	const { i18n } = useTranslation()
+
 	if (input.type === 'textarea') {
 		return (
 			<Textarea
 				key={'form-event-' + input.id}
 				name={input.name}
-				label={input.label}
+				label={input[i18n.language].label}
+				required={input.required}
+				placeholder={input[i18n.language].placeholder}
 			/>
 		)
 	}
@@ -25,9 +31,9 @@ export const InputBuilder = input => {
 			<Select
 				key={'form-event-' + input.id}
 				name={input.name}
-				label={input.label}
+				label={input[i18n.language].label}
 				options={options}
-				// required={input.required}
+				required={input.required}
 			/>
 		)
 	}
@@ -35,8 +41,11 @@ export const InputBuilder = input => {
 	return (
 		<Input
 			key={'form-event-' + input.id}
+			type={input.type}
 			name={input.name}
-			label={input.label}
+			label={input[i18n.language].label}
+			required={input.required}
+			placeholder={input[i18n.language].placeholder}
 		/>
 	)
 }

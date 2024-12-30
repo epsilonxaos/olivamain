@@ -1,15 +1,40 @@
 import { twMerge } from 'tailwind-merge'
 
-export default function Textarea({ className, name, label, register, validate = false, rules, validateError = '', validateErrorMessage = '' }) {
+type TextareaProps = {
+	className?: string
+	name: string
+	label: string
+	required?: boolean
+	register?: any
+	validate?: boolean
+	rules?: any
+	validateError?: boolean
+	validateErrorMessage?: string
+	placeholder?: string
+}
+
+export default function Textarea({
+	className,
+	name,
+	label,
+	register,
+	validate = false,
+	rules,
+	validateError,
+	validateErrorMessage = '',
+	required,
+	placeholder = '',
+}: TextareaProps) {
 	return (
 		<div className={twMerge('group relative z-0 mb-7 w-full', className)}>
 			<textarea
 				cols='30'
 				rows='5'
+				required={!!required}
 				name={name}
 				id={name}
 				className='font-intervogueReg peer block w-full appearance-none border border-black bg-transparent px-4 py-2.5 text-sm text-inherit focus:border-black focus:outline-none focus:ring-0'
-				placeholder=' '
+				placeholder={placeholder}
 				{...(validate && register(name, rules))}
 				{...(!validate && { name })}
 				// required
@@ -23,7 +48,7 @@ export default function Textarea({ className, name, label, register, validate = 
 					validateError && 'border-2 border-none text-red-700'
 				}`}>
 				{label}
-				{validate && <span className='font-bold text-red-700'>*</span>}
+				{(validate || !!required) && <span className='font-bold text-red-700'>*</span>}
 			</label>
 		</div>
 	)
