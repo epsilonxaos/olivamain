@@ -65,6 +65,7 @@ export type Website = {
 	reserva_form_title: string
 	reserva_text: string
 	reserva_title: string
+	url_facturacion: string | null
 	translations: WebsiteTranslation[]
 	es?: WebsiteTranslation
 	en?: WebsiteTranslation

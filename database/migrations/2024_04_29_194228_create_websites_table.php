@@ -35,6 +35,8 @@ return new class extends Migration
 
 			$table->string('delivery_img')->nullable();
 
+			$table->string('url_facturacion')->nullable();
+
 			$table->longText('scripts')->nullable();
 
 			// * Home - Nosotros

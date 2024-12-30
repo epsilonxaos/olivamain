@@ -46,6 +46,13 @@
                         <div class="grid md:grid-cols-2 gap-4">
                             <div class="mb-3">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="url_facturacion">Url facturación</label>
+                                <input id="email_contacto" name="url_facturacion" value="{{ $data->url_facturacion }}"
+                                    autocomplete="off"
+                                    class="disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     for="contact_mail">Email
                                     de contacto</label>
                                 <input id="email_contacto" name="contact_mail" value="{{ $data->contact_mail }}"
@@ -114,7 +121,8 @@
                         <h2 class="mb-2 font-semibold text-gray-900 dark:text-gray-200 text-base">Scripts en Head</h2>
 
                         <div class="mb-3">
-                            <textarea cols="30" rows="10" id="scripts" name="scripts" value="{{ $data->scripts }}" autocomplete="off"
+                            <textarea cols="30" rows="10" id="scripts" name="scripts" value="{{ $data->scripts }}"
+                                autocomplete="off"
                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $data->scripts }}</textarea>
                         </div>
                     </div>

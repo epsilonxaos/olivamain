@@ -57,5 +57,6 @@ class Website extends Model implements TranslatableContract
 		'reserva_form_img',
 		'delivery_img',
 		'scripts',
+		'url_facturacion'
 	];
 }

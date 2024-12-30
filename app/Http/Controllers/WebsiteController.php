@@ -81,6 +81,7 @@ class WebsiteController extends Controller
 			'contact_cc_mail_facturacion',
 			'contact_mail_eventos',
 			'contact_cc_mail_eventos',
+			'url_facturacion'
 		];
 
 		foreach ($columnsInWebsite as $column) {

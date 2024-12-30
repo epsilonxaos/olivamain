@@ -88,8 +88,20 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 						</div>
 
 						<div className='hidden border-y border-y-black py-8 lg:grid lg:grid-cols-4 lg:gap-5'>
-							{delivery && <Button className='px-2'>{t('sucursal.btn.delivery')}</Button>}
-							{reserva && <Button className='px-2'>{t('btn.reserva')}</Button>}
+							{delivery && (
+								<Button.Navigation
+									to='/delivery'
+									className='px-2'>
+									{t('sucursal.btn.delivery')}
+								</Button.Navigation>
+							)}
+							{reserva && (
+								<Button.Navigation
+									to={'sucursal/' + slug + '#' + slug}
+									className='px-2'>
+									{t('btn.reserva')}
+								</Button.Navigation>
+							)}
 							{menu && (
 								<Button.Url
 									href={APP_URL + menu}
