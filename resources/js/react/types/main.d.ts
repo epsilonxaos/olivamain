@@ -24,5 +24,5 @@ export type TBannerSection = {
 	className?: TClassName
 }
 
-type StateApp = InitialDataResponse & { loading: boolean; completeTask: boolean }
+type StateApp = InitialDataResponse & { loading: boolean; completeTask: boolean; formEventReference: string }
 type ActionApp = Partial<StateApp>

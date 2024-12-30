@@ -59,6 +59,8 @@ const EventSubmissionForm = () => {
 			data[key] = value
 		})
 
+		data['sucursal'] = state.formEventReference
+
 		sendEvents({ data })
 			.then(({ data }) => {
 				const { success, message } = data

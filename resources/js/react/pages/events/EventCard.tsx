@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
 
 import ImgPlaceholder from '../../../../img/sucursal-banner-placeholder.png'
 import BorderCard from '../../components/BorderCard'
@@ -11,7 +10,7 @@ import AppContext from '../../contexts/AppContext'
 const EventCard = () => {
 	const { i18n, t } = useTranslation()
 	const { language } = i18n
-	const { state } = useContext(AppContext)
+	const { state, dispatch } = useContext(AppContext)
 	const { sucursals } = state
 
 	return (
@@ -27,9 +26,12 @@ const EventCard = () => {
 								<Text.Title>{su[language].titulo_eventos}</Text.Title>
 								<Text parseHtml>{su[language].descripcion_eventos}</Text>
 
-								<Link to={'/grupos-y-eventos/formulario'}>
-									<Button className='w-full bg-black text-white'>{t('btn.cotizar')}</Button>
-								</Link>
+								<Button.Navigation
+									to={'/grupos-y-eventos/formulario'}
+									onClick={() => dispatch({ formEventReference: su.sucursal })}
+									className='w-full bg-black text-white'>
+									{t('btn.cotizar')}
+								</Button.Navigation>
 							</div>
 						</div>
 					</BorderCard>

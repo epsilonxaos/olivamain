@@ -14,7 +14,9 @@ const Reservation = () => {
 	if (!su?.reserva_iframe) return null
 
 	return (
-		<div className='border-b border-b-black'>
+		<div
+			className='border-b border-b-black'
+			id={'reserva-' + su.slug}>
 			<Container className='relative min-h-[60svh] py-24'>
 				<Text.Title className='text-center'>{t('btn.reservaAhora')}</Text.Title>
 

@@ -203,14 +203,17 @@
                                                     style="font-family:Raleway, Arial;font-size:16px;line-height:1.5;text-align:left;color:#1c1c1c;">
                                                     <p style="margin-bottom: 20px">Estimado equipo,</p>
                                                     <p style="margin-bottom: 30px">Hemos recibido una nueva solicitud
-                                                        de reserva para un evento. A continuación, se detalla la
+                                                        de reserva para un evento en sucursal {{ $data['sucursal'] }}. A
+                                                        continuación, se detalla la
                                                         información proporcionada por el solicitante:</p>
 
                                                     {{-- TODO: Revisar si la iteracion es correcta y si los datos llegan bien --}}
                                                     @foreach ($forms as $form)
-                                                        <p><span
+                                                        <p>
+                                                            <span
                                                                 style="font-weight: bold;">{{ ucfirst($form['label:es']) }}:</span>
-                                                            {{ $data[$form->name] }}</p>
+                                                            {{ $data[$form->name] }}
+                                                        </p>
                                                     @endforeach
 
                                             </td>
