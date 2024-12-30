@@ -189,7 +189,7 @@
 
                                                 <div
                                                     style="font-family:Raleway, Arial;font-size:13px;line-height:1;text-align:center;color:#1c1c1c;">
-                                                    <h1>Nueva Solicitud de Bolsa de Trabajo</h1>
+                                                    <h1>Nuevo Contacto</h1>
                                                 </div>
 
                                             </td>
@@ -202,9 +202,9 @@
                                                 <div
                                                     style="font-family:Raleway, Arial;font-size:16px;line-height:1.5;text-align:left;color:#1c1c1c;">
                                                     <p style="margin-bottom: 20px">Estimado equipo,</p>
-                                                    <p style="margin-bottom: 30px">Hemos recibido una nueva solicitud
-                                                        en nuestra bolsa de trabajo. A continuación, se detalla la
-                                                        información proporcionada por el solicitante:</p>
+                                                    <p style="margin-bottom: 30px">Hemos recibido un nuevo mensaje de
+                                                        contacto. A continuación, se detalla la información
+                                                        proporcionada por el remitente:</p>
 
                                                     {{-- TODO: Revisar si la iteracion es correcta y si los datos llegan bien --}}
                                                     @foreach ($forms as $form)

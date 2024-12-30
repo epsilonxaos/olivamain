@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MailBolsaTrabajo extends Mailable
+class MailContacto extends Mailable
 {
 	use Queueable, SerializesModels;
 	public $data;
@@ -22,7 +22,7 @@ class MailBolsaTrabajo extends Mailable
 	public function __construct($data)
 	{
 		$this->data = $data;
-		$this->forms = Forms::where('section', 'bolsa')->first();
+		$this->forms = Forms::where('section', 'contacto')->first();
 	}
 
 	/**
@@ -31,7 +31,7 @@ class MailBolsaTrabajo extends Mailable
 	public function envelope(): Envelope
 	{
 		return new Envelope(
-			subject: 'Nueva Solicitud de Bolsa de Trabajo',
+			subject: 'Nuevo Contacto',
 		);
 	}
 
@@ -41,7 +41,7 @@ class MailBolsaTrabajo extends Mailable
 	public function content(): Content
 	{
 		return new Content(
-			view: 'mails.bolsa',
+			view: 'mails.contacto',
 			with: array_merge($this->data, ['forms' => $this->forms])
 		);
 	}

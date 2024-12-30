@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Forms;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,6 +14,7 @@ class MailEventos extends Mailable
 {
 	use Queueable, SerializesModels;
 	public $data;
+	public $forms;
 
 	/**
 	 * Create a new message instance.
@@ -20,6 +22,7 @@ class MailEventos extends Mailable
 	public function __construct($data)
 	{
 		$this->data = $data;
+		$this->forms = Forms::where('section', 'events')->first();
 	}
 
 	/**
@@ -39,7 +42,7 @@ class MailEventos extends Mailable
 	{
 		return new Content(
 			view: 'mails.evento',
-			with: $this->data
+			with: array_merge($this->data, ['forms' => $this->forms])
 		);
 	}
 

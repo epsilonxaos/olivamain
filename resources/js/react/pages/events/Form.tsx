@@ -1,5 +1,8 @@
+import { toast } from 'sonner'
+
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
+import { sendEvents } from 'resources/js/react/services/FormsServices'
 
 import { APP_URL } from '../../constants/constants'
 
@@ -45,16 +48,36 @@ const Form = () => {
 const EventSubmissionForm = () => {
 	const { state } = useContext(AppContext)
 	const { t } = useTranslation()
-	const { forms } = state
+	const { forms, website } = state
 
-	console.log(forms)
+	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault()
+
+		const formData = new FormData(event.currentTarget)
+		const data: { [key: string]: any } = {}
+		formData.forEach((value, key) => {
+			data[key] = value
+		})
+
+		sendEvents({ data })
+			.then(({ data }) => {
+				const { success, message } = data
+
+				if (success) {
+					toast.success(message)
+				}
+			})
+			.catch(() => {
+				toast.error('Por favor intenta mas tarde')
+			})
+			.finally(() => event.currentTarget.reset())
+	}
 
 	return (
 		<Container className='max-w-[700px] lg:!p-0'>
 			<form
 				className='grid w-full grid-cols-1 gap-10'
-				action=''
-				method='post'>
+				onSubmit={handleSubmit}>
 				{forms
 					.filter(f => f.section === 'eventos')
 					.map(form => {
@@ -62,12 +85,16 @@ const EventSubmissionForm = () => {
 					})}
 
 				<div className='text-center'>
-					<Button className='mx-auto mb-10 block w-full max-w-[320px] bg-black text-white'>{t('form.enviar')}</Button>
+					<Button
+						type='submit'
+						className='mx-auto mb-10 block w-full max-w-[320px] bg-black text-white'>
+						{t('form.enviar')}
+					</Button>
 
 					<a
 						className='mx-auto'
-						href='mailto:reservas@olivamerida.com'>
-						<Text className='font-apercuPro'>reservas@olivamerida.com</Text>
+						href={'mailto:' + website.contact_mail_eventos}>
+						<Text className='font-apercuPro'>{website.contact_mail_eventos}</Text>
 					</a>
 				</div>
 			</form>

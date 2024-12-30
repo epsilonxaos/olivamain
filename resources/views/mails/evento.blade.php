@@ -205,20 +205,13 @@
                                                     <p style="margin-bottom: 30px">Hemos recibido una nueva solicitud
                                                         de reserva para un evento. A continuación, se detalla la
                                                         información proporcionada por el solicitante:</p>
-                                                    <p><span style="font-weight: bold;">Nombre:</span>
-                                                        {{ $data['nombre'] }}</p>
-                                                    <p><span style="font-weight: bold;">Teléfono:</span>
-                                                        {{ $data['telefono'] }} </p>
-                                                    <p><span style="font-weight: bold;">Día del Evento:</span>
-                                                        {{ $data['dia'] }} </p>
-                                                    <p><span style="font-weight: bold;">Número de Personas:</span>
-                                                        {{ $data['personas'] }} </p>
-                                                    <p><span style="font-weight: bold;">Email:</span>
-                                                        {{ $data['email'] }}</p>
-                                                    <p><span style="font-weight: bold;">Mensaje del solicitante:</span>
-                                                    </p>
-                                                    <p>{{ $data['mensaje'] }}</p>
-                                                </div>
+
+                                                    {{-- TODO: Revisar si la iteracion es correcta y si los datos llegan bien --}}
+                                                    @foreach ($forms as $form)
+                                                        <p><span
+                                                                style="font-weight: bold;">{{ ucfirst($form['label:es']) }}:</span>
+                                                            {{ $data[$form->name] }}</p>
+                                                    @endforeach
 
                                             </td>
                                         </tr>
