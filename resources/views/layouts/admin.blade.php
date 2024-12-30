@@ -42,7 +42,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans text-gray-900 bg-slate-100 dark:bg-slate-900 antialiased dark">
+<body class="font-sans text-gray-900 bg-slate-100 dark:bg-slate-900 antialiased">
 
     {{-- //* Navbar --}}
     @include('layouts.includes.navbar')
