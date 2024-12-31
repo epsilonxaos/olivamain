@@ -16,11 +16,11 @@ const Reservation = () => {
 	return (
 		<div
 			className='border-b border-b-black'
-			id={'reserva-' + su.slug}>
-			<Container className='relative min-h-[60svh] py-24'>
-				<Text.Title className='text-center'>{t('btn.reservaAhora')}</Text.Title>
+			id={'reservacion'}>
+			<Container className='relative min-h-[60svh] py-24 pb-40'>
+				<Text.Title className='mb-10 text-center'>{t('btn.reservaAhora')}</Text.Title>
 
-				{parse(su.reserva_iframe)}
+				<div className='min-h-[450px]'>{parse(su.reserva_iframe)}</div>
 
 				<img
 					className='absolute -bottom-[35px] left-0 right-0 z-10 mx-auto w-[40px]'

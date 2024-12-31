@@ -1,6 +1,6 @@
 import { toast } from 'sonner'
 
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { sendBolsa } from 'resources/js/react/services/FormsServices'
 
@@ -13,6 +13,8 @@ const FormSubmit = () => {
 	const { t } = useTranslation()
 	const { state } = useContext(AppContext)
 	const { forms, website } = state
+
+	const formRef = useRef<HTMLFormElement>(null)
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -34,11 +36,12 @@ const FormSubmit = () => {
 			.catch(() => {
 				toast.error('Por favor intenta mas tarde')
 			})
-			.finally(() => event.currentTarget.reset())
+			.finally(() => formRef.current?.reset())
 	}
 
 	return (
 		<form
+			ref={formRef}
 			onSubmit={handleSubmit}
 			className='grid w-full grid-cols-1 gap-6'>
 			{forms

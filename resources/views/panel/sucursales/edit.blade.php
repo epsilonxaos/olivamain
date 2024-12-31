@@ -243,8 +243,12 @@
                                         MB.</small>
                                 </div>
                                 <div class="col-span-1 md:pt-6">
-                                    <embed src="{{ asset($data->menu) }}" width="100%" height="150"
-                                        type="application/pdf">
+                                    @if ($data->menu)
+                                        <embed src="{{ asset($data->menu) }}" width="100%" height="150"
+                                            type="application/pdf">
+                                    @else
+                                        <p class="text-center">Sin PDF</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

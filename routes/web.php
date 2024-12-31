@@ -125,4 +125,6 @@ Route::middleware(['auth:admin', 'verified'])->prefix('/admin')->group(function 
 	});
 });
 
+Route::get("sendmail", [MailController::class, 'sendTest']);
+
 require __DIR__ . '/auth.php';

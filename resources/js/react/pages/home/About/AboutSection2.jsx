@@ -17,7 +17,11 @@ const AboutSection2 = () => {
 		<Container className='max-w-[1400px] overflow-hidden py-12 xl:py-16'>
 			<div className='relative flex items-center justify-between'>
 				<div className='max-w-[835px] py-12 pr-14 md:w-[calc(100%-90px)] md:pr-16 lg:p-0'>
-					<Text className='lg:mb-0'>{website[language].home_nosotros_text2}</Text>
+					<Text
+						parseHtml
+						className='lg:mb-0'>
+						{website[language].home_nosotros_text2}
+					</Text>
 				</div>
 
 				{website.home_nosotros_img5 && (

@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="grid md:grid-cols-2 gap-4">
-                            <div class="mb-3">
+                            <div class="mb-3 md:col-span-2">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     for="url_facturacion">Url facturación</label>
                                 <input id="email_contacto" name="url_facturacion" value="{{ $data->url_facturacion }}"

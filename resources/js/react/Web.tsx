@@ -31,6 +31,8 @@ const initialArgs: StateApp = {
 	galeria: [],
 	website: {} as Website,
 	sucursals: [],
+	forms: [],
+	formEventReference: '',
 }
 const reducer = (prev: StateApp, next: ActionApp): StateApp => ({ ...prev, ...next })
 

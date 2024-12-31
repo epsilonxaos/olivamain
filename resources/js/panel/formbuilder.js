@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		fieldDiv.setAttribute('data-index', index)
 
 		fieldDiv.innerHTML = `
-			<button type="button" title="Eliminar nuevo campo" class="btn btn-danger mt-2 remove-field absolute top-2 right-2 bg-red-600 p-2 rounded-md">
+			<button type="button" title="Eliminar nuevo campo" class="btn btn-danger mt-2 remove-field absolute top-2 right-2 bg-red-600 p-2 rounded-md text-white">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 					<path d="M4 7l16 0"></path>
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					<path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
 				</svg>
 			</button>
-			<h5 class="md:col-span-2">#${index + 1} - Nuevo campo</h5>
+			<h5 class="md:col-span-2 font-bold text-green-600">Nuevo campo</h5>
 			<input type="hidden" name="section" value="reservas" data-name="section">
 			<div class="mb-2">
 				<label class="${classLabel}"><span class="text-red-600">*</span> ID campo</label>
@@ -81,6 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
 				<h6>Traducción (es)</h6>
 				<label class="${classLabel}"><span class="text-red-600">*</span> Etiqueta</label>
 				<input type="text" class="${classInput}" name="new_label[es][]" data-name="translations.es.label">
+			</div>
+			<div >
+				<h6>Traducción (en)</h6>
+				<label class="${classLabel}"><span class="text-red-600">*</span> Etiqueta</label>
+				<input type="text" class="${classInput}" name="new_label[en][]" data-name="translations.en.label">
+			</div>
+			<div class="md:col-span-2">
+				
+			</div>
+			`
+
+		const respaldo = `<div >
+				<h6>Traducción (es)</h6>
+				<label class="${classLabel}"><span class="text-red-600">*</span> Etiqueta</label>
+				<input type="text" class="${classInput}" name="new_label[es][]" data-name="translations.es.label">
 				<label class="${classLabel}">Placeholder</label>
 				<input type="text" class="${classInput}" name="new_placeholder[es][]" data-name="translations.es.placeholder">
 			</div>
@@ -90,23 +105,17 @@ document.addEventListener('DOMContentLoaded', () => {
 				<input type="text" class="${classInput}" name="new_label[en][]" data-name="translations.en.label">
 				<label class="${classLabel}">Placeholder</label>
 				<input type="text" class="${classInput}" name="new_placeholder[en][]" data-name="translations.en.placeholder">
-			</div>
-			<div class="md:col-span-2">
-				
-			</div>
-			`
+			</div>`
 
 		formBuilder.appendChild(fieldDiv)
 
 		// Event listeners para el campo recién creado
 		fieldDiv.querySelector('[data-name="type"]').addEventListener('change', e => toggleOptionsField(e, index))
-		fieldDiv.querySelector('.remove-field').addEventListener('click', () => removeField(index))
+		fieldDiv.querySelector('.remove-field').addEventListener('click', () => removeField(fieldDiv))
 		fieldDiv.querySelectorAll('input, select').forEach(input => {
 			input.addEventListener('input', e => updateField(e, index))
 		})
 	}
-
-	// addField()
 
 	// Actualizar el campo en la lista dinámica
 	const updateField = (event, index) => {
@@ -139,15 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Eliminar un campo
-	const removeField = index => {
-		fields.splice(index, 1)
-		renderFields()
-	}
-
-	// Volver a renderizar los campos después de eliminar uno
-	const renderFields = () => {
-		formBuilder.innerHTML = ''
-		fields.forEach((_, index) => addField())
+	const removeField = fieldDiv => {
+		fieldDiv.remove()
 	}
 
 	// Event listeners

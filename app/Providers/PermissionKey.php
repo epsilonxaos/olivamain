@@ -136,5 +136,5 @@ class PermissionKey extends ServiceProvider
 				'name' => 'website.update'
 			]
 		]
-	]
+	];
 }

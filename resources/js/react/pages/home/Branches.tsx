@@ -91,27 +91,27 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 							{delivery && (
 								<Button.Navigation
 									to='/delivery'
-									className='px-2'>
+									className='flex items-center justify-center px-2'>
 									{t('sucursal.btn.delivery')}
 								</Button.Navigation>
 							)}
 							{reserva && (
 								<Button.Navigation
-									to={'sucursal/' + slug + '#' + slug}
-									className='px-2'>
+									to={'sucursal/' + slug + '#reservacion'}
+									className='flex items-center justify-center px-2'>
 									{t('btn.reserva')}
 								</Button.Navigation>
 							)}
 							{menu && (
 								<Button.Url
 									href={APP_URL + menu}
-									className='px-2'>
+									className='flex items-center justify-center px-2'>
 									{t('sucursal.btn.menu')}
 								</Button.Url>
 							)}
 							<Button.Navigation
 								to={'sucursal/' + slug}
-								className='px-2'>
+								className='flex items-center justify-center px-2'>
 								{t('sucursal.btn.conoceMas')}
 							</Button.Navigation>
 						</div>

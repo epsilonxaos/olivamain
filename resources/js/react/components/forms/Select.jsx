@@ -1,6 +1,8 @@
+import { cn } from '../../utils/cn'
+
 const Select = ({ name, label, options, required }) => {
 	return (
-		<div>
+		<div className={cn('group relative z-0 mb-7 w-full')}>
 			<label
 				htmlFor={name}
 				className={`font-intervogueReg text-base text-inherit duration-300`}>

@@ -136,11 +136,11 @@
                                                     style="border-collapse:collapse;border-spacing:0px;">
                                                     <tbody>
                                                         <tr>
-                                                            <td style="width:300px;">
+                                                            <td style="width:180px;">
 
                                                                 <img height="auto" src="{{ asset('img/logo.png') }}"
                                                                     style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
-                                                                    width="300" />
+                                                                    width="180" />
 
                                                             </td>
                                                         </tr>
@@ -207,13 +207,11 @@
                                                         continuación, se detalla la
                                                         información proporcionada por el solicitante:</p>
 
-                                                    {{-- TODO: Revisar si la iteracion es correcta y si los datos llegan bien --}}
+
                                                     @foreach ($forms as $form)
-                                                        <p>
-                                                            <span
+                                                        <p><span
                                                                 style="font-weight: bold;">{{ ucfirst($form['label:es']) }}:</span>
-                                                            {{ $data[$form->name] }}
-                                                        </p>
+                                                            {{ $data[$form->name] ?? 'No proporcionado' }}</p>
                                                     @endforeach
 
                                             </td>

@@ -1,7 +1,8 @@
 import { toast } from 'sonner'
 
-import { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { redirect, useNavigate } from 'react-router-dom'
 import { sendEvents } from 'resources/js/react/services/FormsServices'
 
 import { APP_URL } from '../../constants/constants'
@@ -11,6 +12,7 @@ import Container from '../../components/Container'
 import SectionUi from '../../components/SectionUI'
 import Text from '../../components/Text'
 import Button from '../../components/buttons/Button'
+import Input from '../../components/forms/Input'
 import AppContext from '../../contexts/AppContext'
 import { InputBuilder } from '../../utils/InputBuilder'
 
@@ -49,6 +51,9 @@ const EventSubmissionForm = () => {
 	const { state } = useContext(AppContext)
 	const { t } = useTranslation()
 	const { forms, website } = state
+	let navigate = useNavigate()
+
+	const formRef = useRef<HTMLFormElement>(null)
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -72,14 +77,26 @@ const EventSubmissionForm = () => {
 			.catch(() => {
 				toast.error('Por favor intenta mas tarde')
 			})
-			.finally(() => event.currentTarget.reset())
+			.finally(() => formRef.current?.reset())
 	}
+
+	useEffect(() => {
+		if (!state.formEventReference) {
+			return navigate('/grupos-y-eventos')
+		}
+	}, [state.formEventReference])
 
 	return (
 		<Container className='max-w-[700px] lg:!p-0'>
 			<form
+				ref={formRef}
 				className='grid w-full grid-cols-1 gap-10'
 				onSubmit={handleSubmit}>
+				<Input
+					label={'Estas reservando en Oliva ' + state.formEventReference}
+					name='sucursal'
+					className='pointer-events-none font-bold'
+				/>
 				{forms
 					.filter(f => f.section === 'eventos')
 					.map(form => {

@@ -17,7 +17,7 @@ return new class extends Migration
 			$table->string('sucursal')->unique();
 			$table->string('slug');
 			$table->string('cover');
-			$table->string('bg');
+			$table->string('bg')->default('bg.jpg');
 			$table->string('logo')->default('logo.png');
 			$table->string('logo_2')->default('logo.png');
 			$table->string('video')->default('video.mp4');

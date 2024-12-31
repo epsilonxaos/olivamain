@@ -59,15 +59,14 @@
                     <a href="{{ route('panel.website.edit', ['seccion' => 'inicio']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/inicio/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M6 15h15"></path>
+                            <path d="M21 19h-15"></path>
+                            <path d="M15 11h6"></path>
+                            <path d="M21 7h-6"></path>
+                            <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
+                            <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span class="ml-3">Inicio</span>
                     </a>
@@ -76,15 +75,14 @@
                     <a href="{{ route('panel.website.edit', ['seccion' => 'bolsa']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/bolsa/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M6 15h15"></path>
+                            <path d="M21 19h-15"></path>
+                            <path d="M15 11h6"></path>
+                            <path d="M21 7h-6"></path>
+                            <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
+                            <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span class="ml-3">Bolsa de trabajo</span>
                     </a>
@@ -93,15 +91,14 @@
                     <a href="{{ route('panel.website.edit', ['seccion' => 'delivery']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/delivery/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M6 15h15"></path>
+                            <path d="M21 19h-15"></path>
+                            <path d="M15 11h6"></path>
+                            <path d="M21 7h-6"></path>
+                            <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
+                            <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span class="ml-3">Delivery</span>
                     </a>
@@ -110,15 +107,14 @@
                     <a href="{{ route('panel.website.edit', ['seccion' => 'reservas']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/reservas/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M6 15h15"></path>
+                            <path d="M21 19h-15"></path>
+                            <path d="M15 11h6"></path>
+                            <path d="M21 7h-6"></path>
+                            <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
+                            <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span class="ml-3">Reservas</span>
                     </a>
@@ -127,15 +123,14 @@
                     <a href="{{ route('panel.website.edit', ['seccion' => 'eventos']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/eventos/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M6 15h15"></path>
+                            <path d="M21 19h-15"></path>
+                            <path d="M15 11h6"></path>
+                            <path d="M21 7h-6"></path>
+                            <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
+                            <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span class="ml-3">Eventos</span>
                     </a>
@@ -144,15 +139,15 @@
                     <a href="{{ route('panel.website.edit', ['seccion' => 'general']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/general/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24"
+                            stroke-width="2">
+                            <path d="M6 15h15"></path>
+                            <path d="M21 19h-15"></path>
+                            <path d="M15 11h6"></path>
+                            <path d="M21 7h-6"></path>
+                            <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
+                            <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span class="ml-3">Generales</span>
                     </a>
@@ -161,15 +156,15 @@
                     <a href="{{ route('panel.website.edit', ['seccion' => 'legales']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/website/legales/*') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24"
+                            stroke-width="2">
+                            <path d="M6 15h15"></path>
+                            <path d="M21 19h-15"></path>
+                            <path d="M15 11h6"></path>
+                            <path d="M21 7h-6"></path>
+                            <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
+                            <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path>
                         </svg>
                         <span class="ml-3">Legales</span>
                     </a>
@@ -199,15 +194,11 @@
                     <a href="{{ route('panel.forms.edit', ['section' => 'eventos']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/formulario/edit/eventos') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24"
+                            stroke-width="2">
+                            <path d="M20 13v-4a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v5a2 2 0 0 0 2 2h6"></path>
+                            <path d="M15 19l2 2l4 -4"></path>
                         </svg>
                         <span class="ml-3">Grupos y eventos</span>
                     </a>
@@ -216,15 +207,11 @@
                     <a href="{{ route('panel.forms.edit', ['section' => 'contacto']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/formulario/edit/contacto') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24"
+                            stroke-width="2">
+                            <path d="M20 13v-4a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v5a2 2 0 0 0 2 2h6"></path>
+                            <path d="M15 19l2 2l4 -4"></path>
                         </svg>
                         <span class="ml-3">Contacto</span>
                     </a>
@@ -233,15 +220,11 @@
                     <a href="{{ route('panel.forms.edit', ['section' => 'bolsa']) }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->is('admin/formulario/edit/bolsa') ? 'bg-gray-100 dark:bg-gray-900' : '' }}">
 
-                        <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
-                            <path d="M14 7l6 0"></path>
-                            <path d="M14 11l6 0"></path>
-                            <path d="M4 15l16 0"></path>
-                            <path d="M4 19l16 0"></path>
+                        <svg class="mr-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="24" height="24"
+                            stroke-width="2">
+                            <path d="M20 13v-4a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v5a2 2 0 0 0 2 2h6"></path>
+                            <path d="M15 19l2 2l4 -4"></path>
                         </svg>
                         <span class="ml-3">Bolsa de trabajo</span>
                     </a>

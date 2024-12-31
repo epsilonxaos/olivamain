@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\MailBolsaTrabajo;
+use App\Mail\MailContacto;
 use App\Mail\MailEventos;
 use App\Models\Website;
 use Illuminate\Http\Request;
@@ -10,19 +11,24 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
+	const SUCCESS_MESSAGE = "Mensaje enviado!";
+
 	public function sendBolsa(Request $request)
 	{
 		try {
 			$w = Website::find(1);
 
 			$mailsCC = $w->contact_cc_mail_bolsa;
-			$arrayCC = explode(";", $mailsCC);
 
-			Mail::to($w->contact_mail_bolsa)
-				->cc($arrayCC)
-				->send(new MailBolsaTrabajo($request->toArray()));
+			$mail = Mail::to($w->contact_mail_bolsa);
+			if ($mailsCC) {
+				$arrayCC = explode(";", $mailsCC);
+				$mail->cc($arrayCC);
+			}
 
-			return response(["success" => true, "message" => "Mensaje enviado!"], 200);
+			$mail->send(new MailBolsaTrabajo($request->toArray()));
+
+			return response(["success" => true, "message" => self::SUCCESS_MESSAGE], 200);
 		} catch (\Exception $e) {
 			return response(["success" => false, "message" => $e->getMessage()], 500);
 		}
@@ -33,14 +39,17 @@ class MailController extends Controller
 		try {
 			$w = Website::find(1);
 
+			$mail = Mail::to($w->contact_mail_eventos);
+
 			$mailsCC = $w->contact_cc_mail_eventos;
-			$arrayCC = explode(";", $mailsCC);
+			if ($mailsCC) {
+				$arrayCC = explode(";", $mailsCC);
+				$mail->cc($arrayCC);
+			}
 
-			Mail::to($w->contact_mail_eventos)
-				->cc($arrayCC)
-				->send(new MailEventos($request->toArray()));
+			$mail->send(new MailEventos($request->toArray()));
 
-			return response(["success" => true, "message" => "Mensaje enviado!"], 200);
+			return response(["success" => true, "message" => self::SUCCESS_MESSAGE], 200);
 		} catch (\Exception $e) {
 			return response(["success" => false, "message" => $e->getMessage()], 500);
 		}
@@ -51,16 +60,38 @@ class MailController extends Controller
 		try {
 			$w = Website::find(1);
 
+			$mail = Mail::to($w->contact_mail);
+
 			$mailsCC = $w->contact_cc_mail;
-			$arrayCC = explode(";", $mailsCC);
+			if ($mailsCC) {
+				$arrayCC = explode(";", $mailsCC);
+				$mail->cc($arrayCC);
+			}
 
-			Mail::to($w->contact_mail)
-				->cc($arrayCC)
-				->send(new MailEventos($request->toArray()));
-
-			return response(["success" => true, "message" => "Mensaje enviado!"], 200);
+			$mail->send(new MailContacto($request->toArray()));
+			return response(["success" => true, "message" => self::SUCCESS_MESSAGE], 200);
 		} catch (\Exception $e) {
 			return response(["success" => false, "message" => $e->getMessage()], 500);
 		}
+	}
+
+	public function sendTest()
+	{
+		$w = Website::find(1);
+
+		$mail = Mail::to($w->contact_mail);
+
+		$mailsCC = $w->contact_cc_mail;
+		if ($mailsCC) {
+			$arrayCC = explode(";", $mailsCC);
+			$mail->cc($arrayCC);
+		}
+
+		$mail->send(new MailEventos([
+			"nombre_completo" => "Jesus",
+			"telefono" => "(993) 999-9999",
+			"email" => "soporte@dev.com",
+			"mensaje" => "adadad"
+		]));
 	}
 }

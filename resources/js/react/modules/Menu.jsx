@@ -14,13 +14,13 @@ const Menu = () => {
 
 	return (
 		<nav className='font-apercuPro'>
-			<ul className='flex flex-col items-center justify-center gap-[45px] lg:flex-row lg:gap-4 xl:gap-8'>
+			<ul className='flex flex-col items-center justify-center gap-[45px] uppercase lg:flex-row lg:gap-4 xl:gap-8'>
 				<li>
 					<button
 						onClick={() => setOpenBranchMenu(!openBranchMenu)}
 						type='button'
-						className='mx-auto flex items-center'>
-						{t('header.sucursales')} <FaChevronDown className='ml-2' />
+						className='mx-auto flex items-center uppercase'>
+						{t('sucursales')} <FaChevronDown className='ml-2' />
 					</button>
 
 					{(isMobile || isTablet) && openBranchMenu && <BranchMenu />}
@@ -29,14 +29,14 @@ const Menu = () => {
 					<Link
 						onClick={() => setOpenMenu(false)}
 						to={'grupos-y-eventos'}>
-						{t('header.grupos')}
+						{t('gruposEventos')}
 					</Link>
 				</li>
 				<li>
 					<Link
 						onClick={() => setOpenMenu(false)}
 						to={'contacto'}>
-						{t('header.contacto')}
+						{t('contacto')}
 					</Link>
 				</li>
 			</ul>

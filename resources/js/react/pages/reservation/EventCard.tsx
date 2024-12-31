@@ -10,7 +10,7 @@ import Button from '../../components/buttons/Button'
 import AppContext from '../../contexts/AppContext'
 
 const EventCard = () => {
-	const { t } = useTranslation()
+	const { t, i18n } = useTranslation()
 	const { state } = useContext(AppContext)
 	const { sucursals } = state
 
@@ -31,12 +31,14 @@ const EventCard = () => {
 								alt='Enoteca'
 								className='mx-auto mb-8 block w-full max-w-[160px]'
 							/>
-							<Text.Title>{su.ubicacion}</Text.Title>
-							<Text parseHtml>{su.descripcion_reservas}</Text>
+							<Text.Title>{su[i18n.language]?.titulo_reservas}</Text.Title>
+							<Text parseHtml>{su[i18n.language].descripcion_reservas}</Text>
 
-							<Link to={'/grupos-y-eventos/formulario'}>
-								<Button className=''>{t('btn.reserva')}</Button>
-							</Link>
+							<Button.Navigation
+								to={'sucursal/' + su.slug + '#reservacion'}
+								className='mx-auto max-w-max'>
+								{t('btn.reserva')}
+							</Button.Navigation>
 						</div>
 					</BorderCard>
 				))}

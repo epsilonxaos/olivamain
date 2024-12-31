@@ -55,7 +55,7 @@
                                         <button type="button" data-id="{{ $d->id }}"
                                             data-url="{{ route('panel.forms.destroy', ['id' => $d->id]) }}"
                                             title="Eliminar nuevo campo"
-                                            class="btn btn-danger mt-2 deleteFieldForm absolute top-2 right-2 bg-red-600 p-2 rounded-md">
+                                            class="btn btn-danger mt-2 deleteFieldForm absolute top-2 right-2 bg-red-600 p-2 rounded-md text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                                 stroke-linecap="round" stroke-linejoin="round">
@@ -67,7 +67,7 @@
                                                 <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
                                             </svg>
                                         </button>
-                                        <h5 class="md:col-span-2">Editar campo</h5>
+                                        <h5 class="md:col-span-2 font-bold text-yellow-600">Editar campo</h5>
                                         <input type="hidden" name="section" value="{{ $section }}" <input
                                             type="hidden" name="id[{{ $d->id }}]" value="{{ $d->id }}"
                                             data-name="section">
@@ -134,13 +134,13 @@
                                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 name="label[es][{{ $d->id }}]" value="{{ $d['label:es'] }}"
                                                 data-name="translations.es.label">
-                                            <label
+                                            {{-- <label
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Placeholder</label>
                                             <input type="text"
                                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 name="placeholder[es][{{ $d->id }}]"
                                                 value="{{ $d['placeholder:es'] }}"
-                                                data-name="translations.es.placeholder">
+                                                data-name="translations.es.placeholder"> --}}
                                         </div>
                                         <div>
                                             <h6>Traducción (en)</h6>
@@ -151,13 +151,13 @@
                                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 name="label[en][{{ $d->id }}]" value="{{ $d['label:en'] }}"
                                                 data-name="translations.en.label">
-                                            <label
+                                            {{-- <label
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Placeholder</label>
                                             <input type="text"
                                                 class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 name="placeholder[en][{{ $d->id }}]"
                                                 value="{{ $d['placeholder:en'] }}"
-                                                data-name="translations.en.placeholder">
+                                                data-name="translations.en.placeholder"> --}}
                                         </div>
                                         <div class="md:col-span-2">
 

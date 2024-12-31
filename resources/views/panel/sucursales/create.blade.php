@@ -40,6 +40,7 @@
                                 placeholder="Ejemplo: Centro" autocomplete="off"
                                 class="mb-1 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <small class="italic text-xs">Solo puede haber una sucursal con el mismo nombre</small>
+                            <small class="italic text-xs">No es necesario colocar Oliva al inicio</small>
                         </div>
 
                         {{-- video --}}
@@ -54,9 +55,9 @@
                         </div>
 
                         {{-- Bg --}}
-                        <div class="col-span-1 md:col-span-2">
+                        <div class="col-span-1">
                             <label for="bg" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span
-                                    class="text-red-800">*</span> Imagen de portada (movil)</label>
+                                    class="text-red-800">*</span> Imagen de banner</label>
                             <input type="file" required name="bg" class="dropify" data-height="150"
                                 data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp" />
                             <small class="block text-xs">Las medidas recomendadas son 750x600 px.</small>
@@ -293,7 +294,7 @@
 
 
                         <label class="inline-flex items-center cursor-pointer">
-                            <input type="checkbox" name="activo_eventos" value="true" class="sr-only peer">
+                            <input type="checkbox" name="activo_eventos" checked value="true" class="sr-only peer">
                             <div
                                 class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                             </div>
@@ -395,7 +396,7 @@
 
 
                         <label class="inline-flex items-center cursor-pointer">
-                            <input type="checkbox" name="activo_reservas" value="true" class="sr-only peer">
+                            <input type="checkbox" name="activo_reservas" checked value="true" class="sr-only peer">
                             <div
                                 class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                             </div>

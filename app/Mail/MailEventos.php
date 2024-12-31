@@ -22,7 +22,7 @@ class MailEventos extends Mailable
 	public function __construct($data)
 	{
 		$this->data = $data;
-		$this->forms = Forms::where('section', 'events')->first();
+		$this->forms = Forms::where('section', 'eventos')->get();
 	}
 
 	/**

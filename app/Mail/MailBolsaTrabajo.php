@@ -22,7 +22,7 @@ class MailBolsaTrabajo extends Mailable
 	public function __construct($data)
 	{
 		$this->data = $data;
-		$this->forms = Forms::where('section', 'bolsa')->first();
+		$this->forms = Forms::where('section', 'bolsa')->get();
 	}
 
 	/**

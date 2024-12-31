@@ -63,14 +63,16 @@ const Footer = () => {
 					</div>
 					<div className='col-span-1'>
 						<Text.Title className='mb-5'>{t('facturacion')}</Text.Title>
-						<Text className='mb-0.5 underline'>
-							<a
-								href={website.url_facturacion}
-								target='_blank'
-								rel='noopener noreferrer'>
-								{t('facturacion.linea')}
-							</a>
-						</Text>
+						{website.url_facturacion && (
+							<Text className='mb-0.5 underline'>
+								<a
+									href={website.url_facturacion}
+									target='_blank'
+									rel='noopener noreferrer'>
+									{t('facturacion.linea')}
+								</a>
+							</Text>
+						)}
 						<Text className='mb-0.5'>
 							<a href={'mailto:' + website.contact_mail_facturacion}>{website.contact_mail_facturacion}</a>
 						</Text>

@@ -1,6 +1,6 @@
 import { toast } from 'sonner'
 
-import { useContext } from 'react'
+import { useContext, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { sendContacto } from 'resources/js/react/services/FormsServices'
 
@@ -13,7 +13,13 @@ import { InputBuilder } from '../../utils/InputBuilder'
 const EventSubmissionForm = () => {
 	const { t } = useTranslation()
 	const { state } = useContext(AppContext)
-	const { website, forms } = state
+	const { website, forms: formData } = state
+
+	const form = useMemo(() => {
+		return formData.filter(f => f.section === 'contacto') ?? []
+	}, [formData])
+
+	const formRef = useRef<HTMLFormElement>(null)
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -35,19 +41,20 @@ const EventSubmissionForm = () => {
 			.catch(() => {
 				toast.error('Por favor intenta mas tarde')
 			})
-			.finally(() => event.currentTarget.reset())
+			.finally(() => {
+				formRef.current?.reset()
+			})
 	}
 
 	return (
 		<Container className='relative z-10 max-w-[700px] md:p-0'>
 			<form
+				ref={formRef}
 				onSubmit={handleSubmit}
 				className='grid w-full grid-cols-1 gap-8'>
-				{forms
-					.filter(f => f.section === 'contacto')
-					.map(form => {
-						return InputBuilder(form)
-					})}
+				{form.map(fs => {
+					return InputBuilder(fs)
+				})}
 
 				<div className='text-center'>
 					<Button

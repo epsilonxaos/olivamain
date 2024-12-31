@@ -20,13 +20,13 @@ const Index = () => {
 	return (
 		<>
 			<div className='border-b border-b-black bg-grisClaro'>
-				<Container className='max-w-[700px] py-20 text-center'>
+				<Container className='py-20 text-center'>
 					<img
 						className='mx-auto mb-10 w-full max-w-[170px]'
 						src={APP_URL + website.delivery_img}
 						alt='En casa'
 					/>
-					<Text.Title className='mb-2'>{website.delivery_title}</Text.Title>
+					<Text.Title className='mb-2'>{website[language].delivery_title}</Text.Title>
 					<Text parseHtml>{website[language].delivery_text}</Text>
 				</Container>
 			</div>
