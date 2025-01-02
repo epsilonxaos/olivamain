@@ -20,10 +20,18 @@ const Banner = ({ bgImg }: TBannerDetails) => {
 							<Button className='w-full max-w-[115px]'>{t('sucursal.btn.menu')}</Button>
 						</li>
 						<li>
-							<Button className='w-full max-w-[115px]'>{t('btn.reserva')}</Button>
+							<Button.Navigation
+								to='#reservacion'
+								className='w-full max-w-[115px]'>
+								{t('btn.reserva')}
+							</Button.Navigation>
 						</li>
 						<li>
-							<Button className='w-full max-w-[115px]'>{t('sucursal.btn.ubicacion')}</Button>
+							<Button.Navigation
+								to='#ubicacion'
+								className='w-full max-w-[115px]'>
+								{t('sucursal.btn.ubicacion')}
+							</Button.Navigation>
 						</li>
 					</ul>
 				</>

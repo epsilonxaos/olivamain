@@ -318,7 +318,7 @@
 
 
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" name="activo_eventos" value="{{ !!$data->activo_eventos }}"
+                        <input type="checkbox" name="activo_eventos" value="{{ $data->activo_eventos }}"
                             {{ $data->activo_eventos ? 'checked' : '' }} class="sr-only peer">
                         <div
                             class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
@@ -402,7 +402,7 @@
                                     <div class="mb-3">
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                             for="descripcion_eventos">Descripcion</label>
-                                        <textarea name="descripcion_eventos[en]" class="shorttext" cols="30" rows="3">{{ $data['titulo_eventos:en'] }}</textarea>
+                                        <textarea name="descripcion_eventos[en]" class="shorttext" cols="30" rows="3">{{ $data['descripcion_eventos:en'] }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -418,8 +418,8 @@
                     </h2>
 
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" name="activo_activo_eventos" value="{{ $data->activo_eventos }}"
-                            {{ $data->activo_eventos ? 'checked' : '' }} class="sr-only peer">
+                        <input type="checkbox" name="activo_reservas" value="{{ $data->activo_reservas }}"
+                            {{ $data->activo_reservas ? 'checked' : '' }} class="sr-only peer">
                         <div
                             class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                         </div>
@@ -475,9 +475,9 @@
                                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="content-reserva-es"
                                     role="tabpanel" aria-labelledby="es-tab">
                                     <div class="mb-3">
-                                        <label for="titulo_eventos"
+                                        <label for="titulo_reservas"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo</label>
-                                        <input id="titulo_eventos" name="titulo_eventos[es]"
+                                        <input id="titulo_reservas" name="titulo_reservas[es]"
                                             value="{{ $data->{'titulo_reservas:es'} }}" autocomplete="off"
                                             class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     </div>
@@ -494,9 +494,9 @@
                                 <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="content-reserva-en"
                                     role="tabpanel" aria-labelledby="en-tab">
                                     <div class="mb-3">
-                                        <label for="titulo_eventos"
+                                        <label for="titulo_reservas"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo</label>
-                                        <input id="titulo_eventos" name="titulo_eventos[en]"
+                                        <input id="titulo_reservas" name="titulo_reservas[en]"
                                             value="{{ $data->{'titulo_reservas:en'} }}" autocomplete="off"
                                             class="mb-4 disabled:opacity-50 disabled:pointer-events-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     </div>
@@ -575,3 +575,22 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.querySelector('[name="activo_reservas"]').addEventListener('change', function() {
+            if (this.checked) {
+                this.value = 1;
+            } else {
+                this.value = 0;
+            }
+        });
+        document.querySelector('[name="activo_eventos"]').addEventListener('change', function() {
+            if (this.checked) {
+                this.value = 1;
+            } else {
+                this.value = 0;
+            }
+        });
+    </script>
+@endpush
