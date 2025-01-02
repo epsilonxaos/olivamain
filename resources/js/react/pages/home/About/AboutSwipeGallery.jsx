@@ -13,7 +13,7 @@ const AboutSwipeGallery = () => {
 	return (
 		<Container className='max-w-none border-y border-y-black p-0 lg:px-[30px] xl:px-[30px]'>
 			<Swiper
-				className='secondary-slider mx-auto xl:max-w-max'
+				className='secondary-slider mx-auto xl:max-w-[1650px]'
 				slidesPerView={4}
 				spaceBetween={30}
 				loop={false}

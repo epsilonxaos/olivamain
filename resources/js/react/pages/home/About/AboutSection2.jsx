@@ -14,7 +14,7 @@ const AboutSection2 = () => {
 	const { website } = state
 
 	return (
-		<Container className='max-w-[1400px] overflow-hidden py-12 xl:py-16'>
+		<Container className='pl1650 max-w-[1620px] overflow-hidden py-12 xl:pl-[30px] xl:pr-[45px]'>
 			<div className='relative flex items-center justify-between'>
 				<div className='max-w-[835px] py-12 pr-14 md:w-[calc(100%-90px)] md:pr-16 lg:p-0'>
 					<Text

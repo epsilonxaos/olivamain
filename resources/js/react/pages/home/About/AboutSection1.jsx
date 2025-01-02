@@ -15,7 +15,7 @@ const AboutSection1 = () => {
 	const { website } = state
 
 	return (
-		<Container className='max-w-[1400px] overflow-hidden py-12 xl:py-16'>
+		<Container className='pl1650 max-w-[1620px] overflow-hidden py-12 xl:pl-[30px] xl:pr-[45px]'>
 			<div className='relative flex items-center justify-between'>
 				<div className='max-w-[835px] py-12 pr-24 md:w-[calc(100%-176px)] md:pr-10 lg:p-0'>
 					<Text.Title>{website[language].home_nosotros_title}</Text.Title>
