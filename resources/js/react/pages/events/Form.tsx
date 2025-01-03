@@ -95,6 +95,7 @@ const EventSubmissionForm = () => {
 				<Input
 					label={'Estas reservando en Oliva ' + state.formEventReference}
 					name='sucursal'
+					disabled
 					className='pointer-events-none font-bold'
 				/>
 				{forms

@@ -27,7 +27,7 @@ const EventCard = () => {
 						img={APP_URL + su.cover_reservas}>
 						<div className='pt-6 md:p-6 md:text-center lg:p-10'>
 							<img
-								src={APP_URL + su.logo_2}
+								src={APP_URL + su.logo}
 								alt='Enoteca'
 								className='mx-auto mb-8 block w-full max-w-[160px]'
 							/>

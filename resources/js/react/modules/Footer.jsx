@@ -96,10 +96,10 @@ const Footer = () => {
 				</div>
 			</Container>
 
-			<div className='bg-black py-4 font-apercuPro text-xs uppercase tracking-[1.2px] text-white'>
+			<div className='bg-black py-4 font-apercuPro text-[8px] uppercase tracking-[1.2px] text-white md:text-xs'>
 				<Container>
 					<ul className='mx-auto flex w-full flex-col items-center justify-between sm:flex-row'>
-						<li>
+						<li className='mb-1.5 sm:mb-0'>
 							<Link to={'/politicas-privacidad'}>{t('politicasReservacion')} | Cookies</Link>
 						</li>
 						<li className='mb-1 sm:mb-0'>

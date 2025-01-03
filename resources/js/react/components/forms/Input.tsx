@@ -16,9 +16,10 @@ type InputProps = {
 		validateErrorMessage?: string
 	}
 	value?: string
+	disabled?: boolean
 }
 
-export default function Input({ className, name, type = 'text', label, validate, required, value }: InputProps) {
+export default function Input({ className, name, type = 'text', label, validate, required, value, disabled }: InputProps) {
 	return (
 		<div className={cn('group relative z-0 mb-7 w-full', className)}>
 			{type === 'telefono' ? (
@@ -35,6 +36,7 @@ export default function Input({ className, name, type = 'text', label, validate,
 					className='peer block w-full appearance-none border border-black bg-transparent px-4 py-2.5 font-chassiS text-sm focus:border-black focus:text-black focus:outline-none focus:ring-0'
 					placeholder={''}
 					required={!!required}
+					{...(disabled && { disabled })}
 					{...(value && { value })}
 					{...(type && { type })}
 					{...(validate && validate.register(name, validate.rules))}
