@@ -35,7 +35,7 @@ const EventCard = () => {
 							<Text parseHtml>{su[i18n.language].descripcion_reservas}</Text>
 
 							<Button.Navigation
-								to={'sucursal/' + su.slug + '#reservacion'}
+								to={'/sucursal/' + su.slug + '#reservacion'}
 								className='mx-auto'>
 								{t('btn.reserva')}
 							</Button.Navigation>

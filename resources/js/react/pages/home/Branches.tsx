@@ -97,7 +97,7 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 							)}
 							{reserva && (
 								<Button.Navigation
-									to={'sucursal/' + slug + '#reservacion'}
+									to={'/sucursal/' + slug + '#reservacion'}
 									className='flex items-center justify-center px-2'>
 									{t('btn.reserva')}
 								</Button.Navigation>
@@ -110,7 +110,7 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 								</Button.Url>
 							)}
 							<Button.Navigation
-								to={'sucursal/' + slug}
+								to={'/sucursal/' + slug}
 								className='flex items-center justify-center px-2'>
 								{t('sucursal.btn.conoceMas')}
 							</Button.Navigation>
