@@ -67,7 +67,7 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 
 	return (
 		<div className='border-b border-b-black'>
-			<Container className='py-40'>
+			<Container className='py-20 lg:py-40'>
 				<div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16 2xl:gap-24'>
 					<div>
 						<div className='flex items-center justify-center lg:mb-6 lg:justify-start'>

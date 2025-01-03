@@ -70,6 +70,16 @@ const Information = () => {
 
 				{isMobile && (
 					<ul className='grid grid-cols-1 gap-5'>
+						{!!su.url_delivery && (
+							<li>
+								<Button.Navigation
+									to='/delivery'
+									className='w-full bg-white'>
+									{t('sucursal.btn.delivery')}
+								</Button.Navigation>
+							</li>
+						)}
+
 						{su.menu && (
 							<li>
 								<Button.Url
@@ -77,20 +87,6 @@ const Information = () => {
 									className='w-full bg-white'>
 									{t('sucursal.btn.menu')}
 								</Button.Url>
-							</li>
-						)}
-
-						{/* // TODO: Implementar navegacion por ID */}
-						{su.reserva_iframe && (
-							<li>
-								<Button className='w-full bg-white'>{t('btn.reserva')}</Button>
-							</li>
-						)}
-
-						{/* // TODO: Implementar navegacion por ID */}
-						{su.maps && (
-							<li>
-								<Button className='w-full bg-white'>{t('sucursal.btn.ubicacion')}</Button>
 							</li>
 						)}
 					</ul>
