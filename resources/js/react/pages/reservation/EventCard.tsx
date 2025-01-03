@@ -36,7 +36,7 @@ const EventCard = () => {
 
 							<Button.Navigation
 								to={'sucursal/' + su.slug + '#reservacion'}
-								className='mx-auto max-w-max'>
+								className='mx-auto'>
 								{t('btn.reserva')}
 							</Button.Navigation>
 						</div>

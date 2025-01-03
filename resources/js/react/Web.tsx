@@ -93,7 +93,7 @@ export default function Web() {
 
 				{state.loading && <Loading />}
 
-				<main className='mx-auto min-h-svh'>
+				<main className='mx-auto min-h-[800px]'>
 					<AnimatePresence mode='wait'>
 						<Routes
 							location={location}
