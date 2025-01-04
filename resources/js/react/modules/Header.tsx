@@ -38,7 +38,7 @@ const Header = () => {
 
 						<Link to={'/'}>
 							<img
-								className='w-[140px] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[180px] lg:-translate-x-1/2 lg:-translate-y-1/2'
+								className='w-[100px] lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[180px] lg:-translate-x-1/2 lg:-translate-y-1/2'
 								src={ImgLogo}
 								alt='Oliva'
 							/>
@@ -92,7 +92,7 @@ const Header = () => {
 			<AnimatePresence mode='wait'>
 				{openMenu && (isMobile || isTablet) && (
 					<motion.div
-						className='fixed left-0 top-[100px] z-20 flex h-[calc(100svh-100px)] w-full flex-col items-center justify-center overflow-hidden bg-grisClaro'
+						className='fixed left-0 top-[85px] z-20 flex h-[calc(100svh-85px)] w-full flex-col items-center justify-center overflow-hidden bg-grisClaro'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
