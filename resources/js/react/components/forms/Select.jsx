@@ -5,7 +5,7 @@ const Select = ({ name, label, options, required }) => {
 		<div className={cn('group relative z-0 mb-7 w-full')}>
 			<label
 				htmlFor={name}
-				className={`font-intervogueReg text-base text-inherit duration-300`}>
+				className={`font-chassiS text-xs leading-[1.47] duration-300 md:text-base`}>
 				{label}
 				{required && <span className='font-bold text-red-700'>*</span>}
 			</label>
