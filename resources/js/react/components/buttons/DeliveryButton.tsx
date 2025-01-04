@@ -7,12 +7,15 @@ import { HeaderContext } from '../../contexts/HeaderContext'
 import { cn } from '../../utils/cn'
 
 const DeliveryButton = ({ className }: { className?: TClassName }) => {
-	const { setOpenMenu } = useContext(HeaderContext)
+	const { setOpenMenu, setOpenBranchMenu } = useContext(HeaderContext)
 
 	return (
 		<Link
 			className='text-center'
-			onClick={() => setOpenMenu(false)}
+			onClick={() => {
+				setOpenMenu(false)
+				setOpenBranchMenu(false)
+			}}
 			to={'/delivery'}>
 			<button
 				className={cn('font-apercuPro', className)}
