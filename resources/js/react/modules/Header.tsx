@@ -92,7 +92,7 @@ const Header = () => {
 			<AnimatePresence mode='wait'>
 				{openMenu && (isMobile || isTablet) && (
 					<motion.div
-						className='fixed left-0 top-[85px] z-20 flex h-[calc(100svh-85px)] w-full flex-col items-center justify-center overflow-hidden bg-grisClaro'
+						className='fixed left-0 top-[82px] z-20 flex h-[calc(100svh-82px)] w-full flex-col items-center justify-center overflow-hidden bg-grisClaro'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}

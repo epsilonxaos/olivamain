@@ -16,7 +16,8 @@ const Text = ({ children, className, parseHtml }: { children: ReactNode; classNa
 const Title = ({ children, className, parseHtml }: { children: ReactNode | string; className?: TClassName; parseHtml?: boolean }) => {
 	if (parseHtml && !children) return null
 
-	if (parseHtml) return <div className={cn('mb-2 font-apercuPro text-base uppercase tracking-[4.8px]', className)}>{parse(children as string)}</div>
+	if (parseHtml)
+		return <div className={cn('mb-2 font-apercuPro text-base uppercase tracking-[0.96px] md:tracking-[4.8px]', className)}>{parse(children as string)}</div>
 
 	return <h3 className={cn('mb-2 font-apercuPro text-base uppercase tracking-[4.8px]', className)}>{children}</h3>
 }

@@ -16,7 +16,7 @@ const Gallery = () => {
 	return (
 		<div className='border-b border-b-black bg-white lg:bg-grisClaro'>
 			<Container className='py-20'>
-				<Text.Title className='mb-8 text-center'>
+				<Text.Title className='mb-8 text-left md:text-center'>
 					{t('siguenos')}{' '}
 					{su.urlIn ? (
 						<a
