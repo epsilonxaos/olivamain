@@ -44,7 +44,6 @@ const Header = () => {
 							/>
 						</Link>
 
-						{/* // TODO: Reemplazar por menu real */}
 						{(isMobile || isTablet) && (
 							<button onClick={() => setOpenMenu(!openMenu)}>
 								<svg

@@ -19,7 +19,7 @@ const Title = ({ children, className, parseHtml }: { children: ReactNode | strin
 	if (parseHtml)
 		return <div className={cn('mb-2 font-apercuPro text-base uppercase tracking-[0.96px] md:tracking-[4.8px]', className)}>{parse(children as string)}</div>
 
-	return <h3 className={cn('mb-2 font-apercuPro text-base uppercase tracking-[4.8px]', className)}>{children}</h3>
+	return <h3 className={cn('mb-1 font-apercuPro text-sm uppercase tracking-[0.96px] md:text-base md:tracking-[4.8px]', className)}>{children}</h3>
 }
 
 Text.Title = Title
