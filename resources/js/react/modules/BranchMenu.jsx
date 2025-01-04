@@ -24,8 +24,8 @@ const BranchMenu = () => {
 					initial={an.initial}
 					animate={an.animate}
 					exit={an.exit}
-					className='pt-1'>
-					<ul className='grid grid-cols-3 gap-5 pt-[45px] text-center lg:grid-cols-1 lg:gap-2 lg:pt-0 lg:text-left'>
+					className='pt-8 md:pt-2'>
+					<ul className='grid grid-cols-3 gap-5 border-y border-y-black py-[15px] text-center lg:grid-cols-1 lg:gap-2 lg:border-none lg:pt-0 lg:text-left'>
 						{sucursals.map(({ sucursal, slug }) => (
 							<li
 								key={'branch-menu-' + slug}

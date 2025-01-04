@@ -46,7 +46,6 @@ const Footer = () => {
 									Oliva {sucursal}
 									<a
 										href={'tel:+52' + phone}
-										s
 										className='block underline md:ml-4 md:inline-block'>
 										{formatPhoneNumber(phone)}
 									</a>

@@ -8,9 +8,9 @@ import { cn } from '../utils/cn'
 const Text = ({ children, className, parseHtml }: { children: ReactNode; className?: TClassName; parseHtml?: boolean }) => {
 	if (parseHtml && !children) return null
 
-	if (parseHtml) return <div className={cn('mb-4 font-chassiS text-xs leading-[1.47] md:text-base', className)}>{parse(children as string)}</div>
+	if (parseHtml) return <div className={cn('mb-4 font-chassiS text-xs leading-[1.47] md:text-sm', className)}>{parse(children as string)}</div>
 
-	return <p className={cn('mb-4 font-chassiS text-xs leading-[1.47] md:text-base', className)}>{children}</p>
+	return <p className={cn('mb-4 font-chassiS text-xs leading-[1.47] md:text-sm', className)}>{children}</p>
 }
 
 const Title = ({ children, className, parseHtml }: { children: ReactNode | string; className?: TClassName; parseHtml?: boolean }) => {

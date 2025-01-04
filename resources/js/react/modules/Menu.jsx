@@ -14,27 +14,33 @@ const Menu = () => {
 
 	return (
 		<nav className='font-apercuPro'>
-			<ul className='flex flex-col items-center justify-center gap-[45px] uppercase lg:flex-row lg:gap-4 xl:gap-8'>
-				<li>
+			<ul className='flex flex-col items-center justify-center gap-[45px] text-center uppercase lg:flex-row lg:gap-4 xl:gap-8'>
+				<li className='w-full md:w-auto'>
 					<button
 						onClick={() => setOpenBranchMenu(!openBranchMenu)}
 						type='button'
-						className='mx-auto flex items-center uppercase'>
+						className='mx-auto flex items-center text-center uppercase'>
 						{t('sucursales')} <FaChevronDown className='ml-2' />
 					</button>
 
 					{(isMobile || isTablet) && openBranchMenu && <BranchMenu />}
 				</li>
-				<li>
+				<li className='w-full md:w-auto'>
 					<Link
-						onClick={() => setOpenMenu(false)}
+						onClick={() => {
+							setOpenMenu(false)
+							setOpenBranchMenu(false)
+						}}
 						to={'grupos-y-eventos'}>
 						{t('gruposEventos')}
 					</Link>
 				</li>
-				<li>
+				<li className='w-full md:w-auto'>
 					<Link
-						onClick={() => setOpenMenu(false)}
+						onClick={() => {
+							setOpenMenu(false)
+							setOpenBranchMenu(false)
+						}}
 						to={'contacto'}>
 						{t('contacto')}
 					</Link>
