@@ -19,7 +19,7 @@ const Branches = () => {
 
 	return (
 		<section className='bg-crema2'>
-			<header className='relative border-y border-y-black py-16 text-center'>
+			<header className='relative border-y border-y-black py-8 text-center md:py-16'>
 				<Text.Title>{t('home.sucursales.title')}</Text.Title>
 
 				<img
@@ -67,7 +67,7 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 
 	return (
 		<div className='border-b border-b-black'>
-			<Container className='py-20 lg:py-40'>
+			<Container className='py-8 lg:py-40'>
 				<div className='grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16 2xl:gap-24'>
 					<div>
 						<div className='flex items-center justify-center lg:mb-6 lg:justify-start'>

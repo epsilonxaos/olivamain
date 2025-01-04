@@ -17,7 +17,7 @@ const Index = () => {
 
 	return (
 		<SectionUi
-			className='relative max-w-[1200px] px-0 lg:py-[100px] xl:px-0 xl:py-[150px]'
+			className='relative max-w-[1200px] border-b border-b-black px-0 pt-8 lg:py-[100px] xl:px-0 xl:py-[150px]'
 			bg={APP_URL + website.contact_cover}>
 			<img
 				src={ImgOliva}

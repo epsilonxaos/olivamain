@@ -16,7 +16,7 @@ const Location = () => {
 		<div
 			className='border-b border-b-black bg-white'
 			id='ubicacion'>
-			<Container className='py-20 lg:py-28'>
+			<Container className='py-12 lg:py-28'>
 				<div className='mb-6 w-full items-center lg:mb-6 lg:flex'>
 					<div className='mb-5 hidden lg:mb-0 lg:block lg:w-[40%] lg:pr-10'>
 						<LocationDetails />

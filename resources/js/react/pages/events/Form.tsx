@@ -25,7 +25,7 @@ const Form = () => {
 	return (
 		<div className='border-b border-b-black md:border-none'>
 			<SectionUi
-				className='max-w-[1200px] px-0 py-20 xl:px-0'
+				className='max-w-[1200px] py-8 xl:px-0'
 				bg={APP_URL + website.events_cover}>
 				<header className='mx-auto max-w-[740px] px-8 pb-10 text-center xl:px-24'>
 					<img
@@ -87,10 +87,10 @@ const EventSubmissionForm = () => {
 	}, [state.formEventReference])
 
 	return (
-		<Container className='max-w-[700px] lg:!p-0'>
+		<Container className='max-w-[700px] px-0 lg:!p-0'>
 			<form
 				ref={formRef}
-				className='grid w-full grid-cols-1 gap-10'
+				className='grid w-full grid-cols-1 gap-5 md:gap-10'
 				onSubmit={handleSubmit}>
 				<Input
 					label={'Estas reservando en Oliva ' + state.formEventReference}

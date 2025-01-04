@@ -3,9 +3,6 @@ import { useTranslation } from 'react-i18next'
 
 import { APP_URL } from '../../constants/constants'
 
-import ImgBgPlaceholder from '../../../../img/bg-bolsa-placeholder.png'
-import ImgEnCasa from '../../../../img/en-casa.svg'
-import ImgLogoSucursal from '../../../../img/sucursal-logo-2-placeholder.svg'
 import Container from '../../components/Container'
 import Text from '../../components/Text'
 import Button from '../../components/buttons/Button'
@@ -20,7 +17,7 @@ const Index = () => {
 	return (
 		<>
 			<div className='border-b border-b-black bg-grisClaro'>
-				<Container className='py-20 text-center'>
+				<Container className='py-10 text-center md:py-20'>
 					<img
 						className='mx-auto mb-10 w-full max-w-[170px]'
 						src={APP_URL + website.delivery_img}
@@ -53,7 +50,7 @@ const Card = ({ logo, bg, url }) => {
 	const { t } = useTranslation()
 
 	return (
-		<div className='col-span-1 border-b border-b-black py-20 lg:border-none lg:py-0'>
+		<div className='col-span-1 border-b border-b-black py-10 md:py-20 lg:border-none lg:py-0'>
 			<img
 				src={logo}
 				alt=''

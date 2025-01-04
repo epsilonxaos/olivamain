@@ -51,7 +51,7 @@ const EventSubmissionForm = () => {
 			<form
 				ref={formRef}
 				onSubmit={handleSubmit}
-				className='grid w-full grid-cols-1 gap-8'>
+				className='grid w-full grid-cols-1 gap-5 md:gap-10'>
 				{form.map(fs => {
 					return InputBuilder(fs)
 				})}

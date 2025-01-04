@@ -16,12 +16,12 @@ const Index = () => {
 
 	return (
 		<SectionUi
-			className='max-w-[1200px] px-0 xl:px-0'
+			className='max-w-[1200px] px-0 pt-8 xl:px-0'
 			bg={APP_URL + website.events_cover}>
-			<header className='mx-auto max-w-[740px] px-8 pb-8 text-center md:pb-0 xl:px-24'>
-				<Text.Title className='mb-4'>{website[language].events_title}</Text.Title>
+			<header className='mx-auto max-w-[740px] px-8 pb-8 pt-3 text-center md:pb-0 xl:px-24'>
+				<Text.Title className='mb-4 text-left md:text-center'>{website[language].events_title}</Text.Title>
 				<Text
-					className='mb-5'
+					className='mb-0 text-left md:text-center'
 					parseHtml>
 					{website[language].events_text}
 				</Text>

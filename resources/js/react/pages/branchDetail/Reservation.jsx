@@ -17,8 +17,8 @@ const Reservation = () => {
 		<div
 			className='border-b border-b-black'
 			id={'reservacion'}>
-			<Container className='relative min-h-[60svh] py-24 pb-48'>
-				<Text.Title className='mb-10 text-center'>{t('btn.reservaAhora')}</Text.Title>
+			<Container className='relative min-h-[60svh] py-8 pb-40 md:py-24'>
+				<Text.Title className='mb-10 text-center font-bold'>{t('btn.reservaAhora')}</Text.Title>
 
 				<div className='min-h-[450px]'>{parse(su.reserva_iframe)}</div>
 

@@ -24,7 +24,7 @@ const Footer = () => {
 	return (
 		<footer className='w-full bg-white'>
 			<Container className='p-0'>
-				<div className='border-b border-b-black py-12'>
+				<div className='border-b border-b-black py-8 md:py-12'>
 					<img
 						className='mx-auto w-56'
 						src={ImgGrupoOliva}
@@ -33,10 +33,10 @@ const Footer = () => {
 				</div>
 			</Container>
 
-			<Container className='py-12'>
+			<Container className='py-8 md:py-12'>
 				<div className='grid grid-cols-1 gap-8 text-center md:grid-cols-2 xl:flex xl:items-start xl:justify-between xl:text-left'>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>{t('contacto')}</Text.Title>
+						<Text.Title className='mb-2 md:mb-5'>{t('contacto')}</Text.Title>
 						{sucursals
 							.filter(({ phone }) => !!phone)
 							.map(({ sucursal, phone, slug }) => (
@@ -53,7 +53,7 @@ const Footer = () => {
 							))}
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>{t('bolsa')}</Text.Title>
+						<Text.Title className='mb-2 md:mb-5'>{t('bolsa')}</Text.Title>
 						<Text className='mb-0.5 underline'>
 							<Link to={'/bolsa-de-trabajo'}>{t('formulario')}</Link>
 						</Text>
@@ -62,7 +62,7 @@ const Footer = () => {
 						</Text>
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>{t('facturacion')}</Text.Title>
+						<Text.Title className='mb-2 md:mb-5'>{t('facturacion')}</Text.Title>
 						{website.url_facturacion && (
 							<Text className='mb-0.5 underline'>
 								<a
@@ -78,7 +78,7 @@ const Footer = () => {
 						</Text>
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-5'>{t('gruposEventos')}</Text.Title>
+						<Text.Title className='mb-2 md:mb-5'>{t('gruposEventos')}</Text.Title>
 						<Text className='mb-0.5 underline'>
 							<Link to={'/grupos-y-eventos'}>{t('formulario')}</Link>
 						</Text>
