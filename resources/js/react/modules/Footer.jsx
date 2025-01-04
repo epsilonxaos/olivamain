@@ -43,10 +43,11 @@ const Footer = () => {
 								<Text
 									key={'contacto-sucursal-' + slug}
 									className='mb-0.5'>
-									Oliva {sucursal}{' '}
+									Oliva {sucursal}
 									<a
 										href={'tel:+52' + phone}
-										className='ml-4 underline'>
+										s
+										className='block underline md:ml-4 md:inline-block'>
 										{formatPhoneNumber(phone)}
 									</a>
 								</Text>
