@@ -20,7 +20,7 @@ const Branches = () => {
 	return (
 		<section className='bg-crema2'>
 			<header className='relative border-y border-y-black py-8 text-center md:py-16'>
-				<Text.Title>{t('home.sucursales.title')}</Text.Title>
+				<Text.Title className='mb-0'>{t('home.sucursales.title')}</Text.Title>
 
 				<img
 					className='absolute -bottom-16 left-0 right-0 mx-auto hidden w-[40px] lg:block'

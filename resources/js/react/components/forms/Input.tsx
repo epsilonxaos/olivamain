@@ -49,7 +49,7 @@ export default function Input({ className, name, type = 'text', label, validate,
 			{label && (
 				<label
 					htmlFor={name}
-					className={`md:text-baseduration-300 absolute left-4 top-2 -z-10 origin-[0] -translate-y-8 scale-100 font-chassiS text-xs leading-[1.47] duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-4 peer-focus:-translate-y-[2rem] peer-focus:scale-100 peer-focus:font-medium rtl:peer-focus:left-4 rtl:peer-focus:translate-x-1/4 ${
+					className={`absolute left-4 top-2 -z-10 origin-[0] -translate-y-8 scale-100 font-chassiS text-xs leading-[1.47] duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-4 peer-focus:-translate-y-[2rem] peer-focus:scale-100 peer-focus:font-medium md:text-base rtl:peer-focus:left-4 rtl:peer-focus:translate-x-1/4 ${
 						validate?.validateErrorMessage && 'border-2 border-none text-red-700'
 					}`}>
 					{label}

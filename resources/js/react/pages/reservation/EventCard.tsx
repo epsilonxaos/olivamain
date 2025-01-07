@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
 
 import { APP_URL } from '../../constants/constants'
 
@@ -36,7 +35,7 @@ const EventCard = () => {
 
 							<Button.Navigation
 								to={'/sucursal/' + su.slug + '#reservacion'}
-								className='mx-auto'>
+								className='mx-auto bg-black text-white'>
 								{t('btn.reserva')}
 							</Button.Navigation>
 						</div>

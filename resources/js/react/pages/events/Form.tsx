@@ -93,7 +93,7 @@ const EventSubmissionForm = () => {
 				className='grid w-full grid-cols-1 gap-5 md:gap-10'
 				onSubmit={handleSubmit}>
 				<Input
-					label={'Estas reservando en Oliva ' + state.formEventReference}
+					value={'Estas reservando en Oliva ' + state.formEventReference}
 					name='sucursal'
 					disabled
 					className='pointer-events-none font-bold'
