@@ -36,13 +36,13 @@ const Footer = () => {
 			<Container className='py-8 md:py-12'>
 				<div className='grid grid-cols-1 gap-6 text-center md:grid-cols-2 md:gap-8 xl:flex xl:items-start xl:justify-between xl:text-left'>
 					<div className='col-span-1'>
-						<Text.Title className='mb-2 text-[8px] font-bold md:mb-5 md:text-sm'>{t('contacto')}</Text.Title>
+						<Text.Title className='mb-2 text-xs font-bold md:mb-5 md:text-sm'>{t('contacto')}</Text.Title>
 						{sucursals
 							.filter(({ phone }) => !!phone)
 							.map(({ sucursal, phone, slug }) => (
 								<Text
 									key={'contacto-sucursal-' + slug}
-									className='mb-0.5'>
+									className='mb-0.5 text-xs md:text-sm'>
 									Oliva {sucursal}
 									<a
 										href={'tel:+52' + phone}
@@ -53,18 +53,18 @@ const Footer = () => {
 							))}
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-2 text-[8px] font-bold md:mb-5 md:text-sm'>{t('bolsa')}</Text.Title>
-						<Text className='mb-0.5 underline'>
+						<Text.Title className='mb-2 text-xs font-bold md:mb-5 md:text-sm'>{t('bolsa')}</Text.Title>
+						<Text className='mb-0.5 text-xs underline md:text-sm'>
 							<Link to={'/bolsa-de-trabajo'}>{t('formulario')}</Link>
 						</Text>
-						<Text className='mb-0.5'>
+						<Text className='mb-0.5 text-xs md:text-sm'>
 							<a href={'mailto:' + website.contact_mail_bolsa}>{website.contact_mail_bolsa}</a>
 						</Text>
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-2 text-[8px] font-bold md:mb-5 md:text-sm'>{t('facturacion')}</Text.Title>
+						<Text.Title className='mb-2 text-xs font-bold md:mb-5 md:text-sm'>{t('facturacion')}</Text.Title>
 						{website.url_facturacion && (
-							<Text className='mb-0.5 underline'>
+							<Text className='mb-0.5 text-xs underline md:text-sm'>
 								<a
 									href={website.url_facturacion}
 									target='_blank'
@@ -73,16 +73,16 @@ const Footer = () => {
 								</a>
 							</Text>
 						)}
-						<Text className='mb-0.5'>
+						<Text className='mb-0.5 text-xs md:text-sm'>
 							<a href={'mailto:' + website.contact_mail_facturacion}>{website.contact_mail_facturacion}</a>
 						</Text>
 					</div>
 					<div className='col-span-1'>
-						<Text.Title className='mb-2 text-[8px] font-bold md:mb-5 md:text-sm'>{t('gruposEventos')}</Text.Title>
-						<Text className='mb-0.5 underline'>
+						<Text.Title className='mb-2 text-xs font-bold md:mb-5 md:text-sm'>{t('gruposEventos')}</Text.Title>
+						<Text className='mb-0.5 text-xs underline md:text-sm'>
 							<Link to={'/grupos-y-eventos'}>{t('formulario')}</Link>
 						</Text>
-						<Text className='mb-0.5'>
+						<Text className='mb-0.5 text-xs md:text-sm'>
 							<a href={'mailto:' + website.contact_mail_eventos}>{website.contact_mail_eventos}</a>
 						</Text>
 					</div>

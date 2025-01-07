@@ -77,7 +77,7 @@ const BranchSection = ({ cover, video, logo, horario, menu, ubicacion, reserva, 
 								className='size-[90px] lg:size-[130px] xl:size-[190px]'
 							/>
 
-							<main className='pl-6 xl:pl-10'>
+							<main className='pl-3 xl:pl-10'>
 								<Text.Title className='mb-1 tracking-[1.6px]'>{t('sucursal.horarios')}</Text.Title>
 								<Text
 									parseHtml
