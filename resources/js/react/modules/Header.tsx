@@ -29,8 +29,8 @@ const Header = () => {
 
 	return (
 		<HeaderContext.Provider value={{ openBranchMenu, setOpenBranchMenu, openMenu, setOpenMenu }}>
-			<motion.header className='relative z-30 border-b border-black bg-white py-7 font-apercuPro text-xs'>
-				<Container className='transition-all'>
+			<motion.header className='relative z-30 border-b border-black bg-grisClaro py-7 font-apercuPro text-xs'>
+				<Container className='relative transition-all'>
 					<div className='relative flex items-center justify-between'>
 						<div className='hidden lg:block'>
 							<Menu />
@@ -83,8 +83,6 @@ const Header = () => {
 							<ReservaButton />
 						</div>
 					</div>
-
-					{isDesktop && <BranchMenu />}
 				</Container>
 			</motion.header>
 

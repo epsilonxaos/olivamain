@@ -9,7 +9,7 @@ import BranchMenu from './BranchMenu'
 
 const Menu = () => {
 	const { openBranchMenu, setOpenBranchMenu, setOpenMenu } = useContext(HeaderContext)
-	const { isMobile, isTablet } = useResponsiveMediaQuery()
+	const { isMobile, isTablet, isDesktop } = useResponsiveMediaQuery()
 	const { t } = useTranslation()
 
 	return (
@@ -19,11 +19,17 @@ const Menu = () => {
 					<button
 						onClick={() => setOpenBranchMenu(!openBranchMenu)}
 						type='button'
-						className='mx-auto flex items-center text-center uppercase'>
+						className='relative z-[5] mx-auto flex items-center text-center uppercase'>
 						{t('sucursales')} <FaChevronDown className='ml-2' />
 					</button>
 
 					{(isMobile || isTablet) && openBranchMenu && <BranchMenu />}
+
+					{isDesktop && openBranchMenu && (
+						<div className='absolute -left-4 top-[20px] z-[1] min-w-28 bg-grisClaro p-2 px-4'>
+							<BranchMenu />
+						</div>
+					)}
 				</li>
 				<li className='w-full md:w-auto'>
 					<Link
