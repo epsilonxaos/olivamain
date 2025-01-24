@@ -30,7 +30,7 @@ const EventCard = () => {
 								alt='Enoteca'
 								className='mx-auto mb-8 block w-full max-w-[160px]'
 							/>
-							<Text.Title>{su[i18n.language]?.titulo_reservas}</Text.Title>
+							<Text.Title className='md:tracking-normal'>{su[i18n.language]?.titulo_reservas}</Text.Title>
 							<Text parseHtml>{su[i18n.language].descripcion_reservas}</Text>
 
 							<Button.Navigation

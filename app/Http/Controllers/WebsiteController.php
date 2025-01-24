@@ -74,7 +74,6 @@ class WebsiteController extends Controller
 			'scripts',
 			'contact_mail',
 			'contact_cc_mail',
-			'contact_cover',
 			'contact_mail_bolsa',
 			'contact_cc_mail_bolsa',
 			'contact_mail_facturacion',

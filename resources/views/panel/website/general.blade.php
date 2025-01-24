@@ -35,7 +35,8 @@
 
                         <div class="mb-3">
                             <label for="contact_cover"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen sección</label>
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen sección
+                                Contacto</label>
                             <input type="file" name="contact_cover" class="dropify" data-height="200"
                                 data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png webp"
                                 data-default-file="{{ asset($data->contact_cover) }}" />

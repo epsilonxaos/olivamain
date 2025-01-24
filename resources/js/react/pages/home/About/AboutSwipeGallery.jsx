@@ -1,3 +1,5 @@
+import { Autoplay } from 'swiper/modules'
+
 import { useContext } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -14,6 +16,12 @@ const AboutSwipeGallery = () => {
 		<Container className='max-w-none border-y border-y-black p-0 lg:px-[30px] xl:px-[30px]'>
 			<Swiper
 				className='secondary-slider mx-auto xl:max-w-[1650px]'
+				speed={1500}
+				modules={[Autoplay]}
+				autoplay={{
+					delay: 3000,
+					disableOnInteraction: false,
+				}}
 				slidesPerView={4}
 				spaceBetween={30}
 				loop={false}
@@ -38,6 +46,7 @@ const AboutSwipeGallery = () => {
 						loop: false,
 						centeredSlides: false,
 						initialSlide: 0,
+						autoplay: false,
 					},
 				}}
 				centeredSlides={false}>

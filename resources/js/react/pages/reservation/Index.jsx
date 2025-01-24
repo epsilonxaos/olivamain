@@ -23,12 +23,12 @@ const Index = () => {
 					<Text.Title className='mb-4'>{website[language].reserva_title}</Text.Title>
 					<Text
 						parseHtml
-						className='mb-5'>
+						className='mb-0'>
 						{website[language].reserva_text}
 					</Text>
 				</header>
 
-				<div className='border-t border-t-black md:border-none md:pt-20'>
+				<div className='border-t border-t-black md:border-none md:pt-16'>
 					<EventCard />
 				</div>
 			</SectionUi>

@@ -23,7 +23,7 @@ const Reservation = () => {
 				<div className='min-h-[450px]'>{parse(su.reserva_iframe)}</div>
 
 				<img
-					className='absolute bottom-2 left-0 right-0 z-10 mx-auto w-[40px] md:-bottom-[35px]'
+					className='absolute bottom-2 left-0 right-0 z-10 mx-auto w-[40px]'
 					src={ImgCopa}
 					alt='Oliva copa'
 				/>
